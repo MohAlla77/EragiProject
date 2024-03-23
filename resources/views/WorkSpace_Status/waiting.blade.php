@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-6">
+        <label for="sparePartsRequest" class="form-label d-flex justify-content-end">   {{$data->user_name}} : الإجرات المطلوبة من المهندس
+
+        </label>
+        <div class="numbered-textarea">
+            <textarea class="form-control" name="sparePartsRequest" id="sparePartsRequest" style="height: 200px;" disabled>
+                {{ $data->fix_requirement }}</textarea>
+            <div class="line-numbers"></div>
+        </div>
+        <div class="d-grid gap-2 col-3 mx-auto py-4">
+            <form action="{{route('Add.Maintenance', $car->id)}}" method="post">
+                @csrf
+            <button  class="btn btn-success" type="submit">امر عمل <i class="fa fa-briefcase"
+                    aria-hidden="true"></i></button>
+            </form>
+            <form action="{{route('Add.Done', $car->id)}}" method="post">
+                @csrf
+            <button class="btn btn-danger" type="submit"> إنهاء عمل<i class="fa fa-briefcase"
+                    aria-hidden="true"></i></button>
+            </form>
+        </div>
+
+    </div>
+    <div class="col-md-6">
+            <label for="notes" class="form-label d-flex justify-content-end">شكاوى العميل
+            </label>
+            <div class="numbered-textarea">
+                <textarea class="form-control" name="notes" id="notes" style="height: 200px;" disabled>
+                                {{ $data->customer_comment }} </textarea>
+                <div class="line-numbers"></div>
+            </div>
+
+    </div>
+</div>
