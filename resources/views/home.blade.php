@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>الرئسية####</title>
+    <title>الرئسية</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -53,10 +53,6 @@
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <!-- Navbar Brand-->
-        <!-- Sidebar Toggle-->
-        <!-- Navbar Brand-->
-        <!-- Sidebar Toggle-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
@@ -77,13 +73,12 @@
             </li>
         </ul>
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="logo.jpg" class="img-fluid logo-img" alt="Logo"></a>
+            <a class="navbar-brand" href="#"><img src="public/logoeragi.jpg" class="img-fluid logo-img" alt="Logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
-
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <a class="navbar-brand" href="#"><span>الرئيسية</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -91,13 +86,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </form>
-        <!-- Navbar Search-->
-
-        <!-- Navbar-->
-
-        <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i
-                class="fas fa-bars"></i></button>
-
+        <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -111,10 +100,7 @@
             <main>
                 <div class="container-fluid px-4 mx-auto">
                     <h1 class="mt-4">Car condition</h1>
-                    <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Car condition</li>
-                    </ol>
-                    <div class="row justify-content-center">
+                     <div class="row justify-content-center">
                         <div class="col-xl-4 col-md-6">
                             <div class="card bg-primary text-white mb-4">
                                 <div class="card-body text-center">All</div>
@@ -166,8 +152,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
             </main>
             @extends('Layout.footer')
         </div>

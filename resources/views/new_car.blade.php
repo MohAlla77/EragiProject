@@ -40,25 +40,27 @@
             /* Thumb color */
             cursor: pointer;
         }
+        .logo-img {
+          width: 60px; /* Adjust the width as needed */
+          height: auto; /* Maintain aspect ratio */
+          margin-right: 20px; /* Adjust the margin as needed */
+      }
+        .inner-card {
+          padding: 15px; /* Adjust padding as needed */
+          margin-bottom: 15px; /* Adjust margin as needed */
+      }
     </style>
 </head>
 
 <body class="sb-nav-fixed sb-sidenav-toggled">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <!-- Navbar Brand-->
-        <!-- Sidebar Toggle-->
-        <!-- Navbar Brand-->
-        <!-- Sidebar Toggle-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="#!">Settings</a></li>
                     <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
+                    <li><hr class="dropdown-divider"/></li>
                     <li>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
@@ -69,33 +71,19 @@
             </li>
         </ul>
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><span class="text-white">INCH CAR MAINTENANCE</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <a class="navbar-brand"><img src="./assets/img/logoeragi.jpg" class="img-fluid logo-img" alt="Logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
             </button>
         </div>
-
-        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-            <a class="navbar-brand" href="#"><span>ادخال بياتات</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </form>
-        <!-- Navbar Search-->
-
-        <!-- Navbar-->
-
-        <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i
-                class="fas fa-bars"></i></button>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        <a class="navbar-brand" href="#"><span>ادخال البيانات</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+      </form>
+        <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
     </nav>
-
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -109,7 +97,6 @@
                 <div class="container-fluid"><br>
                     <div class="card bg-light mb-2">
                         <div class="card-body">
-
                             <form class="justify-content-center" action="{{ route('car.store') }}" method="POST"
                                 id="carForm">
                                 @csrf

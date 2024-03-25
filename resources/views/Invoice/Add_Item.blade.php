@@ -6,9 +6,7 @@
                 <form action="{{route('spare.search')}}" method="GET">
                     <div class="input-group">
                         <input name="PartId" type="text" class="form-control text-center" id="validationCustom02"  placeholder="رمز الصنف" required>
-                   </div>
-                    <div class="footer text-center">
-                        <button class="btn btn-outline-success" type="search">بحث</button>
+                       <button class="btn btn-outline-success" type="search">بحث</button>
                     </div>
                 </form>
 

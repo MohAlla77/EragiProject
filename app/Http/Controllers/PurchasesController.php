@@ -22,7 +22,7 @@ class PurchasesController extends Controller
     public function SealsIndex(){
 
 
-        $service = Service::all();
+        $service = Service::where('status','Pending')->get();
 
         return view('Seals', ['Services' => $service]);
 

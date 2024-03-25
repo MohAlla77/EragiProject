@@ -20,7 +20,6 @@
             margin-right: 20px;
             /* Adjust the margin as needed */
         }
-
         /* Custom styles for navbar */
         .nav-link {
             color: #fff;

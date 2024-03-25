@@ -41,7 +41,7 @@ Route::get('/', function () {
 
 
 Route::get('/manage', function () {
-    return view('manage');
+    return view('Management');
 })->name('manage');
 
 
