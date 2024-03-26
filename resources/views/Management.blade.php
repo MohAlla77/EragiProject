@@ -10,17 +10,11 @@
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <style>
-            .logo-img {
-                width: 60px; /* Adjust the width as needed */
-                height: auto; /* Maintain aspect ratio */
-                margin-right: 20px; /* Adjust the margin as needed */
-            }
             .separator-line {
                 border-top: 2px solid black;
                 margin-top: 20px; /* Adjust the margin as needed */
                 margin-bottom: 20px; /* Adjust the margin as needed */
             }
-
             body {
                 background-image: url('img/logo-inch.png');
                 background-size: cover;
@@ -30,6 +24,16 @@
             .card {
                 background-color: rgba(255, 255, 255, 0.7); /* Adjust the last value (0.7) to change the transparency */
                 /* Other existing styles for the card */
+            }
+            
+                .logo-img {
+                width: 55px; /* Adjust the width as needed */
+                height: auto; /* Maintain aspect ratio */
+                margin-right: 20px; /* Adjust the margin as needed */
+            }
+                .inner-card {
+                padding: 15px; /* Adjust padding as needed */
+                margin-bottom: 15px; /* Adjust margin as needed */
             }
         </style>
     </head>
@@ -47,7 +51,7 @@
                 </li>
             </ul>
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="img/logo-inch.png" class="img-fluid logo-img" alt="Logo"></a>
+                <a class="navbar-brand" href="#"><img src="./assets/img/logoeragi.jpg" class="img-fluid logo-img" alt="Logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>

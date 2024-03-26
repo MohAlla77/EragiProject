@@ -12,20 +12,22 @@
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <style>
-        .logo-img {
-            width: 60px;
-            /* Adjust the width as needed */
-            height: auto;
-            /* Maintain aspect ratio */
-            margin-right: 20px;
-            /* Adjust the margin as needed */
-        }
         /* Custom styles for navbar */
         .nav-link {
             color: #fff;
             /* Change color to red */
             font-size: 18px;
             /* Increase font size to 18 pixels */
+        }
+        
+            .logo-img {
+            width: 55px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+            margin-right: 20px; /* Adjust the margin as needed */
+        }
+            .inner-card {
+            padding: 15px; /* Adjust padding as needed */
+            margin-bottom: 15px; /* Adjust margin as needed */
         }
     </style>
 </head>
@@ -47,10 +49,9 @@
             </li>
         </ul>
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="logo.jpg" class="img-fluid logo-img" alt="Logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <a class="navbar-brand"><img src="./assets/img/logoeragi.jpg" class="img-fluid logo-img" alt="Logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
             </button>
         </div>
         <div class="col-md-6 texr-end">

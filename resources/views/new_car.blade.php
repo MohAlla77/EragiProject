@@ -41,7 +41,7 @@
             cursor: pointer;
         }
         .logo-img {
-          width: 60px; /* Adjust the width as needed */
+          width: 55px; /* Adjust the width as needed */
           height: auto; /* Maintain aspect ratio */
           margin-right: 20px; /* Adjust the margin as needed */
       }

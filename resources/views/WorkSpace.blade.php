@@ -39,18 +39,21 @@
             background: white;
             /* Thumb color */
             cursor: pointer;
+        }        
+            .logo-img {
+            width: 55px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+            margin-right: 20px; /* Adjust the margin as needed */
+        }
+            .inner-card {
+            padding: 15px; /* Adjust padding as needed */
+            margin-bottom: 15px; /* Adjust margin as needed */
         }
     </style>
 </head>
 
 <body class="sb-nav-fixed">
-
-    <!-- Start Navbar-->
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <!-- Navbar Brand-->
-        <!-- Sidebar Toggle-->
-        <!-- Navbar Brand-->
-        <!-- Sidebar Toggle-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
@@ -71,7 +74,7 @@
             </li>
         </ul>
         <div class="container-fluid">
-            <a class="navbar-brand"><img src="public/logoeragi.jpg" class="img-fluid logo-img" alt="Logo"></a>
+            <a class="navbar-brand"><img src="./assets/img/logoeragi.jpg" class="img-fluid logo-img" alt="Logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -89,7 +92,6 @@
             <span class="navbar-toggler-icon"></span>
         </button>
     </nav>
-
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             @include('Layout.sidebar')
@@ -97,20 +99,14 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid mt-5 bg-gradient text-black justify-content-center">
-
                     @include('shared.error_massege')
                     @include('shared.success_message')
-
                     @if (isset($car))
                         <div class="alert alert-primary" role="alert">
                             Your Car Status Know is {{ $car->status }}
                         </div>
                     @endif
-
-
                     <div class="card bg-light">
-
-
                         {{-- <form action="#" method="post" id="carForm"><br> --}}
                         <form action="{{ route('car.search') }}" method="GET">
                             <div class="input-group">

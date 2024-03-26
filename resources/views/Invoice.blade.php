@@ -15,7 +15,7 @@
           </li>
         </ul>
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="img/logo-inch.png" class="img-fluid logo-img" alt="Logo"></a>
+          <a class="navbar-brand" href="#"><img src="./assets/img/logoeragi.jpg" class="img-fluid logo-img" alt="Logo"></a>
         </div>
         <div class="col-md-6 texr-end pe-2">
           <button id="invoiceButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleInvoiceForm()">فاتورة <i class="fas fa-file-invoice"></i></button>
