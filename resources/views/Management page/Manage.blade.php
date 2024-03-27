@@ -25,7 +25,6 @@
                 background-color: rgba(255, 255, 255, 0.7); /* Adjust the last value (0.7) to change the transparency */
                 /* Other existing styles for the card */
             }
-            
                 .logo-img {
                 width: 55px; /* Adjust the width as needed */
                 height: auto; /* Maintain aspect ratio */
@@ -83,7 +82,7 @@
                                         <hr class="separator-line">
                                     </div>
                                     <p class="card-text"> إضافة المعلومات المتعلقة بماركات السيارات والموديلات والخدمات</p>
-                                    <a href="ادخال البيانات.php" class="btn btn-primary">ادخال البيانات <i class="fa-solid fa-plus"></i></a>
+                                    <a href="{{route('Data_Entry')}}" class="btn btn-primary">ادخال البيانات <i class="fa-solid fa-plus"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +94,7 @@
                                         <hr class="separator-line">
                                     </div>
                                     <p class="card-text">إدارة المستخدمين أضف مستخدمين جدد وأعد تعيين كلمة المرور إذا نسيتها</p>
-                                    <a href="اداره_المستخدمين.php" class="btn btn-primary">ادارة المستخدمين <i class="fa-solid fa-user"></i></a>
+                                    <a href="{{route('User_management')}}" class="btn btn-primary">ادارة المستخدمين <i class="fa-solid fa-user"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +106,7 @@
                                         <hr class="separator-line">
                                     </div>
                                     <p class="card-text">توفر معلومات قيمة وتقدم التقرير. لمحة عامة عن البيانات التي تم جمعها</p>
-                                    <a href="التحصيل.php" class="btn btn-primary">التحصيل <i class="fas fa-book-open"></i></a>
+                                    <a href="{{route('Reports')}}" class="btn btn-primary">التحصيل <i class="fas fa-book-open"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -122,11 +121,11 @@
                                         <hr class="separator-line">
                                     </div>
                                     <p class="card-text">معلومات العملاء<br>(اسم,هاتف,اللوحة)</p>
-                                    <a href="العملاء.php" class="btn btn-primary">العملاء <i class="fa-solid fa-person"></i></a>
+                                    <a href="{{route('Customers')}}" class="btn btn-primary">العملاء <i class="fa-solid fa-person"></i></a>
                                 </div>
                             </div>
                         </div>
-                            <div class="col-md-4">
+                        <div class="col-md-4">
                             <div class="card text-center" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">طلبات الموظفين</h5>
@@ -134,11 +133,11 @@
                                         <hr class="separator-line">
                                     </div>
                                     <p class="card-text">(سلفة, عهدة,اذن خروج,اجازة مرضية,اجازة)</p>
-                                    <a href="Employee requests.php" class="btn btn-primary">موافق</a>
+                                    <a href="{{route('Employee_requsts')}}" class="btn btn-primary">موافق</a>
                                 </div>
                             </div>
                         </div>
-                            <div class="col-md-4">
+                        <div class="col-md-4">
                             <div class="card text-center" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">الموظفين</h5>
@@ -146,7 +145,7 @@
                                         <hr class="separator-line">
                                     </div>
                                     <p class="card-text"></p>
-                                    <a href="employees.php" class="btn btn-primary">بيانات الموظفين </a>
+                                    <a href="{{route('employees')}}" class="btn btn-primary">بيانات الموظفين </a>
                                 </div>
                             </div>
                         </div>

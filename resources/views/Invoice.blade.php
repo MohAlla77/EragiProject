@@ -34,6 +34,59 @@
         </div>
         <div id="layoutSidenav_content">
             <main>
+                
+                <div class="card mb-4">
+                    <div class="card-header text-end">مبيعات الخدمات <i class="fas fa-table me-4"></i></div>
+                    <div class="card-body">
+                        <table id="datatablesSimple">
+                            <thead>
+                                <tr>
+                                    <th>القرار</th>
+                                    <th scope="col">حالة الخدمة</th>
+                                    <th scope="col">مجموعة الخدمة</th>
+                                    <th scope="col">نوع الخدمة</th>
+                                    <th scope="col">سعر التكلفة</th>
+                                    <th scope="col">رقم الخدمة</th>
+                                    <th scope="col">اسم الخدمة</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>القرار</th>
+                                    <th scope="col">حالة الخدمة</th>
+                                    <th scope="col">مجموعة الخدمة</th>
+                                    <th scope="col">نوع الخدمة</th>
+                                    <th scope="col">سعر التكلفة</th>
+                                    <th scope="col">رقم الخدمة</th>
+                                    <th scope="col">اسم الخدمة</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                @foreach ($Services as $service)
+                                    <tr>
+
+                                        <td>
+                                            <form action="{{ route('ApproveService', $service->id) }}"
+                                                method="POST">
+                                                @method('PUT')
+                                                @csrf
+                                                <button type="submite" class="btn btn-primary">
+                                                    موافق
+                                                </button>
+                                            </form>
+                                        </td>
+                                        <td>{{ $service->status }}</td>
+                                        <td>{{ $service->serviceGroup->name }}</td>
+                                        <td>{{ $service->service_type }}</td>
+                                        <td>{{ $service->cost_price }}</td>
+                                        <td>{{ $service->service_id }}</td>
+                                        <td>{{ $service->name }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
                 <div class="card inner-card" style="height: 100%;">
                     <div class="card-body">
                         <div class="row">
