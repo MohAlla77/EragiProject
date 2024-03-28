@@ -1,3 +1,14 @@
+<style>
+    .logo-img {
+        width: 55px; /* Adjust the width as needed */
+        height: auto; /* Maintain aspect ratio */
+        margin-right: 20px; /* Adjust the margin as needed */
+    }
+        .inner-card {
+        padding: 15px; /* Adjust padding as needed */
+        margin-bottom: 15px; /* Adjust margin as needed */
+    }
+</style>
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     @auth
         <div>
@@ -39,13 +50,6 @@
                 class="fas fa-bars"></i></button>
     @endauth
     @guest
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><span class="text-white">INCH CAR MAINTENANCE</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
         <div>
             <a class="" href="{{ route('register') }}">Register</a>
             <a class="" href="{{ route('login') }}">Login</a>

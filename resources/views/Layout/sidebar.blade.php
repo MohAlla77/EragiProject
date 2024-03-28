@@ -22,9 +22,9 @@
                 <div class="sb-nav-link-icon text-white"></div>
                 <span class="ms-auto pe-2">المشتريات</span><i class="fa fa-shopping-cart" aria-hidden="true"></i>
             </a>
-            <a class="nav-link text-white" href="{{route('seals')}}">
-                <div class="sb-nav-link-icon text-white"><i class="fa-brands fa-salesforce"></i></div>
-                المبيعات
+            <a class="nav-link text-white" href="{{route('invoice.index')}}">
+                <div class="sb-nav-link-icon text-white"></div>
+                <span class="ms-auto pe-2">المبيعات</span><i class="fa-brands fa-salesforce"></i>
             </a>
             <a class="nav-link text-white text-end" href="{{route('Tries')}}">
                 <div class="sb-nav-link-icon text-white"></div>
