@@ -40,15 +40,47 @@ Route::get('/', function () {
 })->name('Workspace')->middleware('auth');
 
 
-Route::get('/manage', function () {
-    return view('Management');
-})->name('manage');
-
-
 Route::get('/layout', function () {
     return view('test');
 })->middleware('auth');
 
+Route::get('/tries', function () {
+    return view('Tries');
+})->name('Tries');
+
+Route::get('/store', function () {
+    return view('store');
+})->name('store');
+
+
+Route::get('/Management', function () {
+    return view('Manage');
+})->name('Management');
+
+
+Route::get('/management', function () {
+    return view('Data_Entry');
+});
+
+Route::get('/management', function () {
+    return view('Customers');
+});
+
+Route::get('/management', function () {
+    return view('employees');
+});
+
+Route::get('/management', function () {
+    return view('Employee_requests');
+});
+
+Route::get('/management', function () {
+    return view('Reports');
+});
+
+Route::get('/management', function () {
+    return view('User_Management');
+});
 
 
 Route::get('/invoice', [InvoiceController::class , 'index'])->name('invoice.index');

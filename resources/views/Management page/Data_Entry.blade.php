@@ -75,7 +75,7 @@
                 <main>
                     <div class="row">
                         <div class="col-6 mt-4">
-                            <form action="مركبه_جديدة .php" method="POST">
+                            <form action="#" method="POST">
                                 <div class="card">
                                     <div class="mb-2">
                                         <input type="text" class="form-control text-center"placeholder="الاضافات" disabled>
@@ -96,7 +96,7 @@
                             </form>
                         </div>
                         <div class="col-6 mt-4">
-                            <form action="" method="post">
+                            <form action="#" method="post">
                                 <div class="card">
                                     <div class="row g-2">
                                         <div class="col-12">

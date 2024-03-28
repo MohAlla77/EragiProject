@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
         <style>
             .logo-img {
-                width: 60px; /* Adjust the width as needed */
+                width: 55px; /* Adjust the width as needed */
                 height: auto; /* Maintain aspect ratio */
                 margin-right: 20px; /* Adjust the margin as needed */
             }
@@ -135,8 +135,6 @@
                 </main>
             </div>
         </div>
-
-        <!-- Add this script at the end of your HTML body -->
 <script>
   // Function to update the customer table with new data
   function updateCustomerTable(name, phone, carName, plateNumber, placeOfWork) {
