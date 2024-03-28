@@ -1,6 +1,28 @@
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
 @extends('Layout.head')
-
-
+<style>
+    .logo-img {
+        width: 55px; /* Adjust the width as needed */
+        height: auto; /* Maintain aspect ratio */
+        margin-right: 20px; /* Adjust the margin as needed */
+    }
+        .inner-card {
+        padding: 15px; /* Adjust padding as needed */
+        margin-bottom: 15px; /* Adjust margin as needed */
+    }
+</style>
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
@@ -32,9 +54,8 @@
         <div id="layoutSidenav_nav">
             @include('Layout.sidebar')
         </div>
-        <div id="layoutSidenav_content">
+        <div id="layoutSidenav_content" style="overflow-y: scroll; height: 400px;">
             <main>
-                
                 <div class="card mb-4">
                     <div class="card-header text-end">مبيعات الخدمات <i class="fas fa-table me-4"></i></div>
                     <div class="card-body">
@@ -93,14 +114,9 @@
                             <div class="col-md-12">
                                 <div class="card mb-2 bg-light">
                                     <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <button type="submit" class="btn btn-success col-3">حفظ</button>
-                                                <a href="{{ route('invoice.print') }}"> <button id="printButton"
-                                                    class="btn btn-primary col-3">
-                                                    <i class="fas fa-print"></i></button></a>
-                                            </div>
-                                        </div>
+                                        <button type="submit" class="btn btn-success col-3">حفظ</button>
+                                        <a href="{{ route('invoice.print') }}"> <button id="printButton"class="btn btn-primary col-3">
+                                            <i class="fas fa-print"></i></button></a>
                                     </div>
                                 </div>
                             </div>
@@ -500,6 +516,16 @@
             });
         });
   </script> --}}
+  <canvas id="myChart"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="js/scripts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+  <script src="assets/demo/chart-area-demo.js"></script>
+  <script src="assets/demo/chart-bar-demo.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+      crossorigin="anonymous"></script>
+  <script src="js/datatables-simple-demo.js"></script>
+
 </body>
 
 </html>

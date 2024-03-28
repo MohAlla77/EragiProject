@@ -40,13 +40,15 @@ Route::get('/', function () {
 })->name('Workspace')->middleware('auth');
 
 
-Route::get('/layout', function () {
-    return view('test');
-})->middleware('auth');
+Route::get('/invoice', [InvoiceController::class , 'index'])->name('invoice.index');
+
+
 
 Route::get('/tries', function () {
-    return view('Tries');
+    return view('Tires');
 })->name('Tries');
+
+
 
 Route::get('/store', function () {
     return view('store');
@@ -55,32 +57,32 @@ Route::get('/store', function () {
 
 Route::get('/Management', function () {
     return view('Manage');
-})->name('Management');
+})->name('Manage');
 
 
-Route::get('/management', function () {
-    return view('Data_Entry');
-});
+Route::get('/management/DataEntry', function () {
+    return view('Management_page.Data_Entry');
+})->name('Data_Entry');
 
-Route::get('/management', function () {
-    return view('Customers');
-});
+Route::get('/management/customer', function () {
+    return view('Management_page.Customers');
+})->name('Customers');
 
-Route::get('/management', function () {
-    return view('employees');
-});
-
-Route::get('/management', function () {
-    return view('Employee_requests');
-});
+Route::get('/management/Employee', function () {
+    return view('Management_page.employees');
+})->name('employees');
 
 Route::get('/management', function () {
-    return view('Reports');
-});
+    return view('Management_page.Employee_requests');
+})->name('Employee_requsts');
 
-Route::get('/management', function () {
-    return view('User_Management');
-});
+Route::get('/management/Report', function () {
+    return view('Management_page.Reports');
+})->name('Reports');
+
+Route::get('/management/User_mangement', function () {
+    return view('Management_page.User_management');
+})->name('User_management');
 
 
 Route::get('/invoice', [InvoiceController::class , 'index'])->name('invoice.index');

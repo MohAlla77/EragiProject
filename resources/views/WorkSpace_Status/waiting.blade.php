@@ -8,17 +8,19 @@
                 {{ $data->fix_requirement }}</textarea>
             <div class="line-numbers"></div>
         </div>
-        <div class="d-grid gap-2 col-3 mx-auto py-4">
-            <form action="{{route('Add.Maintenance', $car->id)}}" method="post">
-                @csrf
-            <button  class="btn btn-success" type="submit">امر عمل <i class="fa fa-briefcase"
-                    aria-hidden="true"></i></button>
-            </form>
-            <form action="{{route('Add.Done', $car->id)}}" method="post">
-                @csrf
-            <button class="btn btn-danger" type="submit"> إنهاء عمل<i class="fa fa-briefcase"
-                    aria-hidden="true"></i></button>
-            </form>
+        <div class="row">
+            <div class="col-6 d-grid gap-2 mx-auto py-4 text-center">
+                <form action="{{route('Add.Done', $car->id)}}" method="post">
+                    @csrf
+                <button class="btn btn-danger" type="submit"> إنهاء عمل<i class="fa fa-briefcase" aria-hidden="true"></i></button>
+                </form>
+            </div>
+            <div class="col-6 d-grid gap-2 mx-auto py-4 text-center">
+                <form action="{{route('Add.Maintenance', $car->id)}}" method="post">
+                    @csrf
+                <button  class="btn btn-success" type="submit">امر عمل <i class="fa fa-briefcase" aria-hidden="true"></i></button>
+                </form>
+            </div>
         </div>
 
     </div>
