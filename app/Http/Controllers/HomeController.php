@@ -64,6 +64,7 @@ class HomeController extends Controller
             'Eng_name'  => $check->eng_id,
             'fix'       => $check->customer_comment,
             'fix_doc'   => $check->fix_requirement,
+            'Worker_name' => request()->get('WorkerName')
         ]);
 
         $car->status = 'DONE';

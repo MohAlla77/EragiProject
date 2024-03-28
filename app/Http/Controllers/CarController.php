@@ -81,10 +81,14 @@ class CarController extends Controller
             ->where('car_id', '=', $car->id)
             ->first();
 
-        $car_history = CarHistory::where('car_id',$car->id)->first();
+        $car_history = CarHistory::where('car_id',$car->id)->latest('created_at')->first();
+
+        $countByCarId = CarHistory::where('car_id', $car->id)->count();
 
 
-        return view('WorkSpace', ['car' => $car, 'data' => $checkCarData,'CarHistory' => $car_history, 'success' => 'The Car Found']);
+
+        return view('WorkSpace', ['car' => $car, 'data' => $checkCarData,
+        'CarHistory' => $car_history, 'success' => 'The Car Found', 'countByCarId' =>  $countByCarId]);
     }
 
     public function Add(Car $id)

@@ -12,6 +12,7 @@ class ServiceGroupController extends Controller
         ServiceGroup::create([
           'name' => request()->get('GroupName'),
           'number' => request()->get('GroupNumber'),
+          'GroupID' => request()->get('GroupID')
         ]);
 
         return redirect()->route('purchases');

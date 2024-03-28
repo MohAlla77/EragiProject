@@ -9,5 +9,5 @@ class CarHistory extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['car_id','user_name','Eng_name','fix','fix_doc'];
+    protected $fillable = ['car_id','user_name','Eng_name','fix','fix_doc','Worker_name'];
 }

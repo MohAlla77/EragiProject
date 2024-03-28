@@ -34,6 +34,7 @@
         </div>
         <div id="layoutSidenav_content">
             <main>
+
                 <div class="card inner-card" style="height: 100%;">
                     <div class="card-body">
                         <div class="row">

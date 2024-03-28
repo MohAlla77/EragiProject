@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->string('name');
             $table->string('cost_price');
-            $table->string('service_id');
+            $table->string('service_id')->unique();
             $table->string('service_type');
 
             $table->string('status');

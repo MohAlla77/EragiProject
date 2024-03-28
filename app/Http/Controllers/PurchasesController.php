@@ -11,6 +11,10 @@ class PurchasesController extends Controller
     public function index()
     {
 
+        // ServiceGroup::truncate();
+        // Service::truncate();
+
+
         $qroup = ServiceGroup::all();
         $service = Service::all();
 
@@ -32,11 +36,13 @@ class PurchasesController extends Controller
     public function ServiceStore()
     {
 
+        $group_id = ServiceGroup::where('number', request()->get('service_group_id'))->value('GroupID');
+
 
         $group = ServiceGroup::where('number', request()->get('service_group_id'))->firstOrFail();
         $groupNumber = $group->number;
         $serialNumber = $group->services()->count() + 1;
-        $serviceId = sprintf('XXX-%03d-%03d', $groupNumber, $serialNumber);
+        $serviceId = sprintf('%s-%03d-%03d', $group_id, $groupNumber, $serialNumber);
 
 
         Service::create([
@@ -58,5 +64,13 @@ class PurchasesController extends Controller
 
         return redirect()->back();
 
+    }
+    public function DeleteService($id)
+    {
+        $service = Service::findOrFail($id);
+        $service->delete();
+
+        // Redirect or return a response
+        return redirect()->route('purchases')->with('success', 'Service deleted successfully');
     }
 }

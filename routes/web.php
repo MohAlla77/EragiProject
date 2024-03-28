@@ -53,14 +53,14 @@ Route::get('/layout', function () {
 
 Route::get('/invoice', [InvoiceController::class , 'index'])->name('invoice.index');
 
-
-
 Route::get('/seals', [PurchasesController::class , 'SealsIndex'])->name('seals');
 Route::put('/seals/{id}/update', [PurchasesController::class , 'Approve'])->name('ApproveService');
 
 Route::get('/purchases', [PurchasesController::class , 'index'])->name('purchases');
 Route::post('/purchases' , [ServiceGroupController::class , 'store'])->name('ServiceGroup.store');
 Route::post('/purchases/services' , [PurchasesController::class , 'ServiceStore'])->name('Service.store');
+Route::delete('purchases/delete/{id}', [PurchasesController::class , 'DeleteService'])->name('service.delete');
+
 
 
 

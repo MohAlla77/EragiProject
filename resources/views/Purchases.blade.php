@@ -9,8 +9,12 @@
     <meta name="author" content="" />
     <title>المشتريات</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <style>
         /* Custom styles for navbar */
         .nav-link {
@@ -19,15 +23,21 @@
             font-size: 18px;
             /* Increase font size to 18 pixels */
         }
-        
-            .logo-img {
-            width: 55px; /* Adjust the width as needed */
-            height: auto; /* Maintain aspect ratio */
-            margin-right: 20px; /* Adjust the margin as needed */
+
+        .logo-img {
+            width: 55px;
+            /* Adjust the width as needed */
+            height: auto;
+            /* Maintain aspect ratio */
+            margin-right: 20px;
+            /* Adjust the margin as needed */
         }
-            .inner-card {
-            padding: 15px; /* Adjust padding as needed */
-            margin-bottom: 15px; /* Adjust margin as needed */
+
+        .inner-card {
+            padding: 15px;
+            /* Adjust padding as needed */
+            margin-bottom: 15px;
+            /* Adjust margin as needed */
         }
     </style>
 </head>
@@ -50,8 +60,9 @@
         </ul>
         <div class="container-fluid">
             <a class="navbar-brand"><img src="./assets/img/logoeragi.jpg" class="img-fluid logo-img" alt="Logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
         </div>
         <div class="col-md-6 texr-end">
@@ -165,10 +176,21 @@
                             </thead>
 
                             <tbody>
+
                                 @foreach ($Services as $service)
                                     <tr>
+                                        <td>
+                                            <!-- Button trigger modal -->
+                                            <a  data-toggle="modal" data-target="#exampleModal{{$service->id}}"> View </a>
 
-                                        <td>{{ $service->status }}</td>
+                                           | {{$service->status}}
+
+                                            <!-- Modal -->
+                                        @include('model.Edit_service_popup')
+
+                                        </td>
+
+                                        </td>
                                         <td>{{ $service->serviceGroup->name }}</td>
                                         <td>{{ $service->service_type }}</td>
                                         <td>{{ $service->cost_price }}</td>
@@ -176,6 +198,7 @@
                                         <td>{{ $service->name }}</td>
                                     </tr>
                                 @endforeach
+
                             </tbody>
 
                             <tfoot>
@@ -816,6 +839,15 @@
                                                             Looks good!
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-12  mb-1">
+                                                        <input name="GroupID" type="text"
+                                                            class="form-control text-center" id="AddagroupFields"
+                                                            required placeholder="أضف رمز (Ex: الماكنيكا -> MCH)"
+                                                            required>
+                                                        <div class="valid-feedback">
+                                                            Looks good!
+                                                        </div>
+                                                    </div>
                                                     <div class="col-12 text-center">
                                                         <button type="submite" class="col-12 btn btn-success">اضافة <i
                                                                 class="fa-solid fa-plus"></i></button>
@@ -843,7 +875,8 @@
                                                             class="form-select text-center"
                                                             onchange="toggleForm(this)">
                                                             @foreach ($ServiceGruop as $group)
-                                                                <option value="{{ $group->id }}">{{ $group->name }}
+                                                                <option value="{{ $group->id }}">
+                                                                    {{ $group->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select>

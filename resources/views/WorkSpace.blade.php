@@ -39,15 +39,22 @@
             background: white;
             /* Thumb color */
             cursor: pointer;
-        }        
-            .logo-img {
-            width: 55px; /* Adjust the width as needed */
-            height: auto; /* Maintain aspect ratio */
-            margin-right: 20px; /* Adjust the margin as needed */
         }
-            .inner-card {
-            padding: 15px; /* Adjust padding as needed */
-            margin-bottom: 15px; /* Adjust margin as needed */
+
+        .logo-img {
+            width: 55px;
+            /* Adjust the width as needed */
+            height: auto;
+            /* Maintain aspect ratio */
+            margin-right: 20px;
+            /* Adjust the margin as needed */
+        }
+
+        .inner-card {
+            padding: 15px;
+            /* Adjust padding as needed */
+            margin-bottom: 15px;
+            /* Adjust margin as needed */
         }
     </style>
 </head>
@@ -75,8 +82,9 @@
         </ul>
         <div class="container-fluid">
             <a class="navbar-brand"><img src="./assets/img/logoeragi.jpg" class="img-fluid logo-img" alt="Logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
         </div>
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
@@ -86,7 +94,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </form>
-        <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -118,8 +127,9 @@
                         <div class="row">
                             @if (isset($car))
                                 <div class="col-md-4 mb-2">
-                                    <input type="text" class="form-control text-center" value="{{ $car->car_name }}"
-                                        name="carName" required placeholder="اسم السيارة">
+                                    <input type="text" class="form-control text-center"
+                                        value="{{ $car->car_name }}" name="carName" required
+                                        placeholder="اسم السيارة">
                                 </div>
                                 <div class="col-md-4 mb-2">
                                     <input type="text" class="form-control text-center"
@@ -158,45 +168,55 @@
                                                 @php
                                                     $user_name = App\Models\User::find($CarHistory->user_name);
                                                     $Eng_name = App\Models\User::find($CarHistory->Eng_name);
+
+
                                                 @endphp
                                                 <div class="row">
-                                                    <label for="notes" class="form-label d-flex justify-content-end">
+                                                    <label for="notes"
+                                                        class="form-label d-flex justify-content-end">
                                                         الزيارة السابقة
 
                                                     </label>
                                                     <div class="col-md-6 mb-2">
                                                         <input type="text" class="form-control text-center"
-                                                            value="{{  $user_name->first_name }} : الموظف" name="carName" required
-                                                            placeholder="اسم الاستقبال">
+                                                            value="{{ $user_name->first_name }} : الموظف"
+                                                            name="carName" required placeholder="اسم الاستقبال">
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <input type="text" class="form-control text-center" name="carName"
-                                                        value=" {{$Eng_name->first_name}} : المهندس"
-                                                            required placeholder="اسم المهندس">
+                                                        <input type="text" class="form-control text-center"
+                                                            name="carName"
+                                                            value=" {{ $Eng_name->first_name }} : المهندس" required
+                                                            placeholder="اسم المهندس">
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <input type="text" class="form-control text-center" name="carName"
-                                                        value=" الشكوى: {{$CarHistory->fix}}"
+                                                        <input type="text" class="form-control text-center"
+                                                            name="carName" value=" الشكوى: {{ $CarHistory->fix }}"
                                                             required placeholder="شكوي السابفة">
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <input type="text" class="form-control text-center" name="carName"
-                                                        value="الإجراء: {{$CarHistory->fix_doc}} "
-                                                            required placeholder="الاجراءات السابفة">
+                                                        <input type="text" class="form-control text-center"
+                                                            name="carName"
+                                                            value="الإجراء: {{ $CarHistory->fix_doc }} " required
+                                                            placeholder="الاجراءات السابفة">
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <input type="text" class="form-control text-center" name="carName"
-                                                        value="الإجراء: {{$CarHistory->fix_doc}} "
+                                                        <input type="text" class="form-control text-center"
+                                                            name="carName"
+                                                            value="   اسم الفنى :  {{ $CarHistory->Worker_name }}  "
                                                             required placeholder="اسم الفني">
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <input type="text" class="form-control text-center" name="carName"
-                                                        value="الإجراء: {{$CarHistory->fix_doc}} "
-                                                            required placeholder="عدد الزيارات">
+
+
+                                                        <input type="text" class="form-control text-center"
+                                                            name="carName" value="عدد الزيارات : {{ $countByCarId  }} " required
+                                                            placeholder="عدد الزيارات">
+
                                                     </div>
                                                     <div class="col-md-12 mb-2">
-                                                        <input type="text" class="form-control text-center" name="carName"
-                                                        value="{{$CarHistory->created_at->format('d/m/y')}}"
+                                                        <input type="text" class="form-control text-center"
+                                                            name="carName"
+                                                            value="{{ $CarHistory->created_at->format('d/m/y') }}"
                                                             required placeholder="التاريخ">
                                                     </div>
                                                 </div>
@@ -217,7 +237,8 @@
                                                 <div class="line-numbers"></div>
                                             </div>
                                             <div class="d-grid gap-2 col-3 mx-auto py-4">
-                                                <button class="btn btn-primary" type="submit"> أمر فحص <i class="fa fa-search" aria-hidden="true"></i></button>
+                                                <button class="btn btn-primary" type="submit"> أمر فحص <i
+                                                        class="fa fa-search" aria-hidden="true"></i></button>
                                         </form>
                                     @endif
                                 </div>

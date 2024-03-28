@@ -13,6 +13,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <style>
         input[type="range"] {
             -webkit-appearance: none;
@@ -40,6 +42,7 @@
             /* Thumb color */
             cursor: pointer;
         }
+
         .logo-img {
             width: 60px;
             /* Adjust the width as needed */
@@ -103,12 +106,18 @@
                             <tbody>
 
                                 @foreach ($Cars as $car)
-                                    <tr><td>
-                                            <form action="{{route('car.ToDone', $car->id)}}" method="POST">
-                                                @csrf
-                                                <button type="submit" class="btn btn-primary">
-                                                    تم
-                                                </button>
+                                    <tr>
+                                        <td>
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal{{$car->id}}">
+                                               تم
+                                            </button>
+
+                                            @include('model.ToDone_popup')
+
+
+
                                         </td>
                                         </form>
                                         <td>{{ $car->created_at->format('d/m/y h:i A') }}</td>
@@ -139,7 +148,8 @@
 
 
     <canvas id="myChart"></canvas>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
     <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="assets/demo/chart-area-demo.js"></script>

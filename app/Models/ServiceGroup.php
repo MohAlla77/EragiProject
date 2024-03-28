@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ServiceGroup extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'number'];
+    protected $fillable = ['name', 'number','GroupID'];
 
 
     public function services()
