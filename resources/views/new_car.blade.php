@@ -105,7 +105,7 @@
                                     <div class="row">
                                         <div class="col-md-12 mb-2"><br>
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-5">
                                                     <!-- Pre-fill the date field with the current date and time using JavaScript -->
                                                     <input type="datetime-local" class="form-control text-center"
                                                         id="validationCustomDate" placeholder="التاريخ" required
@@ -114,13 +114,27 @@
                                                         Looks good!
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-5">
                                                     <input type="text" class="form-control text-center"
                                                         id="validationCustomUsername"
                                                         value="المستخدم : {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} "
                                                         placeholder="اسم المستخدم" required disabled>
                                                     <div class="valid-feedback">
                                                         Looks good!
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 text-center">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                                        <label class="form-check-label" for="flexRadioDefault1">
+                                                            نقدي 
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                                        <label class="form-check-label" for="flexRadioDefault2">
+                                                            شركة
+                                                        </label>
                                                     </div>
                                                 </div>
                                             </div>

@@ -100,7 +100,7 @@
             <main>
                 <table id="example" class="table table-striped" style="width:100%">
                 </table>
-                <div class="card mb-4">
+                <div class="card">
                     <div class="card-header text-end">جدول المشتريات <i class="fas fa-table me-1"></i>
                         <div class="col-md-12 d-flex justify-content-end">
                             <select id="invoiceTypeFilter" class="form-select text-center ms-auto">
@@ -396,7 +396,7 @@
                     </div>
                 </div>
                 <div id="otherForm">
-                    <div class="card mb-2">
+                    <div class="card">
                         <div class="card-body">
                             <!-- Your other form content goes here -->
                             <div class="row">
@@ -608,34 +608,34 @@
                 <div class="card" id="addItemCard">
                     <div class="card body">
                         <!--<div class="card bg-light">
-                  <div class="card body">
-                    <form action="process_product.php" method="post">
-                      <div class="row">
-                        <div class="col-md-4 mb-1">
-                            <input type="text" class="form-control text-center" id="barcode" required placeholder="Scan Barcode">
-                            <div class="valid-feedback">
-                                Looks good!
+                                <div class="card body">
+                                    <form action="process_product.php" method="post">
+                                        <div class="row">
+                                            <div class="col-md-4 mb-1">
+                                                <input type="text" class="form-control text-center" id="barcode" required placeholder="Scan Barcode">
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="number" class="form-control text-center" id="name" required placeholder="Price">
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 mb-1">
+                                                <input type="text" class="form-control text-center" id="price" required placeholder="Product Name">
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                            <div class="col-12 text-center">
+                                                <button type="Save" class="col-6 mb-2 btn btn-success">اضافة منتج</button>
+                                            </div>
+                                        </div>
+                                </form>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="number" class="form-control text-center" id="name" required placeholder="Price">
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-1">
-                            <input type="text" class="form-control text-center" id="price" required placeholder="Product Name">
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="col-12 text-center">
-                            <button type="Save" class="col-6 mb-2 btn btn-success">اضافة منتج</button>
-                        </div>
-                      </div>
-                    </form>
-                </div>
-              </div>-->
+                        </div>-->
                         <div class="card bg-light">
                             <div class="card-body">
                                 <form class="row" id="addItemForm" novalidate action="" method="post">

@@ -43,7 +43,7 @@
           <button id="invoiceButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleInvoiceForm()">فاتورة <i class="fas fa-file-invoice"></i></button>
         </div>
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-          <a class="navbar-brand" href="#"><span class="text-">المبيعات</span></a>
+          <a class="navbar-brand" href="#"><span class="text-">قبول المبيعات</span></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
           </button>
@@ -56,59 +56,6 @@
         </div>
         <div id="layoutSidenav_content" style="overflow-y: scroll; height: 400px;">
             <main>
-
-                <div class="card mb-4">
-                    <div class="card-header text-end">مبيعات الخدمات <i class="fas fa-table me-4"></i></div>
-                    <div class="card-body">
-                        <table id="datatablesSimple">
-                            <thead>
-                                <tr>
-                                    <th>القرار</th>
-                                    <th scope="col">حالة الخدمة</th>
-                                    <th scope="col">مجموعة الخدمة</th>
-                                    <th scope="col">نوع الخدمة</th>
-                                    <th scope="col">سعر التكلفة</th>
-                                    <th scope="col">رقم الخدمة</th>
-                                    <th scope="col">اسم الخدمة</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>القرار</th>
-                                    <th scope="col">حالة الخدمة</th>
-                                    <th scope="col">مجموعة الخدمة</th>
-                                    <th scope="col">نوع الخدمة</th>
-                                    <th scope="col">سعر التكلفة</th>
-                                    <th scope="col">رقم الخدمة</th>
-                                    <th scope="col">اسم الخدمة</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                @foreach ($Services as $service)
-                                    <tr>
-
-                                        <td>
-                                            <form action="{{ route('ApproveService', $service->id) }}"
-                                                method="POST">
-                                                @method('PUT')
-                                                @csrf
-                                                <button type="submite" class="btn btn-primary">
-                                                    موافق
-                                                </button>
-                                            </form>
-                                        </td>
-                                        <td>{{ $service->status }}</td>
-                                        <td>{{ $service->serviceGroup->name }}</td>
-                                        <td>{{ $service->service_type }}</td>
-                                        <td>{{ $service->cost_price }}</td>
-                                        <td>{{ $service->service_id }}</td>
-                                        <td>{{ $service->name }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
                 <div class="card inner-card" style="height: 100%;">
                     <div class="card-body">
                         <div class="row">
@@ -116,8 +63,9 @@
                                 <div class="card mb-2 bg-light">
                                     <div class="card-body">
                                         <button type="submit" class="btn btn-success col-3">حفظ</button>
-                                        <a href="{{ route('invoice.print') }}"> <button id="printButton"class="btn btn-primary col-3">
-                                            <i class="fas fa-print"></i></button></a>
+                                        <a href="{{ route('invoice.print') }}">
+                                            <button id="printButton"class="btn btn-primary col-3"><i class="fas fa-print"></i></button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
