@@ -125,14 +125,14 @@
                                                 </div>
                                                 <div class="col-md-2 text-center">
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                        <label class="form-check-label" for="flexRadioDefault1">
+                                                        <input class="form-check-input" type="radio" name="paymentType" id="cashPayment" value="cash">
+                                                        <label class="form-check-label" for="cashPayment">
                                                             نقدي 
                                                         </label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                                        <label class="form-check-label" for="flexRadioDefault2">
+                                                        <input class="form-check-input" type="radio" name="paymentType" id="companyPayment" value="company">
+                                                        <label class="form-check-label" for="companyPayment">
                                                             شركة
                                                         </label>
                                                     </div>
@@ -213,13 +213,23 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <div class="mb-2">
-                                                <input name="u_name" type="text" name="name"
-                                                    class="form-control text-center" id="customerName" required
-                                                    placeholder="الاسم">
-                                                @error('u_name')
-                                                    <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
-                                                @enderror
+                                            <div id="cashInput">
+                                                <div class="mb-2">
+                                                    <input name="u_name" type="text" name="name" class="form-control text-center" id="customerName" required placeholder="الاسم">
+                                                    @error('u_name')
+                                                        <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div id="companyOptions" style="display:none;">
+                                                <div class="mb-2">
+                                                    <select class="form-select text-center">
+                                                        <option selected>اختار الشركة</option>
+                                                        <option value="#">لومي</option>
+                                                        <option value="#">الجبر</option>
+                                                        <option value="#">لومي</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="mb-2">
                                                 <input name="u_phone" type="number" name="number"
@@ -273,6 +283,36 @@
         </div>
     </div>
     <script>
+    // Get radio buttons and field elements
+    const cashRadio = document.getElementById('cashPayment');
+    const companyRadio = document.getElementById('companyPayment');
+    const cashInput = document.getElementById('cashInput');
+    const companyOptions = document.getElementById('companyOptions');
+
+    // Function to show cash input and hide company options
+    function showCashInput() {
+        cashInput.style.display = 'block';
+        companyOptions.style.display = 'none';
+    }
+
+    // Function to hide cash input and show company options
+    function showCompanyOptions() {
+        cashInput.style.display = 'none';
+        companyOptions.style.display = 'block';
+    }
+
+    // Initial call to set initial state based on checked radio button
+    if (companyRadio.checked) {
+        showCompanyOptions();
+    } else {
+        showCashInput();
+    }
+
+    // Event listeners to call respective functions when radio buttons are clicked
+    cashRadio.addEventListener('change', showCashInput);
+    companyRadio.addEventListener('change', showCompanyOptions);
+
+
         document.addEventListener('DOMContentLoaded', function() {
             // Your JavaScript code here
             var element = document.getElementById('yourElementId');

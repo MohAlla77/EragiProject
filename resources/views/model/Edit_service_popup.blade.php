@@ -5,10 +5,9 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"> تعديل أو حذف الخدمة</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <div class="col-md-12">
+          <h5 class="modal-title text-center" id="exampleModalLabel"> تعديل أو حذف الخدمة</h5>
+        </div>
       </div>
       <div class="modal-body">
         <form class="row" id="addItemForm" novalidate

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -9,12 +8,11 @@
     <meta name="author" content="" />
     <title>المشتريات</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <style>
         /* Custom styles for navbar */
         .nav-link {
@@ -116,10 +114,8 @@
                             </select>
                         </div>
                         <table id="datatablesSimple">
-
                             <thead>
                                 <tr>
-
                                     {{-- <th scope="col"></th>
                                     <th scope="col">صافي المبلغ </th>
                                     <th scope="col">اسم البائع</th>
@@ -134,22 +130,19 @@
                                     <th scope="col">اسم الخدمة</th>
                                 </tr>
                             </thead>
-
                             <tbody>
-
                                 @foreach ($Services as $service)
                                     <tr>
                                         <td>
                                             <!-- Button trigger modal -->
-                                            <a  data-toggle="modal" data-target="#exampleModal{{$service->id}}"> View </a>
-
-                                           | {{$service->status}}
-
+                                            <a  data-toggle="modal" data-target="#exampleModal{{$service->id}}">
+                                                <button class="btn btn-primary col-5 float-start">
+                                                    <i class="fa-solid fa-trash"></i> <i class="fa-solid fa-pen-to-square"></i>
+                                                 </button>
+                                            </a>
+                                           | {{$service->status}}<i class="fa-solid fa-check"></i> <i class="fa-solid fa-hourglass-half"></i>
                                             <!-- Modal -->
-                                        @include('model.Edit_service_popup')
-
-                                        </td>
-
+                                            @include('model.Edit_service_popup')
                                         </td>
                                         <td>{{ $service->serviceGroup->name }}</td>
                                         <td>{{ $service->service_type }}</td>
@@ -158,9 +151,7 @@
                                         <td>{{ $service->name }}</td>
                                     </tr>
                                 @endforeach
-
                             </tbody>
-
                             <tfoot>
                                 <tr>
                                     <th scope="col">حالة الخدمة</th>
@@ -172,7 +163,6 @@
                                 </tr>
                             </tfoot>
                         </table>
-
                     </div>
                 </div>
                 <div id="invoiceForm" style="display: none;">
@@ -403,7 +393,7 @@
                                 <div class="col-6">
                                     <div class="card mb-2 bg-light">
                                         <div class="card-body">
-                                            <div class="select col-12 mb-2" aria-label="Forms toggle">
+                                            <div class="select row mb-2" aria-label="Forms toggle">
                                                 <select class="form-select text-center" onchange="toggleForm(this)">
                                                     <option value="purchase">طلب شراء</option>
                                                     <option value="quotation">طلب تسعيرة</option>
@@ -411,64 +401,62 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <form id="purchaseForm" action="" method="post">
-                                                        <div class="row mb-1">
-                                                            <div class="col-md-6 mb-1">
-                                                                <input type="text" name="name" required
-                                                                    class="form-control  text-center"
-                                                                    id="validationDefault01" required
-                                                                    placeholder="اسم المورد">
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <input type="number" name="name" required
-                                                                    class="form-control  text-center"
-                                                                    id="validationDefault01" required
-                                                                    placeholder="رقم اللوحة">
-                                                            </div>
-                                                            <div class="col-md-6 mb-1">
-                                                                <input type="number" name="name" required
-                                                                    class="form-control text-center"
-                                                                    id="validationDefault01" required
-                                                                    placeholder="رقم الفاتورة">
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <input type="text" name="name" required
-                                                                    class="form-control text-center"
-                                                                    id="validationDefault01" required
-                                                                    placeholder="كود الصنف">
-                                                            </div>
-                                                            <div class="col-md-6 mb-1">
-                                                                <input type="text" name="name" required
-                                                                    class="form-control text-center"
-                                                                    id="validationDefault01" required
-                                                                    placeholder="الصنف">
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <input type="number" name="name" required
-                                                                    class="form-control text-center" id="quantity"
-                                                                    required placeholder="الكمية">
-                                                            </div>
-                                                            <div class="col-md-6 mb-1">
-                                                                <input type="number" name="name" required
-                                                                    class="form-control text-center" id="price"
-                                                                    required placeholder="السعر">
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <input type="number" name="name"
-                                                                    class="form-control text-center" id="taxableTotal"
-                                                                    required
-                                                                    placeholder="الاجمالي الخاضع للضريبة"readonly>
-                                                            </div>
-                                                            <div class="col-md-6 mb-1">
-                                                                <input type="number" name="name"
-                                                                    class="form-control text-center" id="tax"
-                                                                    required placeholder=" الضريبة %15"readonly>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <input type="number" name="name"
-                                                                    class="form-control text-center" id="finalTotal"
-                                                                    required placeholder=" الاجمالي النهائي"readonly>
-                                                            </div>
+                                                    <form class="row mb-1" id="purchaseForm" action="" method="post">
+                                                        <div class="col-md-6 mb-1">
+                                                            <input type="text" name="name" required
+                                                                class="form-control  text-center"
+                                                                id="validationDefault01" required
+                                                                placeholder="اسم المورد">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="number" name="name" required
+                                                                class="form-control  text-center"
+                                                                id="validationDefault01" required
+                                                                placeholder="رقم اللوحة">
+                                                        </div>
+                                                        <div class="col-md-6 mb-1">
+                                                            <input type="number" name="name" required
+                                                                class="form-control text-center"
+                                                                id="validationDefault01" required
+                                                                placeholder="رقم الفاتورة">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="text" name="name" required
+                                                                class="form-control text-center"
+                                                                id="validationDefault01" required
+                                                                placeholder="كود الصنف">
+                                                        </div>
+                                                        <div class="col-md-6 mb-1">
+                                                            <input type="text" name="name" required
+                                                                class="form-control text-center"
+                                                                id="validationDefault01" required
+                                                                placeholder="الصنف">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="number" name="name" required
+                                                                class="form-control text-center" id="quantity"
+                                                                required placeholder="الكمية">
+                                                        </div>
+                                                        <div class="col-md-6 mb-1">
+                                                            <input type="number" name="name" required
+                                                                class="form-control text-center" id="price"
+                                                                required placeholder="السعر">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="number" name="name"
+                                                                class="form-control text-center" id="taxableTotal"
+                                                                required
+                                                                placeholder="الاجمالي الخاضع للضريبة"readonly>
+                                                        </div>
+                                                        <div class="col-md-6 mb-1">
+                                                            <input type="number" name="name"
+                                                                class="form-control text-center" id="tax"
+                                                                required placeholder=" الضريبة %15"readonly>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input type="number" name="name"
+                                                                class="form-control text-center" id="finalTotal"
+                                                                required placeholder=" الاجمالي النهائي"readonly>
                                                         </div>
                                                         <div class="footer text-center">
                                                             <button type="button" class="btn btn-danger col-3"
@@ -858,7 +846,7 @@
                                                             class="form-control text-center" id="سعر التكلفة" required
                                                             placeholder="السعر التكلفة">
                                                     </div>
-                                                    <div class="select row mb-2" aria-label="Forms toggle">
+                                                    <div class="select col-12 mb-2" aria-label="Forms toggle">
                                                         <select name="ServiceType" class="form-select text-center"
                                                             onchange="toggleForm(this)">
                                                             <option value="داخلية">خدمة داخلية </option>
@@ -1023,17 +1011,10 @@
             }
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
-    </script>
     <script src="js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
-
-
 </body>
 
 </html>

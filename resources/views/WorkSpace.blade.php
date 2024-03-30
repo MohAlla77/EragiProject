@@ -105,9 +105,9 @@
         <div id="layoutSidenav_nav">
             @include('Layout.sidebar')
         </div>
-        <div id="layoutSidenav_content">
+        <div id="layoutSidenav_content" style="height: 25vh; overflow-y: auto;">
             <main>
-                <div class="container-fluid mt-5 bg-gradient text-black justify-content-center">
+                <div class="container-fluid mt-4 bg-gradient text-black justify-content-center">
                     @include('shared.error_massege')
                     @include('shared.success_message')
                     @if (isset($car))
@@ -115,7 +115,7 @@
                             Your Car Status Know is {{ $car->status }}
                         </div>
                     @endif
-                    <div class="card bg-light">
+                    <div class="card bg-light mb-2">
                         {{-- <form action="#" method="post" id="carForm"><br> --}}
                         <form action="{{ route('car.search') }}" method="GET">
                             <div class="input-group">
@@ -162,67 +162,57 @@
                             {{-- @include('WorkSpace_Status.new') --}}
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="card bg-light">
-                                        <div class="card-body">
-                                            @if (isset($CarHistory))
-                                                @php
-                                                    $user_name = App\Models\User::find($CarHistory->user_name);
-                                                    $Eng_name = App\Models\User::find($CarHistory->Eng_name);
-
-
-                                                @endphp
-                                                <div class="row">
-                                                    <label for="notes"
-                                                        class="form-label d-flex justify-content-end">
-                                                        الزيارة السابقة
-
-                                                    </label>
-                                                    <div class="col-md-6 mb-2">
-                                                        <input type="text" class="form-control text-center"
-                                                            value="{{ $user_name->first_name }} : الموظف"
-                                                            name="carName" required placeholder="اسم الاستقبال">
-                                                    </div>
-                                                    <div class="col-md-6 mb-2">
-                                                        <input type="text" class="form-control text-center"
-                                                            name="carName"
-                                                            value=" {{ $Eng_name->first_name }} : المهندس" required
-                                                            placeholder="اسم المهندس">
-                                                    </div>
-                                                    <div class="col-md-6 mb-2">
-                                                        <input type="text" class="form-control text-center"
-                                                            name="carName" value=" الشكوى: {{ $CarHistory->fix }}"
-                                                            required placeholder="شكوي السابفة">
-                                                    </div>
-                                                    <div class="col-md-6 mb-2">
-                                                        <input type="text" class="form-control text-center"
-                                                            name="carName"
-                                                            value="الإجراء: {{ $CarHistory->fix_doc }} " required
-                                                            placeholder="الاجراءات السابفة">
-                                                    </div>
-                                                    <div class="col-md-6 mb-2">
-                                                        <input type="text" class="form-control text-center"
-                                                            name="carName"
-                                                            value="   اسم الفنى :  {{ $CarHistory->Worker_name }}  "
-                                                            required placeholder="اسم الفني">
-                                                    </div>
-                                                    <div class="col-md-6 mb-2">
-
-
-                                                        <input type="text" class="form-control text-center"
-                                                            name="carName" value="عدد الزيارات : {{ $countByCarId  }} " required
-                                                            placeholder="عدد الزيارات">
-
-                                                    </div>
-                                                    <div class="col-md-12 mb-2">
-                                                        <input type="text" class="form-control text-center"
-                                                            name="carName"
-                                                            value="{{ $CarHistory->created_at->format('d/m/y') }}"
-                                                            required placeholder="التاريخ">
-                                                    </div>
-                                                </div>
-                                            @endif
+                                    @if (isset($CarHistory))
+                                        @php
+                                            $user_name = App\Models\User::find($CarHistory->user_name);
+                                            $Eng_name = App\Models\User::find($CarHistory->Eng_name);
+                                        @endphp
+                                        <div class="row">
+                                            <label for="notes"
+                                                class="form-label d-flex justify-content-end">
+                                                الزيارة السابقة
+                                            </label>
+                                            <div class="col-md-6 mb-2">
+                                                <input type="text" class="form-control text-center"
+                                                    value="{{ $user_name->first_name }} : الموظف"
+                                                    name="carName" required placeholder="اسم الاستقبال">
+                                            </div>
+                                            <div class="col-md-6 mb-2">
+                                                <input type="text" class="form-control text-center"
+                                                    name="carName"
+                                                    value=" {{ $Eng_name->first_name }} : المهندس" required
+                                                    placeholder="اسم المهندس">
+                                            </div>
+                                            <div class="col-md-6 mb-2">
+                                                <input type="text" class="form-control text-center"
+                                                    name="carName" value=" الشكوى: {{ $CarHistory->fix }}"
+                                                    required placeholder="شكوي السابفة">
+                                            </div>
+                                            <div class="col-md-6 mb-2">
+                                                <input type="text" class="form-control text-center"
+                                                    name="carName"
+                                                    value="الإجراء: {{ $CarHistory->fix_doc }} " required
+                                                    placeholder="الاجراءات السابفة">
+                                            </div>
+                                            <div class="col-md-6 mb-2">
+                                                <input type="text" class="form-control text-center"
+                                                    name="carName"
+                                                    value="   اسم الفنى :  {{ $CarHistory->Worker_name }}  "
+                                                    required placeholder="اسم الفني">
+                                            </div>
+                                            <div class="col-md-6 mb-2">
+                                                <input type="text" class="form-control text-center"
+                                                    name="carName" value="عدد الزيارات : {{ $countByCarId  }} " required
+                                                    placeholder="عدد الزيارات">
+                                            </div>
+                                            <div class="col-md-12 mb-2">
+                                                <input type="text" class="form-control text-center"
+                                                    name="carName"
+                                                    value="{{ $CarHistory->created_at->format('d/m/y') }}"
+                                                    required placeholder="التاريخ">
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
                                 </div>
                                 <div class="col-md-6">
                                     @if (isset($car))
@@ -244,62 +234,42 @@
                                 </div>
                             </div>
                         @endif
-
-
+                        
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <ul class="tree">
+                                    <li>
+                                        <a href="#" class="text-dark" data-bs-toggle="collapse" data-bs-target="#db1">Database 1</a>
+                                        <ul id="db1" class="collapse mb-0">
+                                            <li class="text-center"><a href="#">Table 2</a></li>
+                                            <li class="text-center"><a href="#">Table 1</a></li>
+                                            <li class="text-center"><a href="#">Table 3</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-dark" data-bs-toggle="collapse" data-bs-target="#db2">Database 2</a>
+                                        <ul id="db2" class="collapse mb-0">
+                                            <li class="text-center"><a href="#">Table 4</a></li>
+                                            <li class="text-center"><a href="#">Table 5</a></li>
+                                            <li class="text-center"><a href="#">Table 6</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-dark" data-bs-toggle="collapse" data-bs-target="#db3">Database 3</a>
+                                        <ul id="db3" class="collapse mb-0">
+                                            <li class="text-center"><a href="#">Table 7</a></li>
+                                            <li class="text-center"><a href="#">Table 8</a></li>
+                                            <li class="text-center"><a href="#">Table 9</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>
         </div>
     </div>
-
-    {{-- <script>
-        function searchPlate() {
-            var plateNumber = document.getElementById('plateNumber').value;
-
-            // Make an AJAX request to your server
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'search.php?plateNumber=' + plateNumber, true);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        // Parse the JSON response
-                        var data = JSON.parse(xhr.responseText);
-
-                        // Populate the form fields with the retrieved data
-                        document.getElementById('carName').value = data.carName;
-                        document.getElementById('chassisNumber').value = data.chassisNumber;
-                        document.getElementById('carBrand').value = data.carBrand;
-                        document.getElementById('carModel').value = data.carModel;
-                        document.getElementById('serviceType').value = data.serviceType;
-                        document.getElementById('notes').value = data.notes;
-                        document.getElementById('sparePartsRequest').value = data.sparePartsRequest;
-                    } else {
-                        // Handle errors
-                        console.error('Error retrieving data');
-                    }
-                }
-            };
-            xhr.send();
-        }
-        document.addEventListener('DOMContentLoaded', function() {
-            var textareas = document.querySelectorAll('.numbered-textarea textarea');
-
-            textareas.forEach(function(textarea) {
-                var lineNumbersWrapper = textarea.nextElementSibling;
-
-                textarea.addEventListener('input', function() {
-                    var lines = textarea.value.split('\n').length;
-                    lineNumbersWrapper.innerHTML = '';
-                    for (var i = 1; i <= lines; i++) {
-                        lineNumbersWrapper.innerHTML += '<span>' + i + '</span>';
-                    }
-                });
-
-                // Trigger input event to initialize line numbers
-                textarea.dispatchEvent(new Event('input'));
-            });
-        });
-    </script> --}}
 
 
     <canvas id="myChart"></canvas>

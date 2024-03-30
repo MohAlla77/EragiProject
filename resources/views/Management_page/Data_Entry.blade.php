@@ -134,36 +134,6 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="card col-6 bg-light">
-                            <div class="card-body">
-                                <ul class="tree">
-                                    <li>
-                                        <a href="#" class="text-dark" data-bs-toggle="collapse" data-bs-target="#db1"><i class="fas fa-plus"></i> Database 1</a>
-                                        <ul id="db1" class="collapse mb-0">
-                                            <li class="text-center"><a href="#">Table 2</a></li>
-                                            <li class="text-center"><a href="#">Table 1</a></li>
-                                            <li class="text-center"><a href="#">Table 3</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-dark" data-bs-toggle="collapse" data-bs-target="#db2"><i class="fas fa-plus"></i> Database 2</a>
-                                        <ul id="db2" class="collapse mb-0">
-                                            <li class="text-center"><a href="#">Table 4</a></li>
-                                            <li class="text-center"><a href="#">Table 5</a></li>
-                                            <li class="text-center"><a href="#">Table 6</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-dark" data-bs-toggle="collapse" data-bs-target="#db3"><i class="fas fa-plus"></i> Database 3</a>
-                                        <ul id="db3" class="collapse mb-0">
-                                            <li class="text-center"><a href="#">Table 7</a></li>
-                                            <li class="text-center"><a href="#">Table 8</a></li>
-                                            <li class="text-center"><a href="#">Table 9</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                 </main>
             </div>
