@@ -125,18 +125,18 @@
                                                 </div>
                                                 <div class="col-md-2 text-center">
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="paymentType" id="cashPayment" value="cash">
+                                                        <input class="form-check-input" type="radio" name="paymentType" id="cashPayment" value="cash" required>
                                                         <label class="form-check-label" for="cashPayment">
                                                             نقدي 
                                                         </label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="paymentType" id="companyPayment" value="company">
+                                                        <input class="form-check-input" type="radio" name="paymentType" id="companyPayment" value="company" required>
                                                         <label class="form-check-label" for="companyPayment">
                                                             شركة
                                                         </label>
                                                     </div>
-                                                </div>
+                                                </div>                                                
                                             </div>
                                         </div>
                                         <div class="col-md-4">

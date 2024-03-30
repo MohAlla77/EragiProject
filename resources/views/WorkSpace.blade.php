@@ -116,156 +116,215 @@
                         </div>
                     @endif
                     <div class="card bg-light mb-2">
-                        {{-- <form action="#" method="post" id="carForm"><br> --}}
-                        <form action="{{ route('car.search') }}" method="GET">
-                            <div class="input-group">
-                                <input type="text" class="form-control text-center" name="plateNumber"
-                                    placeholder="بحث">
-                                <button class="btn btn-outline-success" type="search">بحث</button>
+                        <div class="card-body">
+                            {{-- <form action="#" method="post" id="carForm"><br> --}}
+                            <form action="{{ route('car.search') }}" method="GET">
+                                <div class="input-group">
+                                    <input type="text" class="form-control text-center" name="plateNumber"
+                                        placeholder="بحث">
+                                    <button class="btn btn-outline-success" type="search">بحث</button>
+                                </div>
+                            </form>
+                            <div class="row">
+                                @if (isset($car))
+                                    <div class="col-md-4 mb-2">
+                                        <input type="text" class="form-control text-center"
+                                            value="{{ $car->car_name }}" name="carName" required
+                                            placeholder="اسم السيارة">
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <input type="text" class="form-control text-center"
+                                            value="{{ $car->structure_no }}" name="chassisNumber" required
+                                            placeholder="رقم الهيكل">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control text-center"
+                                            value="{{ $car->brand }}" name="carBrand" placeholder="ماركة السيارة">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control text-center"
+                                            value="{{ $car->name }}" name="carBrand" placeholder="مالك السيارة">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="number" class="form-control text-center"
+                                            value="{{ $car->model }}" name="carModel" placeholder="موديل السيارة">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control text-center"
+                                            value="{{ $car->service }}" name="serviceType" placeholder="نوع الخدمة">
+                                    </div>
+                                @endif
                             </div>
-                        </form>
-                        <div class="row">
-                            @if (isset($car))
-                                <div class="col-md-4 mb-2">
-                                    <input type="text" class="form-control text-center"
-                                        value="{{ $car->car_name }}" name="carName" required
-                                        placeholder="اسم السيارة">
+                            @if (isset($car) && isset($data) && $car->status === 'WAITING')
+                                @include('WorkSpace_Status.waiting')
+                            @elseif(isset($car) && isset($data) && ($car->status === 'MAINTENACE' || $car->status === 'DONE'))
+                                @include('WorkSpace_Status.main$done')
+                            @else
+                                {{-- @include('WorkSpace_Status.new') --}}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        @if (isset($CarHistory))
+                                            @php
+                                                $user_name = App\Models\User::find($CarHistory->user_name);
+                                                $Eng_name = App\Models\User::find($CarHistory->Eng_name);
+                                            @endphp
+                                            <div class="row">
+                                                <label for="notes"
+                                                    class="form-label d-flex justify-content-end">
+                                                    الزيارة السابقة
+                                                </label>
+                                                <div class="col-md-6 mb-2">
+                                                    <input type="text" class="form-control text-center"
+                                                        value="{{ $user_name->first_name }} : الموظف"
+                                                        name="carName" required placeholder="اسم الاستقبال">
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <input type="text" class="form-control text-center"
+                                                        name="carName"
+                                                        value=" {{ $Eng_name->first_name }} : المهندس" required
+                                                        placeholder="اسم المهندس">
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <input type="text" class="form-control text-center"
+                                                        name="carName" value=" الشكوى: {{ $CarHistory->fix }}"
+                                                        required placeholder="شكوي السابفة">
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <input type="text" class="form-control text-center"
+                                                        name="carName"
+                                                        value="الإجراء: {{ $CarHistory->fix_doc }} " required
+                                                        placeholder="الاجراءات السابفة">
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <input type="text" class="form-control text-center"
+                                                        name="carName"
+                                                        value="   اسم الفنى :  {{ $CarHistory->Worker_name }}  "
+                                                        required placeholder="اسم الفني">
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <input type="text" class="form-control text-center"
+                                                        name="carName" value="عدد الزيارات : {{ $countByCarId  }} " required
+                                                        placeholder="عدد الزيارات">
+                                                </div>
+                                                <div class="col-md-12 mb-2">
+                                                    <input type="text" class="form-control text-center"
+                                                        name="carName"
+                                                        value="{{ $CarHistory->created_at->format('d/m/y') }}"
+                                                        required placeholder="التاريخ">
+                                                </div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <div class="col-md-6">
+                                        @if (isset($car))
+                                            <form action="{{ route('AddCar.check', $car->id) }}" method="POST">
+                                                @csrf
+                                                <label for="notes" class="form-label d-flex justify-content-end">
+                                                    شكاوى العميل
+                                                </label>
+                                                <div class="numbered-textarea">
+                                                    <textarea class="form-control" name="notes" id="notes" style="height: 200px;">
+                                                </textarea>
+                                                    <div class="line-numbers"></div>
+                                                </div>
+                                                <div class="d-grid gap-2 col-3 mx-auto py-4">
+                                                    <button class="btn btn-primary" type="submit"> أمر فحص <i
+                                                            class="fa fa-search" aria-hidden="true"></i></button>
+                                            </form>
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="col-md-4 mb-2">
-                                    <input type="text" class="form-control text-center"
-                                        value="{{ $car->structure_no }}" name="chassisNumber" required
-                                        placeholder="رقم الهيكل">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control text-center"
-                                        value="{{ $car->brand }}" name="carBrand" placeholder="ماركة السيارة">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control text-center"
-                                        value="{{ $car->name }}" name="carBrand" placeholder="مالك السيارة">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="number" class="form-control text-center"
-                                        value="{{ $car->model }}" name="carModel" placeholder="موديل السيارة">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control text-center"
-                                        value="{{ $car->service }}" name="serviceType" placeholder="نوع الخدمة">
+                                <div class="card mb-4">
+                                    <div class="card-header text-end">الزيارة السابقة <i class="fas fa-table me-4"></i></div>
+                                    <div class="card-body">
+                                        <table class="table table-bordered table-striped">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th>عدد الزيارات</th>
+                                                    <th>التاريخ</th>
+                                                    <th>اسم السيارة</th>
+                                                    <th>اسم العميل</th>
+                                                    <th>اسم الفني</th>
+                                                    <th>الاجراءات السابقة</th>
+                                                    <th>الشكاوي السابقه</th>
+                                                    <th>اسم المهندس</th>
+                                                    <th>اسم الاستقبال</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             @endif
-                        </div>
-                        @if (isset($car) && isset($data) && $car->status === 'WAITING')
-                            @include('WorkSpace_Status.waiting')
-                        @elseif(isset($car) && isset($data) && ($car->status === 'MAINTENACE' || $car->status === 'DONE'))
-                            @include('WorkSpace_Status.main$done')
-                        @else
-                            {{-- @include('WorkSpace_Status.new') --}}
                             <div class="row">
-                                <div class="col-md-6">
-                                    @if (isset($CarHistory))
-                                        @php
-                                            $user_name = App\Models\User::find($CarHistory->user_name);
-                                            $Eng_name = App\Models\User::find($CarHistory->Eng_name);
-                                        @endphp
-                                        <div class="row">
-                                            <label for="notes"
-                                                class="form-label d-flex justify-content-end">
-                                                الزيارة السابقة
-                                            </label>
-                                            <div class="col-md-6 mb-2">
-                                                <input type="text" class="form-control text-center"
-                                                    value="{{ $user_name->first_name }} : الموظف"
-                                                    name="carName" required placeholder="اسم الاستقبال">
-                                            </div>
-                                            <div class="col-md-6 mb-2">
-                                                <input type="text" class="form-control text-center"
-                                                    name="carName"
-                                                    value=" {{ $Eng_name->first_name }} : المهندس" required
-                                                    placeholder="اسم المهندس">
-                                            </div>
-                                            <div class="col-md-6 mb-2">
-                                                <input type="text" class="form-control text-center"
-                                                    name="carName" value=" الشكوى: {{ $CarHistory->fix }}"
-                                                    required placeholder="شكوي السابفة">
-                                            </div>
-                                            <div class="col-md-6 mb-2">
-                                                <input type="text" class="form-control text-center"
-                                                    name="carName"
-                                                    value="الإجراء: {{ $CarHistory->fix_doc }} " required
-                                                    placeholder="الاجراءات السابفة">
-                                            </div>
-                                            <div class="col-md-6 mb-2">
-                                                <input type="text" class="form-control text-center"
-                                                    name="carName"
-                                                    value="   اسم الفنى :  {{ $CarHistory->Worker_name }}  "
-                                                    required placeholder="اسم الفني">
-                                            </div>
-                                            <div class="col-md-6 mb-2">
-                                                <input type="text" class="form-control text-center"
-                                                    name="carName" value="عدد الزيارات : {{ $countByCarId  }} " required
-                                                    placeholder="عدد الزيارات">
-                                            </div>
-                                            <div class="col-md-12 mb-2">
-                                                <input type="text" class="form-control text-center"
-                                                    name="carName"
-                                                    value="{{ $CarHistory->created_at->format('d/m/y') }}"
-                                                    required placeholder="التاريخ">
-                                            </div>
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <ul class="tree">
+                                                <li>
+                                                    <a href="#" class="text-dark" data-bs-toggle="collapse" data-bs-target="#db1">Database 1</a>
+                                                    <ul id="db1" class="collapse mb-0">
+                                                        <li class="text-center"><a href="#">Table 2</a></li>
+                                                        <li class="text-center"><a href="#">Table 1</a></li>
+                                                        <li class="text-center"><a href="#">Table 3</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="text-dark" data-bs-toggle="collapse" data-bs-target="#db2">Database 2</a>
+                                                    <ul id="db2" class="collapse mb-0">
+                                                        <li class="text-center"><a href="#">Table 4</a></li>
+                                                        <li class="text-center"><a href="#">Table 5</a></li>
+                                                        <li class="text-center"><a href="#">Table 6</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="text-dark" data-bs-toggle="collapse" data-bs-target="#db3">Database 3</a>
+                                                    <ul id="db3" class="collapse mb-0">
+                                                        <li class="text-center"><a href="#">Table 7</a></li>
+                                                        <li class="text-center"><a href="#">Table 8</a></li>
+                                                        <li class="text-center"><a href="#">Table 9</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
                                         </div>
-                                    @endif
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    @if (isset($car))
-                                        <form action="{{ route('AddCar.check', $car->id) }}" method="POST">
-                                            @csrf
-                                            <label for="notes" class="form-label d-flex justify-content-end">
-                                                شكاوى العميل
-                                            </label>
-                                            <div class="numbered-textarea">
-                                                <textarea class="form-control" name="notes" id="notes" style="height: 200px;">
-                                            </textarea>
-                                                <div class="line-numbers"></div>
-                                            </div>
-                                            <div class="d-grid gap-2 col-3 mx-auto py-4">
-                                                <button class="btn btn-primary" type="submit"> أمر فحص <i
-                                                        class="fa fa-search" aria-hidden="true"></i></button>
-                                        </form>
-                                    @endif
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <ul class="tree">
+                                                <li>
+                                                    <a href="#" class="text-dark" data-bs-toggle="collapse" data-bs-target="#db1">Database 1</a>
+                                                    <ul id="db1" class="collapse mb-0">
+                                                        <li class="text-center"><a href="#">Table 2</a></li>
+                                                        <li class="text-center"><a href="#">Table 1</a></li>
+                                                        <li class="text-center"><a href="#">Table 3</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="text-dark" data-bs-toggle="collapse" data-bs-target="#db2">Database 2</a>
+                                                    <ul id="db2" class="collapse mb-0">
+                                                        <li class="text-center"><a href="#">Table 4</a></li>
+                                                        <li class="text-center"><a href="#">Table 5</a></li>
+                                                        <li class="text-center"><a href="#">Table 6</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="text-dark" data-bs-toggle="collapse" data-bs-target="#db3">Database 3</a>
+                                                    <ul id="db3" class="collapse mb-0">
+                                                        <li class="text-center"><a href="#">Table 7</a></li>
+                                                        <li class="text-center"><a href="#">Table 8</a></li>
+                                                        <li class="text-center"><a href="#">Table 9</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        @endif
-                        
-                        <div class="card bg-light">
-                            <div class="card-body">
-                                <ul class="tree">
-                                    <li>
-                                        <a href="#" class="text-dark" data-bs-toggle="collapse" data-bs-target="#db1">Database 1</a>
-                                        <ul id="db1" class="collapse mb-0">
-                                            <li class="text-center"><a href="#">Table 2</a></li>
-                                            <li class="text-center"><a href="#">Table 1</a></li>
-                                            <li class="text-center"><a href="#">Table 3</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-dark" data-bs-toggle="collapse" data-bs-target="#db2">Database 2</a>
-                                        <ul id="db2" class="collapse mb-0">
-                                            <li class="text-center"><a href="#">Table 4</a></li>
-                                            <li class="text-center"><a href="#">Table 5</a></li>
-                                            <li class="text-center"><a href="#">Table 6</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="text-dark" data-bs-toggle="collapse" data-bs-target="#db3">Database 3</a>
-                                        <ul id="db3" class="collapse mb-0">
-                                            <li class="text-center"><a href="#">Table 7</a></li>
-                                            <li class="text-center"><a href="#">Table 8</a></li>
-                                            <li class="text-center"><a href="#">Table 9</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
-                    </div>
+                    </div>                    
                 </div>
             </main>
         </div>

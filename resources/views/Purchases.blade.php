@@ -401,7 +401,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <form class="row mb-1" id="purchaseForm" action="" method="post">
+                                                    <form class="row" id="purchaseForm" action="" method="post">
                                                         <div class="col-md-6 mb-1">
                                                             <input type="text" name="name" required
                                                                 class="form-control  text-center"
