@@ -191,6 +191,7 @@
                                 <table class="table table-striped">
                                     <thead class="thead-dark">
                                         <tr>
+                                            <th scope="col">المجموع</th>
                                             <th scope="col">السعر</th>
                                             <th scope="col">الكمية</th>
                                             <th scope="col">الوحدة</th>
@@ -203,6 +204,7 @@
                                         @if (isset($items) && $items->count() > 0)
                                             @foreach ($items as $item)
                                                 <tr>
+                                                    <td>{{ $item->totalAmountWithTax }}</td>
                                                     <td>{{ $item->price * $item->quantity }}</td>
                                                     <td>{{ $item->quantity }}</td>
                                                     <td>{{ $item->unit }}</td>
@@ -368,75 +370,75 @@
         document.getElementById('percentageDiscountValue').addEventListener('input', calculateTotalPriceAfterDiscount);
     </script>
     {{-- <script>
-            document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById("customerType").addEventListener("change", showCompanyField);
+                document.addEventListener("DOMContentLoaded", function() {
+                document.getElementById("customerType").addEventListener("change", showCompanyField);
+            });
+
+            function showCompanyField() {
+                var customerType = document.getElementById("customerType").value;
+                var customerDataField = document.getElementById("Customer data");
+
+                if (customerType === "2") {
+                    customerDataField.placeholder = "بيانات الشركة";
+                } else {
+                    customerDataField.placeholder = "نقدي";
+                }
+                }
+
+        // Define the function before adding the event listener
+        function generateInvoiceNumber() {
+            var invoiceType = document.getElementById("invoiceType").value;
+            var serialNumberField = document.getElementById("serialNumber");
+
+            // Generate a sequential invoice number based on the selected invoice type
+            var invoiceNumber = "";
+
+            switch (invoiceType) {
+                case "فاتوره مبيسطة":
+                    invoiceNumber = "MB-001"; // Example format for a simplified invoice
+                    break;
+                case "فاتورة ضريبية":
+                    invoiceNumber = "TAX-001"; // Example format for a tax invoice
+                    break;
+                case "فاتورة مشتريات":
+                    invoiceNumber = "PUR-001"; // Example format for a purchase invoice
+                    break;
+                default:
+                    invoiceNumber = "N/A";
+            }
+            serialNumberField.value = invoiceNumber;
+        }
+
+        // Add event listener after the DOM has fully loaded
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("invoiceType").addEventListener("change", generateInvoiceNumber);
         });
 
-        function showCompanyField() {
-            var customerType = document.getElementById("customerType").value;
-            var customerDataField = document.getElementById("Customer data");
+        // Function to add item to the table
+        function addItemToTable() {
+            // Get form values
+            var itemName = document.getElementById('itemCounter').value;
+            var itemName = document.getElementById('itemName').value;
+            var itemCode = document.getElementById('validationCustom02').value;
+            var itemQuantity = document.getElementById('quantity').value;
+            var itemPrice = document.getElementById('price').value;
+            var itemTotal = document.getElementById('Total').value;
 
-            if (customerType === "2") {
-                customerDataField.placeholder = "بيانات الشركة";
-            } else {
-                customerDataField.placeholder = "نقدي";
-            }
-              }
+            // Calculate total amount for the item
+            var itemTotal = itemQuantity * itemPrice;
 
-    // Define the function before adding the event listener
-    function generateInvoiceNumber() {
-        var invoiceType = document.getElementById("invoiceType").value;
-        var serialNumberField = document.getElementById("serialNumber");
-
-        // Generate a sequential invoice number based on the selected invoice type
-        var invoiceNumber = "";
-
-        switch (invoiceType) {
-            case "فاتوره مبيسطة":
-                invoiceNumber = "MB-001"; // Example format for a simplified invoice
-                break;
-            case "فاتورة ضريبية":
-                invoiceNumber = "TAX-001"; // Example format for a tax invoice
-                break;
-            case "فاتورة مشتريات":
-                invoiceNumber = "PUR-001"; // Example format for a purchase invoice
-                break;
-            default:
-                invoiceNumber = "N/A";
-        }
-        serialNumberField.value = invoiceNumber;
-    }
-
-    // Add event listener after the DOM has fully loaded
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("invoiceType").addEventListener("change", generateInvoiceNumber);
-    });
-
-      // Function to add item to the table
-      function addItemToTable() {
-          // Get form values
-          var itemName = document.getElementById('itemCounter').value;
-          var itemName = document.getElementById('itemName').value;
-          var itemCode = document.getElementById('validationCustom02').value;
-          var itemQuantity = document.getElementById('quantity').value;
-          var itemPrice = document.getElementById('price').value;
-          var itemTotal = document.getElementById('Total').value;
-
-          // Calculate total amount for the item
-          var itemTotal = itemQuantity * itemPrice;
-
-          // Create new table row
-          var newRow = document.createElement('tr');
-          newRow.innerHTML = `
-              <td>${itemCounter}</td>
-              <td>${itemTotal}</td>
-              <td>${itemPrice}</td>
-              <td>${itemQuantity}</td>
-              <td>وحدة</td>
-              <td>${itemCode}</td>
-              <td>${itemName}</td>
-          `;
-                itemCounter++;
+            // Create new table row
+            var newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${itemCounter}</td>
+                <td>${itemTotal}</td>
+                <td>${itemPrice}</td>
+                <td>${itemQuantity}</td>
+                <td>وحدة</td>
+                <td>${itemCode}</td>
+                <td>${itemName}</td>
+            `;
+                    itemCounter++;
 
           // Append the new row to the table body
           document.getElementById('itemTableBody').appendChild(newRow);

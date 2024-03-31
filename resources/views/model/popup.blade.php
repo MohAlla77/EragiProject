@@ -3,8 +3,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">الإجراءت المطلوبة</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 id="exampleModalLabel">الإجراءت المطلوبة</h5>
             </div>
             <form action="{{ route('RemoveCar.check',  ['id' => $data->CarId, 'user' => $data->UserId]) }}" method="POST">
                 @csrf
