@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\AddTireRequest;
+
+use App\Http\Requests\AddTiresRequest;
 use App\Models\Tires;
 use Illuminate\Http\Request;
 
@@ -10,13 +11,15 @@ class TiresController extends Controller
 {
     public function index()
     {
-        return view('Tires');
+
+        $tires = Tires::all();
+
+        return view('Tires', ['Tires' => $tires]);
     }
 
-    public function AddTire()
+    public function AddTire(AddTiresRequest $request)
     {
-
-
+        //$validated = $request->validated();
 
 
         Tires::create([
@@ -32,6 +35,8 @@ class TiresController extends Controller
 
         ]);
 
-        return view('home');
+        $tires = Tires::all();
+
+        return view("Tires", ['Tires' => $tires]);
     }
 }

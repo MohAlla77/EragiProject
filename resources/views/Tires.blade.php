@@ -483,13 +483,25 @@
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
+                               @if (isset($Tires))
+
+                                @foreach ($Tires as $tire )
+
+                                <tr>
+
+                                <td>{{ $tire->quantity_available }}</td>
+                                <td>{{ $tire->model }}</td>
+                                <td>{{ $tire->country_of_construction }}</td>
+                                <td>{{ $tire->price }}</td>
+                                <td>{{ $tire->amount}}</td>
+                                <td>{{ $tire->size }}</td>
+                                <td>{{ $tire->tire_serial }}</td>
+
+                                </tr>
+
+
+                                @endforeach
+                              @endif
                             </tbody>
                         </table>
                     </div>

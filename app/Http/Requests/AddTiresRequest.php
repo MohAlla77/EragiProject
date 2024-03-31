@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddTireRequest extends FormRequest
+class AddTiresRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,5 +33,4 @@ class AddTireRequest extends FormRequest
             'TireDate'    => 'required|date',
         ];
     }
-
 }
