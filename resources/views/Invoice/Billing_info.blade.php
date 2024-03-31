@@ -2,7 +2,7 @@
     <div class="card bg-light">
       <div class="card-body">
         <div class="row">
-          <div class="col-md-6 mb-2">
+          <div class="col-md-6">
             <select class="form-select text-center" id="paymentMethod" name="paymentMethod" aria-label="Default select example">
                 <option selected>طريقة الدفع</option>
                 <option value="cash">كاش</option>
@@ -14,9 +14,7 @@
                 Looks good!
             </div>
           </div>
-
-
-          <div class="col-md-6 mb-2 d-flex justify-content-end align-items-center">
+          <div class="col-md-6 d-flex justify-content-end align-items-center">
             <form action="{{ route('carPlate.search') }}" method="GET">
                 <div class="input-group">
                     <input name="PlateRef" type="text" class="form-control text-center" id="reference number" value="" placeholder="رقم المرجع"
@@ -25,9 +23,8 @@
                 </div>
             </form>
           </div>
-
-        @if(isset($car) && isset($invoiceNum))
-          <div class="col-md-6 mb-2">
+            @if(isset($car) && isset($invoiceNum))
+          <div class="col-md-6">
             <select class="form-select text-center" id="customerType" aria-label="Default select example" onchange="showCompanyField()">
                 <option selected> نوع العميل </option>
                 <option value="1">نقدي</option>
@@ -38,10 +35,10 @@
             </div>
           </div>
           <div class="col-md-6 mb-2">
-            <input type="text" class="form-control text-center" id="Customer data" value="{{$car->name}}" placeholder="بيانات العميل" disabled>
+            <input type="text" class="form-control text-center" id="Customer data" value="{{$car->name}}" placeholder="بيانات العميل" readonly>
           </div>
           <div class="col-md-6 mb-2">
-            <input  name="invoiceNum" type="text" class="form-control text-center" id="invoice number" value="{{$invoiceNum}}" placeholder="رقم الفاتورة" disabled>
+            <input  name="invoiceNum" type="text" class="form-control text-center" id="invoice number" value="{{$invoiceNum}}" placeholder="رقم الفاتورة" readonly>
           </div>
           <div class="col-md-6 mb-2">
             <select class="form-select text-center" id="invoiceType" name="invoiceType" aria-label="Default select example" onchange="generateInvoiceNumber()">
@@ -55,7 +52,7 @@
             </div>
           </div>
           <div class="col-md-12 text-end">
-            <input type="text" class="form-control text-end" id="Seller name" value="{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}" placeholder="اسم البائع" readonly>
+            <input type="text" class="form-control text-center" id="Seller name" value="{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}" placeholder="اسم البائع" readonly>
             <div class="valid-feedback">
                 Looks good!
             </div>

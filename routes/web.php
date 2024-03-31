@@ -22,6 +22,7 @@ use App\Http\Controllers\ServiceGroupController;
 use App\Http\Controllers\SpearController;
 use App\Http\Controllers\TiresController;
 use App\Models\Car;
+use App\Models\Service;
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register');
@@ -42,6 +43,10 @@ Route::get('/', function () {
 
 
 Route::get('/invoice', [InvoiceController::class , 'index'])->name('invoice.index');
+
+Route::get('/invoice/Sales_accept',  function () {
+    return view('Sales_accept',['Services' => Service::all()]);
+})->name('Sales_accept');
 
 
 
