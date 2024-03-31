@@ -20,6 +20,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PurchasesController;
 use App\Http\Controllers\ServiceGroupController;
 use App\Http\Controllers\SpearController;
+use App\Http\Controllers\TiresController;
 use App\Models\Car;
 
 Route::group(['middleware' => 'guest'], function () {
@@ -44,9 +45,9 @@ Route::get('/invoice', [InvoiceController::class , 'index'])->name('invoice.inde
 
 
 
-Route::get('/tries', function () {
-    return view('Tires');
-})->name('Tries');
+Route::get('/tries', [TiresController::class , 'index'])->name('Tries');
+Route::post('/tries', [TiresController::class , 'AddTire'])->name('Tries.Add');
+
 
 
 
@@ -60,29 +61,32 @@ Route::get('/Management', function () {
 })->name('Manage');
 
 
-Route::get('/management/DataEntry', function () {
-    return view('Management_page.Data_Entry');
-})->name('Data_Entry');
+Route::prefix('/management')->group(function () {
+    Route::get('/DataEntry', function () {
+        return view('Management_page.Data_Entry');
+    })->name('Data_Entry');
 
-Route::get('/management/customer', function () {
-    return view('Management_page.Customers');
-})->name('Customers');
+    Route::get('/customer', function () {
+        return view('Management_page.Customers');
+    })->name('Customers');
 
-Route::get('/management/Employee', function () {
-    return view('Management_page.employees');
-})->name('employees');
+    Route::get('/Employee', function () {
+        return view('Management_page.employees');
+    })->name('employees');
 
-Route::get('/management', function () {
-    return view('Management_page.Employee_requests');
-})->name('Employee_requsts');
+    Route::get('/', function () {
+        return view('Management_page.Employee_requests');
+    })->name('Employee_requests');
 
-Route::get('/management/Report', function () {
-    return view('Management_page.Reports');
-})->name('Reports');
+    Route::get('/Report', function () {
+        return view('Management_page.Reports');
+    })->name('Reports');
 
-Route::get('/management/User_mangement', function () {
-    return view('Management_page.User_management');
-})->name('User_management');
+    Route::get('/User_management', function () {
+        return view('Management_page.User_management');
+    })->name('User_management');
+});
+
 
 
 Route::get('/invoice', [InvoiceController::class , 'index'])->name('invoice.index');
@@ -93,7 +97,9 @@ Route::put('/seals/{id}/update', [PurchasesController::class , 'Approve'])->name
 Route::get('/purchases', [PurchasesController::class , 'index'])->name('purchases');
 Route::post('/purchases' , [ServiceGroupController::class , 'store'])->name('ServiceGroup.store');
 Route::post('/purchases/services' , [PurchasesController::class , 'ServiceStore'])->name('Service.store');
+Route::put('purchases/update/{id}', [PurchasesController::class , 'UpdateService'])->name('service.update');
 Route::delete('purchases/delete/{id}', [PurchasesController::class , 'DeleteService'])->name('service.delete');
+
 
 
 

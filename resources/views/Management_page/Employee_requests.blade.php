@@ -1,14 +1,4 @@
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Employee requests</title>
-        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+@extends('Layout.head')
         <style>
             .logo-img {
                 width: 60px; /* Adjust the width as needed */
@@ -20,7 +10,7 @@
                 margin-top: 20px; /* Adjust the margin as needed */
                 margin-bottom: 20px; /* Adjust the margin as needed */
             }
-            
+
                 .logo-img {
                 width: 55px; /* Adjust the width as needed */
                 height: auto; /* Maintain aspect ratio */
@@ -66,7 +56,7 @@
                         @include('Layout.sidebar')
                     </div>
                 </nav>
-            </div> 
+            </div>
             <div id="layoutSidenav_content">
                 <main>
                     <form class="row">
@@ -202,4 +192,4 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
     </body>
-</html>
+

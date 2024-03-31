@@ -57,9 +57,10 @@
         <div id="layoutSidenav_content" style="overflow-y: scroll; height: 400px;">
             <main>
 
-                <div class="card mb-4">
+                {{-- <div class="card mb-4">
                     <div class="card-header text-end">مبيعات الخدمات <i class="fas fa-table me-4"></i></div>
                     <div class="card-body">
+                    @if(isset($PendingServices))
                         <table id="datatablesSimple">
                             <thead>
                                 <tr>
@@ -84,7 +85,10 @@
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach ($Services as $service)
+
+
+
+                                @foreach ($PendingServices as $service)
                                     <tr>
 
                                         <td>
@@ -107,8 +111,10 @@
                                 @endforeach
                             </tbody>
                         </table>
+                    @endif
+
                     </div>
-                </div>
+                </div> --}}
                 <div class="card inner-card" style="height: 100%;">
                     <div class="card-body">
                         <div class="row">

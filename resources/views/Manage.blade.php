@@ -70,7 +70,7 @@
                         @include('Layout.sidebar')
                     </div>
                 </nav>
-            </div> 
+            </div>
             <div id="layoutSidenav_content" style="height: 25vh; overflow-y: auto;">
                 <main>
                     <div class="row mt-5 py-2 mb-2 ms-5 col-12">
@@ -133,7 +133,7 @@
                                         <hr class="separator-line">
                                     </div>
                                     <p class="card-text">(سلفة, عهدة,اذن خروج,اجازة مرضية,اجازة)</p>
-                                    <a href="{{route('Employee_requsts')}}" class="btn btn-primary">موافق</a>
+                                    <a href="{{route('Employee_requests')}}" class="btn btn-primary">موافق</a>
                                 </div>
                             </div>
                         </div>
