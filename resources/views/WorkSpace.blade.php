@@ -5,14 +5,8 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>ساحة العمل</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
     <style>
         input[type="range"] {
             -webkit-appearance: none;
@@ -240,7 +234,6 @@
                                         <table class="table table-bordered table-striped">
                                             <thead class="thead-dark">
                                                 <tr>
-                                                    <th>عدد الزيارات</th>
                                                     <th>التاريخ</th>
                                                     <th>اسم السيارة</th>
                                                     <th>اسم العميل</th>

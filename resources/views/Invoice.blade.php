@@ -1,15 +1,26 @@
-@extends('Layout.head')
-<style>
-    .logo-img {
-        width: 55px; /* Adjust the width as needed */
-        height: auto; /* Maintain aspect ratio */
-        margin-right: 20px; /* Adjust the margin as needed */
-    }
-        .inner-card {
-        padding: 15px; /* Adjust padding as needed */
-        margin-bottom: 15px; /* Adjust margin as needed */
-    }
-</style>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>الرئسية</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="print.css" media="print">
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .logo-img {
+            width: 55px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+            margin-right: 20px; /* Adjust the margin as needed */
+        }
+            .inner-card {
+            padding: 15px; /* Adjust padding as needed */
+            margin-bottom: 15px; /* Adjust margin as needed */
+        }
+    </style>
+</head>
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
@@ -36,7 +47,7 @@
           </button>
         </form>
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-      </nav>
+    </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             @include('Layout.sidebar')
@@ -119,18 +130,12 @@
                                                     id="Total"
                                                     value="{{ $items->sum(function ($item) {return $item->price * $item->quantity;}) }}"
                                                     placeholder="الاجمالي" readonly>
-                                                <div class="valid-feedback">
-                                                    Looks good!
-                                                </div>
                                             </div>
                                             <div class="col-md-6 mb-2">
                                                 <input type="number" class="form-control text-center"
                                                     disabled id="VAT%15"
                                                     value="{{ $items->sum(function ($item) {return $item->price * $item->quantity;}) * 0.15 }}"
                                                     placeholder="ضريبة القيم المضافة%15" readonly>
-                                                <div class="valid-feedback">
-                                                    Looks good!
-                                                </div>
                                             </div>
                                             {{-- <div class="col-md-6 mb-2">
                                             <select class="form-select text-center" id="discountType"
@@ -143,19 +148,19 @@
                                             <div class="valid-feedback">
                                                 Looks good!
                                             </div>
-                                        </div>
-                                        <div class="col-md-6 mb-2" id="percentageDiscountField"
-                                            style="display: none;">
-                                            <input type="number" class="form-control text-center"
-                                                id="percentageDiscountValue" placeholder="قيمة الخصم بالنسبة">
-                                            <div class="valid-feedback">Looks good!</div>
-                                        </div>
-                                        <div class="col-md-6 mb-2" id="amountDiscountField"
-                                            style="display: none;">
-                                            <input type="number" class="form-control text-center"
-                                                id="amountDiscountValue" placeholder="قيمة الخصم بالمبلغ">
-                                            <div class="valid-feedback">Looks good!</div>
-                                        </div> --}}
+                                            </div>
+                                            <div class="col-md-6 mb-2" id="percentageDiscountField"
+                                                style="display: none;">
+                                                <input type="number" class="form-control text-center"
+                                                    id="percentageDiscountValue" placeholder="قيمة الخصم بالنسبة">
+                                                <div class="valid-feedback">Looks good!</div>
+                                            </div>
+                                            <div class="col-md-6 mb-2" id="amountDiscountField"
+                                                style="display: none;">
+                                                <input type="number" class="form-control text-center"
+                                                    id="amountDiscountValue" placeholder="قيمة الخصم بالمبلغ">
+                                                <div class="valid-feedback">Looks good!</div>
+                                            </div> --}}
                                             <div class="col-md-6 mb-2">
                                                 <input type="number" class="form-control text-center"
                                                     disabled id="totalAmountWithTax"
@@ -166,8 +171,7 @@
                                             <input type="number" class="form-control text-center"
                                                 id="netAmount" value="" placeholder="المبلغ الصافي"
                                                 readonly>
-                                        </div> --}}
-
+                                            </div> --}}
                                             <!-- Discount type dropdown -->
                                             <div class="col-md-6">
                                                 <select class="form-select" id="discountType"
@@ -176,28 +180,24 @@
                                                     <option value="percentage">بالنسبة</option>
                                                 </select>
                                             </div>
-
                                             <!-- Amount discount input -->
                                             <div class="col-md-6" id="amountDiscountField">
                                                 <input name="AmountOfDiscount" type="number"
                                                     class="form-control" id="amountDiscountValue"
                                                     placeholder="أدخل مبلغ الخصم">
                                             </div>
-
                                             <!-- Percentage discount input -->
                                             <div class="col-md-6" id="percentageDiscountField"
                                                 style="display: none;">
                                                 <input type="number" class="form-control"
                                                     id="percentageDiscountValue" placeholder="أدخل نسبةالخصم">
                                             </div>
-
                                             <!-- Total price after discount -->
                                             <div class="col-md-6">
                                                 <input type="number" class="form-control"
                                                     placeholder="المبلغ الصافى" id="totalPriceAfterDiscount"
                                                     readonly>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -208,7 +208,8 @@
                                     <div class="card-body">
                                         <div class="numbered-textarea" style="height: 100%;">
                                             <textarea class="form-control text-center" name="notes" id="notes" style="height: 100%;"
-                                                placeholder="ملاحظات"></textarea>
+                                                placeholder="ملاحظات">
+                                            </textarea>
                                             <div class="line-numbers" id="lineNumbers"></div>
                                         </div>
                                     </div>
@@ -450,6 +451,12 @@
             });
         });
   </script> --}}
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+    <script src="js/datatables-simple-demo.js"></script>
 
 </body>
 
