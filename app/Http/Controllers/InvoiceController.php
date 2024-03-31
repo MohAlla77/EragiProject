@@ -24,6 +24,10 @@ class InvoiceController extends Controller
 
         $item = Item::truncate();
 
+        $PendingServices = Service::where('status','Pending')->get();
+
+       // dd(request()->session()->all());
+
 
 
 
@@ -32,7 +36,7 @@ class InvoiceController extends Controller
 
 
 
-        return view('Invoice' , ['item' => $item]);
+        return view('Invoice' , ['item' => $item , 'PendingServices' => $PendingServices]);
 
     }
 

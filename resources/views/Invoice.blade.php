@@ -54,6 +54,117 @@
         </div>
         <div id="layoutSidenav_content" style="overflow-y: scroll; height: 400px;">
             <main>
+
+                {{-- <div class="card mb-4">
+                    <div class="card-header text-end">مبيعات الخدمات <i class="fas fa-table me-4"></i></div>
+                    <div class="card-body">
+                    @if(isset($PendingServices))
+                        <table id="datatablesSimple">
+                            <thead>
+                                <tr>
+                                    <th>القرار</th>
+                                    <th scope="col">حالة الخدمة</th>
+                                    <th scope="col">مجموعة الخدمة</th>
+                                    <th scope="col">نوع الخدمة</th>
+                                    <th scope="col">سعر التكلفة</th>
+                                    <th scope="col">رقم الخدمة</th>
+                                    <th scope="col">اسم الخدمة</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>القرار</th>
+                                    <th scope="col">حالة الخدمة</th>
+                                    <th scope="col">مجموعة الخدمة</th>
+                                    <th scope="col">نوع الخدمة</th>
+                                    <th scope="col">سعر التكلفة</th>
+                                    <th scope="col">رقم الخدمة</th>
+                                    <th scope="col">اسم الخدمة</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+
+
+
+                                @foreach ($PendingServices as $service)
+                                    <tr>
+
+                                        <td>
+                                            <form action="{{ route('ApproveService', $service->id) }}"
+                                                method="POST">
+                                                @method('PUT')
+                                                @csrf
+                                                <button type="submite" class="btn btn-primary">
+                                                    موافق
+                                                </button>
+                                            </form>
+                                        </td>
+                                        <td>{{ $service->status }}</td>
+                                        <td>{{ $service->serviceGroup->name }}</td>
+                                        <td>{{ $service->service_type }}</td>
+                                        <td>{{ $service->cost_price }}</td>
+                                        <td>{{ $service->service_id }}</td>
+                                        <td>{{ $service->name }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @endif
+
+                    </div>
+                </div> --}}
+                <div class="card inner-card" style="height: 100%;">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card mb-2 bg-light">
+                                    <div class="card-body">
+                                        <button type="submit" class="btn btn-success col-3">حفظ</button>
+                                        <a href="{{ route('invoice.print') }}"> <button id="printButton"class="btn btn-primary col-3">
+                                            <i class="fas fa-print"></i></button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- Form Billing information Calculator -->
+                            @include('Invoice.Billing_info')
+                            <!-- Form Add in table Calculator -->
+                            @include('Invoice.Add_Item')
+                        </div>
+                        <!-- Table Calculator -->
+                        <div class="card mb-2 bg-light">
+                            <div class="card-body">
+                                <div class="row">
+                                    <table class="table table-striped">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">السعر</th>
+                                                <th scope="col">الكمية</th>
+                                                <th scope="col">الوحدة</th>
+                                                <th scope="col">رمز الصنف</th>
+                                                <th scope="col">اسم الصنف</th>
+                                                <th scope="col">رقم</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="itemTableBody">
+                                            @if (isset($items) && $items->count() > 0)
+                                                @foreach ($items as $item)
+                                                    <tr>
+                                                        <td>{{ $item->price * $item->quantity }}</td>
+                                                        <td>{{ $item->quantity }}</td>
+                                                        <td>{{ $item->unit }}</td>
+                                                        <td>{{ $item->code }}</td>
+                                                        <td>{{ $item->name }}</td>
+                                                        <td>{{ $item->id }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            @else
+                                                <tr>
+                                                    <td colspan="6">No items found.</td>
+                                                </tr>
+                                            @endif
+                                        </tbody>
                 <div class="container-fluid mt-4 bg-gradient text-black justify-content-center">
                     <div class="row">
                         <div class="col-md-12">
