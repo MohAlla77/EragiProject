@@ -1,17 +1,4 @@
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>INCH CAR MAINTENANCE</title>
-        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+@extends('Layout.head')
         <style>
             .logo-img {
                 width: 60px; /* Adjust the width as needed */
@@ -90,7 +77,7 @@
                         @include('Layout.sidebar')
                     </div>
                 </nav>
-            </div> 
+            </div>
             <div id="layoutSidenav_content" class="sidebar-collapsed" style="height: 25vh; overflow-y: auto;">
                 <main>
                     <div class="card">
@@ -210,7 +197,7 @@
                                                         <div class="col-md-3 text-end">
                                                             <label class="form-label inline">يوم المباشرة</label>
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                     <div class="col-md-6 mb-2">
                                                         <input type="text" class="form-control text-center" placeholder="العنوان"required>
                                                     </div>
@@ -284,6 +271,6 @@
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
-    
+
     </body>
-</html>
+

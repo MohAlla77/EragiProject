@@ -5,14 +5,8 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>سيارة جديدة</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
     <style>
         input[type="range"] {
             -webkit-appearance: none;
@@ -40,50 +34,11 @@
             /* Thumb color */
             cursor: pointer;
         }
-        .logo-img {
-          width: 55px; /* Adjust the width as needed */
-          height: auto; /* Maintain aspect ratio */
-          margin-right: 20px; /* Adjust the margin as needed */
-      }
-        .inner-card {
-          padding: 15px; /* Adjust padding as needed */
-          margin-bottom: 15px; /* Adjust margin as needed */
-      }
     </style>
 </head>
 
 <body class="sb-nav-fixed sb-sidenav-toggled">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4 text-end">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li><hr class="dropdown-divider"/></li>
-                    <li>
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button class="dropdown-item" type="submit">Logout</button>
-                        </form>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <div class="container-fluid">
-            <a class="navbar-brand"><img src="./assets/img/logoeragi.jpg" class="img-fluid logo-img text-end" alt="Logo"></a>            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-            <a class="navbar-brand" href="#"><span>ادخال البيانات</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </form>
-        <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-    </nav>
+    @include('Layout.navbar')
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -106,10 +61,9 @@
                                         <div class="col-md-12 mb-2"><br>
                                             <div class="row">
                                                 <div class="col-md-5">
-                                                    <!-- Pre-fill the date field with the current date and time using JavaScript -->
                                                     <input type="datetime-local" class="form-control text-center"
                                                         id="validationCustomDate" placeholder="التاريخ" required
-                                                        disabled>
+                                                        readonly>
                                                     <div class="valid-feedback">
                                                         Looks good!
                                                     </div>
@@ -117,8 +71,8 @@
                                                 <div class="col-md-5">
                                                     <input type="text" class="form-control text-center"
                                                         id="validationCustomUsername"
-                                                        value="المستخدم : {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} "
-                                                        placeholder="اسم المستخدم" required disabled>
+                                                        value="{{ Auth::user()->first_name }} {{ Auth::user()->last_name }} :  المستخدم "
+                                                         required readonly>
                                                     <div class="valid-feedback">
                                                         Looks good!
                                                     </div>
@@ -283,34 +237,34 @@
         </div>
     </div>
     <script>
-    // Get radio buttons and field elements
-    const cashRadio = document.getElementById('cashPayment');
-    const companyRadio = document.getElementById('companyPayment');
-    const cashInput = document.getElementById('cashInput');
-    const companyOptions = document.getElementById('companyOptions');
+        // Get radio buttons and field elements
+        const cashRadio = document.getElementById('cashPayment');
+        const companyRadio = document.getElementById('companyPayment');
+        const cashInput = document.getElementById('cashInput');
+        const companyOptions = document.getElementById('companyOptions');
 
-    // Function to show cash input and hide company options
-    function showCashInput() {
-        cashInput.style.display = 'block';
-        companyOptions.style.display = 'none';
-    }
+        // Function to show cash input and hide company options
+        function showCashInput() {
+            cashInput.style.display = 'block';
+            companyOptions.style.display = 'none';
+        }
 
-    // Function to hide cash input and show company options
-    function showCompanyOptions() {
-        cashInput.style.display = 'none';
-        companyOptions.style.display = 'block';
-    }
+        // Function to hide cash input and show company options
+        function showCompanyOptions() {
+            cashInput.style.display = 'none';
+            companyOptions.style.display = 'block';
+        }
 
-    // Initial call to set initial state based on checked radio button
-    if (companyRadio.checked) {
-        showCompanyOptions();
-    } else {
-        showCashInput();
-    }
+        // Initial call to set initial state based on checked radio button
+        if (companyRadio.checked) {
+            showCompanyOptions();
+        } else {
+            showCashInput();
+        }
 
-    // Event listeners to call respective functions when radio buttons are clicked
-    cashRadio.addEventListener('change', showCashInput);
-    companyRadio.addEventListener('change', showCompanyOptions);
+        // Event listeners to call respective functions when radio buttons are clicked
+        cashRadio.addEventListener('change', showCashInput);
+        companyRadio.addEventListener('change', showCompanyOptions);
 
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -497,15 +451,6 @@
             });
         }
     </script>
-
-    <canvas id="myChart"></canvas>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
-        crossorigin="anonymous"></script>
-    <script src="js/datatables-simple-demo.js"></script>
-
 </body>

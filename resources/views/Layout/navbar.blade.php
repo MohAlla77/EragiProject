@@ -17,18 +17,22 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-item dropdown-toggle" href="#" role="button" id="navbarDropdownLanguage"
+                                data-bs-toggle="dropdown" aria-expanded="false"> Language <i class="fa-solid fa-language"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownLanguage">
+                                <li><a class="dropdown-item" href="#!">العربية</a></li>
+                                <li><a class="dropdown-item" href="#!">English</a></li>
+                            </ul>
                         </li>
+                        <li><hr class="dropdown-divider"/></li>
                         <li>
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <button class="dropdown-item" type="submit">Logout</button>
                             </form>
                         </li>
-
                     </ul>
                 </li>
             </ul>
