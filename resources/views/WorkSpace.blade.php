@@ -162,7 +162,7 @@
                                                 $user_name = App\Models\User::find($CarHistory->user_name);
                                                 $Eng_name = App\Models\User::find($CarHistory->Eng_name);
                                             @endphp
-                                            <div class="row">
+                                            {{-- <div class="row">
                                                 <label for="notes"
                                                     class="form-label d-flex justify-content-end">
                                                     الزيارة السابقة
@@ -175,7 +175,7 @@
                                                 <div class="col-md-6 mb-2">
                                                     <input type="text" class="form-control text-center"
                                                         name="carName"
-                                                        value=" {{ $Eng_name->first_name }} : المهندس" required
+                                                        value="{{ $Eng_name->first_name }} : المهندس" required
                                                         placeholder="اسم المهندس">
                                                 </div>
                                                 <div class="col-md-6 mb-2">
@@ -206,7 +206,7 @@
                                                         value="{{ $CarHistory->created_at->format('d/m/y') }}"
                                                         required placeholder="التاريخ">
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         @endif
                                     </div>
                                     <div class="col-md-6">
@@ -245,6 +245,16 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <tr>
+                                                    <td>{{ $CarHistory->created_at->format('d/m/y') }}</td>
+                                                    <td>{{$car->car_name}}</td>
+                                                    <td>{{ $user_name->first_name }}</td>
+                                                    <td>{{ $CarHistory->Worker_name }}</td>
+                                                    <td>{{ $CarHistory->fix_doc }}</td>
+                                                    <td>{{ $CarHistory->fix }}</td>
+                                                    <td>{{ $Eng_name->first_name }} </td>
+                                                    <td>{{ $user_name->first_name }}</td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -317,7 +327,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             </main>
         </div>
