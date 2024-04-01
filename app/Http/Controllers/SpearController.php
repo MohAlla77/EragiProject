@@ -55,7 +55,7 @@ class SpearController extends Controller
 
             'name' => $id->name,
             'code' => $id->part_id,
-            'unit' => request()->get('ItemUnit'),
+            'unit' => 'وحدة',
             'quantity' => request()->get('ItemQuantity'),
             'price' => $id->price,
 
@@ -70,8 +70,8 @@ class SpearController extends Controller
 
             'name' => $id->name,
             'code' => $id->service_id,
-            'unit' => request()->get('ItemUnit'),
-            'quantity' => 1,
+            'unit' => 'خدمة',
+            'quantity' => '1',
             'price' => $id->cost_price,
 
         ]);

@@ -23,13 +23,8 @@
                                 <input name="ItemPrice" value="{{ $spear->price }}" type="number" name="name" required class="form-control text-center" id="price" placeholder="السعر" readonly>
                             </div>
                             <div class="col-md-6 mb-2">
-                                <select name="ItemUnit" class="form-select text-center" id="unitServiceSelect" aria-label="Default select example" onchange="unitServiceOnChange()">
-                                    <option selected>خدمة</option>
-                                    <option value="وحدة">وحدة</option>
-                                </select>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
+                                <input name="ItemUnit" class="form-control text-center" id="unitServiceSelect" value="وحدة" disabled>
+
                             </div>
                             <div class="col-md-6 mb-2">
                                 <input name="ItemQuantity" type="number" name="name" required class="form-control text-center" id="quantity" placeholder="الكمية">
@@ -54,13 +49,8 @@
                                 <input name="ItemPrice" value="{{ $service->cost_price }}" type="number" name="name" required class="form-control text-center" id="price" placeholder="السعر" readonly>
                             </div>
                             <div class="col-md-6 mb-2">
-                                <select name="ItemUnit" class="form-select text-center" id="unitServiceSelect" aria-label="Default select example" onchange="unitServiceOnChange()">
-                                    <option selected>خدمة</option>
-                                    <option value="خدمة">خدمة</option>
-                                </select>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
+                                <input name="ItemUnit" class="form-control text-center"   id="price" placeholder="السعر" value="خدمة" disabled>
+
                             </div>
                         </div>
                         <div class="footer text-center">

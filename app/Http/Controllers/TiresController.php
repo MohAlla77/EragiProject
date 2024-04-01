@@ -17,7 +17,7 @@ class TiresController extends Controller
         return view('Tires', ['Tires' => $tires]);
     }
 
-    public function AddTire(AddTiresRequest $request)
+    public function AddTire()
     {
         //$validated = $request->validated();
 
