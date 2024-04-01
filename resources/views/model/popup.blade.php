@@ -3,7 +3,9 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 id="exampleModalLabel">الإجراءت المطلوبة</h5>
+                <div class="col-12">    
+                    <h5 class="text-center" id="exampleModalLabel">الإجراءت المطلوبة</h5>
+                </div>
             </div>
             <form action="{{ route('RemoveCar.check',  ['id' => $data->CarId, 'user' => $data->UserId]) }}" method="POST">
                 @csrf

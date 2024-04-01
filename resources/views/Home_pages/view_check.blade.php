@@ -25,7 +25,6 @@
                                     <th>اسم السيارة</th>
                                     <th>اسم العميل</th>
                                     <th>اسم مقدم الخدمة</th>
-
                                 </tr>
                             </thead>
                             <tfoot>
@@ -37,24 +36,17 @@
                                     <th>اسم السيارة</th>
                                     <th>اسم العميل</th>
                                     <th>اسم مقدم الخدمة</th>
-
-
                                 </tr>
                             </tfoot>
                             <tbody>
-
-
                                 @foreach ($checkCarData as $data)
                                     <tr>
                                         <td>
-                                            <!-- Button trigger modal -->
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                 data-bs-target="#exampleModal{{$data->CarId}}{{$data->UserId}}">
-                                                تقرير
+                                                <i class="fa-solid fa-file-import"></i>
                                             </button>
-
                                             @include('model.popup')
-
                                         </td>
                                         <td>{{ $data->created_at }}</td>
                                         <td>{{ $data->customer_comment }}</td>
