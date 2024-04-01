@@ -72,7 +72,7 @@
                         <table id="datatablesSimple">
                             <thead>
                                 <tr>
-                                    <th>القرار</th>
+                                    <th>النهاية</th>
                                     <th>التاريخ</th>
                                     <th>تعليق</th>
                                     <th>الماركة</th>
@@ -89,7 +89,7 @@
                             <tfoot>
                                 <tr>
 
-                                    <th>القرار</th>
+                                    <th>النهاية</th>
                                     <th>التاريخ</th>
                                     <th>تعليق</th>
                                     <th>الماركو</th>
@@ -104,22 +104,16 @@
                                 </tr>
                             </tfoot>
                             <tbody>
-
                                 @foreach ($Cars as $car)
                                     <tr>
                                         <td>
                                             <!-- Button trigger modal -->
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                 data-bs-target="#exampleModal{{$car->id}}">
-                                               تم
+                                               <i class="fa-solid fa-check"></i>
                                             </button>
-
                                             @include('model.ToDone_popup')
-
-
-
                                         </td>
-                                        </form>
                                         <td>{{ $car->created_at->format('d/m/y h:i A') }}</td>
                                         <td>{{ $car->comment }}</td>
                                         <td>{{ $car->brand }}</td>
@@ -131,12 +125,8 @@
                                         <td>{{ $car->plate }}</td>
                                         <td>{{ $car->phone }}</td>
                                         <td>{{ $car->name }}</td>
-
-                                        <!-- Add more table cells as needed -->
                                     </tr>
                                 @endforeach
-
-
                             </tbody>
                         </table>
                     </div>
@@ -145,8 +135,6 @@
             @include('Layout.footer')
         </div>
     </div>
-
-
     <canvas id="myChart"></canvas>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>

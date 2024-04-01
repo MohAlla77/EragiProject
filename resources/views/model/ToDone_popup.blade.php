@@ -3,7 +3,9 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">ادخال اسم الفني</h1>
+                <div class="col-6 mx-auto">
+                    <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">ادخال اسم الفني</h1>
+                </div>
             </div>
             <form action="{{ route('car.ToDone', $car->id) }}" method="POST">
                 @csrf
