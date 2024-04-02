@@ -202,9 +202,6 @@
                                                             <option value="Late payment">اجل</option>
                                                             <option value="Prepaid">مقدم</option>
                                                         </select>
-                                                        <div class="valid-feedback">
-                                                            Looks good!
-                                                        </div>
                                                     </div>
                                                     <div class="col-md-6 mb-1">
                                                         <select class="form-select text-center" id="invoiceType"
@@ -214,22 +211,21 @@
                                                             <option value="فاتوره مشتريات">فاتوره مشتريات</option>
                                                             <option value="مرتجع ">مرتجع </option>
                                                         </select>
-                                                        <div class="valid-feedback">
-                                                            Looks good!
-                                                        </div>
                                                     </div>
                                                     <div class="col-md-6 mb-1">
                                                         <input type="number" class="form-control text-center"
                                                             id="invoice number" value=""
                                                             placeholder="رقم الفاتورة" readonly>
                                                     </div>
+                                                    <div class="col-md-6 mb-1">
+                                                        <input type="number" class="form-control text-center"
+                                                            id="invoice name" value=""
+                                                            placeholder="اسم المورد" readonly>
+                                                    </div>
                                                     <div class="col-md-6 text-end">
                                                         <input type="text" class="form-control text-end"
                                                             id="Buyername" value="" placeholder="اسم المشتري"
                                                             readonly>
-                                                        <div class="valid-feedback">
-                                                            Looks good!
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -388,7 +384,6 @@
                 <div id="otherForm">
                     <div class="card">
                         <div class="card-body">
-                            <!-- Your other form content goes here -->
                             <div class="row">
                                 <div class="col-6">
                                     <div class="card mb-2 bg-light">
@@ -548,38 +543,31 @@
                                                 <div class="col-md-12 mb-2">
                                                     <input type="text" class="form-control text-center"
                                                         id="#" required placeholder="الموردين" readonly>
-                                                    <div class="valid-feedback">
-                                                        Looks good!
-                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-1">
+                                                    <input type="text" class="form-control text-center"
+                                                        id="#" required placeholder="رقم التعريفي للمورد">
                                                 </div>
                                                 <div class="col-md-6 mb-1">
                                                     <input type="text" class="form-control text-center"
                                                         id="#" required placeholder="اسم المورد">
-                                                    <div class="valid-feedback">
-                                                        Looks good!
-                                                    </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <input type="number" class="form-control text-center"
                                                         id="#" required placeholder="رقم الهاتف ">
-                                                    <div class="valid-feedback">
-                                                        Looks good!
-                                                    </div>
                                                 </div>
                                                 <div class="col-md-6 mb-1">
                                                     <input type="text" class="form-control text-center"
                                                         id="#" required placeholder="رقم السجل التجاري">
-                                                    <div class="valid-feedback">
-                                                        Looks good!
-                                                    </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 mb-1">
+                                                    <input type="text" class="form-control text-center"
+                                                        id="#" required placeholder="الرقم الضريبي">
+                                                </div>
+                                                <div class="col-md-6 mb-1">
                                                     <input type="number" class="form-control text-center"
                                                         id="#" name="#" required
-                                                        placeholder="مكان المورد">
-                                                    <div class="valid-feedback">
-                                                        Looks good!
-                                                    </div>
+                                                        placeholder="العنوان الوطني">
                                                 </div>
                                                 <div class="col-12 text-center">
                                                     <button type="Save" class="col-6 btn btn-success">اضافة <i
@@ -624,141 +612,84 @@
                                 </form>
                             </div>
                         </div>-->
-                        <div class="card bg-light">
-                            <div class="card-body">
-                                <form class="row" id="addItemForm" novalidate action="" method="post">
-                                    <div class="col-md-12 mb-1">
-                                        <input type="text" class="form-control text-center"
-                                            id="AddacategoryFields" required placeholder="اضافة صنف" readonly>
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card bg-light">
+                                    <div class="card-body">
+                                        <form class="row" id="addItemForm" novalidate action="" method="post">
+                                            <div class="col-md-12 mb-1">
+                                                <input type="text" class="form-control text-center"
+                                                    id="AddacategoryFields" required placeholder="اضافة صنف" readonly>
+                                            </div>
+                                            <div class="col-md-6 mb-1">
+                                                <input type="text" class="form-control text-center" id="#"
+                                                    required placeholder="اسم المجموعة">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="number" class="form-control text-center" id="#"
+                                                    required placeholder="رقم المجموعة">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="number" class="form-control text-center" id="#"
+                                                    required placeholder="الرقم التسلسلي">
+                                            </div>
+                                            <div class="col-md-6 mb-1">
+                                                <input type="text" class="form-control text-center" id="#"
+                                                    required placeholder="اسم الصنف">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="number" class="form-control text-center"
+                                                    id="validationServer04" name="item_quantity" required
+                                                    placeholder="الكمية">
+                                            </div>
+                                            <div class="col-md-6 mb-1">
+                                                <input type="number" class="form-control text-center" id="#"
+                                                    required placeholder="الوحدة">
+                                            </div>
+                                            <div class="col-md-12 mb-1">
+                                                <input type="number" class="form-control text-center"
+                                                    id="validationServer04" name="item_price" required placeholder=" سعر التكلفة">
+                                            </div>
+                                            <div class="col-12 text-center">
+                                                <button type="Save" class="col-6 btn btn-success">اضافة <i
+                                                        class="fa-solid fa-plus"></i></button>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="col-md-6 mb-1">
-                                        <input type="text" class="form-control text-center" id="#"
-                                            required placeholder="اسم المجموعة">
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card mt-5 bg-light">
+                                    <div class="card-body">
+                                        <form class="row" id="addItemForm" novalidate action=""
+                                            method="post">
+                                            <div class="col-md-12 mb-1">
+                                                <input type="text" class="form-control text-center"
+                                                    id="AddagroupFields" required
+                                                    placeholder="اضافة المجموعة الاصناف" readonly>
+                                            </div>
+                                            <div class="col-md-6 mb-2">
+                                                <input type="text" class="form-control text-center"
+                                                    id="#" required placeholder="اسم المجموعة">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control text-center"
+                                                    id="#" required placeholder="رقم المجوعة">
+                                            </div>
+                                            <div class="col-12 text-center">
+                                                <button type="Save" class="col-12 btn btn-success">اضافة <i
+                                                        class="fa-solid fa-plus"></i></button>
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="col-md-6">
-                                        <input type="number" class="form-control text-center" id="#"
-                                            required placeholder="الرقم التسلسلي">
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-1">
-                                        <input type="text" class="form-control text-center" id="#"
-                                            required placeholder="اسم الصنف">
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="number" class="form-control text-center"
-                                            id="validationServer04" name="item_quantity" required
-                                            placeholder="الكمية">
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-1">
-                                        <input type="number" class="form-control text-center" id="#"
-                                            required placeholder="الوحدة">
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="number" class="form-control text-center"
-                                            id="validationServer04" name="item_price" required placeholder="السعر">
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-1">
-                                        <input type="number" class="form-control text-center" id="#"
-                                            required placeholder="سعر الكاش">
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="number" class="form-control text-center" id="#"
-                                            required placeholder="سعر الاجل">
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-1">
-                                        <input type="number" class="form-control text-center" id="#"
-                                            required placeholder="متوسط سعر التكلفة">
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-1">
-                                        <input type="number" class="form-control text-center" id="#"
-                                            required placeholder="التكلفة">
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
-                                    </div>
-                                    <div class="col-12 text-center">
-                                        <button type="Save" class="col-6 btn btn-success">اضافة <i
-                                                class="fa-solid fa-plus"></i></button>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-body">
-                                <div class="row g-3">
+                                <div class="row g-2">
                                     <div class="col-md-4">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <form class="row" id="addItemForm" novalidate action=""
-                                                    method="post">
-                                                    <div class="col-md-12 mb-1">
-                                                        <input type="text" class="form-control text-center"
-                                                            id="AddagroupFields" required
-                                                            placeholder="اضافة المجموعة الاصناف" readonly>
-                                                        <div class="valid-feedback">
-                                                            Looks good!
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 mb-2">
-                                                        <input type="text" class="form-control text-center"
-                                                            id="#" required placeholder="اسم المجموعة">
-                                                        <div class="valid-feedback">
-                                                            Looks good!
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <input type="text" class="form-control text-center"
-                                                            id="#" required placeholder="رقم المجوعة">
-                                                        <div class="valid-feedback">
-                                                            Looks good!
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 mb-1">
-                                                        <input type="text" class="form-control text-center"
-                                                            id="#" required placeholder="عدد الافروع">
-                                                        <div class="valid-feedback">
-                                                            Looks good!
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 text-center">
-                                                        <button type="Save" class="col-12 btn btn-success">اضافة <i
-                                                                class="fa-solid fa-plus"></i></button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="card">
+                                        <div class="card mt-4 bg-light">
                                             <div class="card-body">
                                                 <form class="row" id="addItemForm" novalidate
                                                     action="{{ route('ServiceGroup.store') }}" method="post">
@@ -767,34 +698,22 @@
                                                         <input type="text" class="form-control text-center"
                                                             id="AddagroupFields" required
                                                             placeholder="اضافة المجموعة الخدمات" readonly>
-                                                        <div class="valid-feedback">
-                                                            Looks good!
-                                                        </div>
                                                     </div>
                                                     <div class="col-md-6  mb-1">
                                                         <input name="GroupName" type="text"
                                                             class="form-control text-center" id="#" required
                                                             placeholder="اسم المجموعة">
-                                                        <div class="valid-feedback">
-                                                            Looks good!
-                                                        </div>
                                                     </div>
                                                     <div class="col-md-6  mb-1">
                                                         <input name="GroupNumber" type="text"
                                                             class="form-control text-center" id="#" required
                                                             placeholder="رقم المجوعة">
-                                                        <div class="valid-feedback">
-                                                            Looks good!
-                                                        </div>
                                                     </div>
                                                     <div class="col-md-12  mb-1">
                                                         <input name="GroupID" type="text"
                                                             class="form-control text-center" id="AddagroupFields"
                                                             required placeholder="أضف رمز (Ex: الماكنيكا -> MCH)"
                                                             required>
-                                                        <div class="valid-feedback">
-                                                            Looks good!
-                                                        </div>
                                                     </div>
                                                     <div class="col-12 text-center">
                                                         <button type="submite" class="col-12 btn btn-success">اضافة <i
@@ -804,8 +723,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="card">
+                                    <div class="col-md-8">
+                                        <div class="card bg-light">
                                             <div class="card-body">
                                                 <form class="row" id="addItemForm" novalidate
                                                     action="{{ route('Service.store') }}" method="post">
@@ -814,9 +733,6 @@
                                                         <input type="text" class="form-control text-center"
                                                             id="AddaserviceFields" required placeholder="اضافة خدمة"
                                                             readonly>
-                                                        <div class="valid-feedback">
-                                                            Looks good!
-                                                        </div>
                                                     </div>
                                                     <div class="col-md-6 mb-1">
                                                         <select name="service_group_id"
