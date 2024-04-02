@@ -14,7 +14,7 @@
                     @csrf
                         <div class="col-md-12">
                             <select name="service_group_id" class="form-select text-center" onchange="toggleForm(this)">
-                                @foreach ($ServiceGruop as $group)
+                                @foreach ($ServiceGroup as $group)
                                     <option value="{{ $group->id }}">
                                         {{ $group->name }}
                                     </option>
@@ -47,7 +47,7 @@
                                 @method('DELETE')
                                 <button class="btn btn-danger delete-btn" type="submit"
                                     onclick="return confirm('Are you sure you want to delete this service?')">Delete</button>
-                            </form>        
+                            </form>
                         </div>
                     </div>
                 </form>
