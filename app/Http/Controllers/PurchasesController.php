@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CategorizeGroup;
 use App\Models\Service;
 use App\Models\ServiceGroup;
 use Illuminate\Http\Request;
@@ -15,12 +16,14 @@ class PurchasesController extends Controller
         // Service::truncate();
 
 
-        $qroup = ServiceGroup::all();
+        $Service_group = ServiceGroup::all();
         $service = Service::all();
 
+        $Categorize_group = CategorizeGroup::all();
 
 
-        return view('Purchases', ['ServiceGruop' => $qroup , 'Services' => $service]);
+
+        return view('Purchases', ['ServiceGroup' => $Service_group, 'CategorizeGroup' => $Categorize_group , 'Services' => $service]);
     }
 
     public function SealsIndex(){

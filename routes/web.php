@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategorizeController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PurchasesController;
 use App\Http\Controllers\ServiceGroupController;
@@ -101,6 +102,10 @@ Route::put('/seals/{id}/update', [PurchasesController::class , 'Approve'])->name
 
 Route::get('/purchases', [PurchasesController::class , 'index'])->name('purchases');
 Route::post('/purchases' , [ServiceGroupController::class , 'store'])->name('ServiceGroup.store');
+Route::post('/purchases/categorize_group' , [CategorizeController::class , 'StoreGroup'])->name('CategorizeGroup.store');
+Route::post('/purchases/categorize' , [CategorizeController::class , 'store'])->name('Categorize.store');
+
+
 Route::post('/purchases/services' , [PurchasesController::class , 'ServiceStore'])->name('Service.store');
 Route::put('purchases/update/{id}', [PurchasesController::class , 'UpdateService'])->name('service.update');
 Route::delete('purchases/delete/{id}', [PurchasesController::class , 'DeleteService'])->name('service.delete');
