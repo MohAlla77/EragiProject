@@ -10,6 +10,7 @@
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        
     <style>
         .logo-img {
             width: 55px;
@@ -69,143 +70,132 @@
         </div>
         <div id="layoutSidenav_content">
             <main>
-                <div class="container-fluid mt-4 bg-gradient text-black justify-content-center">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card mb-2 bg-light">
-                                <div class="card-body">
-                                    <button type="submit" class="btn btn-success col-3">حفظ</button>
-                                    <a href="{{ route('invoice.print') }}">
-                                        <button id="printButton"class="btn btn-primary col-3"><i
-                                                class="fas fa-print"></i></button>
-                                    </a>
-                                </div>
-                            </div>
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Form Billing information Calculator -->
+                            @include('Invoice.Billing_info')
+                            <!-- Form Add in table Calculator -->
+                            @include('Invoice.Add_Item')
                         </div>
-                    </div>
-                    <div class="row">
-                        <!-- Form Billing information Calculator -->
-                        @include('Invoice.Billing_info')
-                        <!-- Form Add in table Calculator -->
-                        @include('Invoice.Add_Item')
-                    </div>
-                    <!-- Table Calculator -->
-                    <div class="card mb-2 bg-light">
-                        <div class="card-body">
-                            <div class="row">
-                                <table class="table table-striped">
-                                    <thead class="thead-dark">
-                                        <tr>
-                                            <th scope="col">المجموع</th>
-                                            <th scope="col">السعر</th>
-                                            <th scope="col">الكمية</th>
-                                            <th scope="col">الوحدة</th>
-                                            <th scope="col">رمز الصنف</th>
-                                            <th scope="col">اسم الصنف</th>
-                                            <th scope="col">رقم</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="itemTableBody">
-                                        @if (isset($items) && $items->count() > 0)
-                                            @foreach ($items as $item)
+                        <!-- Table Calculator -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <table class="table table-striped">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col">المجموع</th>
+                                                <th scope="col">السعر</th>
+                                                <th scope="col">الكمية</th>
+                                                <th scope="col">الوحدة</th>
+                                                <th scope="col">رمز الصنف</th>
+                                                <th scope="col">اسم الصنف</th>
+                                                <th scope="col">رقم</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="itemTableBody">
+                                            @if (isset($items) && $items->count() > 0)
+                                                @foreach ($items as $item)
+                                                    <tr>
+                                                        <td>{{ $item->price * $item->quantity }}</td>
+                                                        <td>{{ $item->price }}</td>
+                                                        <td>{{ $item->quantity }}</td>
+                                                        <td>{{ $item->unit }}</td>
+                                                        <td>{{ $item->code }}</td>
+                                                        <td>{{ $item->name }}</td>
+                                                        <td>{{ $item->id }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            @else
                                                 <tr>
-                                                    <td>{{ $item->price * $item->quantity }}</td>
-                                                    <td>{{ $item->price }}</td>
-                                                    <td>{{ $item->quantity }}</td>
-                                                    <td>{{ $item->unit }}</td>
-                                                    <td>{{ $item->code }}</td>
-                                                    <td>{{ $item->name }}</td>
-                                                    <td>{{ $item->id }}</td>
+                                                    <td colspan="6">No items found.</td>
                                                 </tr>
-                                            @endforeach
-                                        @else
-                                            <tr>
-                                                <td colspan="6">No items found.</td>
-                                            </tr>
+                                            @endif
+                                        </tbody>
+
+                                        @if (isset($items) && $items->count() > 0)
+                                            <tfoot>
+                                                <tr>
+                                                    {{-- <td colspan="6">{{ $items->links() }}</td> --}}
+                                                </tr>
+                                            </tfoot>
                                         @endif
-                                    </tbody>
-
-                                    @if (isset($items) && $items->count() > 0)
-                                        <tfoot>
-                                            <tr>
-                                                {{-- <td colspan="6">{{ $items->links() }}</td> --}}
-                                            </tr>
-                                        </tfoot>
-                                    @endif
-                                </table>
+                                    </table>
+                                </div>
                             </div>
                         </div>
+                        <!-- Card Calculator -->
+                        @if (isset($items))
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    <div class="card" style="height: 100%;">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-2">
+                                                    <input type="number" class="form-control text-center" disabled
+                                                        id="Total"
+                                                        value="{{ $items->sum(function ($item) {return $item->price * $item->quantity;}) }}"
+                                                        placeholder="الاجمالي" readonly>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <input type="number" class="form-control text-center" disabled
+                                                        id="VAT%15"
+                                                        value="{{ $items->sum(function ($item) {return $item->price * $item->quantity;}) * 0.15 }}"
+                                                        placeholder="ضريبة القيم المضافة%15" readonly>
+                                                </div>
+
+                                                <div class="col-md-6 mb-2">
+                                                    <input type="number" class="form-control text-center" disabled
+                                                        id="totalAmountWithTax"
+                                                        value="{{ $items->sum(function ($item) {return $item->price * $item->quantity;}) +$items->sum(function ($item) {return $item->price * $item->quantity;}) *0.15 }}"
+                                                        placeholder="الاجمالي مع الضريبة" readonly>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <select class="form-select" id="discountType"
+                                                        onchange="handleDiscountType()">
+                                                        <option value="NoDiscount">لا يوجد خصم</option>
+                                                        <option value="amount">بالمبغ</option>
+                                                        <option value="percentage">بالنسبة</option>
+                                                    </select>
+                                                </div>
+                                                <!-- Amount discount input -->
+                                                <div class="col-md-6 text-center" id="amountDiscountField">
+                                                    <input name="AmountOfDiscount" type="number" class="form-control"
+                                                        id="amountDiscountValue" placeholder="أدخل مبلغ الخصم">
+                                                </div>
+                                                <!-- Percentage discount input -->
+                                                <div class="col-md-6 text-center"  id="percentageDiscountField"
+                                                    style="display: none;">
+                                                    <input type="number" class="form-control"
+                                                        id="percentageDiscountValue" placeholder="أدخل نسبةالخصم">
+                                                </div>
+                                                <!-- Total price after discount -->
+                                                <div class="col-md-6">
+                                                    <input type="number" class="form-control"
+                                                        placeholder="المبلغ الصافى" id="totalPriceAfterDiscount" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Textarea Calculator -->
+                                <div class="col-md-6">
+                                    <div class="card" style="height: 100%;">
+                                        <div class="card-body">
+                                            <div class="numbered-textarea" style="height: 100%;">
+                                                <textarea class="form-control text-center" name="notes" id="notes" style="height: 100%;"
+                                                    placeholder="ملاحظات">
+                                                </textarea>
+                                                <div class="line-numbers" id="lineNumbers"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                     </div>
-                    <!-- Card Calculator -->
-                    @if (isset($items))
-                        <div class="row justify-content-center">
-                            <div class="col-md-6 mb-2">
-                                <div class="card mb-2 bg-light" style="height: 100%;">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-6 mb-2">
-                                                <input type="number" class="form-control text-center" disabled
-                                                    id="Total"
-                                                    value="{{ $items->sum(function ($item) {return $item->price * $item->quantity;}) }}"
-                                                    placeholder="الاجمالي" readonly>
-                                            </div>
-                                            <div class="col-md-6 mb-2">
-                                                <input type="number" class="form-control text-center" disabled
-                                                    id="VAT%15"
-                                                    value="{{ $items->sum(function ($item) {return $item->price * $item->quantity;}) * 0.15 }}"
-                                                    placeholder="ضريبة القيم المضافة%15" readonly>
-                                            </div>
-
-                                            <div class="col-md-6 mb-2">
-                                                <input type="number" class="form-control text-center" disabled
-                                                    id="totalAmountWithTax"
-                                                    value="{{ $items->sum(function ($item) {return $item->price * $item->quantity;}) +$items->sum(function ($item) {return $item->price * $item->quantity;}) *0.15 }}"
-                                                    placeholder="الاجمالي مع الضريبة" readonly>
-                                            </div>
-
-                                            <div class="col-md-6">
-                                                <select class="form-select" id="discountType"
-                                                    onchange="handleDiscountType()">
-                                                    <option value="NoDiscount">لا يوجد خصم</option>
-                                                    <option value="amount">بالمبغ</option>
-                                                    <option value="percentage">بالنسبة</option>
-                                                </select>
-                                            </div>
-                                            <!-- Amount discount input -->
-                                            <div class="col-md-6 text-center" id="amountDiscountField">
-                                                <input name="AmountOfDiscount" type="number" class="form-control"
-                                                    id="amountDiscountValue" placeholder="أدخل مبلغ الخصم">
-                                            </div>
-                                            <!-- Percentage discount input -->
-                                            <div class="col-md-6 text-center"  id="percentageDiscountField"
-                                                style="display: none;">
-                                                <input type="number" class="form-control"
-                                                    id="percentageDiscountValue" placeholder="أدخل نسبةالخصم">
-                                            </div>
-                                            <!-- Total price after discount -->
-                                            <div class="col-md-6">
-                                                <input type="number" class="form-control"
-                                                    placeholder="المبلغ الصافى" id="totalPriceAfterDiscount" readonly>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Textarea Calculator -->
-                            <div class="col-md-6 mb-2">
-                                <div class="card mb-2 bg-light" style="height: 100%;">
-                                    <div class="card-body">
-                                        <div class="numbered-textarea" style="height: 100%;">
-                                            <textarea class="form-control text-center" name="notes" id="notes" style="height: 100%;"
-                                                placeholder="ملاحظات">
-                                            </textarea>
-                                            <div class="line-numbers" id="lineNumbers"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
                 </div>
             </main>
         </div>
