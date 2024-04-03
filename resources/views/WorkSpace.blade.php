@@ -124,28 +124,28 @@
                                     <div class="col-md-4 mb-2">
                                         <input type="text" class="form-control text-center"
                                             value="{{ $car->car_name }}" name="carName" required
-                                            placeholder="اسم السيارة">
+                                            placeholder="اسم السيارة" readonly>
                                     </div>
                                     <div class="col-md-4 mb-2">
                                         <input type="text" class="form-control text-center"
                                             value="{{ $car->structure_no }}" name="chassisNumber" required
-                                            placeholder="رقم الهيكل">
+                                            placeholder="رقم الهيكل" readonly>
                                     </div>
                                     <div class="col-md-4">
                                         <input type="text" class="form-control text-center"
-                                            value="{{ $car->brand }}" name="carBrand" placeholder="ماركة السيارة">
+                                            value="{{ $car->brand }}" name="carBrand" placeholder="ماركة السيارة" readonly>
                                     </div>
                                     <div class="col-md-4">
                                         <input type="text" class="form-control text-center"
-                                            value="{{ $car->name }}" name="carBrand" placeholder="مالك السيارة">
+                                            value="{{ $car->name }}" name="carBrand" placeholder="مالك السيارة" readonly>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="number" class="form-control text-center"
-                                            value="{{ $car->model }}" name="carModel" placeholder="موديل السيارة">
+                                        <input  class="form-control text-center"
+                                            value="{{ $car->model }}" name="carModel" placeholder="موديل السيارة" readonly>
                                     </div>
                                     <div class="col-md-4">
                                         <input type="text" class="form-control text-center"
-                                            value="{{ $car->service }}" name="serviceType" placeholder="نوع الخدمة">
+                                            value="{{ $car->service }}" name="serviceType" placeholder="نوع الخدمة" readonly>
                                     </div>
                                 @endif
                             </div>
@@ -231,13 +231,12 @@
                                 <div class="card mb-4">
                                     <div class="card-header text-end">الزيارة السابقة <i class="fas fa-table me-4"></i></div>
                                     <div class="card-body">
-                                        @if (isset($CarHistory))
-
-
+                                        @if(isset( $CarHistory))
                                         <table class="table table-bordered table-striped">
                                             <thead class="thead-dark">
                                                 <tr>
                                                     <th>التاريخ</th>
+                                                    <th>ساعت العمل</th>
                                                     <th>اسم السيارة</th>
                                                     <th>اسم العميل</th>
                                                     <th>اسم الفني</th>
@@ -250,6 +249,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td>{{ $CarHistory->created_at->format('d/m/y') }}</td>
+                                                    <td></td>
                                                     <td>{{$car->car_name}}</td>
                                                     <td>{{ $user_name->first_name }}</td>
                                                     <td>{{ $CarHistory->Worker_name }}</td>
@@ -260,11 +260,10 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-
                                         @endif
                                     </div>
                                 </div>
-                            @endif
+                            @endif{{--
                             <div class="row">
                                 <div class="col-6">
                                     <div class="card">
@@ -330,7 +329,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>--}}
                         </div>
                     </div>
                 </div>

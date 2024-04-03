@@ -118,17 +118,15 @@
                     <form id="invoiceForm" style="height: 100%; display: none;">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-12 mb-2">
+                                <div class="col-md-12 mb-1">
                                     <div class="card bg-light">
                                         <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <button type="submit" class="btn btn-success col-3">حفظ <i
-                                                            class="fa fa-bookmark" aria-hidden="true"></i></button>
-                                                    <button type="submit" id="printButton"
-                                                        class="btn btn-primary col-3" onclick="window.print()"><i
-                                                            class="fas fa-print"></i></button>
-                                                </div>
+                                            <div class="col-md-6">
+                                                <button type="submit" class="btn btn-success col-3"><i
+                                                        class="fa fa-bookmark" aria-hidden="true"></i></button>
+                                                <button type="submit" id="printButton"
+                                                    class="btn btn-primary col-3" onclick="window.print()"><i
+                                                        class="fas fa-print"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -139,8 +137,8 @@
                                 <div class="col-md-6">
                                     <div class="card bg-light">
                                         <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-md-6 mb-2">
+                                            <div class="row g-1">
+                                                <div class="col-md-6">
                                                     <select class="form-select text-center" id="paymentMethod"
                                                         name="paymentMethod" aria-label="Default select example">
                                                         <option selected>طريقة الدفع</option>
@@ -149,17 +147,14 @@
                                                         <option value="Late payment">اجل</option>
                                                         <option value="Prepaid">مقدم</option>
                                                     </select>
-                                                    <div class="valid-feedback">
-                                                        Looks good!
-                                                    </div>
                                                 </div>
                                                 <div
-                                                    class="col-md-6 mb-2 d-flex justify-content-end align-items-center">
+                                                    class="col-md-6 d-flex justify-content-end align-items-center">
                                                     <input type="text" class="form-control text-center"
                                                         id="reference number" value=""
                                                         placeholder="رقم المرجع">
                                                 </div>
-                                                <div class="col-md-6 mb-2">
+                                                <div class="col-md-6">
                                                     <select class="form-select text-center" id="customerType"
                                                         aria-label="Default select example"
                                                         onchange="showCompanyField()">
@@ -167,21 +162,18 @@
                                                         <option value="1">نقدي</option>
                                                         <option value="2">شركة</option>
                                                     </select>
-                                                    <div class="valid-feedback">
-                                                        Looks good!
-                                                    </div>
                                                 </div>
-                                                <div class="col-md-6 mb-2">
+                                                <div class="col-md-6">
                                                     <input type="text" class="form-control text-center"
                                                         id="Customer data" value=""
                                                         placeholder="بيانات العميل">
                                                 </div>
-                                                <div class="col-md-6 mb-2">
+                                                <div class="col-md-6">
                                                     <input type="number" class="form-control text-center"
                                                         id="invoice number" value="" placeholder="رقم الفاتورة"
                                                         readonly>
                                                 </div>
-                                                <div class="col-md-6 mb-2">
+                                                <div class="col-md-6">
                                                     <select class="form-select text-center" id="invoiceType"
                                                         name="invoiceType" aria-label="Default select example"
                                                         onchange="generateInvoiceNumber()">
@@ -190,28 +182,22 @@
                                                         <option value="فاتورة ضريبية">فاتورة ضريبية</option>
                                                         <option value="مرتجع ">مرتجع </option>
                                                     </select>
-                                                    <div class="valid-feedback">
-                                                        Looks good!
-                                                    </div>
                                                 </div>
                                                 <div class="col-md-12 text-end">
-                                                    <input type="text" class="form-control text-end"
-                                                        id="Seller name" value="" placeholder="اسم البائع"
+                                                    <input type="text" class="form-control text-center"
+                                                        id="Seller name" value="" placeholder="اسم المستخدم"
                                                         readonly>
-                                                    <div class="valid-feedback">
-                                                        Looks good!
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Form Add in table Calculator -->
-                                <div class="col-md-6 mb-2">
+                                <div class="col-md-6 mb-1">
                                     <div class="card bg-light">
                                         <div class="card-body">
                                             <div id="addNewItemForm">
-                                                <div class="row g-2">
+                                                <div class="row g-1">
                                                     <div class="col-md-6">
                                                         <input type="text" name="itemName" id="itemName" required
                                                             class="form-control text-center"
@@ -251,7 +237,7 @@
                                 </div>
                             </div>
                             <!-- Table Calculator -->
-                            <div class="card mb-2 bg-light">
+                            <div class="card mb-1 bg-light">
                                 <div class="card-body">
                                     <div class="row">
                                         <table class="table table-striped">
@@ -273,27 +259,21 @@
                             </div>
                             <!-- Card Calculator -->
                             <div class="row justify-content-center">
-                                <div class="col-md-6 mb-2">
-                                    <div class="card mb-2 bg-light" style="height: 100%;">
+                                <div class="col-md-6">
+                                    <div class="card bg-light" style="height: 100%;">
                                         <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-md-6 mb-2">
+                                            <div class="row g-1">
+                                                <div class="col-md-6">
                                                     <input type="number" class="form-control text-center"
                                                         id="Total" value="" placeholder="الاجمالي"
                                                         readonly>
-                                                    <div class="valid-feedback">
-                                                        Looks good!
-                                                    </div>
                                                 </div>
-                                                <div class="col-md-6 mb-2">
+                                                <div class="col-md-6">
                                                     <input type="number" class="form-control text-center"
                                                         id="VAT%15" value=""
                                                         placeholder="ضريبة القيم المضافة%15" readonly>
-                                                    <div class="valid-feedback">
-                                                        Looks good!
-                                                    </div>
                                                 </div>
-                                                <div class="col-md-6 mb-2">
+                                                <div class="col-md-6">
                                                     <select class="form-select text-center" id="discountType"
                                                         aria-label="Default select example"
                                                         onchange="handleDiscountType()">
@@ -301,28 +281,23 @@
                                                         <option value="percentage">بالنسبة</option>
                                                         <option value="amount">بالمبلغ</option>
                                                     </select>
-                                                    <div class="valid-feedback">
-                                                        Looks good!
-                                                    </div>
                                                 </div>
-                                                <div class="col-md-6 mb-2" id="percentageDiscountField"
+                                                <div class="col-md-6" id="percentageDiscountField"
                                                     style="display: none;">
                                                     <input type="number" class="form-control text-center"
                                                         id="percentageDiscountValue" placeholder="قيمة الخصم بالنسبة">
-                                                    <div class="valid-feedback">Looks good!</div>
                                                 </div>
-                                                <div class="col-md-6 mb-2" id="amountDiscountField"
+                                                <div class="col-md-6" id="amountDiscountField"
                                                     style="display: none;">
                                                     <input type="number" class="form-control text-center"
                                                         id="amountDiscountValue" placeholder="قيمة الخصم بالمبلغ">
-                                                    <div class="valid-feedback">Looks good!</div>
                                                 </div>
-                                                <div class="col-md-6 mb-2">
+                                                <div class="col-md-6">
                                                     <input type="number" class="form-control text-center"
                                                         id="totalAmountWithTax" value=""
                                                         placeholder="الاجمالي مع الضريبة" readonly>
                                                 </div>
-                                                <div class="col-md-12 mb-2">
+                                                <div class="col-md-12">
                                                     <input type="number" class="form-control text-center"
                                                         id="netAmount" value="" placeholder="المبلغ الصافي"
                                                         readonly>
@@ -332,8 +307,8 @@
                                     </div>
                                 </div>
                                 <!-- Textarea Calculator -->
-                                <div class="col-md-6 mb-2">
-                                    <div class="card mb-2 bg-light" style="height: 100%;">
+                                <div class="col-md-6">
+                                    <div class="card bg-light" style="height: 100%;">
                                         <div class="card-body">
                                             <div class="numbered-textarea" style="height: 100%;">
                                                 <textarea class="form-control text-center" name="notes" id="notes" style="height: 100%;"

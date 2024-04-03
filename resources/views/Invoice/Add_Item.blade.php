@@ -1,8 +1,8 @@
-<div class="col-md-6 mb-2">
-    <div class="card bg-light">
+<div class="col-md-6">
+    <div class="card">
         <div class="card-body">
             <div id="addNewItemForm">
-                <div class="row g-2">
+                <div class="row">
                     <form action="{{route('spare.search')}}" method="GET">
                         <div class="input-group">
                             <input name="PartId" type="text" class="form-control text-center" id="validationCustom02"  placeholder="رمز الصنف" required>
@@ -13,20 +13,20 @@
                     <form action="{{ route('spear.store', $spear->id) }}" method="POST">
                         @csrf
                         <div class="row">
-                            <div class="col-md-6 mb-2">
+                            <div class="col-md-6">
                                 <input name="ItemCode" value="{{ $spear->part_id }}" type="number" class="form-control text-center" id="validationCustom02" placeholder="رمز الصنف" readonly required>
                             </div>
-                            <div class="col-md-6 mb-2">
+                            <div class="col-md-6">
                                 <input name="ItemName" value="{{ $spear->name }}" type="text" name="itemName" id="itemName" required class="form-control text-center" placeholder="اسم الصنف" readonly>
                             </div>
-                            <div class="col-md-6 mb-2">
+                            <div class="col-md-6">
                                 <input name="ItemPrice" value="{{ $spear->price }}" type="number" name="name" required class="form-control text-center" id="price" placeholder="السعر" readonly>
                             </div>
-                            <div class="col-md-6 mb-2">
-                                <input name="ItemUnit" class="form-control text-center" id="unitServiceSelect" value="وحدة" disabled>
+                            <div class="col-md-6">
+                                <input name="ItemUnit" class="form-control text-center" id="unitServiceSelect" value="وحدة" readonly>
 
                             </div>
-                            <div class="col-md-6 mb-2">
+                            <div class="col-md-6">
                                 <input name="ItemQuantity" type="number" name="name" required class="form-control text-center" id="quantity" placeholder="الكمية">
                             </div>
                         </div>
@@ -39,17 +39,17 @@
                     <form action="{{ route('service.store', $service->id) }}" method="POST">
                         @csrf
                         <div class="row">
-                            <div class="col-md-6 mb-2">
+                            <div class="col-md-6">
                                 <input name="ItemCode" value="{{ $service->service_id}}" type="text" class="form-control text-center" id="validationCustom02" placeholder="رمز الصنف" readonly required>
                             </div>
-                            <div class="col-md-6 mb-2">
+                            <div class="col-md-6">
                                 <input name="ItemName" value="{{ $service->name }}" type="text" name="itemName" id="itemName" required class="form-control text-center" placeholder="اسم الصنف" readonly>
                             </div>
-                            <div class="col-md-6 mb-2">
+                            <div class="col-md-6">
                                 <input name="ItemPrice" value="{{ $service->cost_price }}" type="number" name="name" required class="form-control text-center" id="price" placeholder="السعر" readonly>
                             </div>
-                            <div class="col-md-6 mb-2">
-                                <input name="ItemUnit" class="form-control text-center"   id="price" placeholder="السعر" value="خدمة" disabled>
+                            <div class="col-md-6">
+                                <input name="ItemUnit" class="form-control text-center"   id="price" placeholder="السعر" value="خدمة" readonly>
 
                             </div>
                         </div>

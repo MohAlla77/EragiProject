@@ -64,18 +64,12 @@
                                                     <input type="datetime-local" class="form-control text-center"
                                                         id="validationCustomDate" placeholder="التاريخ" required
                                                         readonly>
-                                                    <div class="valid-feedback">
-                                                        Looks good!
-                                                    </div>
                                                 </div>
                                                 <div class="col-md-5">
                                                     <input type="text" class="form-control text-center"
                                                         id="validationCustomUsername"
                                                         value="{{ Auth::user()->first_name }} {{ Auth::user()->last_name }} :  المستخدم "
                                                          required readonly>
-                                                    <div class="valid-feedback">
-                                                        Looks good!
-                                                    </div>
                                                 </div>
                                                 <div class="col-md-2 text-center">
                                                     <div class="form-check form-check-inline">
@@ -147,7 +141,7 @@
                                                 @enderror
                                             </div>
                                             <div class="mb-2">
-                                                <input name="car_counter" type="number" name="number"
+                                                <input name="car_counter" name="number"
                                                     class="form-control text-center" id="odometerReading" required
                                                     placeholder="رقم العداد">
                                                 @error('car_counter')
@@ -186,7 +180,7 @@
                                                 </div>
                                             </div>
                                             <div class="mb-2">
-                                                <input name="u_phone" type="number" name="number"
+                                                <input name="u_phone" name="number"
                                                     class="form-control text-center" id="customerPhone" required
                                                     placeholder="رقم الهاتف">
                                                 @error('u_phone')
