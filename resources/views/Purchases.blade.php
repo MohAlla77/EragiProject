@@ -63,6 +63,10 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
+        
+        <a class="navbar-brand pe-2" href="#"><i class="fa-solid fa-sitemap"></i><span class="ms-1"> صنف</span></a>
+        <a class="navbar-brand" href="#"><span class="ms-1"><i class="fa-solid fa-server"></i> خدمة</span></a>
+
         <div class="col-md-6 texr-end">
             <button id="invoiceButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleInvoiceForm()">فاتورة
                 <i class="fas fa-file-invoice"></i></button>
@@ -71,18 +75,7 @@
             <button id="toggleTableViewButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleTableView()">
                 عرض الجدول <i class="fa-solid fa-eye"></i></button>
         </div>
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                </a>
-                <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">ادارة المشتريات</a></li>
-                </ul>
-            </li>
-        </ul>
-        <a class="navbar-brand" href="#"><i class="fa-solid fa-cart-shopping"></i><span
-                class="ms-1">المشتريات</span></a>
+        <a class="navbar-brand" href="#"><!--<i class="fa-solid fa-cart-shopping"></i>--><span class="ms-1">المشتريات</span></a>
         <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i
                 class="fas fa-bars"></i></button>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -580,23 +573,24 @@
                             <div class="col-md-4">
                                 <div class="card mt-5 bg-light">
                                     <div class="card-body">
-                                        <form class="row" id="addItemForm" novalidate action=""
+                                        <form class="row" id="addItemForm" novalidate action="{{route('CategorizeGroup.store')}}"
                                             method="post">
+                                            @csrf
                                             <div class="col-md-12 mb-1">
                                                 <input type="text" class="form-control text-center"
                                                     id="AddagroupFields" required
                                                     placeholder="اضافة المجموعة الاصناف" readonly>
                                             </div>
                                             <div class="col-md-6 mb-2">
-                                                <input type="text" class="form-control text-center"
+                                                <input name="CategorizeGroupName" type="text" class="form-control text-center"
                                                     id="#" required placeholder="اسم المجموعة">
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control text-center"
+                                                <input name="CategorizeGroupNumber" type="text" class="form-control text-center"
                                                     id="#" required placeholder="رقم المجوعة">
                                             </div>
                                             <div class="col-12 text-center">
-                                                <button type="Save" class="col-12 btn btn-success">اضافة <i
+                                                <button type="Save" class="col-6 btn btn-success">اضافة <i
                                                         class="fa-solid fa-plus"></i></button>
                                             </div>
                                         </form>
@@ -645,36 +639,13 @@
                                                 <input name="CategorizeUnit" type="number" class="form-control text-center" id="#"
                                                     required placeholder="الوحدة">
                                             </div>
-                                            <div class="col-md-12 mb-1">
+                                            <div class="col-md-6 mb-1">
                                                 <input  name="CategorizeCost" type="number" class="form-control text-center"
                                                     id="validationServer04" name="item_price" required placeholder=" سعر التكلفة">
                                             </div>
-                                            <div class="col-12 text-center">
-                                                <button type="Save" class="col-6 btn btn-success">اضافة <i
-                                                        class="fa-solid fa-plus"></i></button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card mt-5 bg-light">
-                                    <div class="card-body">
-                                        <form class="row" id="addItemForm" novalidate action="{{route('CategorizeGroup.store')}}"
-                                            method="post">
-                                            @csrf
                                             <div class="col-md-12 mb-1">
-                                                <input type="text" class="form-control text-center"
-                                                    id="AddagroupFields" required
-                                                    placeholder="اضافة المجموعة الاصناف" readonly>
-                                            </div>
-                                            <div class="col-md-6 mb-2">
-                                                <input name="CategorizeGroupName" type="text" class="form-control text-center"
-                                                    id="#" required placeholder="اسم المجموعة">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input name="CategorizeGroupNumber" type="text" class="form-control text-center"
-                                                    id="#" required placeholder="رقم المجوعة">
+                                                <input  name="CategorizeCost" type="number" class="form-control text-center"
+                                                    id="validationServer04" name="item_price" required placeholder=" سعر البيع">
                                             </div>
                                             <div class="col-12 text-center">
                                                 <button type="Save" class="col-6 btn btn-success">اضافة <i

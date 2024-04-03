@@ -43,6 +43,8 @@
               <span class="navbar-toggler-icon"></span>
             </button>
         </div>
+        
+        <a class="navbar-brand" href="#"><i class="fa-regular fa-bell"></i></a>
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <a class="navbar-brand" href="{{ route('home') }}"><span>الرئيسية</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
