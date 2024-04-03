@@ -231,6 +231,9 @@
                                 <div class="card mb-4">
                                     <div class="card-header text-end">الزيارة السابقة <i class="fas fa-table me-4"></i></div>
                                     <div class="card-body">
+                                        @if (isset($CarHistory))
+
+
                                         <table class="table table-bordered table-striped">
                                             <thead class="thead-dark">
                                                 <tr>
@@ -257,6 +260,8 @@
                                                 </tr>
                                             </tbody>
                                         </table>
+
+                                        @endif
                                     </div>
                                 </div>
                             @endif
