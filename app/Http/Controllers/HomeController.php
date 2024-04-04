@@ -11,6 +11,27 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
+    public function index()
+    {
+
+        $count_all = Car::count();
+        $count_new = Car::where('status','NEW')->count();
+        $count_main = Car::where('status','Maintenace')->count();
+        $count_wait = Car::where('status','WAITING')->count();
+        $count_done = Car::where('status','DONE')->count();
+
+
+        return view('home', [
+
+            'count_new' => $count_new,
+            'count_all' => $count_all,
+            'count_main' => $count_main,
+            'count_wait' => $count_wait,
+            'count_done' => $count_done,
+
+        ]);
+    }
+
     public function view($type)
     {
 

@@ -56,7 +56,10 @@
                                 <div class="card-footer d-flex align-items-center justify-content-between">
                                     <a class="small text-white stretched-link" href="{{route('page.view', 'all')}}">View
                                         Details</a>
-                                    <div class="small text-white"><i class="fa-regular fa-comment"></i></div>
+                                    <div class="small text-white"><i class="fa-regular fa-comment"></i>
+                                    {{$count_all}}
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -66,7 +69,9 @@
                                 <div class="card-footer d-flex align-items-center justify-content-between">
                                     <a class="small text-white stretched-link" href="{{route('page.view' , 'Maintenace')}}">View
                                         Details</a>
-                                    <div class="small text-white"><i class="fa-regular fa-comment"></i></div>
+                                    <div class="small text-white"><i class="fa-regular fa-comment"></i>
+                                        {{$count_main}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +81,9 @@
                                 <div class="card-footer d-flex align-items-center justify-content-between">
                                     <a class="small text-white stretched-link" href="{{route('page.view', 'Waiting')}}">View
                                         Details</a>
-                                    <div class="small text-white"><i class="fa-regular fa-comment"></i></div>
+                                    <div class="small text-white"><i class="fa-regular fa-comment"></i>
+                                        {{$count_wait}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +93,9 @@
                                 <div class="card-footer d-flex align-items-center justify-content-between">
                                     <a class="small text-white stretched-link" href="{{route('page.view', 'done')}}">View
                                         Details</a>
-                                    <div class="small text-white"><i class="fa-regular fa-comment"></i></div>
+                                    <div class="small text-white"><i class="fa-regular fa-comment"></i>
+                                        {{$count_done}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -96,7 +105,9 @@
                                 <div class="card-footer d-flex align-items-center justify-content-between">
                                     <a class="small text-white stretched-link" href="{{route('page.check')}}">View
                                         Details</a>
-                                    <div class="small text-white"><i class="fa-regular fa-comment"></i></div>
+                                    <div class="small text-white"><i class="fa-regular fa-comment"></i>
+                                        {{$count_wait}}
+                                    </div>
                                 </div>
                             </div>
                         </div>
