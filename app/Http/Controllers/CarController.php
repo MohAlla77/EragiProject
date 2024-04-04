@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AddCarRequest;
 use App\Models\Car;
 use App\Models\CarHistory;
+use App\Models\CompanyInfo;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -36,10 +37,13 @@ class CarController extends Controller
             'value3' => 'مراجعة ماكينة',
         ];
 
+        $company = CompanyInfo::all();
+
         return view('new_car', [
             'car_brand' => $CarBrand,
             'car_model' => $Car_Model,
             'car_service' => $Car_Service,
+            'company' => $company
         ]);
     }
 

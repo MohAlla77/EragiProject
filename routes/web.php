@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategorizeController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\ManagemetController;
 use App\Http\Controllers\PurchasesController;
 use App\Http\Controllers\ServiceGroupController;
 use App\Http\Controllers\SpearController;
@@ -72,6 +73,8 @@ Route::prefix('/management')->group(function () {
         return view('Management_page.Data_Entry');
     })->name('Data_Entry');
 
+
+
     Route::get('/customer', function () {
         return view('Management_page.Customers');
     })->name('Customers');
@@ -106,6 +109,7 @@ Route::post('/purchases/categorize_group' , [CategorizeController::class , 'Stor
 Route::post('/purchases/categorize' , [CategorizeController::class , 'store'])->name('Categorize.store');
 
 
+
 Route::post('/purchases/services' , [PurchasesController::class , 'ServiceStore'])->name('Service.store');
 Route::put('purchases/update/{id}', [PurchasesController::class , 'UpdateService'])->name('service.update');
 Route::delete('purchases/delete/{id}', [PurchasesController::class , 'DeleteService'])->name('service.delete');
@@ -137,5 +141,7 @@ Route::post('/check/{id}/Removecheck/{user}', [CarController::class , 'Remove'] 
 
 Route::get('/{type}', [HomeController::class , 'view'] )->name('page.view');
 Route::post('/{car}/done', [HomeController::class , 'ToDone'] )->name('car.ToDone');
+
+Route::post('/management/DataEntry/AddCompany', [ManagemetController::class , 'CompanyStore'])->name('Data_Entry.Company');
 
 

@@ -87,7 +87,8 @@
                             </form>
                         </div>
                         <div class="col-6 mt-4">
-                            <form action="#" method="post">
+                            <form action="{{route('Data_Entry.Company')}}" method="post">
+                                @csrf
                                 <div class="card">
                                     <div class="row g-2">
                                         <div class="col-12">
@@ -97,22 +98,22 @@
                                             </div>
                                         </div>
                                         <div class="col-6">
-                                            <input type="text" class="form-control text-center" name="name" placeholder="اسم الشركة">
+                                            <input name="CompanyName" type="text" class="form-control text-center" name="name" placeholder="اسم الشركة">
                                         </div>
                                         <div class="col-6">
-                                            <input type="number" class="form-control text-center" name="name" placeholder="الرقم الضريبي">
+                                            <input name="TaxNumber" type="number" class="form-control text-center" name="name" placeholder="الرقم الضريبي">
                                         </div>
                                         <div class="col-6">
-                                            <input type="text" class="form-control text-center" name="name" placeholder="اسم شخص">
+                                            <input name="PersonName" type="text" class="form-control text-center" name="name" placeholder="اسم شخص">
                                         </div>
                                         <div class="col-6">
-                                            <input type="number" class="form-control text-center" name="name" placeholder=" رقم الهاتف">
+                                            <input  name="CompanyPhone" type="number" class="form-control text-center" name="name" placeholder=" رقم الهاتف">
                                         </div>
                                         <div class="col-6">
-                                            <input type="number" class="form-control text-center" name="name" placeholder="بطاقة الاتمان">
+                                            <input name="CompanyCard" type="number" class="form-control text-center" name="name" placeholder="بطاقة الاتمان">
                                         </div>
                                         <div class="col-md-6">
-                                            <select id="brand" class="form-select text-center" aria-describedby="validationServer04Feedback" required>
+                                            <select name="CompanyPayType" id="brand" class="form-select text-center" aria-describedby="validationServer04Feedback" required>
                                                 <option selected>نوع العميل</option>
                                                 <option selected>اجل</option>
                                                 <option selected>مقدم</option>

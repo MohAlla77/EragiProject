@@ -69,30 +69,33 @@
                                                     <input type="text" class="form-control text-center"
                                                         id="validationCustomUsername"
                                                         value="{{ Auth::user()->first_name }} {{ Auth::user()->last_name }} :  المستخدم "
-                                                         required readonly>
+                                                        required readonly>
                                                 </div>
                                                 <div class="col-md-2 text-center">
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="paymentType" id="cashPayment" value="cash" required>
+                                                        <input class="form-check-input" type="radio"
+                                                            name="paymentType" id="cashPayment" value="cash" required>
                                                         <label class="form-check-label" for="cashPayment">
-                                                            نقدي 
+                                                            نقدي
                                                         </label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="paymentType" id="companyPayment" value="company" required>
+                                                        <input class="form-check-input" type="radio"
+                                                            name="paymentType" id="companyPayment" value="company"
+                                                            required>
                                                         <label class="form-check-label" for="companyPayment">
                                                             شركة
                                                         </label>
                                                     </div>
-                                                </div>                                                
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="mb-2">
-                                                <select name="car_brand" id="brand"
-                                                    class="form-select text-center"
+                                                <select name="car_brand" id="brand" class="form-select text-center"
                                                     aria-describedby="validationServer04Feedback" required>
-                                                    <option value="" disabled selected>ماركة السيارة</option> <!-- Placeholder option -->
+                                                    <option value="" disabled selected>ماركة السيارة</option>
+                                                    <!-- Placeholder option -->
                                                     @foreach ($car_brand as $car_brand)
                                                         <option>{{ $car_brand }}</option>
                                                     @endforeach
@@ -103,10 +106,10 @@
                                                 @enderror
                                             </div>
                                             <div class="mb-2">
-                                                <select name="car_model" id="model"
-                                                    class="form-select text-center"
+                                                <select name="car_model" id="model" class="form-select text-center"
                                                     aria-describedby="validationServer04Feedback" required>
-                                                    <option value="" disabled selected>موديل السيارة</option> <!-- Placeholder option -->
+                                                    <option value="" disabled selected>موديل السيارة</option>
+                                                    <!-- Placeholder option -->
                                                     @foreach ($car_model as $car_model)
                                                         <option>{{ $car_model }}</option>
                                                     @endforeach
@@ -120,7 +123,8 @@
                                                 <select name="car_service" id="serviceType"
                                                     class="form-select text-center"
                                                     aria-describedby="validationServer04Feedback" required>
-                                                    <option value="" disabled selected>نوع الخدمة</option> <!-- Placeholder option -->
+                                                    <option value="" disabled selected>نوع الخدمة</option>
+                                                    <!-- Placeholder option -->
                                                     @foreach ($car_service as $car_service)
                                                         <option>{{ $car_service }}</option>
                                                     @endforeach
@@ -149,9 +153,8 @@
                                                 @enderror
                                             </div>
                                             <div class="mb-2">
-                                                <input name="car_name" type="text"
-                                                    class="form-control text-center" id="carName" required
-                                                    placeholder="اسم السيارة">
+                                                <input name="car_name" type="text" class="form-control text-center"
+                                                    id="carName" required placeholder="اسم السيارة">
                                                 <div class="valid-feedback">
                                                     Looks good!
                                                 </div>
@@ -163,26 +166,35 @@
                                         <div class="col-md-4">
                                             <div id="cashInput">
                                                 <div class="mb-2">
-                                                    <input name="u_name" type="text" name="name" class="form-control text-center" id="customerName" required placeholder="الاسم">
+                                                    <input name="u_name" type="text" name="name"
+                                                        class="form-control text-center" id="customerName" required
+                                                        placeholder="الاسم">
                                                     @error('u_name')
-                                                        <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                        <span
+                                                            class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                                     @enderror
                                                 </div>
                                             </div>
                                             <div id="companyOptions" style="display:none;">
                                                 <div class="mb-2">
-                                                    <select class="form-select text-center">
+                                                    <select name="u_name" id="companySelect"
+                                                        class="form-select text-center">
                                                         <option selected>اختار الشركة</option>
-                                                        <option value="#">لومي</option>
-                                                        <option value="#">الجبر</option>
-                                                        <option value="#">لومي</option>
+                                                        @foreach ($company as $comp)
+                                                            <option value="{{ $comp->id }}"
+                                                                data-company-name="{{ $comp->company_name }}"
+                                                                data-company-phone="{{ $comp->phone }}">
+                                                                {{ $comp->company_name }}</option>
+                                                        @endforeach
                                                     </select>
+                                                    @error('u_name')
+                                                        <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="mb-2">
-                                                <input name="u_phone" name="number"
-                                                    class="form-control text-center" id="customerPhone" required
-                                                    placeholder="رقم الهاتف">
+                                                <input name="u_phone" name="number" class="form-control text-center"
+                                                    id="customerPhone" required placeholder="رقم الهاتف">
                                                 @error('u_phone')
                                                     <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                                 @enderror
@@ -445,6 +457,27 @@
             });
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+    <script>
+        document.getElementById('companySelect').addEventListener('change', function() {
+            var selectedOption = this.value;
+            var companyPhoneField = document.getElementById('customerPhone');
+
+            // Populate form fields with data based on the selected company
+            if (selectedOption !== '') {
+                var selectedOptionElement = this.options[this.selectedIndex];
+                companyPhoneField.value = selectedOptionElement.getAttribute('data-company-phone');
+                // companyPhoneField.disabled = true;
+            } else {
+                // Clear form fields if no option is selected
+
+                companyPhoneField.value = '';
+                // companyPhoneField.disabled = false;
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
     <script src="js/scripts.js"></script>
 </body>
