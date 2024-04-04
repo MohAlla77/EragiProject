@@ -129,9 +129,14 @@ class CarController extends Controller
     }
     public function AddDone(Car $id){
 
+
         $user = auth()->user();
+
+
         $id->update(['status' => 'DONE']);
         // $user->cars()->detach($id);
+
+
 
         return redirect()->back();
 

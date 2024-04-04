@@ -249,7 +249,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td>{{ $CarHistory->created_at->format('d/m/y') }}</td>
-                                                    <td></td>
+                                                    <td>{{$CarHistory->Work_time}} Hours</td>
                                                     <td>{{$car->car_name}}</td>
                                                     <td>{{ $user_name->first_name }}</td>
                                                     <td>{{ $CarHistory->Worker_name }}</td>

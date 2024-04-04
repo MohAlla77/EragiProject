@@ -72,6 +72,12 @@ class HomeController extends Controller
         //Add to log
         //move to done
         //detach from check
+
+        $maintenanceStartedAt = $car->updated_at ;
+        $maintenanceEndedAt =  now();
+
+        $maintenanceTime = $maintenanceEndedAt->diffInHours($maintenanceStartedAt);
+
         $check = DB::table('check_car')
             ->where('car_id', $car->id)
             ->first();
@@ -85,8 +91,10 @@ class HomeController extends Controller
             'Eng_name'  => $check->eng_id,
             'fix'       => $check->customer_comment,
             'fix_doc'   => $check->fix_requirement,
-            'Worker_name' => request()->get('WorkerName')
+            'Worker_name' => request()->get('WorkerName'),
+            'Work_time' =>  $maintenanceTime
         ]);
+
 
         $car->status = 'DONE';
         $car->save();
@@ -94,8 +102,6 @@ class HomeController extends Controller
         DB::table('check_car')->where('car_id', $car->id)->delete();
 
         return redirect()->back();
-
-
 
     }
 }
