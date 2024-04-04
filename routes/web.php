@@ -1,4 +1,4 @@
-<?php
+km<?php
 
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\HomeController;
@@ -109,6 +109,7 @@ Route::post('/purchases/categorize' , [CategorizeController::class , 'store'])->
 
 
 Route::post('/purchases/services' , [PurchasesController::class , 'ServiceStore'])->name('Service.store');
+Route::post('/purchases/supplier' , [PurchasesController::class , 'SupplierStore'])->name('Supplier.store');
 Route::put('purchases/update/{id}', [PurchasesController::class , 'UpdateService'])->name('service.update');
 Route::delete('purchases/delete/{id}', [PurchasesController::class , 'DeleteService'])->name('service.delete');
 
