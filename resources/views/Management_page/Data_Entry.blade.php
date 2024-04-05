@@ -64,67 +64,70 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="row">
-                        <div class="col-6 mt-4">
-                            <form action="#" method="POST">
-                                <div class="card">
-                                    <div class="mb-2">
-                                        <input type="text" class="form-control text-center"placeholder="الاضافات" disabled>
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
-                                    </div>
-                                    <!-- For adding a new brand -->
-                                    <input type="text" id="newBrandInput" class="form-control mb-2 text-center" placeholder="اضافة ماركة جديدة">
-                                    <!-- For adding a new Model -->
-                                    <input type="text" id="newModelInput" class="form-control mb-2 text-center" placeholder="اضافة موديل جديدة">
-                                    <!-- For adding a new service -->
-                                    <input type="text" id="newServiceInput" class="form-control mb-2 text-center" placeholder="اضافة خدمة جديدة">
-                                    <div class="footer col-md-12 mb-2 text-center">
-                                        <button class="btn btn-success col-6" onclick="addNewOption()">اضافة</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-6 mt-4">
-                            <form action="{{route('Data_Entry.Company')}}" method="post">
-                                @csrf
-                                <div class="card">
-                                    <div class="row g-2">
-                                        <div class="col-12">
-                                            <input type="text" class="form-control text-center"placeholder="تعريف الشركات" disabled>
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <div class="card bg-light border-dark">
+                                <div class="card-body">
+                                    <form action="#" method="POST">
+                                        <div class="mb-2">
+                                            <input type="text" class="form-control text-center"placeholder="الاضافات" readonly>
                                             <div class="valid-feedback">
                                                 Looks good!
                                             </div>
                                         </div>
-                                        <div class="col-6">
-                                            <input name="CompanyName" type="text" class="form-control text-center" name="name" placeholder="اسم الشركة">
-                                        </div>
-                                        <div class="col-6">
-                                            <input name="TaxNumber" type="number" class="form-control text-center" name="name" placeholder="الرقم الضريبي">
-                                        </div>
-                                        <div class="col-6">
-                                            <input name="PersonName" type="text" class="form-control text-center" name="name" placeholder="اسم شخص">
-                                        </div>
-                                        <div class="col-6">
-                                            <input  name="CompanyPhone" type="number" class="form-control text-center" name="name" placeholder=" رقم الهاتف">
-                                        </div>
-                                        <div class="col-6">
-                                            <input name="CompanyCard" type="number" class="form-control text-center" name="name" placeholder="بطاقة الاتمان">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <select name="CompanyPayType" id="brand" class="form-select text-center" aria-describedby="validationServer04Feedback" required>
-                                                <option selected>نوع العميل</option>
-                                                <option selected>اجل</option>
-                                                <option selected>مقدم</option>
-                                            </select>
-                                        </div>
-                                        <div class="footer text-center col-12 mb-2">
-                                            <button type="submit" id="add_client" class="btn btn-success col-6"> اضافة</button>
-                                        </div>
-                                    </div>
+                                        <!-- For adding a new brand -->
+                                        <input type="text" id="newBrandInput" class="form-control mb-2 text-center" placeholder="اضافة ماركة جديدة">
+                                        <!-- For adding a new Model -->
+                                        <input type="text" id="newModelInput" class="form-control mb-2 text-center" placeholder="اضافة موديل جديدة">
+                                        <!-- For adding a new service -->
+                                        <input type="text" id="newServiceInput" class="form-control mb-2 text-center" placeholder="اضافة خدمة جديدة">
+                                        <div class="footer col-md-12 mb-2 text-center">
+                                            <button class="btn btn-success col-6" onclick="addNewOption()">اضافة</button>
+                                        </div>    
+                                    </form>
                                 </div>
-                            </form>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card bg-light text-white border-dark">
+                                <div class="card-body">
+                                    <form action="{{route('Data_Entry.Company')}}" method="post">
+                                        @csrf
+                                        <div class="row g-2">
+                                            <div class="col-12">
+                                                <input class="form-control text-center"placeholder="تعريف الشركات" readonly>
+                                            </div>
+                                            <div class="col-6">
+                                                <input name="CompanyName" class="form-control text-center" name="name" placeholder="اسم الشركة">
+                                            </div>
+                                            <div class="col-6">
+                                                <input name="TaxNumber" class="form-control text-center" name="name" placeholder="الرقم الضريبي">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input name="PersonName" type="text" class="form-control text-center" name="name" placeholder="اسم شخص">
+                                            </div>
+                                            <div class="col-md-6 input-group">
+                                                <span class="input-group-text">+966</span>
+                                                <input  name="CompanyPhone" class="form-control text-center input-group" name="name" placeholder=" رقم الهاتف">
+                                            </div>
+                                            <div class="col-6">
+                                                <input name="#" class="form-control text-center" name="name" placeholder="السجل التجاري">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select name="CompanyPayType" id="brand" class="form-select text-center" aria-describedby="validationServer04Feedback" required>
+                                                    <option selected >طريقة الدفع</option>
+                                                    <option selected>اجل</option>
+                                                    <option selected>مقدم</option>
+                                                    <option selected>كاش</option>
+                                                </select>
+                                            </div>
+                                            <div class="footer text-center col-12 mb-2">
+                                                <button type="submit" id="add_client" class="btn btn-success col-6"> اضافة</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </main>
