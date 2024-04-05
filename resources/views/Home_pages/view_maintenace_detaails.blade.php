@@ -73,6 +73,7 @@
                             <thead>
                                 <tr>
                                     <th>النهاية</th>
+                                    <th>الي الانتظار</th>
                                     <th>التاريخ</th>
                                     <th>تعليق</th>
                                     <th>الماركة</th>
@@ -90,6 +91,7 @@
                                 <tr>
 
                                     <th>النهاية</th>
+                                    <th>الي الانتظار</th>
                                     <th>التاريخ</th>
                                     <th>تعليق</th>
                                     <th>الماركو</th>
@@ -113,6 +115,13 @@
                                                <i class="fa-solid fa-check"></i>
                                             </button>
                                             @include('model.ToDone_popup')
+                                        </td>
+                                        <td>
+                                            <select name="#" id="#" class="form-select text-center" required>
+                                                <option selected>اسبير</option>
+                                                <option selected>عدم بنزين </option>
+                                                <option selected></option>
+                                            </select>
                                         </td>
                                         <td>{{ $car->created_at->format('d/m/y h:i A') }}</td>
                                         <td>{{ $car->comment }}</td>

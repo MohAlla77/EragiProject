@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>INCH CAR MAINTENANCE</title>
+    <title>اطارات</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -86,9 +86,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
-        <button id="toggleCardViewButton" class="btn btn-primary col-3 pe-2 float-end" onclick="toggleCardView()"> ادخال
-            جديد <i class="fa-solid fa-plus"></i></button>
-        <button id="invoiceButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleInvoiceForm()">فاتورة <i
+        <button id="toggleCardViewButton" class="btn btn-primary col-1 pe-2 float-end" onclick="toggleCardView()">جديد <i class="fa-solid fa-file"></i></button>
+        <button id="invoiceButton" class="btn btn-primary col-1 ms-1 float-end" onclick="toggleInvoiceForm()">فاتورة <i
                 class="fas fa-file-invoice"></i></button>
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <a class="navbar-brand" href="#"><span>اطارات</span></a>
@@ -114,7 +113,7 @@
         </div>
         <div id="layoutSidenav_content" class="sidebar-collapsed" style="height: 25vh; overflow-y: auto;">
             <main>
-                <div class="card inner-card">
+                <div class="card">
                     <form id="invoiceForm" style="height: 100%; display: none;">
                         <div class="card-body">
                             <div class="row">
@@ -164,12 +163,12 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control text-center"
+                                                    <input class="form-control text-center"
                                                         id="Customer data" value=""
-                                                        placeholder="بيانات العميل">
+                                                        placeholder="بيانات العميل" readonly>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="number" class="form-control text-center"
+                                                    <input class="form-control text-center"
                                                         id="invoice number" value="" placeholder="رقم الفاتورة"
                                                         readonly>
                                                 </div>
@@ -199,28 +198,28 @@
                                             <div id="addNewItemForm">
                                                 <div class="row g-1">
                                                     <div class="col-md-6">
-                                                        <input type="text" name="itemName" id="itemName" required
+                                                        <input name="itemName" id="itemName" required
                                                             class="form-control text-center"
                                                             placeholder="اسم الماركة">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input type="number" class="form-control text-center"
+                                                        <input class="form-control text-center"
                                                             id="validationCustom02" placeholder="الرقم التسلسلي"
-                                                            required>
+                                                            required readonly>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input type="number" name="name" required
+                                                        <input name="name" required
                                                             class="form-control text-center" id="quantity"
-                                                            placeholder="الكمية">
+                                                            placeholder="الكمية" readonly>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input type="number" name="name" required
+                                                        <input name="name" required
                                                             class="form-control text-center" id="price"
-                                                            placeholder="السعر">
+                                                            placeholder="السعر" readonly>
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <input type="number" name="Total" id="Total" required
-                                                            class="form-control text-center" placeholder="المجموع">
+                                                        <input name="Total" id="Total" required
+                                                            class="form-control text-center" placeholder="المجموع" readonly>
                                                     </div>
                                                     <div class="footer text-center">
                                                         <button type="button" class="btn btn-danger col-3"
@@ -264,14 +263,14 @@
                                         <div class="card-body">
                                             <div class="row g-1">
                                                 <div class="col-md-6">
-                                                    <input type="number" class="form-control text-center"
+                                                    <input class="form-control text-center"
                                                         id="Total" value="" placeholder="الاجمالي"
-                                                        readonly>
+                                                        required readonly>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="number" class="form-control text-center"
+                                                    <input class="form-control text-center"
                                                         id="VAT%15" value=""
-                                                        placeholder="ضريبة القيم المضافة%15" readonly>
+                                                        placeholder="ضريبة القيم المضافة%15" required readonly>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <select class="form-select text-center" id="discountType"
@@ -284,23 +283,23 @@
                                                 </div>
                                                 <div class="col-md-6" id="percentageDiscountField"
                                                     style="display: none;">
-                                                    <input type="number" class="form-control text-center"
+                                                    <input class="form-control text-center"
                                                         id="percentageDiscountValue" placeholder="قيمة الخصم بالنسبة">
                                                 </div>
                                                 <div class="col-md-6" id="amountDiscountField"
                                                     style="display: none;">
-                                                    <input type="number" class="form-control text-center"
+                                                    <input class="form-control text-center"
                                                         id="amountDiscountValue" placeholder="قيمة الخصم بالمبلغ">
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="number" class="form-control text-center"
+                                                    <input class="form-control text-center"
                                                         id="totalAmountWithTax" value=""
-                                                        placeholder="الاجمالي مع الضريبة" readonly>
+                                                        placeholder="الاجمالي مع الضريبة" required readonly>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <input type="number" class="form-control text-center"
+                                                    <input class="form-control text-center"
                                                         id="netAmount" value="" placeholder="المبلغ الصافي"
-                                                        readonly>
+                                                        required readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -321,7 +320,7 @@
                             </div>
                         </div>
                     </form>
-                </div>
+                </div>    
                 <div id="cardContainer" class="card bg-light col-12" style="display: block;">
                     <div class="card col-12">
                         <div class="card-body">
@@ -333,11 +332,11 @@
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-md-12 mb-2">
-                                                        <input type="text" class="form-control text-center"
+                                                        <input class="form-control text-center"
                                                             placeholder="ادخال اطارات جديدة" readonly>
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <input name="Tire_serial" type="text" class="form-control text-center"
+                                                        <input name="Tire_serial" class="form-control text-center"
                                                             placeholder="الرقم التسلسلي">
                                                         @error('Tire_serial')
                                                             <span
@@ -345,17 +344,18 @@
                                                         @enderror
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <input name="TireSize" type="number"
-                                                            class="form-control text-center" placeholder="المقاس"
-                                                            required>
+                                                        <input name="TireSize"
+                                                            class="form-control text-center" 
+                                                            placeholder="المقاس" required>
                                                         @error('TireSize')
                                                             <span
                                                                 class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                                         @enderror
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <input name="TireAmount" type="number"
-                                                            class="form-control text-center" placeholder="الكمية"
+                                                        <input name="TireAmount"
+                                                            class="form-control text-center" 
+                                                            placeholder="الكمية"
                                                             required>
                                                         @error('TireAmount')
                                                             <span
@@ -363,12 +363,11 @@
                                                         @enderror
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <input name="TirePrice" type="number"
+                                                        <input name="TirePrice"
                                                             class="form-control text-center"
                                                             placeholder="السعر"required>
                                                         @error('TirePrice')
-                                                            <span
-                                                                class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                            <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                                         @enderror
                                                     </div>
                                                     <div class="row text-center">
@@ -379,8 +378,7 @@
                                                                 <option value="ماركة"> ماركة</option>
                                                             </select>
                                                             @error('TireModel')
-                                                                <span
-                                                                    class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                                <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                                             @enderror
                                                         </div>
                                                         <div class="col-md-3 mb-4 text-end">
@@ -403,7 +401,7 @@
                                                                 الاننشاء</label>
                                                         </div>
                                                     </div>
-                                                    <div class="row  mb-2">
+                                                    <div class="row mb-2">
                                                         <div class="col-md-9">
                                                             <input name="TireDate" type="date"
                                                                 class="form-control text-center"required>

@@ -64,16 +64,13 @@
             </button>
         </div>
         
-        <a class="navbar-brand pe-2" href="#"><i class="fa-solid fa-sitemap"></i><span class="ms-1"> صنف</span></a>
-        <a class="navbar-brand" href="#"><span class="ms-1"><i class="fa-solid fa-server"></i> خدمة</span></a>
-
         <div class="col-md-6 texr-end">
             <button id="invoiceButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleInvoiceForm()">فاتورة
                 <i class="fas fa-file-invoice"></i></button>
             <button id="AddacategoryButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleAddItemCard()">
                 الاصناف والخدمات <i class="fa fa-plus" aria-hidden="true"></i></button>
             <button id="toggleTableViewButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleTableView()">
-                عرض الجدول <i class="fa-solid fa-eye"></i></button>
+             الجدول <i class="fa-solid fa-eye"></i></button>
         </div>
         <a class="navbar-brand" href="#"><!--<i class="fa-solid fa-cart-shopping"></i>--><span class="ms-1">المشتريات</span></a>
         <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i
@@ -194,18 +191,18 @@
                                                             onchange="generateInvoiceNumber()">
                                                             <option selected>نوع الفاتورة</option>
                                                             <option value="invoice">فاتوره مشتريات</option>
+                                                            <option value="return">مرتجع </option>
                                                             <option value="purchase">طلب شراء</option>
                                                             <option value="quotation">تسعيرة</option>
-                                                            <option value="return">مرتجع </option>
                                                         </select>
                                                     </div>
                                                     <div class="col-md-6 mb-1">
-                                                        <input type="number" class="form-control text-center"
+                                                        <input class="form-control text-center"
                                                             id="invoice number" value=""
                                                             placeholder="رقم الفاتورة" readonly>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input type="text" class="form-control text-center"
+                                                        <input class="form-control text-center"
                                                             id="Buyername" value="" placeholder="اسم المستخدم"
                                                             readonly>
                                                     </div>
@@ -216,36 +213,36 @@
                                     <!-- Form Add in table Calculator -->
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div id="invoiceForm addNewItemForm">
+                                            <div id="transformation addNewItemForm">
                                                 <div class="card bg-light">
                                                     <div class="card-body">
                                                         <div class="row g-1">
                                                             <div class="col-md-6">
-                                                                <input type="text" name="itemName" id="itemName"
+                                                                <input name="itemName" id="itemName"
                                                                     required class="form-control text-center"
                                                                     placeholder="اسم الصنف">
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <input type="number" class="form-control text-center"
+                                                                <input class="form-control text-center"
                                                                     id="validationCustom02" placeholder="رمز الصنف"
                                                                     required>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <input type="number " class="form-control text-center"
+                                                                <input class="form-control text-center"
                                                                     id="unit" placeholder="الوحدة" required>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <input type="number" name="name" required
+                                                                <input name="name" required
                                                                     class="form-control text-center" id="quantity"
                                                                     placeholder="الكمية">
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <input type="number" name="name" required
+                                                                <input name="name" required
                                                                     class="form-control text-center" id="price"
                                                                     placeholder="السعر">
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <input type="number" name="Total" id="Total"
+                                                                <input name="Total" id="Total"
                                                                     required class="form-control text-center"
                                                                     placeholder="المجموع">
                                                             </div>
@@ -418,20 +415,14 @@
                                                     <div class="card-body">
                                                         <div class="row">
                                                             <div class="col-md-6 mb-2">
-                                                                <input type="number" class="form-control text-center"
+                                                                <input class="form-control text-center"
                                                                     id="Total" value="" placeholder="الاجمالي"
                                                                     readonly>
-                                                                <div class="valid-feedback">
-                                                                    Looks good!
-                                                                </div>
                                                             </div>
                                                             <div class="col-md-6 mb-2">
-                                                                <input type="number" class="form-control text-center"
+                                                                <input class="form-control text-center"
                                                                     id="VAT%15" value=""
                                                                     placeholder="ضريبة القيم المضافة%15" readonly>
-                                                                <div class="valid-feedback">
-                                                                    Looks good!
-                                                                </div>
                                                             </div>
                                                             <div class="col-md-6 mb-2">
                                                                 <select class="form-select text-center" id="Discountearned"
@@ -441,30 +432,25 @@
                                                                     <option value="percentage">بالنسبة</option>
                                                                     <option value="amount">بالمبلغ</option>
                                                                 </select>
-                                                                <div class="valid-feedback">
-                                                                    Looks good!
-                                                                </div>
                                                             </div>
                                                             <div class="col-md-6 mb-2" id="percentageDiscountField"
                                                                 style="display: none;">
-                                                                <input type="number" class="form-control text-center"
+                                                                <input class="form-control text-center"
                                                                     id="percentageDiscountValue"
                                                                     placeholder="قيمة الخصم بالنسبة">
-                                                                <div class="valid-feedback">Looks good!</div>
                                                             </div>
                                                             <div class="col-md-6 mb-2" id="amountDiscountField"
                                                                 style="display: none;">
-                                                                <input type="number" class="form-control text-center"
+                                                                <input class="form-control text-center"
                                                                     id="amountDiscountValue" placeholder="قيمة الخصم بالمبلغ">
-                                                                <div class="valid-feedback">Looks good!</div>
                                                             </div>
                                                             <div class="col-md-6 mb-2">
-                                                                <input type="number" class="form-control text-center"
+                                                                <input class="form-control text-center"
                                                                     id="totalAmountWithTax" value=""
                                                                     placeholder="الاجمالي مع الضريبة" readonly>
                                                             </div>
                                                             <div class="col-md-12 mb-2">
-                                                                <input type="number" class="form-control text-center"
+                                                                <input class="form-control text-center"
                                                                     id="netAmount" value="" placeholder="المبلغ الصافي"
                                                                     readonly>
                                                             </div>
@@ -760,10 +746,10 @@
         function mysticalFormToggle() {
             var selectedOption = document.getElementById("invoiceType").value;
             if (selectedOption === "invoice" || selectedOption === "return") {
-                document.getElementById("invoiceForm").style.display = "block";
+                document.getElementById("transformation").style.display = "block";
                 document.getElementById("purchaseOrderForm").style.display = "none";
             } else if (selectedOption === "purchase" || selectedOption === "quotation") {
-                document.getElementById("invoiceForm").style.display = "none";
+                document.getElementById("transformation").style.display = "none";
                 document.getElementById("purchaseOrderForm").style.display = "block";
             }
         }

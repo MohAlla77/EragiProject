@@ -37,6 +37,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="card-body">
                                         <form action="{{route('login')}}" method="post">
                                             @csrf
+                                            {{--
+                                            <div class="input-group mb-3">
+                                                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                <span class="input-group-text" id="basic-addon2">@example.com</span>
+                                            </div>
+                                            --}}
+
                                             <div class="form-floating mb-3">
                                             <input name="email" class="form-control" id="inputEmail" type="email" name="email" placeholder="name@example.com" />
                                                 <label for="inputEmail">Email address</label>

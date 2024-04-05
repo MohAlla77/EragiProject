@@ -5,10 +5,10 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-body">
-              <button type="submit" class="btn btn-success col-3">حفظ</button>
-                <a href="{{ route('invoice.print') }}">
-                  <button id="printButton"class="btn btn-primary col-3"><i class="fas fa-print"></i></button>
-                </a>
+              <button type="submit" class="btn btn-success col-3"><i class="fa-regular fa-floppy-disk"></i></button>
+              <a href="{{ route('invoice.print') }}">
+                <button id="printButton"class="btn btn-primary col-3"><i class="fas fa-print"></i></button>
+              </a>
             </div>
           </div>
         </div>
