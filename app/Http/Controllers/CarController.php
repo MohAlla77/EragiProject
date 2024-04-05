@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AddCarRequest;
+use App\Mail\AddCarMail;
 use App\Models\Car;
 use App\Models\CarHistory;
 use App\Models\CompanyInfo;
@@ -10,6 +11,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class CarController extends Controller
 {
@@ -65,6 +67,10 @@ class CarController extends Controller
             'structure_no' => $validated['structure_no'],
             'status' => 'NEW',
         ]);
+
+         $user = auth()->user();
+
+        Mail::to($user->email)->send(new AddCarMail($user));
 
         return redirect()->route('home');
     }
