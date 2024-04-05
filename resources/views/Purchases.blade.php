@@ -63,7 +63,10 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
-        
+
+        <a class="navbar-brand pe-2" href="#"><i class="fa-solid fa-sitemap"></i><span class="ms-1"> صنف</span></a>
+        <a class="navbar-brand" href="#"><span class="ms-1"><i class="fa-solid fa-server"></i> خدمة</span></a>
+
         <div class="col-md-6 texr-end">
             <button id="invoiceButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleInvoiceForm()">فاتورة
                 <i class="fas fa-file-invoice"></i></button>
@@ -483,33 +486,34 @@
                             <div class="col-12">
                                 <div class="card bg-light">
                                     <div class="card-body">
-                                        <form class="row">
+                                        <form action="{{route('Supplier.store')}}" method="POST" class="row">
+                                            @csrf
                                             <div class="col-md-12 mb-2">
                                                 <input type="text" class="form-control text-center"
                                                     id="#" required placeholder="الموردين" readonly>
                                             </div>
                                             <div class="col-md-6 mb-1">
-                                                <input type="text" class="form-control text-center"
+                                                <input name="SupplierID" type="text" class="form-control text-center"
                                                     id="#" required placeholder="رقم التعريفي للمورد">
                                             </div>
                                             <div class="col-md-6 mb-1">
-                                                <input type="text" class="form-control text-center"
+                                                <input name="SupplierName" type="text" class="form-control text-center"
                                                     id="#" required placeholder="اسم المورد">
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="number" class="form-control text-center"
+                                                <input name="Phone" type="number" class="form-control text-center"
                                                     id="#" required placeholder="رقم الهاتف ">
                                             </div>
                                             <div class="col-md-6 mb-1">
-                                                <input type="text" class="form-control text-center"
+                                                <input name="SupplierRigesteNumber" type="text" class="form-control text-center"
                                                     id="#" required placeholder="رقم السجل التجاري">
                                             </div>
                                             <div class="col-md-6 mb-1">
-                                                <input type="text" class="form-control text-center"
+                                                <input name="SupplierTaxNumber" type="text" class="form-control text-center"
                                                     id="#" required placeholder="الرقم الضريبي">
                                             </div>
                                             <div class="col-md-6 mb-1">
-                                                <input type="number" class="form-control text-center"
+                                                <input name="SupplierNationalNumber" type="number" class="form-control text-center"
                                                     id="#" name="#" required
                                                     placeholder="العنوان الوطني">
                                             </div>
