@@ -76,7 +76,7 @@ class HomeController extends Controller
         $maintenanceStartedAt = $car->updated_at ;
         $maintenanceEndedAt =  now();
 
-        $maintenanceTime = $maintenanceEndedAt->diffInHours($maintenanceStartedAt);
+        $maintenanceTime = $maintenanceEndedAt->diffForHumans($maintenanceStartedAt);
 
         $check = DB::table('check_car')
             ->where('car_id', $car->id)

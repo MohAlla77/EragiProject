@@ -18,6 +18,7 @@
                         <table id="datatablesSimple">
                             <thead>
                                 <tr>
+                                    <th>من الصيانه</th>
                                     <th>التاريخ</th>
                                     <th>تعليق</th>
                                     <th>الماركة</th>
@@ -33,6 +34,7 @@
                             </thead>
                             <tfoot>
                                 <tr>
+                                    <th>من الصيانه</th>
                                     <th>التاريخ</th>
                                     <th>تعليق</th>
                                     <th>الماركو</th>
@@ -51,6 +53,7 @@
                                 @foreach ($Cars as $car )
 
                                 <tr>
+                                    <td></td>
                                     <td>{{ $car->created_at->format('d/m/y h:i A') }}</td>
                                     <td>{{ $car->comment }}</td>
                                     <td>{{ $car->brand }}</td>
@@ -77,6 +80,17 @@
           @include('Layout.footer')
         </div>
     </div>
+    <canvas id="myChart"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+        crossorigin="anonymous"></script>
+    <script src="js/datatables-simple-demo.js"></script>
+
 </body>
 
 
