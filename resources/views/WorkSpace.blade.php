@@ -162,51 +162,51 @@
                                                 $user_name = App\Models\User::find($CarHistory->user_name);
                                                 $Eng_name = App\Models\User::find($CarHistory->Eng_name);
                                             @endphp
-                                            {{-- <div class="row">
+                                           <div class="row">
                                                 <label for="notes"
                                                     class="form-label d-flex justify-content-end">
-                                                    الزيارة السابقة
+                                                    اسباب الانتظار
                                                 </label>
                                                 <div class="col-md-6 mb-2">
                                                     <input type="text" class="form-control text-center"
                                                         value="{{ $user_name->first_name }} : الموظف"
-                                                        name="carName" required placeholder="اسم الاستقبال">
+                                                        name="carName" required placeholder="اسم الاستقبال"readonly>
                                                 </div>
                                                 <div class="col-md-6 mb-2">
                                                     <input type="text" class="form-control text-center"
                                                         name="carName"
                                                         value="{{ $Eng_name->first_name }} : المهندس" required
-                                                        placeholder="اسم المهندس">
+                                                        placeholder="اسم المهندس"readonly>
                                                 </div>
                                                 <div class="col-md-6 mb-2">
                                                     <input type="text" class="form-control text-center"
                                                         name="carName" value=" الشكوى: {{ $CarHistory->fix }}"
-                                                        required placeholder="شكوي السابفة">
+                                                        required placeholder="شكوي السابفة"readonly>
                                                 </div>
                                                 <div class="col-md-6 mb-2">
                                                     <input type="text" class="form-control text-center"
                                                         name="carName"
                                                         value="الإجراء: {{ $CarHistory->fix_doc }} " required
-                                                        placeholder="الاجراءات السابفة">
+                                                        placeholder="الاجراءات السابفة"readonly>
                                                 </div>
                                                 <div class="col-md-6 mb-2">
                                                     <input type="text" class="form-control text-center"
                                                         name="carName"
                                                         value="   اسم الفنى :  {{ $CarHistory->Worker_name }}  "
-                                                        required placeholder="اسم الفني">
+                                                        required placeholder="اسم الفني"readonly>
                                                 </div>
                                                 <div class="col-md-6 mb-2">
                                                     <input type="text" class="form-control text-center"
                                                         name="carName" value="عدد الزيارات : {{ $countByCarId  }} " required
-                                                        placeholder="عدد الزيارات">
+                                                        placeholder="عدد الزيارات"readonly>
                                                 </div>
                                                 <div class="col-md-12 mb-2">
                                                     <input type="text" class="form-control text-center"
                                                         name="carName"
                                                         value="{{ $CarHistory->created_at->format('d/m/y') }}"
-                                                        required placeholder="التاريخ">
+                                                        required placeholder="التاريخ" readonly>
                                                 </div>
-                                            </div> --}}
+                                            </div>
                                         @endif
                                     </div>
                                     <div class="col-md-6">

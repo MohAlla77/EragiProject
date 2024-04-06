@@ -141,6 +141,9 @@ Route::post('/check/{id}/Removecheck/{user}', [CarController::class , 'Remove'] 
 Route::get('/{type}', [HomeController::class , 'view'] )->name('page.view');
 Route::post('/{car}/done', [HomeController::class , 'ToDone'] )->name('car.ToDone');
 
+// Route::get('/{type}', [HomeController::class , 'view'] )->name('page.view');
+// Route::post('/{car}/Back_to_Wait', [HomeController::class , 'Back_to_Wait'] )->name('car.Back_to_Wait');
+
 Route::post('/management/DataEntry/AddCompany', [ManagemetController::class , 'CompanyStore'])->name('Data_Entry.Company');
 
 

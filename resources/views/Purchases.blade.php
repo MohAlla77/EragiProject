@@ -481,45 +481,47 @@
                     </div>
                 </div>
                 <div id="otherForm">
-                    <div class="card">
+                    <div class="card border-dark">
                         <div class="card-body">
                             <div class="col-12">
                                 <div class="card bg-light">
                                     <div class="card-body">
                                         <form action="{{route('Supplier.store')}}" method="POST" class="row">
                                             @csrf
-                                            <div class="col-md-12 mb-2">
-                                                <input type="text" class="form-control text-center"
-                                                    id="#" required placeholder="الموردين" readonly>
-                                            </div>
-                                            <div class="col-md-6 mb-1">
-                                                <input name="SupplierID" type="text" class="form-control text-center"
-                                                    id="#" required placeholder="رقم التعريفي للمورد">
-                                            </div>
-                                            <div class="col-md-6 mb-1">
-                                                <input name="SupplierName" type="text" class="form-control text-center"
-                                                    id="#" required placeholder="اسم المورد">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input name="Phone" type="number" class="form-control text-center"
-                                                    id="#" required placeholder="رقم الهاتف ">
-                                            </div>
-                                            <div class="col-md-6 mb-1">
-                                                <input name="SupplierRigesteNumber" type="text" class="form-control text-center"
-                                                    id="#" required placeholder="رقم السجل التجاري">
-                                            </div>
-                                            <div class="col-md-6 mb-1">
-                                                <input name="SupplierTaxNumber" type="text" class="form-control text-center"
-                                                    id="#" required placeholder="الرقم الضريبي">
-                                            </div>
-                                            <div class="col-md-6 mb-1">
-                                                <input name="SupplierNationalNumber" type="number" class="form-control text-center"
-                                                    id="#" name="#" required
-                                                    placeholder="العنوان الوطني">
-                                            </div>
-                                            <div class="col-12 text-center">
-                                                <button type="Save" class="col-6 btn btn-success">اضافة <i
-                                                        class="fa-solid fa-plus"></i></button>
+                                            <div class="row g-1">
+                                                <div class="col-md-12">
+                                                    <input type="text" class="form-control text-center"
+                                                        id="#" required placeholder="الموردين" readonly>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input name="SupplierID" type="text" class="form-control text-center"
+                                                        id="#" required placeholder="رقم التعريفي للمورد">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input name="SupplierName" type="text" class="form-control text-center"
+                                                        id="#" required placeholder="اسم المورد">
+                                                </div>
+                                                <div class="col-6 input-group">
+                                                    <span class="input-group-text">+966</span>
+                                                    <input class="form-control text-center" name="u_phone" id="customerPhone" placeholder="رقم الهاتف" required>    
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input name="SupplierRigesteNumber" type="text" class="form-control text-center"
+                                                        id="#" required placeholder="رقم السجل التجاري">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input name="SupplierTaxNumber" type="text" class="form-control text-center"
+                                                        id="#" required placeholder="الرقم الضريبي">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <input name="SupplierNationalNumber" type="number" class="form-control text-center"
+                                                        id="#" name="#" required
+                                                        placeholder="العنوان الوطني">
+                                                </div>
+                                                <div class="col-12 text-center">
+                                                    <button type="Save" class="col-6 btn btn-success">اضافة <i
+                                                            class="fa-solid fa-plus"></i></button>
+                                                </div>
                                             </div>
                                         </form>
                                     </div>

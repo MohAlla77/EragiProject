@@ -144,10 +144,11 @@
                                                     <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                                 @enderror
                                             </div>
-                                            <div class="mb-2">
+                                            <div class="input-group mb-2">
                                                 <input name="car_counter" name="number"
                                                     class="form-control text-center" id="odometerReading" required
                                                     placeholder="رقم العداد">
+                                                <span class="input-group-text">KM</span>
                                                 @error('car_counter')
                                                     <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                                 @enderror
@@ -155,9 +156,7 @@
                                             <div class="mb-2">
                                                 <input name="car_name" type="text" class="form-control text-center"
                                                     id="carName" required placeholder="اسم السيارة">
-                                                <div class="valid-feedback">
-                                                    Looks good!
-                                                </div>
+                                                
                                                 @error('car_name')
                                                     <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                                 @enderror
@@ -192,17 +191,24 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            <div class="mb-2">
-                                                <input name="u_phone" name="number" class="form-control text-center"
-                                                    id="customerPhone" required placeholder="رقم الهاتف">
+                                            <div class="input-group mb-2">
+                                                <span class="input-group-text">+966</span>
+                                                <input class="form-control text-center" name="u_phone" id="customerPhone" placeholder="رقم الهاتف" required>
                                                 @error('u_phone')
                                                     <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                                 @enderror
                                             </div>
                                             <div class="mb-2">
-                                                <input name="car_plate" type="text" name="plateNumber"
-                                                    class="form-control text-center" id="plateNumber" required
-                                                    placeholder="رقم اللوحة">
+                                                <div class="input-group">
+                                                    <input name="car_plate" class="form-control text-center" maxlength="1">
+                                                    <input name="car_plate" class="form-control text-center" maxlength="1">
+                                                    <input name="car_plate" class="form-control text-center" maxlength="1">
+                                                    <input name="car_plate" class="form-control text-center" maxlength="1">
+                                                    <input name="car_plate" class="form-control text-center" maxlength="1">
+                                                    <input name="car_plate" class="form-control text-center" maxlength="1">
+                                                    <input name="car_plate" class="form-control text-center" maxlength="1">
+                                                    <label for="brand" class="form-label inline ms-2">رقم اللوحة</label>
+                                                </div>
                                             </div>
                                             @error('car_plate')
                                                 <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
@@ -324,141 +330,7 @@
             // This is just a placeholder, you need to replace it with your actual logic
             return "2024-01-01";
         }
-        // Select the range input
-        var fuelLevelInput = document.getElementById('fuelLevel');
 
-        // Add event listener for input change
-        fuelLevelInput.addEventListener('input', function() {
-            var fuelLevel = fuelLevelInput.value;
-
-            // Set the gradient background based on the value
-            fuelLevelInput.style.background =
-                'linear-gradient(to right, red 0%, yellow 25%, blue 50%, green 75%, green ' + fuelLevel + '%)';
-        });
-
-        function copyPlateNumber() {
-            var plateNumber = document.getElementById("plateNumber");
-            plateNumber.select();
-            document.execCommand("copy");
-            alert("Plate number copied to clipboard: " + plateNumber.value);
-        }
-
-        // Define chart options
-        var options = {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        };
-
-        function addNewOption() {
-            // Get the values entered by the user
-            var newBrand = document.getElementById('newBrandInput').value;
-            var newService = document.getElementById('newServiceInput').value;
-            var newModel = document.getElementById('newModelInput').value;
-
-            // Check if the new options already exist in the select dropdowns
-            if (!isOptionExists(newBrand, 'brand')) {
-                addOptionToSelect(newBrand, 'brand');
-            }
-
-            if (!isOptionExists(newService, 'serviceType')) {
-                addOptionToSelect(newService, 'serviceType');
-            }
-
-            if (!isOptionExists(newModel, 'model')) {
-                addOptionToSelect(newModel, 'model');
-            }
-
-            // Clear the input fields
-            document.getElementById('newBrandInput').value = '';
-            document.getElementById('newServiceInput').value = '';
-            document.getElementById('newModelInput').value = '';
-        }
-
-        // Function to check if the option already exists in the select dropdown
-        function isOptionExists(optionText, selectId) {
-            var select = document.getElementById(selectId);
-            for (var i = 0; i < select.options.length; i++) {
-                if (select.options[i].text === optionText) {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        // Function to add a new option to the select dropdown
-        function addOptionToSelect(optionText, selectId) {
-            var select = document.getElementById(selectId);
-            var newOption = document.createElement('option');
-            newOption.text = optionText;
-            select.add(newOption);
-        }
-        // server.js
-        const express = require('express');
-        const mongoose = require('mongoose');
-        const bodyParser = require('body-parser');
-        const app = express();
-
-        // Body parser middleware
-        app.use(bodyParser.urlencoded({
-            extended: false
-        }));
-        app.use(bodyParser.json());
-
-        // MongoDB connection
-        mongoose.connect('mongodb://localhost:27017/carFormDB', {
-                useNewUrlParser: true,
-                useUnifiedTopology: true
-            })
-            .then(() => console.log('MongoDB Connected'))
-            .catch(err => console.log(err));
-
-        // Define a schema for your form data
-        const carFormSchema = new mongoose.Schema({
-            // Define your schema fields here
-            brand: String,
-            model: String,
-            serviceType: String,
-            // Add other fields as needed
-        });
-
-        const CarForm = mongoose.model('CarForm', carFormSchema);
-
-        // Route to handle form submission
-        app.post('/submit-form', (req, res) => {
-            const formData = req.body;
-
-            // Create a new instance of the CarForm model with the submitted data
-            const newFormEntry = new CarForm({
-                brand: formData.brand,
-                model: formData.model,
-                serviceType: formData.serviceType,
-                // Map other fields here
-            });
-
-            // Save the new form entry to the database
-            newFormEntry.save()
-                .then(() => res.send('Form data saved successfully'))
-                .catch(err => res.status(400).send('Unable to save form data: ' + err));
-        });
-
-        const PORT = process.env.PORT || 5000;
-        app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-    </script>
-
-    <script>
         document.getElementById('companySelect').addEventListener('change', function() {
             var selectedOption = this.value;
             var companyPhoneField = document.getElementById('customerPhone');

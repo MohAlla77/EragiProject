@@ -66,7 +66,7 @@
         </div>
         <div id="layoutSidenav_content">
             <main>
-                <div class="card mb-4">
+                <div class="card border-dark">
                     <div class="card-header text-end">السيارات <i class="fas fa-table me-4"></i></div>
                     <div class="card-body">
                         <table id="datatablesSimple">
@@ -117,11 +117,11 @@
                                             @include('model.ToDone_popup')
                                         </td>
                                         <td>
-                                            <select name="#" id="#" class="form-select text-center" required>
-                                                <option selected>اسبير</option>
-                                                <option selected>عدم بنزين </option>
-                                                <option selected></option>
-                                            </select>
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal2{{$car->id}}">
+                                            <i class="fa fa-undo" aria-hidden="true"></i>
+                                        </button>
+                                          @include('model.Back_to_Wait_popup')
                                         </td>
                                         <td>{{ $car->created_at->format('d/m/y h:i A') }}</td>
                                         <td>{{ $car->comment }}</td>
