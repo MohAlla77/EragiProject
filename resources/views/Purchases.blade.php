@@ -64,9 +64,6 @@
             </button>
         </div>
 
-        <a class="navbar-brand pe-2" href="#"><i class="fa-solid fa-sitemap"></i><span class="ms-1"> صنف</span></a>
-        <a class="navbar-brand" href="#"><span class="ms-1"><i class="fa-solid fa-server"></i> خدمة</span></a>
-
         <div class="col-md-6 texr-end">
             <button id="invoiceButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleInvoiceForm()">فاتورة
                 <i class="fas fa-file-invoice"></i></button>
@@ -133,7 +130,7 @@
                                                     <i class="fa-solid fa-trash"></i> <i class="fa-solid fa-pen-to-square"></i>
                                                  </button>
                                             </a>
-                                           | {{$service->status}}<i class="fa-solid fa-check"></i> <i class="fa-solid fa-hourglass-half"></i>
+                                           | {{$service->status}}
                                             <!-- Modal -->
                                             @include('model.Edit_service_popup')
                                         </td>

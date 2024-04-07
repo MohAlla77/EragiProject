@@ -10,12 +10,18 @@
             <form action="{{ route('car.ToDone', $car->id) }}" method="POST">
                 @csrf
                 <div class="modal-body">
-                    <input name="WorkerName" type="text" class="form-control text-center" required
-                    placeholder=" اسم العامل ">
+                    <div class="col-12 mb-2">
+                        <input name="WorkerName" type="number" class="form-control text-center" required
+                        placeholder="ادخل عدد الفنيين">
+                    </div>
+                    <div  class="col-12 mb-2">
+                        <input name="WorkerName" type="text" class="form-control text-center" required
+                        placeholder="اسم العامل">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submite" class="btn btn-primary">Save changes</button>
+                    <button type="submite" class="btn btn-primary">Done</button>
                 </div>
             </form>
         </div>
