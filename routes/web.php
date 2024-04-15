@@ -1,4 +1,4 @@
-km<?php
+<?php
 
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\HomeController;

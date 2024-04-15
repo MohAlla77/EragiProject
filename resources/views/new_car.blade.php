@@ -58,16 +58,16 @@
         </div>
         <div id="layoutSidenav_content">
             <main>
-                <div class="container-fluid"><br>
-                    <div class="card bg-light mb-2">
+                <div class="container-fluid">
+                    <div class="card bg-light">
                         <div class="card-body">
-                            <form class="justify-content-center" action="{{ route('car.store') }}" method="POST"
+                            <form class="justify-content-center" action="{{ route('car.store') }}" method="POST" 
                                 id="carForm">
                                 @csrf
                                 {{-- onsubmit="sendAlert(event); scrollToTop();"> --}}
                                 <div class="card">
-                                    <div class="row">
-                                        <div class="col-md-12 mb-2"><br>
+                                    <div class="row g-2">
+                                        <div class="col-md-12"><br>
                                             <div class="row">
                                                 <div class="col-md-5">
                                                     <input type="datetime-local" class="form-control text-center"
@@ -162,7 +162,7 @@
                                                     <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                                 @enderror
                                             </div>
-                                            <div class="mb-2">
+                                            <div class="mb-2 position-relative">
                                                 <input name="car_name" type="text" class="form-control text-center"
                                                     id="carName" required placeholder="اسم السيارة">
                                                 
@@ -207,17 +207,26 @@
                                                     <span class="d-block fs-6 text-danger mt-2 error-message">{{ $message }}</span>
                                                 @enderror
                                             </div>
-                                            <div class="mb-2 position-relative">
-                                                <div class="input-group">
-                                                    <input id="car_plate" class="form-control text-center" maxlength="7" placeholder="رقم اللوحة">
-                                                </div>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="otp1" name="otp[]" maxlength="1" pattern="[0-9]" aria-label="OTP digit 1" required>
+                                                <input type="text" class="form-control" id="otp2" name="otp[]" maxlength="1" pattern="[0-9]" aria-label="OTP digit 2" required>
+                                                <input type="text" class="form-control" id="otp3" name="otp[]" maxlength="1" pattern="[0-9]" aria-label="OTP digit 3" required>
+                                                <input type="text" class="form-control" id="otp4" name="otp[]" maxlength="1" pattern="[0-9]" aria-label="OTP digit 4" required placeholder="لوحة">
+                                                <input type="text" class="form-control" id="otp5" name="otp[]" maxlength="1" pattern="[0-9]" aria-label="OTP digit 5" required placeholder="رقم ">
+                                                <input type="text" class="form-control" id="otp6" name="otp[]" maxlength="1" pattern="[0-9]" aria-label="OTP digit 6" required>
+                                                <input type="text" class="form-control" id="otp7" name="otp[]" maxlength="1" pattern="[0-9]" aria-label="OTP digit 7" required>
                                             </div>
-                                            @error('car_plate')
-                                                <span class="d-block fs-6 text-danger mt-2 error-message">{{ $message }}</span>
-                                            @enderror
+                                                @error('car_plate')
+                                                    <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                @enderror
+                                            </div>
                                         </div>
                                         <div class="col-12">
-                                            {{-- <div class="border rounded p-1 mb-1">
+                                            <div class="col-md-12">
+                                                <label for="formFile" class="form-label d-flex justify-content-end">ارفاق صورة</label>
+                                                <input class="form-control" type="file" id="formFile">
+                                            </div>
+                                            <div class="border rounded p-1 mb-1">
                                                 <div class="d-flex justify-content-end mb-1">
                                                     <label for="fuelLevel" class="form-label">مستوي البنزين</label>
                                                 </div>
@@ -225,7 +234,7 @@
                                                     <input type="range" class="form-range" id="fuelLevel" required
                                                         min="0" max="100">
                                                 </div>
-                                            </div> --}}
+                                            </div>
                                             <div class="mb-1" style="position: relative;">
                                                 <textarea name="comment" class="form-control text-center" placeholder="تعليق" id="comment"
                                                     style="height: 100px; direction: rtl; text-align: right;"></textarea>
