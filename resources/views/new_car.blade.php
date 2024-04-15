@@ -156,7 +156,7 @@
                                             <div class="mb-2">
                                                 <input name="car_name" type="text" class="form-control text-center"
                                                     id="carName" required placeholder="اسم السيارة">
-                                                
+
                                                 @error('car_name')
                                                     <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                                 @enderror
@@ -201,12 +201,12 @@
                                             <div class="mb-2">
                                                 <div class="input-group">
                                                     <input name="car_plate" class="form-control text-center" maxlength="1">
+                                                    {{-- <input name="car_plate" class="form-control text-center" maxlength="1">
                                                     <input name="car_plate" class="form-control text-center" maxlength="1">
                                                     <input name="car_plate" class="form-control text-center" maxlength="1">
                                                     <input name="car_plate" class="form-control text-center" maxlength="1">
                                                     <input name="car_plate" class="form-control text-center" maxlength="1">
-                                                    <input name="car_plate" class="form-control text-center" maxlength="1">
-                                                    <input name="car_plate" class="form-control text-center" maxlength="1">
+                                                    <input name="car_plate" class="form-control text-center" maxlength="1"> --}}
                                                     <label for="brand" class="form-label inline ms-2">رقم اللوحة</label>
                                                 </div>
                                             </div>
