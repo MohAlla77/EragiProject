@@ -10,9 +10,12 @@
             <form action="#" method="POST">
                 @csrf
                 <div class="modal-body">
+                    <div class="col-md-12 mb-2">
+                        <input type="text" class="form-control text-center"
+                            id="#" required placeholder="اختيار سبب الانتظار" readonly>
+                    </div>
                     <select name="car_brand" id="brand" class="form-select text-center"
                         aria-describedby="validationServer04Feedback" required>
-                        <option value="" disabled selected>سبب الرجوع الي الانتظار</option>
                         <option selected>اختلاف الاسبير</option>
                         <option selected>عدم توفر مواد تشغيل </option>
                     </select>
