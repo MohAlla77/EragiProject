@@ -165,7 +165,7 @@
                                             <div class="mb-2 position-relative">
                                                 <input name="car_name" type="text" class="form-control text-center"
                                                     id="carName" required placeholder="اسم السيارة">
-                                                
+
                                                 @error('car_name')
                                                     <span class="d-block fs-6 text-danger mt-2 error-message">{{ $message }}</span>
                                                 @enderror
@@ -203,7 +203,7 @@
                                             <div class="input-group mb-2 position-relative">
                                                 <span class="input-group-text">+966</span>
                                                 <input class="form-control text-center" name="u_phone" id="customerPhone" placeholder="5x xxx xxxx" required>
-                                                @error('u_phone') 
+                                                @error('u_phone')
                                                     <span class="d-block fs-6 text-danger mt-2 error-message">{{ $message }}</span>
                                                 @enderror
                                             </div>
