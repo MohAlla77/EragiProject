@@ -1,43 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>المشتريات</title>
-    <link href="css/styles.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-    <style>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>المشتريات</title>
+<link href="css/styles.css" rel="stylesheet" />
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+    integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous">
+</script>
+<style>
+    /* Custom styles for navbar */
+    .nav-link {
+        color: #fff;
+        /* Change color to red */
+        font-size: 18px;
+        /* Increase font size to 18 pixels */
+    }
 
-        /* Custom styles for navbar */
-        .nav-link {
-            color: #fff;
-            /* Change color to red */
-            font-size: 18px;
-            /* Increase font size to 18 pixels */
-        }
+    .logo-img {
+        width: 55px;
+        /* Adjust the width as needed */
+        height: auto;
+        /* Maintain aspect ratio */
+        margin-right: 20px;
+        /* Adjust the margin as needed */
+    }
 
-        .logo-img {
-            width: 55px;
-            /* Adjust the width as needed */
-            height: auto;
-            /* Maintain aspect ratio */
-            margin-right: 20px;
-            /* Adjust the margin as needed */
-        }
-
-        .inner-card {
-            padding: 15px;
-            /* Adjust padding as needed */
-            margin-bottom: 15px;
-            /* Adjust margin as needed */
-        }
-    </style>
+    .inner-card {
+        padding: 15px;
+        /* Adjust padding as needed */
+        margin-bottom: 15px;
+        /* Adjust margin as needed */
+    }
+</style>
 </head>
 
 <body class="sb-nav-fixed">
@@ -64,18 +69,16 @@
             </button>
         </div>
 
-        <a class="navbar-brand pe-2" href="#"><i class="fa-solid fa-sitemap"></i><span class="ms-1"> صنف</span></a>
-        <a class="navbar-brand" href="#"><span class="ms-1"><i class="fa-solid fa-server"></i> خدمة</span></a>
-
         <div class="col-md-6 texr-end">
             <button id="invoiceButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleInvoiceForm()">فاتورة
                 <i class="fas fa-file-invoice"></i></button>
             <button id="AddacategoryButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleAddItemCard()">
                 الاصناف والخدمات <i class="fa fa-plus" aria-hidden="true"></i></button>
             <button id="toggleTableViewButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleTableView()">
-             الجدول <i class="fa-solid fa-eye"></i></button>
+                الجدول <i class="fa-solid fa-eye"></i></button>
         </div>
-        <a class="navbar-brand" href="#"><!--<i class="fa-solid fa-cart-shopping"></i>--><span class="ms-1">المشتريات</span></a>
+        <a class="navbar-brand" href="#"><!--<i class="fa-solid fa-cart-shopping"></i>--><span
+                class="ms-1">المشتريات</span></a>
         <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i
                 class="fas fa-bars"></i></button>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -85,7 +88,7 @@
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-           @include('Layout.sidebar')
+            @include('Layout.sidebar')
         </div>
         <div id="layoutSidenav_content" style="height: 25vh; overflow-y: auto;">
             <main>
@@ -94,7 +97,8 @@
                 <div class="card">
                     <div class="card-header text-end">جدول المشتريات <i class="fas fa-table me-1"></i>
                         <div class="col-md-12 d-flex justify-content-end">
-                            <select id="invoiceTypeFilter" class="form-select text-center ms-auto">
+                            <select id="invoiceTypeFilter" onchange="displaySelectedTable()"
+                                class="form-select text-center ms-auto">
                                 <option value="all">كل المشتريات </option>
                                 <option value="invoices">الفواتير</option>
                                 <option value="Invoicereturns">مرتجع الفواتير</option>
@@ -102,7 +106,7 @@
                                 <option value="Item">الاصناف</option>
                                 <option value="Itemgroup">مجموعة الاصناف</option>
                                 <option value="Servicesgroup">مجموعة الخدمات</option>
-                                <option value="Services">الخدمات</option>
+                                <option value="datatablesSimple1">الخدمات</option>
                                 <option value="Suppliers">الموردين</option>
                             </select>
                         </div>
@@ -128,12 +132,13 @@
                                     <tr>
                                         <td>
                                             <!-- Button trigger modal -->
-                                            <a  data-toggle="modal" data-target="#exampleModal{{$service->id}}">
+                                            <a data-toggle="modal" data-target="#exampleModal{{ $service->id }}">
                                                 <button class="btn btn-primary col-5 float-start">
-                                                    <i class="fa-solid fa-trash"></i> <i class="fa-solid fa-pen-to-square"></i>
-                                                 </button>
+                                                    <i class="fa-solid fa-trash"></i> <i
+                                                        class="fa-solid fa-pen-to-square"></i>
+                                                </button>
                                             </a>
-                                           | {{$service->status}}<i class="fa-solid fa-check"></i> <i class="fa-solid fa-hourglass-half"></i>
+                                           | {{$service->status}}
                                             <!-- Modal -->
                                             @include('model.Edit_service_popup')
                                         </td>
@@ -156,6 +161,44 @@
                                 </tr>
                             </tfoot>
                         </table>
+                        <table id="datatablesSimple" style="display:none;">
+                            <thead>
+                                <tr>
+
+
+
+                                    <th scope="col">مجموعة الخدمة</th>
+                                    <th scope="col">نوع الخدمة</th>
+                                    <th scope="col">سعر التكلفة</th>
+                                    <th scope="col">رقم الخدمة</th>
+                                    <th scope="col">اسم الخدمة</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($categorizes as $categorize)
+                                    <tr>
+                                        <td>
+
+                                        </td>
+                                        <td>{{ $categorize->name }}</td>
+                                        <td>{{ $categorize->unit }}</td>
+                                        <td>{{ $categorize->price_cost }}</td>
+                                        <td>{{ $categorize->serial_number }}</td>
+                                        <td>{{ $categorize->name }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                            <tfoot>
+                                <tr>
+
+                                    <th scope="col">مجموعة الخدمة</th>
+                                    <th scope="col">نوع الخدمة</th>
+                                    <th scope="col">سعر التكلفة</th>
+                                    <th scope="col">رقم الخدمة</th>
+                                    <th scope="col">اسم الخدمة</th>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </div>
                 <div id="invoiceForm" style="display: none;">
@@ -169,8 +212,12 @@
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-md-12 text-center">
-                                                        <button type="submit" class="btn btn-success col-3"><i class="fa fa-bookmark" aria-hidden="true"></i></button>
-                                                        <button id="printButton" class="btn btn-primary col-3"onclick="window.print()"><i class="fas fa-print"></i></button>
+                                                        <button type="submit" class="btn btn-success col-3"><i
+                                                                class="fa fa-bookmark"
+                                                                aria-hidden="true"></i></button>
+                                                        <button id="printButton"
+                                                            class="btn btn-primary col-3"onclick="window.print()"><i
+                                                                class="fas fa-print"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -200,14 +247,12 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-md-6 mb-1">
-                                                        <input class="form-control text-center"
-                                                            id="invoice number" value=""
-                                                            placeholder="رقم الفاتورة" readonly>
+                                                        <input class="form-control text-center" id="invoice number"
+                                                            value="" placeholder="رقم الفاتورة" readonly>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input class="form-control text-center"
-                                                            id="Buyername" value="" placeholder="اسم المستخدم"
-                                                            readonly>
+                                                        <input class="form-control text-center" id="Buyername"
+                                                            value="" placeholder="اسم المستخدم" readonly>
                                                     </div>
                                                 </div>
                                             </div>
@@ -221,8 +266,8 @@
                                                     <div class="card-body">
                                                         <div class="row g-1">
                                                             <div class="col-md-6">
-                                                                <input name="itemName" id="itemName"
-                                                                    required class="form-control text-center"
+                                                                <input name="itemName" id="itemName" required
+                                                                    class="form-control text-center"
                                                                     placeholder="اسم الصنف">
                                                             </div>
                                                             <div class="col-md-6">
@@ -231,8 +276,8 @@
                                                                     required>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <input class="form-control text-center"
-                                                                    id="unit" placeholder="الوحدة" required>
+                                                                <input class="form-control text-center" id="unit"
+                                                                    placeholder="الوحدة" required>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <input name="name" required
@@ -245,8 +290,8 @@
                                                                     placeholder="السعر">
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <input name="Total" id="Total"
-                                                                    required class="form-control text-center"
+                                                                <input name="Total" id="Total" required
+                                                                    class="form-control text-center"
                                                                     placeholder="المجموع">
                                                             </div>
                                                             <div class="footer text-center">
@@ -266,109 +311,132 @@
                                                 <div class="card bg-light mb-2">
                                                     <div class="card-body">
                                                         <div class="select row mb-2" aria-label="Forms toggle">
-                                                            <select class="form-select text-center" onchange="toggleForm(this)">
+                                                            <select class="form-select text-center"
+                                                                onchange="toggleForm(this)">
                                                                 <option value="purchase">طلب شراء</option>
                                                                 <option value="quotation">طلب تسعيرة</option>
                                                             </select>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <form id="purchaseForm" action="#" method="post">
-                                                                    <div  class="row g-1">
+                                                                <form id="purchaseForm" action="#"
+                                                                    method="post">
+                                                                    <div class="row g-1">
                                                                         <div class="col-md-6">
-                                                                            <input type="text" name="name" required
+                                                                            <input type="text" name="name"
+                                                                                required
                                                                                 class="form-control  text-center"
                                                                                 id="validationDefault01" required
                                                                                 placeholder="اسم المورد">
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <input type="number" name="name" required
+                                                                            <input type="number" name="name"
+                                                                                required
                                                                                 class="form-control  text-center"
                                                                                 id="validationDefault01" required
                                                                                 placeholder="رقم اللوحة">
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <input type="number" name="name" required
+                                                                            <input type="number" name="name"
+                                                                                required
                                                                                 class="form-control text-center"
                                                                                 id="validationDefault01" required
                                                                                 placeholder="رقم الفاتورة">
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <input type="text" name="name" required
+                                                                            <input type="text" name="name"
+                                                                                required
                                                                                 class="form-control text-center"
                                                                                 id="validationDefault01" required
                                                                                 placeholder="كود الصنف">
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <input type="text" name="name" required
+                                                                            <input type="text" name="name"
+                                                                                required
                                                                                 class="form-control text-center"
                                                                                 id="validationDefault01" required
                                                                                 placeholder="الصنف">
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <input type="number" name="name" required
-                                                                                class="form-control text-center" id="quantity"
-                                                                                required placeholder="الكمية">
+                                                                            <input type="number" name="name"
+                                                                                required
+                                                                                class="form-control text-center"
+                                                                                id="quantity" required
+                                                                                placeholder="الكمية">
                                                                         </div>
                                                                         <div class="col-md-12">
-                                                                            <input type="number" name="name" required
-                                                                                class="form-control text-center" id="price"
-                                                                                required placeholder="السعر">
+                                                                            <input type="number" name="name"
+                                                                                required
+                                                                                class="form-control text-center"
+                                                                                id="price" required
+                                                                                placeholder="السعر">
                                                                         </div>
                                                                         <div class="footer text-center">
-                                                                            <button type="button" class="btn btn-danger col-3"
+                                                                            <button type="button"
+                                                                                class="btn btn-danger col-3"
                                                                                 data-bs-dismiss="modal">الغاء <i
                                                                                     class="fa-solid fa-xmark"></i></button>
-                                                                            <button type="submit" class="btn btn-success col-3">حفظ
+                                                                            <button type="submit"
+                                                                                class="btn btn-success col-3">حفظ
                                                                                 <i class="fa fa-bookmark"
                                                                                     aria-hidden="true"></i></button>
                                                                         </div>
                                                                     </div>
                                                                 </form>
-                                                                <form id="quotationForm" action="#" style="display: none;">
+                                                                <form id="quotationForm" action="#"
+                                                                    style="display: none;">
                                                                     <div class="row mb-1">
                                                                         <div class="col-md-6 mb-1">
-                                                                            <input type="text" class="form-control text-center"
+                                                                            <input type="text"
+                                                                                class="form-control text-center"
                                                                                 id="validationCustom02" value=""
                                                                                 placeholder="رقم اللوحة" required>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <input type="text" class="form-control text-center"
+                                                                            <input type="text"
+                                                                                class="form-control text-center"
                                                                                 id="validationCustom02" value=""
                                                                                 placeholder="اسم العميل" required>
                                                                         </div>
                                                                         <div class="col-md-6 mb-1">
-                                                                            <input type="text" class="form-control text-center"
+                                                                            <input type="text"
+                                                                                class="form-control text-center"
                                                                                 id="validationCustom02" value=""
                                                                                 placeholder="رقم العميل" required>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <input type="text" class="form-control text-center"
+                                                                            <input type="text"
+                                                                                class="form-control text-center"
                                                                                 id="validationCustom01" value=""
                                                                                 placeholder="القطعة" required>
                                                                         </div>
                                                                         <div class="col-md-6 mb-1">
-                                                                            <input type="text" class="form-control text-center"
+                                                                            <input type="text"
+                                                                                class="form-control text-center"
                                                                                 id="validationCustom02" value=""
                                                                                 placeholder="كود القطعة" required>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <input type="text" class="form-control text-center"
+                                                                            <input type="text"
+                                                                                class="form-control text-center"
                                                                                 id="validationCustom02" value=""
                                                                                 placeholder="كود المخزون" required>
                                                                         </div>
                                                                         <div class="col-md-6 mb-1">
                                                                             <input type="number" name="name"
-                                                                                class="form-control text-center" id="quantity"
-                                                                                required placeholder="الكمية">
+                                                                                class="form-control text-center"
+                                                                                id="quantity" required
+                                                                                placeholder="الكمية">
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <input type="number" name="name"
-                                                                                class="form-control text-center" id="price"
-                                                                                required placeholder="السعر">
+                                                                                class="form-control text-center"
+                                                                                id="price" required
+                                                                                placeholder="السعر">
                                                                         </div>
                                                                         <div class="footer text-center">
-                                                                            <button type="button" class="btn btn-danger col-3"
+                                                                            <button type="button"
+                                                                                class="btn btn-danger col-3"
                                                                                 data-bs-dismiss="modal">الغاء <i
                                                                                     class="fa-solid fa-xmark"></i></button>
                                                                             <button type="submit"
@@ -418,17 +486,17 @@
                                                     <div class="card-body">
                                                         <div class="row">
                                                             <div class="col-md-6 mb-2">
-                                                                <input class="form-control text-center"
-                                                                    id="Total" value="" placeholder="الاجمالي"
-                                                                    readonly>
+                                                                <input class="form-control text-center" id="Total"
+                                                                    value="" placeholder="الاجمالي" readonly>
                                                             </div>
                                                             <div class="col-md-6 mb-2">
-                                                                <input class="form-control text-center"
-                                                                    id="VAT%15" value=""
+                                                                <input class="form-control text-center" id="VAT%15"
+                                                                    value=""
                                                                     placeholder="ضريبة القيم المضافة%15" readonly>
                                                             </div>
                                                             <div class="col-md-6 mb-2">
-                                                                <select class="form-select text-center" id="Discountearned"
+                                                                <select class="form-select text-center"
+                                                                    id="Discountearned"
                                                                     aria-label="Default select example"
                                                                     onchange="handleDiscountType()">
                                                                     <option selected>الخصم</option>
@@ -445,7 +513,8 @@
                                                             <div class="col-md-6 mb-2" id="amountDiscountField"
                                                                 style="display: none;">
                                                                 <input class="form-control text-center"
-                                                                    id="amountDiscountValue" placeholder="قيمة الخصم بالمبلغ">
+                                                                    id="amountDiscountValue"
+                                                                    placeholder="قيمة الخصم بالمبلغ">
                                                             </div>
                                                             <div class="col-md-6 mb-2">
                                                                 <input class="form-control text-center"
@@ -453,8 +522,8 @@
                                                                     placeholder="الاجمالي مع الضريبة" readonly>
                                                             </div>
                                                             <div class="col-md-12 mb-2">
-                                                                <input class="form-control text-center"
-                                                                    id="netAmount" value="" placeholder="المبلغ الصافي"
+                                                                <input class="form-control text-center" id="netAmount"
+                                                                    value="" placeholder="المبلغ الصافي"
                                                                     readonly>
                                                             </div>
                                                         </div>
@@ -486,7 +555,7 @@
                             <div class="col-12">
                                 <div class="card bg-light">
                                     <div class="card-body">
-                                        <form action="{{route('Supplier.store')}}" method="POST" class="row">
+                                        <form action="{{ route('Supplier.store') }}" method="POST" class="row">
                                             @csrf
                                             <div class="row g-1">
                                                 <div class="col-md-12">
@@ -494,29 +563,34 @@
                                                         id="#" required placeholder="الموردين" readonly>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input name="SupplierID" type="text" class="form-control text-center"
-                                                        id="#" required placeholder="رقم التعريفي للمورد">
+                                                    <input name="SupplierID" type="text"
+                                                        class="form-control text-center" id="#" required
+                                                        placeholder="رقم التعريفي للمورد">
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input name="SupplierName" type="text" class="form-control text-center"
-                                                        id="#" required placeholder="اسم المورد">
+                                                    <input name="SupplierName" type="text"
+                                                        class="form-control text-center" id="#" required
+                                                        placeholder="اسم المورد">
                                                 </div>
                                                 <div class="col-6 input-group">
                                                     <span class="input-group-text">+966</span>
-                                                    <input class="form-control text-center" name="u_phone" id="customerPhone" placeholder="رقم الهاتف" required>    
+                                                    <input class="form-control text-center" name="u_phone"
+                                                        id="customerPhone" placeholder="رقم الهاتف" required>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input name="SupplierRigesteNumber" type="text" class="form-control text-center"
-                                                        id="#" required placeholder="رقم السجل التجاري">
+                                                    <input name="SupplierRigesteNumber" type="text"
+                                                        class="form-control text-center" id="#" required
+                                                        placeholder="رقم السجل التجاري">
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input name="SupplierTaxNumber" type="text" class="form-control text-center"
-                                                        id="#" required placeholder="الرقم الضريبي">
+                                                    <input name="SupplierTaxNumber" type="text"
+                                                        class="form-control text-center" id="#" required
+                                                        placeholder="الرقم الضريبي">
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <input name="SupplierNationalNumber" type="number" class="form-control text-center"
-                                                        id="#" name="#" required
-                                                        placeholder="العنوان الوطني">
+                                                    <input name="SupplierNationalNumber" type="number"
+                                                        class="form-control text-center" id="#"
+                                                        name="#" required placeholder="العنوان الوطني">
                                                 </div>
                                                 <div class="col-12 text-center">
                                                     <button type="Save" class="col-6 btn btn-success">اضافة <i
@@ -562,24 +636,26 @@
                             </div>
                         </div>-->
                         <div class="row">
-                            <div class="col-md-4">
+                            {{-- <div class="col-md-4">
                                 <div class="card mt-5 bg-light">
                                     <div class="card-body">
-                                        <form class="row" id="addItemForm" novalidate action="{{route('CategorizeGroup.store')}}"
-                                            method="post">
+                                        <form class="row" id="addItemForm" novalidate
+                                            action="{{ route('CategorizeGroup.store') }}" method="post">
                                             @csrf
                                             <div class="col-md-12 mb-1">
                                                 <input type="text" class="form-control text-center"
-                                                    id="AddagroupFields" required
-                                                    placeholder="اضافة المجموعة الاصناف" readonly>
+                                                    id="AddagroupFields" required placeholder="اضافة المجموعة الاصناف"
+                                                    readonly>
                                             </div>
                                             <div class="col-md-6 mb-2">
-                                                <input name="CategorizeGroupName" type="text" class="form-control text-center"
-                                                    id="#" required placeholder="اسم المجموعة">
+                                                <input name="CategorizeGroupName" type="text"
+                                                    class="form-control text-center" id="#" required
+                                                    placeholder="اسم المجموعة">
                                             </div>
                                             <div class="col-md-6">
-                                                <input name="CategorizeGroupNumber" type="text" class="form-control text-center"
-                                                    id="#" required placeholder="رقم المجوعة">
+                                                <input name="CategorizeGroupNumber" type="text"
+                                                    class="form-control text-center" id="#" required
+                                                    placeholder="رقم المجوعة">
                                             </div>
                                             <div class="col-12 text-center">
                                                 <button type="Save" class="col-6 btn btn-success">اضافة <i
@@ -588,60 +664,112 @@
                                         </form>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-8">
+                            </div> --}}
+                            <div class="col-md-12">
                                 <div class="card bg-light">
                                     <div class="card-body">
-                                        <form class="row" id="addItemForm" novalidate action="{{route('Categorize.store')}}" method="post">
+                                        <form class="row" id="addItemForm" novalidate
+                                            action="{{ route('Categorize.store') }}" method="post">
+                                        <form class="row g-1" id="addItemForm" novalidate action="{{route('Categorize.store')}}" method="post">
                                             @csrf
-                                            <div class="col-md-12 mb-1">
+                                            <div class="col-md-8">
                                                 <input type="text" class="form-control text-center"
                                                     id="AddacategoryFields" required placeholder="اضافة صنف" readonly>
                                             </div>
                                             <div class="col-md-6 mb-1">
+                                                <select name="categorize_group_id" class="form-select text-center"
+                                                    onchange="toggleForm(this)">
+                                                    @foreach ($CategorizeGroup as $C_group)
+                                                        <option value="{{ $C_group->id }}">
+                                                            {{ $C_group->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+
+                                            <div class="col-md-4 text-center">
+                                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    اضافة مجموعة اصناف
+                                                </button>
+                                            </div>
+                                            <div class="col-md-6">
                                                 <select name="categorize_group_id"
                                                 class="form-select text-center"
                                                 onchange="toggleForm(this)">
+                                                <option selected>اختار مجموعة الصنف</option>
                                                 @foreach ($CategorizeGroup as $C_group)
                                                     <option value="{{ $C_group->id }}">
                                                         {{ $C_group->name }}
                                                     </option>
                                                 @endforeach
                                             </select>
-
                                             </div>
                                             {{-- <div class="col-md-6">
                                                 <input type="number" class="form-control text-center" id="#"
                                                     required placeholder="رقم المجموعة" disabled>
                                             </div> --}}
                                             <div class="col-md-6">
-                                                <input name="CategorizeSerial" type="number" class="form-control text-center" id="#"
-                                                    required placeholder="الرقم التسلسلي">
+                                                <input name="CategorizeSerial" type="number"
+                                                    class="form-control text-center" id="#" required
+                                                    placeholder="الرقم التسلسلي">
                                             </div>
-                                            <div class="col-md-6 mb-1">
+                                            <div class="col-md-6">
                                                 <input name="CategorizeName" type="text" class="form-control text-center" id="#"
                                                     required placeholder="اسم الصنف">
+                                            <div class="col-md-6 mb-1">
+                                                <input name="CategorizeName" type="text"
+                                                    class="form-control text-center" id="#" required
+                                                    placeholder="اسم الصنف">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select name="#" id="#"
+                                                    class="form-select text-center">
+                                                    <option selected>نوع الكمية</option>
+                                                    <option selected>كرتونة</option>
+                                                    <option selected>لتر </option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input name="CategorizeAmount" type="number"
+                                                    class="form-control text-center" id="validationServer04"
+                                                    name="item_quantity" required placeholder="الكمية">
                                             </div>
                                             <div class="col-md-6">
                                                 <input name="CategorizeAmount" type="number" class="form-control text-center"
                                                     id="validationServer04" name="item_quantity" required
-                                                    placeholder="الكمية">
+                                                    placeholder="سعر الكمية">
                                             </div>
-                                            <div class="col-md-6 mb-1">
+                                            <div class="col-md-6">
                                                 <input name="CategorizeUnit" type="number" class="form-control text-center" id="#"
                                                     required placeholder="الوحدة">
-                                            </div>
                                             <div class="col-md-6 mb-1">
+                                                <input name="CategorizeUnit" type="number"
+                                                    class="form-control text-center" id="#" required
+                                                    placeholder="الوحدة">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input name="CategorizeUnit" type="number" class="form-control text-center" id="#"
+                                                    required placeholder="سعر الوحدة">
+                                            </div>
+                                            <div class="col-md-6">
                                                 <input  name="CategorizeCost" type="number" class="form-control text-center"
                                                     id="validationServer04" name="item_price" required placeholder=" سعر التكلفة">
+                                            <div class="col-md-6 mb-1">
+                                                <input name="CategorizeCost" type="number"
+                                                    class="form-control text-center" id="validationServer04"
+                                                    name="item_price" required placeholder=" سعر التكلفة">
                                             </div>
-                                            <div class="col-md-12 mb-1">
+                                            <div class="col-md-6">
                                                 <input  name="CategorizeCost" type="number" class="form-control text-center"
                                                     id="validationServer04" name="item_price" required placeholder=" سعر البيع">
+                                            <div class="col-md-12 mb-1">
+                                                <input name="CategorizeCost" type="number"
+                                                    class="form-control text-center" id="validationServer04"
+                                                    name="item_price" required placeholder=" سعر البيع">
                                             </div>
                                             <div class="col-12 text-center">
-                                                <button type="Save" class="col-6 btn btn-success">اضافة <i
-                                                        class="fa-solid fa-plus"></i></button>
+                                                <button type="Save" class="col-6 btn btn-success">اضافة
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </button>
                                             </div>
                                         </form>
                                     </div>
@@ -651,7 +779,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row g-2">
-                                    <div class="col-md-4">
+                                    {{-- <div class="col-md-4">
                                         <div class="card mt-4 bg-light">
                                             <div class="card-body">
                                                 <form class="row" id="addItemForm" novalidate
@@ -679,25 +807,29 @@
                                                             required>
                                                     </div>
                                                     <div class="col-12 text-center">
-                                                        <button type="submite" class="col-12 btn btn-success">اضافة <i
+                                                        <button type="submite" class="col-6 btn btn-success">اضافة <i
                                                                 class="fa-solid fa-plus"></i></button>
                                                     </div>
                                                 </form>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-8">
+                                    </div> --}}
+                                    <div class="col-md-12">
                                         <div class="card bg-light">
                                             <div class="card-body">
-                                                <form class="row" id="addItemForm" novalidate
+                                                <form class="row g-1" id="addItemForm" novalidate
                                                     action="{{ route('Service.store') }}" method="post">
                                                     @csrf
-                                                    <div class="col-12 mb-1">
+                                                    <div class="col-md-4 text-center">
+                                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                            اضافة مجموعة الخدمات                                                        </button>
+                                                    </div>
+                                                    <div class="col-md-8">
                                                         <input type="text" class="form-control text-center"
                                                             id="AddaserviceFields" required placeholder="اضافة خدمة"
                                                             readonly>
                                                     </div>
-                                                    <div class="col-md-6 mb-1">
+                                                    <div class="col-md-6">
                                                         <select name="service_group_id"
                                                             class="form-select text-center"
                                                             onchange="toggleForm(this)">
@@ -715,17 +847,17 @@
                                                             class="form-control text-center" id="اسم خدمة" required
                                                             placeholder="اسم خدمة">
                                                     </div>
-                                                    <div class="col-md-6 mb-2">
+                                                    <div class="col-md-6">
                                                         <input name="ServiceId"type="number" name="number"
                                                             class="form-control text-center" id="الرمز" required
                                                             placeholder="رمزالخدمة" readonly>
                                                     </div>
-                                                    <div class="col-6">
+                                                    <div class="col-md-6">
                                                         <input name="ServiceCost" type="number" name="number"
                                                             class="form-control text-center" id="سعر التكلفة" required
                                                             placeholder="السعر التكلفة">
                                                     </div>
-                                                    <div class="select col-12 mb-2" aria-label="Forms toggle">
+                                                    <div class="select col-md-12" aria-label="Forms toggle">
                                                         <select name="ServiceType" class="form-select text-center"
                                                             onchange="toggleForm(this)">
                                                             <option value="داخلية">خدمة داخلية </option>
@@ -733,7 +865,7 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-12 text-center">
-                                                        <button type="submit" class="col-12 btn btn-success">اضافة <i
+                                                        <button type="submit" class="col-6 btn btn-success">اضافة <i
                                                                 class="fa-solid fa-plus"></i></button>
                                                     </div>
                                                 </form>
@@ -749,6 +881,20 @@
         </div>
     </div>
     <script>
+        function displaySelectedTable() {
+            // Get the selected option value
+            var selectedTable = document.getElementById("invoiceTypeFilter").value;
+
+            // Hide all tables
+            var tables = document.getElementsByTagName("table");
+            for (var i = 0; i < tables.length; i++) {
+                tables[i].style.display = "none";
+            }
+
+            // Display the selected table
+            document.getElementById(selectedTable).style.display = "block";
+        }
+
         function mysticalFormToggle() {
             var selectedOption = document.getElementById("invoiceType").value;
             if (selectedOption === "invoice" || selectedOption === "return") {
