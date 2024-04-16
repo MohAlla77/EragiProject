@@ -558,7 +558,7 @@
                             </div>
                         </div>-->
                         <div class="row g-1">
-                            <div class="col-md-4">
+                            {{-- <div class="col-md-4">
                                 <div class="card mt-5 bg-light">
                                     <div class="card-body">
                                         <form class="row g-1" id="addItemForm" novalidate action="{{route('CategorizeGroup.store')}}"
@@ -584,15 +584,22 @@
                                         </form>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-8">
+                            </div> --}}
+                            <div class="col-md-12">
                                 <div class="card bg-light">
                                     <div class="card-body">
                                         <form class="row g-1" id="addItemForm" novalidate action="{{route('Categorize.store')}}" method="post">
                                             @csrf
-                                            <div class="col-md-12">
+                                            <div class="col-md-8">
                                                 <input type="text" class="form-control text-center"
                                                     id="AddacategoryFields" required placeholder="اضافة صنف" readonly>
+                                            </div>
+                                            <div class="col-md-4">    
+                                                <button type="button" class="btn btn-success col-12" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModalitem{{}}">
+                                                    اضافة المجموعة الاصناف
+                                                    @include('model.item_group_putchase.popup')
+                                                </button>
                                             </div>
                                             <div class="col-md-6">
                                                 <select name="categorize_group_id"
@@ -677,7 +684,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row g-1">
-                                    <div class="col-md-4">
+                                    {{-- <div class="col-md-4">
                                         <div class="card mt-4 bg-light">
                                             <div class="card-body">
                                                 <form class="row g-1" id="addItemForm" novalidate
@@ -711,24 +718,31 @@
                                                 </form>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-8">
+                                    </div> --}}
+                                    <div class="col-md-12">
                                         <div class="card bg-light">
                                             <div class="card-body">
                                                 <form class="row g-1" id="addItemForm" novalidate
                                                     action="{{ route('Service.store') }}" method="post">
                                                     @csrf
-                                                    <div class="col-12">
+                                                    <div class="col-8">
                                                         <input type="text" class="form-control text-center"
                                                             id="AddaserviceFields" required placeholder="اضافة خدمة"
                                                             readonly>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <button type="button" class="btn btn-success col-12" data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModalservice{{}}">
+                                                            @include('model.service_group_putchase.popup')
+                                                        </button>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <select name="service_group_id"
                                                             class="form-select text-center"
                                                             onchange="toggleForm(this)">
                                                             <option selected>نوع الخدمة</option>
-                                                            @foreach ($ServiceGroup as $S_group)                                                                <option value="{{ $S_group->id }}">
+                                                            @foreach ($ServiceGroup as $S_group)
+                                                            <option value="{{ $S_group->id }}">
                                                                     {{ $S_group->name }}
                                                                 </option>
                                                             @endforeach
@@ -754,12 +768,13 @@
                                                     <div class="select col-12" aria-label="Forms toggle">
                                                         <select name="ServiceType" class="form-select text-center"
                                                             onchange="toggleForm(this)">
+                                                            <option selected>نوع الخدمة</option>
                                                             <option value="داخلية">خدمة داخلية </option>
                                                             <option value="خارجية">خدمة خارجية</option>
                                                         </select>
                                                     </div>
                                                     <div class="col-12 text-center">
-                                                        <button type="submit" class="col-12 btn btn-success">اضافة <i
+                                                        <button type="submit" class="col-6 btn btn-success">اضافة <i
                                                                 class="fa-solid fa-plus"></i></button>
                                                     </div>
                                                 </form>
