@@ -63,10 +63,6 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
-
-        <a class="navbar-brand pe-2" href="#"><i class="fa-solid fa-sitemap"></i><span class="ms-1"> صنف</span></a>
-        <a class="navbar-brand" href="#"><span class="ms-1"><i class="fa-solid fa-server"></i> خدمة</span></a>
-
         <div class="col-md-6 texr-end">
             <button id="invoiceButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleInvoiceForm()">فاتورة
                 <i class="fas fa-file-invoice"></i></button>
@@ -561,19 +557,19 @@
                                 </form>
                             </div>
                         </div>-->
-                        <div class="row">
+                        <div class="row g-1">
                             <div class="col-md-4">
                                 <div class="card mt-5 bg-light">
                                     <div class="card-body">
-                                        <form class="row" id="addItemForm" novalidate action="{{route('CategorizeGroup.store')}}"
+                                        <form class="row g-1" id="addItemForm" novalidate action="{{route('CategorizeGroup.store')}}"
                                             method="post">
                                             @csrf
-                                            <div class="col-md-12 mb-1">
+                                            <div class="col-md-12">
                                                 <input type="text" class="form-control text-center"
                                                     id="AddagroupFields" required
                                                     placeholder="اضافة المجموعة الاصناف" readonly>
                                             </div>
-                                            <div class="col-md-6 mb-2">
+                                            <div class="col-md-6">
                                                 <input name="CategorizeGroupName" type="text" class="form-control text-center"
                                                     id="#" required placeholder="اسم المجموعة">
                                             </div>
@@ -592,16 +588,17 @@
                             <div class="col-md-8">
                                 <div class="card bg-light">
                                     <div class="card-body">
-                                        <form class="row" id="addItemForm" novalidate action="{{route('Categorize.store')}}" method="post">
+                                        <form class="row g-1" id="addItemForm" novalidate action="{{route('Categorize.store')}}" method="post">
                                             @csrf
-                                            <div class="col-md-12 mb-1">
+                                            <div class="col-md-12">
                                                 <input type="text" class="form-control text-center"
                                                     id="AddacategoryFields" required placeholder="اضافة صنف" readonly>
                                             </div>
-                                            <div class="col-md-6 mb-1">
+                                            <div class="col-md-6">
                                                 <select name="categorize_group_id"
                                                 class="form-select text-center"
                                                 onchange="toggleForm(this)">
+                                                <option selected>نوع الصنف</option>
                                                 @foreach ($CategorizeGroup as $C_group)
                                                     <option value="{{ $C_group->id }}">
                                                         {{ $C_group->name }}
@@ -618,24 +615,53 @@
                                                 <input name="CategorizeSerial" type="number" class="form-control text-center" id="#"
                                                     required placeholder="الرقم التسلسلي">
                                             </div>
-                                            <div class="col-md-6 mb-1">
+                                            <div class="col-md-6">
                                                 <input name="CategorizeName" type="text" class="form-control text-center" id="#"
                                                     required placeholder="اسم الصنف">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select class="form-select text-center" name="#" 
+                                                    aria-label="Default select example">
+                                                    <option selected>نوع الكمية</option>
+                                                    <option value="invoice">كرتونة</option>
+                                                    <option value="return">ليتر </option>
+                                                    <option value="purchase">؟؟؟</option>
+                                                    <option value="quotation">؟؟؟</option>
+                                                </select>
                                             </div>
                                             <div class="col-md-6">
                                                 <input name="CategorizeAmount" type="number" class="form-control text-center"
                                                     id="validationServer04" name="item_quantity" required
                                                     placeholder="الكمية">
                                             </div>
-                                            <div class="col-md-6 mb-1">
-                                                <input name="CategorizeUnit" type="number" class="form-control text-center" id="#"
-                                                    required placeholder="الوحدة">
+                                            <div class="col-md-6">
+                                                <input name="CategorizeAmount" type="number" class="form-control text-center"
+                                                    id="validationServer04" name="item_quantity" required
+                                                    placeholder="سعر الكمية">
                                             </div>
-                                            <div class="col-md-6 mb-1">
+                                            <div class="col-md-6">
+                                                <select class="form-select text-center" name="#" 
+                                                    aria-label="Default select example">
+                                                    <option selected>نوع الوحدة</option>
+                                                    <option value="invoice">حبة</option>
+                                                    <option value="return">؟؟؟ </option>
+                                                    <option value="purchase">؟؟؟</option>
+                                                    <option value="quotation">؟؟؟</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input name="CategorizeUnit" type="number" class="form-control text-center" id="#"
+                                                    required placeholder="كمية الوحدة">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input name="CategorizeUnit" type="number" class="form-control text-center" id="#"
+                                                    required placeholder="سعر الوحدة">
+                                            </div>
+                                            <div class="col-md-6">
                                                 <input  name="CategorizeCost" type="number" class="form-control text-center"
                                                     id="validationServer04" name="item_price" required placeholder=" سعر التكلفة">
                                             </div>
-                                            <div class="col-md-12 mb-1">
+                                            <div class="col-md-12">
                                                 <input  name="CategorizeCost" type="number" class="form-control text-center"
                                                     id="validationServer04" name="item_price" required placeholder=" سعر البيع">
                                             </div>
@@ -650,29 +676,29 @@
                         </div>
                         <div class="card">
                             <div class="card-body">
-                                <div class="row g-2">
+                                <div class="row g-1">
                                     <div class="col-md-4">
                                         <div class="card mt-4 bg-light">
                                             <div class="card-body">
-                                                <form class="row" id="addItemForm" novalidate
+                                                <form class="row g-1" id="addItemForm" novalidate
                                                     action="{{ route('ServiceGroup.store') }}" method="post">
                                                     @csrf
-                                                    <div class="col-md-12  mb-1">
+                                                    <div class="col-md-12">
                                                         <input type="text" class="form-control text-center"
                                                             id="AddagroupFields" required
                                                             placeholder="اضافة المجموعة الخدمات" readonly>
                                                     </div>
-                                                    <div class="col-md-6  mb-1">
+                                                    <div class="col-md-6">
                                                         <input name="GroupName" type="text"
                                                             class="form-control text-center" id="#" required
                                                             placeholder="اسم المجموعة">
                                                     </div>
-                                                    <div class="col-md-6  mb-1">
+                                                    <div class="col-md-6">
                                                         <input name="GroupNumber" type="text"
                                                             class="form-control text-center" id="#" required
                                                             placeholder="رقم المجوعة">
                                                     </div>
-                                                    <div class="col-md-12  mb-1">
+                                                    <div class="col-md-12">
                                                         <input name="GroupID" type="text"
                                                             class="form-control text-center" id="AddagroupFields"
                                                             required placeholder="أضف رمز (Ex: الماكنيكا -> MCH)"
@@ -689,20 +715,20 @@
                                     <div class="col-md-8">
                                         <div class="card bg-light">
                                             <div class="card-body">
-                                                <form class="row" id="addItemForm" novalidate
+                                                <form class="row g-1" id="addItemForm" novalidate
                                                     action="{{ route('Service.store') }}" method="post">
                                                     @csrf
-                                                    <div class="col-12 mb-1">
+                                                    <div class="col-12">
                                                         <input type="text" class="form-control text-center"
                                                             id="AddaserviceFields" required placeholder="اضافة خدمة"
                                                             readonly>
                                                     </div>
-                                                    <div class="col-md-6 mb-1">
+                                                    <div class="col-md-6">
                                                         <select name="service_group_id"
                                                             class="form-select text-center"
                                                             onchange="toggleForm(this)">
-                                                            @foreach ($ServiceGroup as $S_group)
-                                                                <option value="{{ $S_group->id }}">
+                                                            <option selected>نوع الخدمة</option>
+                                                            @foreach ($ServiceGroup as $S_group)                                                                <option value="{{ $S_group->id }}">
                                                                     {{ $S_group->name }}
                                                                 </option>
                                                             @endforeach
@@ -715,7 +741,7 @@
                                                             class="form-control text-center" id="اسم خدمة" required
                                                             placeholder="اسم خدمة">
                                                     </div>
-                                                    <div class="col-md-6 mb-2">
+                                                    <div class="col-md-6">
                                                         <input name="ServiceId"type="number" name="number"
                                                             class="form-control text-center" id="الرمز" required
                                                             placeholder="رمزالخدمة" readonly>
@@ -725,7 +751,7 @@
                                                             class="form-control text-center" id="سعر التكلفة" required
                                                             placeholder="السعر التكلفة">
                                                     </div>
-                                                    <div class="select col-12 mb-2" aria-label="Forms toggle">
+                                                    <div class="select col-12" aria-label="Forms toggle">
                                                         <select name="ServiceType" class="form-select text-center"
                                                             onchange="toggleForm(this)">
                                                             <option value="داخلية">خدمة داخلية </option>
