@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categorize;
 use App\Models\CategorizeGroup;
 use App\Models\Service;
 use App\Models\ServiceGroup;
@@ -21,10 +22,12 @@ class PurchasesController extends Controller
         $service = Service::all();
 
         $Categorize_group = CategorizeGroup::all();
+        $categorizes = Categorize::all();
 
 
 
-        return view('Purchases', ['ServiceGroup' => $Service_group, 'CategorizeGroup' => $Categorize_group , 'Services' => $service]);
+        return view('Purchases', ['ServiceGroup' => $Service_group,
+         'CategorizeGroup' => $Categorize_group , 'Services' => $service , 'categorizes' => $categorizes]);
     }
 
     public function SealsIndex(){

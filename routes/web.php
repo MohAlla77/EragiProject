@@ -1,9 +1,9 @@
-km<?php
+<?php
 
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-
+/////
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,21 +37,21 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->n
 
 Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
- Route::get('/workspace', function() {
+Route::get('/workspace', function () {
     return view('WorkSpace');
 })->name('Workspace')->middleware('auth');
 
 
-Route::get('/invoice', [InvoiceController::class , 'index'])->name('invoice.index');
+Route::get('/invoice', [InvoiceController::class, 'index'])->name('invoice.index');
 
-Route::get('/invoice/Sales_accept',  function () {
-    return view('Sales_accept',['Services' => Service::all()]);
+Route::get('/invoice/Sales_accept', function () {
+    return view('Sales_accept', ['Services' => Service::all()]);
 })->name('Sales_accept');
 
 
 
-Route::get('/tries', [TiresController::class , 'index'])->name('Tries');
-Route::post('/tries', [TiresController::class , 'AddTire'])->name('Tries.Add');
+Route::get('/tries', [TiresController::class, 'index'])->name('Tries');
+Route::post('/tries', [TiresController::class, 'AddTire'])->name('Tries.Add');
 
 
 
@@ -96,51 +96,54 @@ Route::prefix('/management')->group(function () {
 
 
 
-Route::get('/invoice', [InvoiceController::class , 'index'])->name('invoice.index');
+Route::get('/invoice', [InvoiceController::class, 'index'])->name('invoice.index');
 
-Route::get('/seals', [PurchasesController::class , 'SealsIndex'])->name('seals');
-Route::put('/seals/{id}/update', [PurchasesController::class , 'Approve'])->name('ApproveService');
+Route::get('/seals', [PurchasesController::class, 'SealsIndex'])->name('seals');
+Route::put('/seals/{id}/update', [PurchasesController::class, 'Approve'])->name('ApproveService');
 
-Route::get('/purchases', [PurchasesController::class , 'index'])->name('purchases');
-Route::post('/purchases' , [ServiceGroupController::class , 'store'])->name('ServiceGroup.store');
-Route::post('/purchases/categorize_group' , [CategorizeController::class , 'StoreGroup'])->name('CategorizeGroup.store');
-Route::post('/purchases/categorize' , [CategorizeController::class , 'store'])->name('Categorize.store');
+Route::get('/purchases', [PurchasesController::class, 'index'])->name('purchases');
+Route::post('/purchases', [ServiceGroupController::class, 'store'])->name('ServiceGroup.store');
+Route::post('/purchases/categorize_group', [CategorizeController::class, 'StoreGroup'])->name('CategorizeGroup.store');
+Route::post('/purchases/categorize', [CategorizeController::class, 'store'])->name('Categorize.store');
 
 
 
-Route::post('/purchases/services' , [PurchasesController::class , 'ServiceStore'])->name('Service.store');
-Route::post('/purchases/supplier' , [PurchasesController::class , 'SupplierStore'])->name('Supplier.store');
-Route::put('purchases/update/{id}', [PurchasesController::class , 'UpdateService'])->name('service.update');
-Route::delete('purchases/delete/{id}', [PurchasesController::class , 'DeleteService'])->name('service.delete');
+Route::post('/purchases/services', [PurchasesController::class, 'ServiceStore'])->name('Service.store');
+Route::post('/purchases/supplier', [PurchasesController::class, 'SupplierStore'])->name('Supplier.store');
+Route::put('purchases/update/{id}', [PurchasesController::class, 'UpdateService'])->name('service.update');
+Route::delete('purchases/delete/{id}', [PurchasesController::class, 'DeleteService'])->name('service.delete');
 
 
 
 
 
 Route::get('/invoice/spear', [SpearController::class, 'search'])->name('spare.search');
-Route::get('/invoice/Plate' , [CarController::class , 'CarPlateSearch'])->name('carPlate.search');
-Route::get('/invoice/print' , [InvoiceController::class , 'GeneratePdf'])->name('invoice.print');
-Route::post('/invoice/{id}/add_spear' , [SpearController::class , 'StoreSpear'])->name('spear.store');
-Route::post('/invoice/{id}/add_service' , [SpearController::class , 'StoreService'])->name('service.store');
+Route::get('/invoice/Plate', [CarController::class, 'CarPlateSearch'])->name('carPlate.search');
+Route::get('/invoice/print', [InvoiceController::class, 'GeneratePdf'])->name('invoice.print');
+Route::post('/invoice/{id}/add_spear', [SpearController::class, 'StoreSpear'])->name('spear.store');
+Route::post('/invoice/{id}/add_service', [SpearController::class, 'StoreService'])->name('service.store');
 
 
-Route::get('/car', [CarController::class , 'index'] )->name('new.car')->middleware('auth');
-Route::post('/car', [CarController::class , 'store'] )->name('car.store');
+Route::get('/car', [CarController::class, 'index'])->name('new.car')->middleware('auth');
+Route::post('/car', [CarController::class, 'store'])->name('car.store');
 
 
-Route::post('/workspace/{id}/AddCheck' , [CarController::class , 'Add'])->name('AddCar.check');
-Route::post('/workspace/{id}/AddMaintenance' , [CarController::class , 'AddMaintenance'])->name('Add.Maintenance');
-Route::post('/workspace/{id}/AddDone' , [CarController::class , 'AddDone'])->name('Add.Done');
+Route::post('/workspace/{id}/AddCheck', [CarController::class, 'Add'])->name('AddCar.check');
+Route::post('/workspace/{id}/AddMaintenance', [CarController::class, 'AddMaintenance'])->name('Add.Maintenance');
+Route::post('/workspace/{id}/AddDone', [CarController::class, 'AddDone'])->name('Add.Done');
 
-Route::get('/search' , [CarController::class , 'search'])->name('car.search');
+Route::get('/search', [CarController::class, 'search'])->name('car.search');
 
-Route::get('/check', [HomeController::class , 'CheckPage'] )->name('page.check');
-Route::post('/check/{id}/Removecheck/{user}', [CarController::class , 'Remove'] )->name('RemoveCar.check');
+Route::get('/check', [HomeController::class, 'CheckPage'])->name('page.check');
+Route::post('/check/{id}/Removecheck/{user}', [CarController::class, 'Remove'])->name('RemoveCar.check');
 
 
-Route::get('/{type}', [HomeController::class , 'view'] )->name('page.view');
-Route::post('/{car}/done', [HomeController::class , 'ToDone'] )->name('car.ToDone');
+Route::get('/{type}', [HomeController::class, 'view'])->name('page.view');
+Route::post('/{car}/done', [HomeController::class, 'ToDone'])->name('car.ToDone');
 
-Route::post('/management/DataEntry/AddCompany', [ManagemetController::class , 'CompanyStore'])->name('Data_Entry.Company');
+// Route::get('/{type}', [HomeController::class , 'view'] )->name('page.view');
+// Route::post('/{car}/Back_to_Wait', [HomeController::class , 'Back_to_Wait'] )->name('car.Back_to_Wait');
+
+Route::post('/management/DataEntry/AddCompany', [ManagemetController::class, 'CompanyStore'])->name('Data_Entry.Company');
 
 
