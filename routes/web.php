@@ -3,7 +3,7 @@
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-
+/////
 /*
 |--------------------------------------------------------------------------
 | Web Routes
