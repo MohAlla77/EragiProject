@@ -78,7 +78,7 @@
                     </div>
                 </nav>
             </div>
-            <div id="layoutSidenav_content" class="sidebar-collapsed" style="height: 25vh; overflow-y: auto;">
+            <div id="layoutSidenav_content" class="sidebar-collapsed">
                 <main>
                     <div class="card">
                         <div class="card-body">
