@@ -61,8 +61,7 @@
                 <div class="container-fluid mt-2">
                     <div class="card bg-light">
                         <div class="card-body">
-                            <form class="justify-content-center" action="{{ route('car.store') }}" method="POST" 
-                            <form class="justify-content-center" action="{{ route('car.store') }}" method="POST" 
+                            <form class="justify-content-center" action="{{ route('car.store') }}" method="POST"
                                 id="carForm">
                                 @csrf
                                 {{-- onsubmit="sendAlert(event); scrollToTop();"> --}}
@@ -103,20 +102,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <div class="mb-2">
-                                                <select name="car_brand" id="brand" class="form-select text-center"
-                                                    aria-describedby="validationServer04Feedback" required>
-                                                    <option value="" disabled selected>ماركة السيارة</option>
-                                                    <!-- Placeholder option -->
-                                                    @foreach ($car_brand as $car_brand)
-                                                        <option>{{ $car_brand }}</option>
-                                                    @endforeach
-                                                    <!-- Add options here -->
-                                                </select>
-                                                @error('car_brand')
-                                                    <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
-                                                @enderror
-                                            </div>
+
                                             <div class="mb-2">
                                                 <select name="car_model" id="model" class="form-select text-center"
                                                     aria-describedby="validationServer04Feedback" required>
@@ -208,7 +194,6 @@
                                             <div class="input-group mb-2 position-relative">
                                                 <span class="input-group-text">+966</span>
                                                 <input class="form-control text-center" name="u_phone" id="customerPhone" placeholder="5x xxx xxxx" required>
-                                                @error('u_phone')
                                                 @error('u_phone')
                                                     <span class="d-block fs-6 text-danger mt-2 error-message">{{ $message }}</span>
                                                 @enderror
