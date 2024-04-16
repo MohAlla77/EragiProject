@@ -36,7 +36,7 @@
                 </li>
             </ul><i class="fa-solid fa-language"></i>
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="./assets/img/logoeragi.jpg" class="img-fluid logo-img" alt="Logo"></a>
+                <a class="navbar-brand" href="#"><img src="./assets/img/logo-inch.jpg" class="img-fluid logo-img" alt="Logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -64,7 +64,7 @@
                             <div class="card-body">
                                 <div class="row py-2">
                                     <div class="card bg-light col-4">
-                                        <img src="img/logo-inch.png" class="img-fluid">
+                                        <img src="./assets/img/logo-inch.jpg" class="img-fluid">
                                     </div>
                                     <div class="card bg-light col-4 text-end">
                                         <div id="dateCard">
