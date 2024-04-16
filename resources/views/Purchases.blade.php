@@ -503,7 +503,7 @@
                                                 </div>
                                                 <div class="col-6 input-group">
                                                     <span class="input-group-text">+966</span>
-                                                    <input class="form-control text-center" name="u_phone" id="customerPhone" placeholder="رقم الهاتف" required>    
+                                                    <input class="form-control text-center" name="u_phone" id="customerPhone" placeholder="رقم الهاتف" required>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <input name="SupplierRigesteNumber" type="text" class="form-control text-center"
