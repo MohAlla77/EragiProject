@@ -64,7 +64,7 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="row mt-4">
+                    <div class="row g-1 mt-4">
                         <div class="col-6">
                             <div class="card bg-light border-dark">
                                 <div class="card-body">
@@ -93,7 +93,7 @@
                                 <div class="card-body">
                                     <form action="{{route('Data_Entry.Company')}}" method="post">
                                         @csrf
-                                        <div class="row g-2">
+                                        <div class="row g-1">
                                             <div class="col-12">
                                                 <input class="form-control text-center"placeholder="تعريف الشركات" readonly>
                                             </div>
@@ -122,7 +122,52 @@
                                                 </select>
                                             </div>
                                             <div class="footer text-center col-12 mb-2">
-                                                <button type="submit" id="add_client" class="btn btn-success col-6"> اضافة</button>
+                                                <button type="submit" id="view" class="btn btn-info col-4"> عرض <i class="fa-solid fa-users-viewfinder"></i></button>
+                                                <button type="submit" id="add_client" class="btn btn-success col-4"> اضافة <i class="fa-solid fa-address-card"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="secondFormRow" style="display: none;">
+                        <div class="col-6">
+                            <div class="card bg-light text-white border-dark">
+                                <div class="card-body">
+                                    <form action="{{route('Data_Entry.Company')}}" method="post">
+                                        @csrf
+                                        <div class="row g-1">
+                                            <div class="col-12">
+                                                <form action="{{ route('car.search') }}" method="GET">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control text-center" name="plateNumber"
+                                                            placeholder="ابحث عن الشركة">
+                                                        <button class="btn btn-outline-success" type="search">بحث</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="col-6">
+                                                <input name="CompanyName" class="form-control text-center" name="name" placeholder="اسم الشركة" readonly>
+                                            </div>
+                                            <div class="col-6">
+                                                <input name="TaxNumber" class="form-control text-center" name="name" placeholder="الرقم الضريبي" readonly>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input name="PersonName" type="text" class="form-control text-center" name="name" placeholder="اسم شخص" readonly>
+                                            </div>
+                                            <div class="col-md-6 input-group">
+                                                <span class="input-group-text">+966</span>
+                                                <input  name="CompanyPhone" class="form-control text-center input-group" name="name" placeholder=" رقم الهاتف" readonly>
+                                            </div>
+                                            <div class="col-6">
+                                                <input name="#" class="form-control text-center" name="name" placeholder="السجل التجاري" readonly>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input name="#" class="form-control text-center" name="name" placeholder="طريقة الدفع" readonly>
+                                            </div>
+                                            <div class="footer text-center col-12 mb-2">
+                                                <button type="submit" id="edit" class="btn btn-secondary col-4"> تعديل <i class="fa-solid fa-user-pen"></i></button>
+                                                <button type="submit" id="save" class="btn btn-success col-4"> حفظ <i class="fa-regular fa-floppy-disk"></i></button>
                                             </div>
                                         </div>
                                     </form>
@@ -220,6 +265,15 @@
             .then(() => res.send('Form data saved successfully'))
             .catch(err => res.status(400).send('Unable to save form data: ' + err));
         });
+         //veiw
+         document.getElementById('view').addEventListener('click', function() {
+        var secondFormRow = document.getElementById('secondFormRow');
+        if (secondFormRow.style.display === 'none' || secondFormRow.style.display === '') {
+            secondFormRow.style.display = 'block';
+        } else {
+            secondFormRow.style.display = 'none';
+        }
+    });
     </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>

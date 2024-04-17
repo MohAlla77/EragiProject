@@ -763,14 +763,19 @@
                                                         <div class="col-md-6">
                                                             <input name="ServiceId"type="number" name="number"
                                                                 class="form-control text-center" id="الرمز" required
-                                                                placeholder="رمزالخدمة" readonly>
+                                                                placeholder="رمز الخدمة" readonly>
                                                         </div>
                                                         <div class="col-6">
                                                             <input name="ServiceCost" type="number" name="number"
                                                                 class="form-control text-center" id="سعر التكلفة" required
                                                                 placeholder="سعر التكلفة">
                                                         </div>
-                                                        <div class="select col-12" aria-label="Forms toggle">
+                                                        <div class="col-6">
+                                                            <input name="ServiceCost" type="number" name="number"
+                                                                class="form-control text-center" id="سعر البيع" required
+                                                                placeholder="سعر البيع">
+                                                        </div>
+                                                        <div class="select col-md-6" aria-label="Forms toggle">
                                                             <select name="ServiceType" class="form-select text-center"
                                                                 onchange="toggleForm(this)">
                                                                 <option selected>نوع الخدمة</option>
