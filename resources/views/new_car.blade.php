@@ -225,11 +225,57 @@
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <div class="col-md-12">
-                                                <label for="formFile" class="form-label d-flex justify-content-end">ارفاق صورة</label>
-                                                <input class="form-control" type="file" id="formFile">
+                                            <div class="row g-1 mb-1">
+                                                <div class="col-md-3">
+                                                    <div class="card bg-light border-dark">
+                                                        <div class="card-body">
+                                                            <div class="form-group">
+                                                                <label for="image3" style="cursor: pointer;">
+                                                                    <img src="placeholder.jpg" class="img-thumbnail" id="imagePreview3">
+                                                                </label>
+                                                                <input type="file" class="form-control-file text-center" id="image3" accept="image/*" style="display: none;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="card bg-light border-dark">
+                                                        <div class="card-body">
+                                                            <div class="form-group">
+                                                                <label for="image3" style="cursor: pointer;">
+                                                                    <img src="placeholder.jpg" class="img-thumbnail" id="imagePreview3">
+                                                                </label>
+                                                                <input type="file" class="form-control-file text-center" id="image3" accept="image/*" style="display: none;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="card bg-light border-dark">
+                                                        <div class="card-body">
+                                                            <div class="form-group">
+                                                                <label for="image3" style="cursor: pointer;">
+                                                                    <img src="placeholder.jpg" class="img-thumbnail" id="imagePreview3">
+                                                                </label>
+                                                                <input type="file" class="form-control-file text-center" id="image3" accept="image/*" style="display: none;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="card bg-light border-dark">
+                                                        <div class="card-body">
+                                                            <div class="form-group">
+                                                                <label for="image3" style="cursor: pointer;">
+                                                                    <img src="placeholder.jpg" class="img-thumbnail" id="imagePreview3">
+                                                                </label>
+                                                                <input type="file" class="form-control-file text-center" id="image3" accept="image/*" style="display: none;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="border rounded p-1 mb-1">
+                                            <div class="border rounded p-1">
                                                 <div class="d-flex justify-content-end mb-1">
                                                     <label for="fuelLevel" class="form-label">مستوي البنزين</label>
                                                 </div>
@@ -239,7 +285,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="mb-1" style="position: relative;">
+                                        <div style="position: relative;">
                                             <textarea name="comment" class="form-control text-center" placeholder="تعليق" id="comment"
                                                 style="height: 100px; direction: rtl; text-align: right;"></textarea>
                                             <div id="lineNumbers"
@@ -392,6 +438,21 @@
             console.log(car_plateValue); // You can replace this with sending the value to the server
         });
 
+        //img
+                    document.getElementById('image3').addEventListener('change', function(event) {
+                var input = event.target;
+                var reader = new FileReader();
+                reader.onload = function() {
+                    var dataURL = reader.result;
+                    var output = document.getElementById('imagePreview3');
+                    output.src = dataURL;
+                };
+                reader.readAsDataURL(input.files[0]);
+            });
+
+            document.getElementById('imagePreview3').addEventListener('click', function() {
+                document.getElementById('image3').click();
+            });
     </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
