@@ -1,18 +1,23 @@
-<!-- Button trigger modal -->
 
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">ادخل اسم المجموعة</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="col-12 text-center">
+                  <h5 class="modal-title" id="exampleModalLabel">ادخل اسم المجموعة</h5>
+            </div>
         </div>
         <form class="row" id="addItemForm" novalidate action="{{route('CategorizeGroup.store')}}"
           method="post">
           @csrf
-            <div class="modal-body">
-                <div class="col-md-6 mb-2">
+        <div class="modal-body">
+            <div class="col-md-12 mb-1">
+                <input type="text" class="form-control text-center"
+                    id="AddagroupFields" required
+                    placeholder="اضافة المجموعة الاصناف" readonly>
+            </div>
+            <div class="row g-1">
+                <div class="col-md-6">
                     <input name="CategorizeGroupName" type="text" class="form-control text-center"
                         id="#" required placeholder="اسم المجموعة">
                 </div>
@@ -21,12 +26,13 @@
                         id="#" required placeholder="رقم المجوعة">
                 </div>
             </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary" > اضافة
-                <i class="fa-solid fa-plus"></i></button>
+        </div>
+        <div class="modal-footer">
+            <div class="col-12 text-center">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">اضافة</button>
             </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>
