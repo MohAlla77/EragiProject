@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class CarController extends Controller
 {
@@ -51,13 +52,31 @@ class CarController extends Controller
 
     public function store(AddCarRequest $request)
     {
+        $carPlate1 = request()->get('otp1');
+        $carPlate2 = request()->get('otp2');
+        $carPlate3 = request()->get('otp3');
+        $carPlate4 = request()->get('otp4');
+        $carPlate5 = request()->get('otp5');
+        $carPlate6 = request()->get('otp6');
+        $carPlate7 = request()->get('otp7');
+
+        $carPlate = $carPlate1 . $carPlate2 . $carPlate3 . $carPlate4 . $carPlate5 . $carPlate6 . $carPlate7;
+
+
         $validated = $request->validated();
+
+        foreach ($validated['images'] as $image) {
+
+            $filename = $carPlate . '_' . time() . '.' . $image->getClientOriginalExtension();
+            $folderPath = 'public/car-images/' . $carPlate;
+            Storage::putFileAs($folderPath, $image, $filename);
+        }
 
       Car::create([
             'user_id' => auth()->id(),
             'name' =>    $validated['u_name'],
             'phone' =>   $validated['u_phone'],
-            'plate' =>   $validated['car_plate'],
+            'plate' =>   $carPlate,
             'counter' => $validated['car_counter'],
             'car_name' =>$validated['car_name'],
             'service' => $validated['car_service'],
@@ -66,14 +85,17 @@ class CarController extends Controller
             'comment' => $validated['comment'],
             'structure_no' => $validated['structure_no'],
             'status' => 'NEW',
+
         ]);
 
          $user = auth()->user();
 
-        Mail::to($user->email)->send(new AddCarMail($user));
+        // Mail::to($user->email)->send(new AddCarMail($user));
 
         return redirect()->route('home');
     }
+
+
 
     public function search(Request $request)
     {

@@ -13,10 +13,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cars', function (Blueprint $table) {
-            $table->id();
 
-            // $table->foreignIdFor(User::class);
-            // $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->id();
 
             $table->string('name');
             $table->string('phone', 15);
@@ -28,7 +26,8 @@ return new class extends Migration
             $table->string('model');
             $table->string('brand');
             $table->text('comment')->nullable();
-            $table->string('status'); // Define status field as string (you can change the data type if necessary)
+            $table->string('status');
+            $table->json('images')->nullable();
 
             $table->timestamps();
         });

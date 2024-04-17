@@ -31,8 +31,10 @@ class AddCarRequest extends FormRequest
                 'car_name' =>'required|max:15',
                 'u_name' => 'required:max:240',
                 'u_phone' => 'required|integer',
-                'car_plate' => ['required', new PlateRole],
+                //'car_plate' => ['required', new PlateRole],
                 'comment' => '',
+                'images.*' => 'image|mimes:jpeg,png,jpg,gif',
+
 
         ];
     }

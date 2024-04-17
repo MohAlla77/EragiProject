@@ -61,7 +61,7 @@
                 <div class="container-fluid mt-2">
                     <div class="card bg-light">
                         <div class="card-body">
-                            <form class="justify-content-center" action="{{ route('car.store') }}" method="POST"
+                            <form class="justify-content-center" action="{{ route('car.store') }}" method="POST"  enctype="multipart/form-data"
                                 id="carForm">
                                 @csrf
                                 {{-- onsubmit="sendAlert(event); scrollToTop();"> --}}
@@ -209,17 +209,17 @@
                                                         @enderror
                                                     </div>
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" id="otp1" name="otp[]" maxlength="1" pattern="[0-9]" aria-label="OTP digit 1" required>
-                                                        <input type="text" class="form-control" id="otp2" name="otp[]" maxlength="1" pattern="[0-9]" aria-label="OTP digit 2" required>
-                                                        <input type="text" class="form-control" id="otp3" name="otp[]" maxlength="1" pattern="[0-9]" aria-label="OTP digit 3" required>
-                                                        <input type="text" class="form-control" id="otp4" name="otp[]" maxlength="1" pattern="[0-9]" aria-label="OTP digit 4" required placeholder="لوحة">
-                                                        <input type="text" class="form-control" id="otp5" name="otp[]" maxlength="1" pattern="[0-9]" aria-label="OTP digit 5" required placeholder="رقم ">
-                                                        <input type="text" class="form-control" id="otp6" name="otp[]" maxlength="1" pattern="[0-9]" aria-label="OTP digit 6" required>
-                                                        <input type="text" class="form-control" id="otp7" name="otp[]" maxlength="1" pattern="[0-9]" aria-label="OTP digit 7" required>
+                                                         <input type="text" class="form-control"  name="otp1" maxlength="1" required>
+                                                         <input type="text" class="form-control"   name="otp2"maxlength="1" required>
+                                                         <input type="text" class="form-control"  name="otp3" maxlength="1" required>
+                                                         <input type="text" class="form-control"  name="otp4" maxlength="1" required placeholder="لوحة">
+                                                         <input type="text" class="form-control"  name="otp5" maxlength="1" required placeholder="رقم ">
+                                                         <input type="text" class="form-control"  name="otp6" maxlength="1" required>
+                                                         <input type="text" class="form-control"  name="otp7" maxlength="1" required>
 
-                                                        @error('car_plate')
+                                                        {{-- @error('car_plate')
                                                             <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
-                                                        @enderror
+                                                        @enderror --}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -233,12 +233,12 @@
                                                                 <label for="image3" style="cursor: pointer;">
                                                                     <img src="placeholder.jpg" class="img-thumbnail" id="imagePreview3">
                                                                 </label>
-                                                                <input type="file" class="form-control-file text-center" id="image3" accept="image/*" style="display: none;">
+                                                                <input type="file" name="images[]" multiple accept="image/*">
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                {{-- <div class="col-md-3">
                                                     <div class="card bg-light border-dark">
                                                         <div class="card-body">
                                                             <div class="form-group">
@@ -273,7 +273,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                             <div class="border rounded p-1">
                                                 <div class="d-flex justify-content-end mb-1">

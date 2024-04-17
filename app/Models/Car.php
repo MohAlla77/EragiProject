@@ -12,7 +12,7 @@ class Car extends Model
 
     public $timestamps = true;
 
-    protected $fillable = ['user_id', 'name', 'phone', 'plate', 'counter', 'car_name', 'service', 'model', 'brand', 'comment', 'status', 'structure_no'];
+    protected $fillable = ['images','user_id', 'name', 'phone', 'plate', 'counter', 'car_name', 'service', 'model', 'brand', 'comment', 'status', 'structure_no'];
 
     public function AddToCheck()
     {
