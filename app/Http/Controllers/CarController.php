@@ -72,6 +72,8 @@ class CarController extends Controller
             Storage::putFileAs($folderPath, $image, $filename);
         }
 
+        dd(request()->all());
+
       Car::create([
             'user_id' => auth()->id(),
             'name' =>    $validated['u_name'],
@@ -85,6 +87,7 @@ class CarController extends Controller
             'comment' => $validated['comment'],
             'structure_no' => $validated['structure_no'],
             'status' => 'NEW',
+            'car_type' => request()->get('paymentType')
 
         ]);
 
