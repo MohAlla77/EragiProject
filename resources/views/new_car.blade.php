@@ -34,6 +34,7 @@
             /* Thumb color */
             cursor: pointer;
         }
+
         .error-message {
             position: absolute;
             bottom: 45%;
@@ -41,8 +42,7 @@
             width: 100%;
             text-align: center;
             margin-top: -5px;
-                }
-
+        }
     </style>
 </head>
 
@@ -61,8 +61,8 @@
                 <div class="container-fluid mt-2">
                     <div class="card bg-light">
                         <div class="card-body">
-                            <form class="justify-content-center" action="{{ route('car.store') }}" method="POST"  enctype="multipart/form-data"
-                                id="carForm">
+                            <form class="justify-content-center" action="{{ route('car.store') }}" method="POST"
+                                enctype="multipart/form-data" id="carForm">
                                 @csrf
                                 {{-- onsubmit="sendAlert(event); scrollToTop();"> --}}
                                 <div class="card">
@@ -103,9 +103,11 @@
                                             <div class="row g-1">
                                                 <div class="col-md-4">
                                                     <div class="mb-2">
-                                                        <select name="car_brand" id="brand" class="form-select text-center"
+                                                        <select name="car_brand" id="brand"
+                                                            class="form-select text-center"
                                                             aria-describedby="validationServer04Feedback" required>
-                                                            <option value="" disabled selected>ماركة السيارة</option>
+                                                            <option value="" disabled selected>ماركة السيارة
+                                                            </option>
                                                             <!-- Placeholder option -->
                                                             @foreach ($car_brand as $car_brand)
                                                                 <option>{{ $car_brand }}</option>
@@ -113,13 +115,16 @@
                                                             <!-- Add options here -->
                                                         </select>
                                                         @error('car_brand')
-                                                            <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                            <span
+                                                                class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                                         @enderror
                                                     </div>
                                                     <div class="mb-2">
-                                                        <select name="car_model" id="model" class="form-select text-center"
+                                                        <select name="car_model" id="model"
+                                                            class="form-select text-center"
                                                             aria-describedby="validationServer04Feedback" required>
-                                                            <option value="" disabled selected>موديل السيارة</option>
+                                                            <option value="" disabled selected>موديل السيارة
+                                                            </option>
                                                             <!-- Placeholder option -->
                                                             @foreach ($car_model as $car_model)
                                                                 <option>{{ $car_model }}</option>
@@ -127,7 +132,8 @@
                                                             <!-- Add options here -->
                                                         </select>
                                                         @error('car_model')
-                                                            <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                            <span
+                                                                class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                                         @enderror
                                                     </div>
                                                     <div class="mb-2">
@@ -142,7 +148,8 @@
                                                             <!-- Add options here -->
                                                         </select>
                                                         @error('car_service')
-                                                            <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                            <span
+                                                                class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                                         @enderror
                                                     </div>
                                                 </div>
@@ -152,23 +159,27 @@
                                                             class="form-control text-center" id="chassisNumber"
                                                             name="chassisNumber" required placeholder="رقم الهيكل">
                                                         @error('structure_no')
-                                                            <span class="d-block fs-6 text-danger mt-2 error-message">{{ $message }}</span>
+                                                            <span
+                                                                class="d-block fs-6 text-danger mt-2 error-message">{{ $message }}</span>
                                                         @enderror
                                                     </div>
                                                     <div class="input-group mb-2">
                                                         <input name="car_counter" name="number"
-                                                            class="form-control text-center" id="odometerReading" required
-                                                            placeholder="رقم العداد">
+                                                            class="form-control text-center" id="odometerReading"
+                                                            required placeholder="رقم العداد">
                                                         <span class="input-group-text">KM</span>
                                                         @error('car_counter')
-                                                            <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                            <span
+                                                                class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                                         @enderror
                                                     </div>
                                                     <div class="mb-2 position-relative">
-                                                        <input name="car_name" type="text" class="form-control text-center"
-                                                            id="carName" required placeholder="اسم السيارة">
+                                                        <input name="car_name" type="text"
+                                                            class="form-control text-center" id="carName" required
+                                                            placeholder="اسم السيارة">
                                                         @error('car_name')
-                                                            <span class="d-block fs-6 text-danger mt-2 error-message">{{ $message }}</span>
+                                                            <span
+                                                                class="d-block fs-6 text-danger mt-2 error-message">{{ $message }}</span>
                                                         @enderror
                                                     </div>
                                                 </div>
@@ -176,8 +187,8 @@
                                                     <div id="cashInput">
                                                         <div class="mb-2 position-relative">
                                                             <input name="u_name" type="text" name="name"
-                                                                class="form-control text-center" id="customerName" required
-                                                                placeholder="الاسم">
+                                                                class="form-control text-center" id="customerName"
+                                                                required placeholder="الاسم">
                                                             @error('u_name')
                                                                 <span
                                                                     class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
@@ -188,34 +199,44 @@
                                                         <div class="mb-2">
                                                             <select name="u_name" id="companySelect"
                                                                 class="form-select text-center"readonly>
-                                                                <option selected>اختار الشركة</option>
+                                                                <option>اختار الشركة</option>
                                                                 @foreach ($company as $comp)
-                                                                    <option value="{{ $comp->id }}"
+                                                                    <option value="{{ $comp->company_name }}"
                                                                         data-company-name="{{ $comp->company_name }}"
                                                                         data-company-phone="{{ $comp->phone }}">
                                                                         {{ $comp->company_name }}</option>
                                                                 @endforeach
                                                             </select>
                                                             @error('u_name')
-                                                                <span class="d-block fs-6 text-danger mt-2"readonly>{{ $message }}</span>
+                                                                <span
+                                                                    class="d-block fs-6 text-danger mt-2"readonly>{{ $message }}</span>
                                                             @enderror
                                                         </div>
                                                     </div>
                                                     <div class="input-group mb-2 position-relative">
                                                         <span class="input-group-text">+966</span>
-                                                        <input class="form-control text-center" name="u_phone" id="customerPhone" placeholder="5x xxx xxxx" required>
+                                                        <input class="form-control text-center" name="u_phone"
+                                                            id="customerPhone" placeholder="5x xxx xxxx" required>
                                                         @error('u_phone')
-                                                            <span class="d-block fs-6 text-danger mt-2 error-message">{{ $message }}</span>
+                                                            <span
+                                                                class="d-block fs-6 text-danger mt-2 error-message">{{ $message }}</span>
                                                         @enderror
                                                     </div>
                                                     <div class="input-group">
-                                                         <input type="text" class="form-control"  name="otp1" maxlength="1" required>
-                                                         <input type="text" class="form-control"   name="otp2"maxlength="1" required>
-                                                         <input type="text" class="form-control"  name="otp3" maxlength="1" required>
-                                                         <input type="text" class="form-control"  name="otp4" maxlength="1" required placeholder="لوحة">
-                                                         <input type="text" class="form-control"  name="otp5" maxlength="1" required placeholder="رقم ">
-                                                         <input type="text" class="form-control"  name="otp6" maxlength="1" required>
-                                                         <input type="text" class="form-control"  name="otp7" maxlength="1" required>
+                                                        <input type="text" class="form-control" name="otp1"
+                                                            maxlength="1" required>
+                                                        <input type="text" class="form-control"
+                                                            name="otp2"maxlength="1" required>
+                                                        <input type="text" class="form-control" name="otp3"
+                                                            maxlength="1" required>
+                                                        <input type="text" class="form-control" name="otp4"
+                                                            maxlength="1" required placeholder="لوحة">
+                                                        <input type="text" class="form-control" name="otp5"
+                                                            maxlength="1" required placeholder="رقم ">
+                                                        <input type="text" class="form-control" name="otp6"
+                                                            maxlength="1" required>
+                                                        <input type="text" class="form-control" name="otp7"
+                                                            maxlength="1" required>
 
                                                         {{-- @error('car_plate')
                                                             <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
@@ -231,9 +252,11 @@
                                                         <div class="card-body">
                                                             <div class="form-group text-center">
                                                                 <label for="image3" style="cursor: pointer;">
-                                                                    <img src="placeholder.jpg" class="img-thumbnail" id="imagePreview3">
+                                                                    <img src="placeholder.jpg" class="img-thumbnail"
+                                                                        id="imagePreview3">
                                                                 </label>
-                                                                <input type="file" name="images[]" multiple accept="image/*">
+                                                                <input type="file" name="images[]" multiple
+                                                                    accept="image/*">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -321,6 +344,7 @@
             companyOptions.style.display = 'none';
             // Enable manual entry for phone number
             document.getElementById('customerPhone').removeAttribute('readonly');
+
         }
 
         // Function to hide cash input and show company options
@@ -329,6 +353,8 @@
             companyOptions.style.display = 'block';
             // Make phone input field readonly when company is selected
             document.getElementById('customerPhone').setAttribute('readonly', 'readonly');
+
+
         }
 
         // Initial call to set initial state based on checked radio button
@@ -338,7 +364,6 @@
             showCashInput();
         }
 
-        // Event listeners to call respective functions when radio buttons are clicked
         cashRadio.addEventListener('change', showCashInput);
         companyRadio.addEventListener('change', showCompanyOptions);
 
@@ -422,7 +447,7 @@
                 // companyPhoneField.disabled = false;
             }
         });
-                // Concatenate the individual inputs into a single string
+        // Concatenate the individual inputs into a single string
         function concatenatecar_plate() {
             var car_plate = '';
             var inputs = document.querySelectorAll('#car_plate input');
@@ -439,30 +464,30 @@
         });
 
         //img
-                    document.getElementById('image3').addEventListener('change', function(event) {
-                var input = event.target;
-                var reader = new FileReader();
-                reader.onload = function() {
-                    var dataURL = reader.result;
-                    var output = document.getElementById('imagePreview3');
-                    output.src = dataURL;
-                };
-                reader.readAsDataURL(input.files[0]);
-            });
+        document.getElementById('image3').addEventListener('change', function(event) {
+            var input = event.target;
+            var reader = new FileReader();
+            reader.onload = function() {
+                var dataURL = reader.result;
+                var output = document.getElementById('imagePreview3');
+                output.src = dataURL;
+            };
+            reader.readAsDataURL(input.files[0]);
+        });
 
-            document.getElementById('imagePreview3').addEventListener('click', function() {
-                document.getElementById('image3').click();
-            });
+        document.getElementById('imagePreview3').addEventListener('click', function() {
+            document.getElementById('image3').click();
+        });
     </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
-</script>
-<script src="js/scripts.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-<script src="assets/demo/chart-area-demo.js"></script>
-<script src="assets/demo/chart-bar-demo.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
-    crossorigin="anonymous"></script>
-<script src="js/datatables-simple-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+        crossorigin="anonymous"></script>
+    <script src="js/datatables-simple-demo.js"></script>
 
 </body>

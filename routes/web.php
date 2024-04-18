@@ -55,6 +55,10 @@ Route::post('/tries', [TiresController::class, 'AddTire'])->name('Tries.Add');
 
 
 
+Route::get('/test', function () {
+    return view('pdf.Job_order');
+});
+
 
 Route::get('/store', function () {
     return view('store');

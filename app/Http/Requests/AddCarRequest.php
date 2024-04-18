@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Rules\PlateRole;
+use App\Rules\UppercaseEnglishAndDigits;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AddCarRequest extends FormRequest
@@ -26,7 +27,7 @@ class AddCarRequest extends FormRequest
                 'car_brand' => 'required',
                 'car_model' => 'required',
                 'car_service' =>'required',
-                'structure_no' => 'required|size:17',
+                'structure_no' => ['required', 'size:17', new UppercaseEnglishAndDigits],
                 'car_counter' =>'required',
                 'car_name' =>'required|max:15',
                 'u_name' => 'required:max:240',

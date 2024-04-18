@@ -28,6 +28,7 @@ return new class extends Migration
             $table->text('comment')->nullable();
             $table->string('status');
             $table->json('images')->nullable();
+            $table->string('car_type');
 
             $table->timestamps();
         });
