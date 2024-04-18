@@ -76,11 +76,13 @@
                                             </div>
                                         </div>
                                         <!-- For adding a new brand -->
-                                        <input type="text" id="newBrandInput" class="form-control mb-2 text-center" placeholder="اضافة ماركة جديدة">
+                                        <input type="text" id="newBrandInput" class="form-control mb-1 text-center" placeholder="اضافة ماركة جديدة">
                                         <!-- For adding a new Model -->
-                                        <input type="text" id="newModelInput" class="form-control mb-2 text-center" placeholder="اضافة موديل جديدة">
+                                        <input type="text" id="newModelInput" class="form-control mb-1 text-center" placeholder="اضافة موديل جديدة">
                                         <!-- For adding a new service -->
-                                        <input type="text" id="newServiceInput" class="form-control mb-2 text-center" placeholder="اضافة خدمة جديدة">
+                                        <input type="text" id="newServiceInput" class="form-control mb-1 text-center" placeholder="اضافة خدمة جديدة">
+                                        <!-- For adding a new Technical -->
+                                        <input type="text" id="#" class="form-control mb-1 text-center" placeholder="اضافة فني جديد">
                                         <div class="footer col-md-12 mb-2 text-center">
                                             <button class="btn btn-success col-6" onclick="addNewOption()">اضافة</button>
                                         </div>    
@@ -122,7 +124,8 @@
                                                 </select>
                                             </div>
                                             <div class="footer text-center col-12 mb-2">
-                                                <button type="submit" id="view" class="btn btn-info col-4"> عرض <i class="fa-solid fa-users-viewfinder"></i></button>
+                                                {{-- button view Company --}}
+                                                {{-- <button type="submit" id="view" class="btn btn-info col-4"> عرض <i class="fa-solid fa-users-viewfinder"></i></button> --}}
                                                 <button type="submit" id="add_client" class="btn btn-success col-4"> اضافة <i class="fa-solid fa-address-card"></i></button>
                                             </div>
                                         </div>

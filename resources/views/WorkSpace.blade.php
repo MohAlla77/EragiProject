@@ -60,8 +60,8 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li><a class="dropdown-item" href="#!">Profile</a></li>
+                    {{-- <li><a class="dropdown-item" href="#!">Activity Log</a></li> --}}
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
@@ -75,7 +75,7 @@
             </li>
         </ul>
         <div class="container-fluid">
-            <a class="navbar-brand"><img src="./assets/img/logoeragi.jpg" class="img-fluid logo-img" alt="Logo"></a>
+            <a class="navbar-brand"><img src="./assets/img/logo-inch.jpg" class="img-fluid logo-img" alt="Logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -109,7 +109,7 @@
                             Your Car Status Know is {{ $car->status }}
                         </div>
                     @endif
-                    <div class="card bg-light mb-2">
+                    <div class="card bg-light">
                         <div class="card-body">
                             {{-- <form action="#" method="post" id="carForm"><br> --}}
                             <form action="{{ route('car.search') }}" method="GET">
@@ -119,14 +119,14 @@
                                     <button class="btn btn-outline-success" type="search">بحث</button>
                                 </div>
                             </form>
-                            <div class="row">
+                            <div class="row g-1">
                                 @if (isset($car))
-                                    <div class="col-md-4 mb-2">
+                                    <div class="col-md-4">
                                         <input type="text" class="form-control text-center"
                                             value="{{ $car->car_name }}" name="carName" required
                                             placeholder="اسم السيارة" readonly>
                                     </div>
-                                    <div class="col-md-4 mb-2">
+                                    <div class="col-md-4">
                                         <input type="text" class="form-control text-center"
                                             value="{{ $car->structure_no }}" name="chassisNumber" required
                                             placeholder="رقم الهيكل" readonly>

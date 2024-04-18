@@ -59,39 +59,41 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-sm mt-5 bg-gradient text-black justify-content-center">
-                        <div class="row mt-2 py-2 mb-2 ms-3 col-12">
-                            <div class="col-md-4 ">
-                                <div class="card text-center" style="width: 18rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Password Changed</h5>
-                                        <p class="card-text"></p>
-                                        <a href="password.php" class="btn btn-primary">Password</a>
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center">Password Changed</h5>
+                                            <p class="card-text"></p>
+                                            <a href="password.php" class="col-12 btn btn-primary">Password</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card text-center" style="width: 18rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Login</h5>
-                                        <p class="card-text"></p>
-                                        <a href="login.php" class="btn btn-primary">login</a>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center">Login</h5>
+                                            <p class="card-text"></p>
+                                            <a href="login.php" class="col-12 btn btn-primary">login</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card text-center" style="width: 18rem;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Add User</h5>
-                                        <p class="card-text"></p>
-                                        <a href="register.php" class="btn btn-primary">Register</a>
+                                {{-- <div class="col-md-4">
+                                    <div class="card text-center" style="width: 18rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Add User</h5>
+                                            <p class="card-text"></p>
+                                            <a href="register.php" class="btn btn-primary">Register</a>
+                                        </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
+                {{-- <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; Your Website 2024</div>
@@ -102,7 +104,7 @@
                             </div>
                         </div>
                     </div>
-                </footer>
+                </footer> --}}
             </div>
         </div>
 

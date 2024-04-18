@@ -226,10 +226,10 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="row g-1 mb-1">
-                                                <div class="col-md-3">
+                                                <div class="col-md-12">
                                                     <div class="card bg-light border-dark">
                                                         <div class="card-body">
-                                                            <div class="form-group">
+                                                            <div class="form-group text-center">
                                                                 <label for="image3" style="cursor: pointer;">
                                                                     <img src="placeholder.jpg" class="img-thumbnail" id="imagePreview3">
                                                                 </label>
