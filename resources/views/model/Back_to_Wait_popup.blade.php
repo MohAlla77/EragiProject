@@ -7,18 +7,23 @@
                     <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">ادخال سبب الانتظار</h1>
                 </div>
             </div>
-            <form action="#" method="POST">
+            <form action="{{route('car.ToWait', $car->id)}}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <div class="col-md-12 mb-2">
                         <input type="text" class="form-control text-center"
                             id="#" required placeholder="اختيار سبب الانتظار" readonly>
                     </div>
-                    <select name="car_brand" id="brand" class="form-select text-center"
+
+                    <select name="WaitReason" class="form-select text-center"
                         aria-describedby="validationServer04Feedback" required>
                         <option selected>اختلاف الاسبير</option>
                         <option selected>عدم توفر مواد تشغيل </option>
                     </select>
+                </div>
+                <div  class="col-12 mb-2">
+                    <input name="WorkerName" type="text" class="form-control text-center" required
+                    placeholder="اسم العامل">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">الغاء</button>

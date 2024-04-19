@@ -142,8 +142,9 @@ Route::get('/check', [HomeController::class, 'CheckPage'])->name('page.check');
 Route::post('/check/{id}/Removecheck/{user}', [CarController::class, 'Remove'])->name('RemoveCar.check');
 
 
-Route::get('/{type}', [HomeController::class, 'view'])->name('page.view');
+Route::get('/{type}',      [HomeController::class, 'view'])->name('page.view');
 Route::post('/{car}/done', [HomeController::class, 'ToDone'])->name('car.ToDone');
+Route::post('/{car}/wait', [HomeController::class, 'ToWait'])->name('car.ToWait');
 
 // Route::get('/{type}', [HomeController::class , 'view'] )->name('page.view');
 // Route::post('/{car}/Back_to_Wait', [HomeController::class , 'Back_to_Wait'] )->name('car.Back_to_Wait');

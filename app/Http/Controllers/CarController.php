@@ -72,7 +72,7 @@ class CarController extends Controller
             Storage::putFileAs($folderPath, $image, $filename);
         }
 
-        dd(request()->all());
+        // dd(request()->all());
 
       Car::create([
             'user_id' => auth()->id(),
@@ -116,14 +116,15 @@ class CarController extends Controller
             ->where('car_id', '=', $car->id)
             ->first();
 
-        $car_history = CarHistory::where('car_id',$car->id)->latest('created_at')->first();
+        $car_history = CarHistory::where('car_id',$car->id)->where('status','DONE')->latest('created_at')->first();
+        $car_wait = CarHistory::where('car_id',$car->id)->where('status','WAIT')->latest('created_at')->first();
 
         $countByCarId = CarHistory::where('car_id', $car->id)->count();
 
 
 
         return view('WorkSpace', ['car' => $car, 'data' => $checkCarData,
-        'CarHistory' => $car_history, 'success' => 'The Car Found', 'countByCarId' =>  $countByCarId]);
+        'CarHistory' => $car_history, 'Car_wait' => $car_wait , 'success' => 'The Car Found', 'countByCarId' =>  $countByCarId]);
     }
 
     public function Add(Car $id)
@@ -132,6 +133,10 @@ class CarController extends Controller
         $check->AddToCheck()->attach($id, ['customer_comment' => Request()->get('notes')]);
 
         $id->update(['status' => 'WAITING']);
+
+        CarHistory::where('car_id',$id->id)->where('status','WAIT')->delete();
+
+
 
         return redirect()->route('home')->with('success', 'The car Add to check list to review by engineer soon');
     }
@@ -161,9 +166,8 @@ class CarController extends Controller
     public function AddDone(Car $id){
 
 
+
         $user = auth()->user();
-
-
         $id->update(['status' => 'DONE']);
         // $user->cars()->detach($id);
 

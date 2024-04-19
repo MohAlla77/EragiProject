@@ -92,7 +92,9 @@ class HomeController extends Controller
             'fix'       => $check->customer_comment,
             'fix_doc'   => $check->fix_requirement,
             'Worker_name' => request()->get('WorkerName'),
-            'Work_time' =>  $maintenanceTime
+            'Work_time' =>  $maintenanceTime,
+            'wait_reason' => '',
+            'status' => 'DONE'
         ]);
 
 
@@ -100,6 +102,49 @@ class HomeController extends Controller
         $car->save();
 
         DB::table('check_car')->where('car_id', $car->id)->delete();
+
+        return redirect()->back();
+
+    }
+
+    public function ToWait(Car $car )
+    {
+        //Add to log
+        //move to done
+        //detach from check
+
+        $maintenanceStartedAt = $car->updated_at ;
+        $maintenanceEndedAt =  now();
+
+        $maintenanceTime = $maintenanceEndedAt->diffForHumans($maintenanceStartedAt);
+
+        $check = DB::table('check_car')
+            ->where('car_id', $car->id)
+            ->first();
+
+        $user = User::class;
+
+
+
+        CarHistory::create([
+            'car_id' => $car->id,
+            'user_name' => $car->user_id,
+            'Eng_name'  => $check->eng_id,
+            'fix'       => $check->customer_comment,
+            'fix_doc'   => $check->fix_requirement,
+            'Worker_name' => request()->get('WorkerName'),
+            'Work_time' =>  $maintenanceTime,
+            'status' => 'WAIT',
+            'wait_reason' => request()->get('WaitReason'),
+        ]);
+
+
+        $car->status = 'WAITING';
+        $car->save();
+
+        DB::table('check_car')->where('car_id', $car->id)->delete();
+
+
 
         return redirect()->back();
 

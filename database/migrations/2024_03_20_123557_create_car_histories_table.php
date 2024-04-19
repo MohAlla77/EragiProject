@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('Worker_name')->nullable();
             $table->string('Work_time');
             $table->string('status');
-            $table->string('wait_reason');
+            $table->string('wait_reason')->nullable();
 
 
             $table->timestamps();
