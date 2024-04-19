@@ -62,7 +62,7 @@
                 </div>
             </nav>
         </div>
-        <div id="layoutSidenav_content">
+        <div id="layoutSidenav_content" style="height: 25vh; overflow-y: auto;">
             <main>
                 <div class="card mb-4">
                     <div class="card-header text-end">السيارات <i class="fas fa-table me-4"></i></div>
@@ -130,5 +130,3 @@
         </div>
     </div>
 </body>
-
-
