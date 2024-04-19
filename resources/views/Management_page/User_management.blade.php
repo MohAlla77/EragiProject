@@ -80,7 +80,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <div class="col-md-4">
+                                <div class="col-md-4">
                                     <div class="card text-center" style="width: 18rem;">
                                         <div class="card-body">
                                             <h5 class="card-title">Add User</h5>
@@ -88,7 +88,7 @@
                                             <a href="register.php" class="btn btn-primary">Register</a>
                                         </div>
                                     </div>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
                     </div>
