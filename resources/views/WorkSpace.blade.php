@@ -243,13 +243,8 @@
                                     <div class="card-header text-end">الزيارة السابقة <i
                                             class="fas fa-table me-4"></i></div>
                                     <div class="card-body">
-                                        @if (isset($CarHistory))
-                                            @php
+                                        @if (isset($CarHistorys))
 
-                                                $user = App\Models\User::find($CarHistory->user_name);
-                                                $Eng = App\Models\User::find($CarHistory->Eng_name);
-
-                                            @endphp
                                             <table class="table table-bordered table-striped">
                                                 <thead class="thead-dark">
                                                     <tr>
@@ -265,23 +260,34 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>{{ $CarHistory->created_at->format('d/m/y') }}</td>
-                                                        <td>{{ $CarHistory->Work_time }}</td>
-                                                        <td>{{ $car->car_name }}</td>
-                                                        <td>{{ $user->first_name }}</td>
-                                                        <td>{{ $CarHistory->Worker_name }}</td>
-                                                        <td>{{ $CarHistory->fix_doc }}</td>
-                                                        <td>{{ $CarHistory->fix }}</td>
-                                                        <td>{{ $Eng->first_name }} </td>
-                                                        <td>{{ $user->first_name }}</td>
-                                                    </tr>
+                                                    @foreach ($CarHistorys as $CarHistory)
+                                                        <tr>
+
+                                                            @php
+
+                                                                $user = App\Models\User::find($CarHistory->user_name);
+                                                                $Eng = App\Models\User::find($CarHistory->Eng_name);
+
+                                                            @endphp
+                                                            <td>{{ $CarHistory->created_at->format('d/m/y') }}</td>
+                                                            <td>{{ $CarHistory->Work_time }}</td>
+                                                            <td>{{ $car->car_name }}</td>
+                                                            <td>{{ $car->name }}</td>
+                                                            <td>{{ $CarHistory->Worker_name }}</td>
+                                                            <td>{{ $CarHistory->fix_doc }}</td>
+                                                            <td>{{ $CarHistory->fix }}</td>
+                                                            <td>{{ $Eng->first_name }} </td>
+                                                            <td>{{ $user->first_name }}</td>
+
+                                                        </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         @endif
                                     </div>
                                 </div>
-                            @endif{{--
+                            @endif
+                            {{--
                             <div class="row">
                                 <div class="col-6">
                                     <div class="card">
