@@ -3,6 +3,23 @@
         <label for="sparePartsRequest" class="form-label d-flex justify-content-end">   {{$data->user_name}} : الإجرات المطلوبة من المهندس
 
         </label>
+        <div class="row g-1">
+            <div class="col-6">
+                <input name="#" type="text"
+                    class="form-control text-center" id="#" required
+                    placeholder="اسم الفني">
+            </div> 
+            <div class="col-6">
+                <input name="#" type="text"
+                    class="form-control text-center" id="#" required
+                    placeholder="الوقت المقترح للصيانة">
+            </div>
+        </div>
+        <div class="col-12">
+            <input name="#" type="text"
+                class="form-control text-center" id="#" required
+                placeholder="قطع الغيار المطلوبة">
+        </div>
         <div class="numbered-textarea">
             <textarea class="form-control" name="sparePartsRequest" id="sparePartsRequest" style="height: 200px;" disabled>
                 {{ $data->fix_requirement }}</textarea>

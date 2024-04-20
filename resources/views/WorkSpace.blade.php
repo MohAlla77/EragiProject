@@ -106,7 +106,7 @@
                     @include('shared.success_message')
                     @if (isset($car))
                         <div class="alert alert-primary" role="alert">
-                            Your Car Status Know is {{ $car->status }}
+                            حالة السيارة  {{ $car->status }}
                         </div>
                     @endif
                     <div class="card bg-light">
@@ -208,7 +208,14 @@
                                                         placeholder="التاريخ" readonly>
                                                 </div>
                                             </div>
+
+                                            <div class="d-grid gap-2 col-4 mx-auto py-4">
+                                                <button class="btn btn-warning" type="submit">
+                                                     الي الصيانة <i class="fa-solid fa-arrow-rotate-left"></i>
+                                                </button>
+                                            </div>
                                         @endif
+
                                     </div>
                                     <div class="col-md-6">
                                         @if (isset($car))
@@ -222,19 +229,12 @@
                                                 </textarea>
                                                     <div class="line-numbers"></div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="d-grid gap-2 col-4 mx-auto py-4">
-                                                        <button class="btn btn-warning" type="submit">
-                                                             الي الانتظار <i class="fa-solid fa-arrow-rotate-left"></i>
-                                                        </button>
-                                                    </div>
                                                     <div class="d-grid gap-2 col-4 mx-auto py-4">
                                                         <button class="btn btn-primary" type="submit">
                                                              أمر فحص 
                                                             <i class="fa fa-search" aria-hidden="true"></i>
                                                         </button>
                                                     </div>
-                                                </div>
                                             </form>
                                         @endif
                                     </div>
