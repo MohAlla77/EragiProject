@@ -222,9 +222,19 @@
                                                 </textarea>
                                                     <div class="line-numbers"></div>
                                                 </div>
-                                                <div class="d-grid gap-2 col-3 mx-auto py-4">
-                                                    <button class="btn btn-primary" type="submit"> أمر فحص <i
-                                                            class="fa fa-search" aria-hidden="true"></i></button>
+                                                <div class="row">
+                                                    <div class="d-grid gap-2 col-4 mx-auto py-4">
+                                                        <button class="btn btn-warning" type="submit">
+                                                             الي الانتظار <i class="fa-solid fa-arrow-rotate-left"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="d-grid gap-2 col-4 mx-auto py-4">
+                                                        <button class="btn btn-primary" type="submit">
+                                                             أمر فحص 
+                                                            <i class="fa fa-search" aria-hidden="true"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </form>
                                         @endif
                                     </div>
