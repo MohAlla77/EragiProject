@@ -41,7 +41,7 @@
                 </li>
             </ul>
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="./assets/img/logoeragi.jpg" class="img-fluid logo-img" alt="Logo"></a>
+                <a class="navbar-brand" href="#"><img src="./assets/img/logo-inch.jpg" class="img-fluid logo-img" alt="Logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -71,18 +71,25 @@
                                     <form action="#" method="POST">
                                         <div class="mb-2">
                                             <input type="text" class="form-control text-center"placeholder="الاضافات" readonly>
-                                            <div class="valid-feedback">
-                                                Looks good!
+                                        </div>
+                                        <div class="row g-1">
+                                            <!-- For adding a new brand -->
+                                            <div class="col-md-6">
+                                                <input type="text" id="newBrandInput" class="form-control mb-1 text-center" placeholder="اضافة ماركة جديدة">
+                                            </div>
+                                            <!-- For adding a new Model -->
+                                            <div class="col-md-6">
+                                                <input type="text" id="newModelInput" class="form-control mb-1 text-center" placeholder="اضافة موديل جديدة">
+                                            </div>
+                                            <!-- For adding a new service -->
+                                            <div class="col-md-6">
+                                                <input type="text" id="newServiceInput" class="form-control mb-1 text-center" placeholder="اضافة خدمة جديدة">
+                                            </div>
+                                            <!-- For adding a new Technical -->
+                                            <div class="col-md-6">
+                                                <input type="text" id="#" class="form-control mb-1 text-center" placeholder="اضافة فني جديد">
                                             </div>
                                         </div>
-                                        <!-- For adding a new brand -->
-                                        <input type="text" id="newBrandInput" class="form-control mb-1 text-center" placeholder="اضافة ماركة جديدة">
-                                        <!-- For adding a new Model -->
-                                        <input type="text" id="newModelInput" class="form-control mb-1 text-center" placeholder="اضافة موديل جديدة">
-                                        <!-- For adding a new service -->
-                                        <input type="text" id="newServiceInput" class="form-control mb-1 text-center" placeholder="اضافة خدمة جديدة">
-                                        <!-- For adding a new Technical -->
-                                        <input type="text" id="#" class="form-control mb-1 text-center" placeholder="اضافة فني جديد">
                                         <div class="footer col-md-12 mb-2 text-center">
                                             <button class="btn btn-success col-6" onclick="addNewOption()">اضافة</button>
                                         </div>    
@@ -99,18 +106,20 @@
                                             <div class="col-12">
                                                 <input class="form-control text-center"placeholder="تعريف الشركات" readonly>
                                             </div>
+                                            <div class="col-md-6">
+                                                <input name="PersonName" type="text" class="form-control text-center" name="name" placeholder="اسم شخص">
+                                            </div>                                            
                                             <div class="col-6">
                                                 <input name="CompanyName" class="form-control text-center" name="name" placeholder="اسم الشركة">
                                             </div>
                                             <div class="col-6">
                                                 <input name="TaxNumber" class="form-control text-center" name="name" placeholder="الرقم الضريبي">
                                             </div>
-                                            <div class="col-md-12">
-                                                <input name="PersonName" type="text" class="form-control text-center" name="name" placeholder="اسم شخص">
-                                            </div>
-                                            <div class="col-md-6 input-group">
-                                                <span class="input-group-text">+966</span>
-                                                <input  name="CompanyPhone" class="form-control text-center input-group" name="name" placeholder=" رقم الهاتف">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-text">+966</span>
+                                                    <input  name="CompanyPhone" class="form-control text-center input-group" name="name" placeholder=" رقم الهاتف">
+                                                </div>
                                             </div>
                                             <div class="col-6">
                                                 <input name="#" class="form-control text-center" name="name" placeholder="السجل التجاري">
@@ -125,7 +134,7 @@
                                             </div>
                                             <div class="footer text-center col-12 mb-2">
                                                 {{-- button view Company --}}
-                                                {{-- <button type="submit" id="view" class="btn btn-info col-4"> عرض <i class="fa-solid fa-users-viewfinder"></i></button> --}}
+                                                <button type="submit" id="view" class="btn btn-info col-4"> عرض <i class="fa-solid fa-users-viewfinder"></i></button>
                                                 <button type="submit" id="add_client" class="btn btn-success col-4"> اضافة <i class="fa-solid fa-address-card"></i></button>
                                             </div>
                                         </div>

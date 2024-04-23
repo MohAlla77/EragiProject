@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategorizeController;
+use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ManagemetController;
 use App\Http\Controllers\PurchasesController;
@@ -25,6 +26,7 @@ use App\Http\Controllers\SpearController;
 use App\Http\Controllers\TiresController;
 use App\Models\Car;
 use App\Models\Service;
+
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register');
@@ -97,6 +99,10 @@ Route::prefix('/management')->group(function () {
     Route::get('/User_management', function () {
         return view('Management_page.User_management');
     })->name('User_management');
+
+    Route::post('/employees', function () {
+        return view('Management_page.employees');
+    })->name('employees');
 });
 
 
@@ -151,5 +157,8 @@ Route::post('/{car}/wait', [HomeController::class, 'ToWait'])->name('car.ToWait'
 // Route::post('/{car}/Back_to_Wait', [HomeController::class , 'Back_to_Wait'] )->name('car.Back_to_Wait');
 
 Route::post('/management/DataEntry/AddCompany', [ManagemetController::class, 'CompanyStore'])->name('Data_Entry.Company');
+
+// Route::get('/management/employees', [EmployeesController::class, 'employees'])->name('employees');
+Route::post('/Management/employees', [EmployeesController::class, 'Management/employees'])->name('Management/employees');
 
 

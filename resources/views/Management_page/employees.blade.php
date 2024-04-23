@@ -1,44 +1,5 @@
 @extends('Layout.head')
-        <style>
-            .logo-img {
-                width: 60px; /* Adjust the width as needed */
-                height: auto; /* Maintain aspect ratio */
-                margin-right: 20px; /* Adjust the margin as needed */
-            }
-            /* Adjust the layout for right-to-left direction */
-            #layoutSidenav {
-                display: flex;
-                flex-direction: row-reverse; /* Reverse the direction to move the sidebar to the right */
-            }
 
-            #layoutSidenav_nav {
-                width: 250px; /* Adjust the width as needed */
-                transition: width 0.3s ease; /* Add transition effect */
-            }
-
-            #layoutSidenav_content {
-                flex-grow: 1;
-                overflow: auto;
-            }
-
-            #sidebarToggle {
-                margin-left: auto; /* Push the toggle button to the far right */
-            }
-
-            .navbar-toggler {
-                display: none; /* Hide the navbar toggler in this layout */
-            }
-                .logo-img {
-                width: 55px; /* Adjust the width as needed */
-                height: auto; /* Maintain aspect ratio */
-                margin-right: 20px; /* Adjust the margin as needed */
-            }
-                .inner-card {
-                padding: 15px; /* Adjust padding as needed */
-                margin-bottom: 15px; /* Adjust margin as needed */
-            }
-        </style>
-    </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
@@ -74,8 +35,41 @@
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
-                        @include('Layout.sidebar')
-                    </div>
+                        <div class="nav">
+                            <a class="nav-link text-white" href="{{route('home')}}">
+                                <div class="sb-nav-link-icon text-white"></div>
+                                <span class="ms-auto pe-2">الرئيسية</span><i class="fa fa-home" aria-hidden="true"></i>
+                            </a>
+                            <a class="nav-link text-white" href="{{route('new.car')}}">
+                                <div class="sb-nav-link-icon text-white"></div>
+                                <span class="ms-auto pe-2">سيارة جديدة</span> <i class="fa fa-car" aria-hidden="true"></i>
+                            </a>
+                            <a class="nav-link text-white" href="{{route('Workspace')}}">
+                                <div class="sb-nav-link-icon text-white"></div>
+                                <span class="ms-auto pe-2">ساحة العمل</span><i class="fa fa-briefcase" aria-hidden="true"></i>
+                            </a>
+                            <a class="nav-link text-white" href="{{route('purchases')}}">
+                                <div class="sb-nav-link-icon text-white"></div>
+                                <span class="ms-auto pe-2">المشتريات</span><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </a>
+                            <a class="nav-link text-white" href="{{route('invoice.index')}}">
+                                <div class="sb-nav-link-icon text-white"></div>
+                                <span class="ms-auto pe-2">المبيعات</span><i class="fa-brands fa-salesforce"></i>
+                            </a>
+                            <a class="nav-link text-white text-end" href="{{route('Tries')}}">
+                                <div class="sb-nav-link-icon text-white"></div>
+                                <span class="ms-auto pe-2">اطارات</span><i class="fa-brands fa-salesforce"></i>
+                            </a>
+                            <a class="nav-link text-white" href="{{route('store')}}">
+                                <div class="sb-nav-link-icon text-white"></div>
+                                <span class="ms-auto pe-2">المخزن</span><i class="fas fa-database"></i>
+                            </a>
+                            <a class="nav-link text-white" href="{{route('Manage')}}">
+                                <div class="sb-nav-link-icon text-white"></div>
+                                <span class="ms-auto pe-2">ادارة</span><i class="fas fa-cogs"></i>
+                            </a>
+                        </div>                
+                    </div>                
                 </nav>
             </div>
             <div id="layoutSidenav_content" class="sidebar-collapsed">
@@ -84,75 +78,81 @@
                         <div class="card-body">
                             <div class="row">
                                 <div id="displayCard" style="display: none;">
-                                    <form action="" method="post">
+                                    <div class="col-md-12 mb-2">
+                                        <input type="text" class="form-control text-center bg-info" placeholder="عرض بيانات الموظفين" readonly>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <button type="submit" name="add" class="btn btn-danger col-12"><i class="fa-solid fa-trash"></i></button>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <form action="#" method="GET">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control text-center" name="plateNumber"
+                                                        placeholder="بحث">
+                                                    <button class="btn btn-outline-success" type="search">بحث</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <form action="{{Route('employees')}}" method="post">
                                         <div class="row">
                                             <div class="card bg-light">
                                                 <div class="card-body">
-                                                    <div class="col-md-12 mb-2">
-                                                        <input type="text" class="form-control text-center bg-info" placeholder="عرض بيانات الموظفين" readonly>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-2">
-                                                            <button type="submit" name="add" class="btn btn-danger col-12"><i class="fa-solid fa-trash"></i></button>
-                                                        </div>
-                                                        <div class="col-md-10 mb-2">
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control text-center" name="plateNumber" placeholder="">
-                                                                <button class="btn btn-outline-success" type="button" onclick="searchPlate()">بحث</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                     <div class="row">
                                                         <div class="col-md-8">
-                                                            <div class="row g-2">
+                                                            <div class="row g-1">
                                                                 <div class="col-md-6">
-                                                                    <input type="text" class="form-control text-center" placeholder="الاسم">
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <input type="number" class="form-control text-center" placeholder="الرقم الوظيفي"required>
+                                                                    <input class="form-control text-center" placeholder="الاسم" readonly>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input type="text" class="form-control text-center" placeholder="البريد الالكتروني">
+                                                                    <input class="form-control text-center" placeholder="الرقم الوظيفي" readonly>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input type="number" class="form-control text-center" placeholder="رقم الهاتف"required>
-                                                                </div>
-                                                                <div  class="col-md-6">
-                                                                    <input type="text" class="form-control text-center" placeholder="يوم المباشرة"required>
-                                                                </div>
-                                                                <div  class="col-md-6">
-                                                                    <input type="text" class="form-control text-center" placeholder="الوظيفه"required>
+                                                                    <input class="form-control text-center" placeholder="البريد الالكتروني" readonly>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input type="number" class="form-control text-center" placeholder="الراتب"required>
+                                                                    <div class="input-group position-relative">
+                                                                        <span class="input-group-text">+966</span>
+                                                                        <input class="form-control text-center" placeholder="رقم الهاتف" readonly>
+                                                                    </div>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input type="text" class="form-control text-center" placeholder="العنوان"required>
+                                                                    <input class="form-control text-center" placeholder="يوم المباشرة" readonly>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input type="text" class="form-control text-center" placeholder="مكان العمل"required>
+                                                                    <input class="form-control text-center" placeholder="الوظيفه" readonly>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input type="text" class="form-control text-center" placeholder="الحالة الاجتماعية"required>
+                                                                    <input class="form-control text-center" placeholder="الراتب" readonly>
                                                                 </div>
-                                                                <div class="col-md-12">
-                                                                    <input type="text" class="form-control text-center" placeholder="الجنسية"required>
+                                                                <div class="col-md-6">
+                                                                    <input class="form-control text-center" placeholder="العنوان" readonly>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <input class="form-control text-center" placeholder="مكان العمل" readonly>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <input class="form-control text-center" placeholder="الحالة الاجتماعية" readonly>
+                                                                </div>
+                                                                <div class="col-md-12 bm-2">
+                                                                    <input class="form-control text-center" placeholder="الجنسية" readonly>
                                                                 </div>
                                                                 <div class="col-md-12">
                                                                     <hr class="separator-line">
                                                                 </div>
-                                                                <div class="row">
+                                                                <div class="row mt-4 mb-2">
                                                                     <div class="col-md-4">
-                                                                        <input type="number" class="form-control text-center" placeholder="مستحقات"required>
+                                                                        <input class="form-control text-center" placeholder="مستحقات" readonly>
                                                                     </div>
                                                                     <div class="col-md-2">
                                                                         <label class="form-label inline"> مستحقات</label>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <input type="number" class="form-control text-center" placeholder="عهد"required>
+                                                                        <input class="form-control text-center" placeholder="عُهد" readonly>
                                                                     </div>
                                                                     <div class="col-md-2">
-                                                                        <label class="form-label inline"> عهد</label>
+                                                                        <label class="form-label inline"> عُهد</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -169,26 +169,34 @@
                                     </form>
                                 </div>
                                 <div class="col-12" id="inputCard">
-                                    <form class="mb-1" action="" method="post">
+                                    <form class="mb-1" action="{{ route('employees') }}" method="post">
+                                        @csrf
                                         <div class="card bg-light">
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-md-12 mb-2">
                                                         <input type="text" class="form-control text-center bg-info" placeholder="ادخال بيانات الموظفين" readonly>
-                                                    </div>                                                    <div class="col-md-6 mb-2">
+                                                    </div>
+                                                    <div class="col-md-6 mb-2">
                                                         <input type="text" class="form-control text-center" placeholder="البريد الالكتروني">
                                                     </div>
                                                     <div class="col-md-6 mb-2">
                                                         <input type="text" class="form-control text-center" placeholder="الاسم" required>
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <input type="number" class="form-control text-center" placeholder="رقم الهاتف"required>
+                                                        <div class="input-group position-relative">
+                                                            <span class="input-group-text">+966</span>
+                                                            <input class="form-control text-center" placeholder="رقم الهاتف"required>
+                                                        </div>
                                                     </div>
                                                     <div  class="col-md-6 mb-2">
                                                         <input type="text" class="form-control text-center" placeholder="الوظيفه"required>
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <input type="number" class="form-control text-center" placeholder="الراتب"required>
+                                                        <div class="input-group position-relative">
+                                                            <span class="input-group-text"> ريال .</span>
+                                                        <input class="form-control text-center" placeholder="الراتب"required>
+                                                    </div>
                                                     </div>
                                                     <div class="row col-6 mb-2">
                                                         <div class="col-md-9">
@@ -219,13 +227,17 @@
                                                     <div class="col-md-6 mb-2">
                                                         <input type="text" class="form-control text-center" placeholder="الجنسية"required>
                                                     </div>
-                                                    <div class="mb-3  text-end">
-                                                        <label for="formFile" class="form-label">ارفاق صورة</label>
-                                                        <input class="form-control" type="file" id="formFile">
+                                                    <div class="row mb-3"> 
+                                                        <div class="col-md-9">
+                                                            <input class="form-control" type="file" id="formFile">
+                                                        </div>
+                                                        <div class="col-md-3 text-center">
+                                                            <label for="formFile" class="form-label inline">ارفاق صورة</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class=" footer col-12 text-center">
-                                                    <button type="submit" name="add" class="btn btn-success col-6 float-right">اضافة <i class="fa-solid fa-plus"></i></button>
+                                                    <button type="submit" class="btn btn-success col-6 float-right">اضافة <i class="fa-solid fa-plus"></i></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -235,7 +247,7 @@
                         </div>
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
+                {{-- <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; Your Website 2024</div>
@@ -246,7 +258,7 @@
                             </div>
                         </div>
                     </div>
-                </footer>
+                </footer> --}}
             </div>
         </div>
         <script>
@@ -263,14 +275,6 @@
                 }
             }
         </script>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
 
     </body>
 
