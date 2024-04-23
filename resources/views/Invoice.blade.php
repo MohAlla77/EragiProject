@@ -4,14 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>الرئسية</title>
+    <title>Invoice</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
     <style>
         .logo-img {
             width: 55px;
@@ -29,7 +25,6 @@
             /* Adjust margin as needed */
         }
     </style>
-</head>
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -61,7 +56,7 @@
                 <i class="fas fa-file-invoice"></i></button>
         </div>
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-            <a class="navbar-brand" href="{{ route('Sales_accept') }}"><span class="text-">قبول المبيعات</span></a>
+            <a class="navbar-brand" href="{{ route('Sales_accept') }}"><span class="text-">قبول الخدمات</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -74,7 +69,7 @@
         <div id="layoutSidenav_nav">
             @include('Layout.sidebar')
         </div>
-        <div id="layoutSidenav_content"class="sidebar-collapsed" style="height: 25vh; overflow-y: auto;">
+        <div id="layoutSidenav_content" class="sidebar-collapsed" style="height: 25vh; overflow-y: auto;">
             <main>
                 <div class="card bg-light">
                     <div class="card-body">
@@ -91,13 +86,13 @@
                                 <table class="table table-striped">
                                     <thead class="thead-dark">
                                         <tr class="text-center">
-                                            <th scope="col">المجموع</th>
-                                            <th scope="col">السعر</th>
-                                            <th scope="col">الكمية</th>
-                                            <th scope="col">الوحدة</th>
-                                            <th scope="col">رمز الصنف</th>
-                                            <th scope="col">اسم الصنف</th>
-                                            <th scope="col">رقم</th>
+                                            <th>المجموع</th>
+                                            <th>السعر</th>
+                                            <th>الكمية</th>
+                                            <th>الوحدة</th>
+                                            <th>رمز الصنف</th>
+                                            <th>اسم الصنف</th>
+                                            <th>رقم</th>
                                         </tr>
                                     </thead>
                                     <tbody id="itemTableBody">
@@ -260,15 +255,16 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
-    </script>
-    <script src="js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
-        crossorigin="anonymous"></script>
-    <script src="js/datatables-simple-demo.js"></script>
+<canvas id="myChart"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="js/scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="assets/demo/chart-area-demo.js"></script>
+<script src="assets/demo/chart-bar-demo.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+    crossorigin="anonymous"></script>
+<script src="js/datatables-simple-demo.js"></script>
+
 
 </body>
 

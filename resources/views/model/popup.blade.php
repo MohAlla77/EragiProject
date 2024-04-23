@@ -10,6 +10,21 @@
             <form action="{{ route('RemoveCar.check',  ['id' => $data->CarId, 'user' => $data->UserId]) }}" method="POST">
                 @csrf
                 <div class="modal-body">
+                    <div class="col-12 mb-1">
+                        <input name="#" type="text"
+                            class="form-control text-center" id="#" required
+                            placeholder="تحديد اسم الفني">
+                    </div> 
+                    <div class="col-12 mb-1">
+                        <input name="#" type="text"
+                            class="form-control text-center" id="#" required
+                            placeholder="الوقت المقترح للصيانة">
+                    </div>
+                    <div class="col-12 mb-1">
+                        <input name="#" type="text"
+                            class="form-control text-center" id="#" required
+                            placeholder="تحديد قطع الغيار المطلوبة">
+                    </div>
                     <textarea class="form-control" name="sparePartsRequest" id="sparePartsRequest">
 
                     </textarea>

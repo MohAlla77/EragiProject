@@ -52,9 +52,8 @@ class CarController extends Controller
 
     public function store(AddCarRequest $request)
     {
-          dd(request()->all());
-
-
+        // dd(session()->all());
+        // dd(request()->all());
         $carPlate1 = request()->get('otp1');
         $carPlate2 = request()->get('otp2');
         $carPlate3 = request()->get('otp3');

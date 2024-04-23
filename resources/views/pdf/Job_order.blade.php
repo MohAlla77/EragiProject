@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job_order</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+<body>
 <div class="rtl">
     <div class="logo-container">
         <img style="height: 100px" src="./assets/img/logo-inch.jpg">
@@ -88,3 +95,20 @@
         </div>
     </div>
 </div>
+<script>
+    // Get HTML content
+    var content = document.getElementById('content');
+
+    // Initialize jsPDF
+    var doc = new jsPDF();
+
+    // Add HTML content to PDF
+    doc.html(content, {
+      callback: function (pdf) {
+        // Save PDF
+        pdf.save('output.pdf');
+      }
+    });
+  </script>
+</body>
+</html>

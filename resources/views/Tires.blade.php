@@ -116,7 +116,7 @@
                 <div class="card">
                     <form id="invoiceForm" style="height: 100%; display: none;">
                         <div class="card-body">
-                            <div class="row">
+                            <div class="row g-1">
                                 <div class="col-md-12 mb-1">
                                     <div class="card bg-light">
                                         <div class="card-body">
@@ -131,7 +131,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row g-1">
                                 <!-- Form Billing information Calculator -->
                                 <div class="col-md-6">
                                     <div class="card bg-light">
@@ -257,7 +257,7 @@
                                 </div>
                             </div>
                             <!-- Card Calculator -->
-                            <div class="row justify-content-center">
+                            <div class="row g-1 justify-content-center">
                                 <div class="col-md-6">
                                     <div class="card bg-light" style="height: 100%;">
                                         <div class="card-body">
@@ -322,108 +322,106 @@
                     </form>
                 </div>    
                 <div id="cardContainer" class="card bg-light col-12" style="display: block;">
-                    <div class="card col-12">
+                    <div class="card">
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <form class="mb-1" action="{{ route('Tries.Add') }}" method="POST">
-                                        @csrf
-                                        <div class="card bg-light">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-md-12 mb-2">
-                                                        <input class="form-control text-center"
-                                                            placeholder="ادخال اطارات جديدة" readonly>
-                                                    </div>
-                                                    <div class="col-md-6 mb-2">
-                                                        <input name="Tire_serial" class="form-control text-center"
-                                                            placeholder="الرقم التسلسلي">
-                                                        @error('Tire_serial')
-                                                            <span
-                                                                class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="col-md-6 mb-2">
-                                                        <input name="TireSize"
-                                                            class="form-control text-center" 
-                                                            placeholder="المقاس" required>
-                                                        @error('TireSize')
-                                                            <span
-                                                                class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="col-md-6 mb-2">
-                                                        <input name="TireAmount"
-                                                            class="form-control text-center" 
-                                                            placeholder="الكمية"
-                                                            required>
-                                                        @error('TireAmount')
-                                                            <span
-                                                                class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="col-md-6 mb-2">
-                                                        <input name="TirePrice"
-                                                            class="form-control text-center"
-                                                            placeholder="السعر"required>
-                                                        @error('TirePrice')
+                            <div class="col-12">
+                                <form class="mb-1" action="{{ route('Tries.Add') }}" method="POST">
+                                    @csrf
+                                    <div class="card bg-light">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-12 mb-2">
+                                                    <input class="form-control text-center"
+                                                        placeholder="ادخال اطارات جديدة" readonly>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <input name="Tire_serial" class="form-control text-center"
+                                                        placeholder="الرقم التسلسلي">
+                                                    @error('Tire_serial')
+                                                        <span
+                                                            class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <input name="TireSize"
+                                                        class="form-control text-center" 
+                                                        placeholder="المقاس" required>
+                                                    @error('TireSize')
+                                                        <span
+                                                            class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <input name="TireAmount"
+                                                        class="form-control text-center" 
+                                                        placeholder="الكمية"
+                                                        required>
+                                                    @error('TireAmount')
+                                                        <span
+                                                            class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <input name="TirePrice"
+                                                        class="form-control text-center"
+                                                        placeholder="السعر"required>
+                                                    @error('TirePrice')
+                                                        <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                                <div class="row text-center">
+                                                    <div class="col-md-3">
+                                                        <select name="TireModel" id="brand"
+                                                            class="form-select text-center"
+                                                            aria-describedby="validationServer04Feedback" required>
+                                                            <option value="ماركة"> ماركة</option>
+                                                        </select>
+                                                        @error('TireModel')
                                                             <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                                         @enderror
                                                     </div>
-                                                    <div class="row text-center">
-                                                        <div class="col-md-3">
-                                                            <select name="TireModel" id="brand"
-                                                                class="form-select text-center"
-                                                                aria-describedby="validationServer04Feedback" required>
-                                                                <option value="ماركة"> ماركة</option>
-                                                            </select>
-                                                            @error('TireModel')
-                                                                <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
-                                                            @enderror
-                                                        </div>
-                                                        <div class="col-md-3 mb-4 text-end">
-                                                            <label for="brand" class="form-label inline"> اختار
-                                                                ماركة الاطار</label>
-                                                        </div>
-                                                        <div class="col-md-3 ms-3">
-                                                            <select name="TireCountry" id="model"
-                                                                class="form-select text-center"
-                                                                aria-describedby="validationServer04Feedback" required>
-                                                                <option value="بلد">بلد صنع</option>
-                                                            </select>
-                                                            @error('TireCountry')
-                                                                <span
-                                                                    class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
-                                                            @enderror
-                                                        </div>
-                                                        <div class="col-md-2 mb-4 text-end">
-                                                            <label for="model" class="form-label">اختار بلد
-                                                                الاننشاء</label>
-                                                        </div>
+                                                    <div class="col-md-3 mb-4 text-end">
+                                                        <label for="brand" class="form-label inline"> اختار
+                                                            ماركة الاطار</label>
                                                     </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-md-9">
-                                                            <input name="TireDate" type="date"
-                                                                class="form-control text-center"required>
-                                                            @error('TireDate')
-                                                                <span
-                                                                    class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
-                                                            @enderror
-                                                        </div>
-                                                        <div class="col-md-3 text-end">
-                                                            <label class="form-label inline">تاريخ الانتاج</label>
-                                                        </div>
+                                                    <div class="col-md-3 ms-3">
+                                                        <select name="TireCountry" id="model"
+                                                            class="form-select text-center"
+                                                            aria-describedby="validationServer04Feedback" required>
+                                                            <option value="بلد">بلد صنع</option>
+                                                        </select>
+                                                        @error('TireCountry')
+                                                            <span
+                                                                class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="col-md-2 mb-4 text-end">
+                                                        <label for="model" class="form-label">اختار بلد
+                                                            الاننشاء</label>
                                                     </div>
                                                 </div>
-                                                <div class=" footer col-12 text-center">
-                                                    <button type="submit" name="add"
-                                                        class="btn btn-success col-6 float-right">اضافة <i
-                                                            class="fa-solid fa-plus"></i></button>
+                                                <div class="row mb-2">
+                                                    <div class="col-md-9">
+                                                        <input name="TireDate" type="date"
+                                                            class="form-control text-center"required>
+                                                        @error('TireDate')
+                                                            <span
+                                                                class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="col-md-3 text-end">
+                                                        <label class="form-label inline">تاريخ الانتاج</label>
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <div class=" footer col-12 text-center">
+                                                <button type="submit" name="add"
+                                                    class="btn btn-success col-6 float-right">اضافة <i
+                                                        class="fa-solid fa-plus"></i></button>
+                                            </div>
                                         </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
