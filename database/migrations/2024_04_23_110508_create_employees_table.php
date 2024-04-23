@@ -1,10 +1,8 @@
 <?php
 
-use FontLib\Table\Type\name;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use PharIo\Manifest\Email;
 
 return new class extends Migration
 {
@@ -15,17 +13,19 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('Email');
+
+            $table->string('email')->unique();
             $table->string('name');
-            $table->string('phone');
+            $table->string('phone_number');
             $table->string('salary');
             $table->string('department');
-            $table->string('date');
+            $table->date('direct_day');
             $table->string('address');
-            $table->string('Workplace');
+            $table->string('workplace');
             $table->string('marital_status');
-            $table->string('Nationality');
-            $table->string('image')->nullable()->default(NULL);
+            $table->string('nationality');
+            $table->string('image')->nullable();
+
             $table->timestamps();
         });
     }

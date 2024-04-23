@@ -34,7 +34,7 @@
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
+                    {{-- <div class="sb-sidenav-menu">
                         <div class="nav">
                             <a class="nav-link text-white" href="{{route('home')}}">
                                 <div class="sb-nav-link-icon text-white"></div>
@@ -69,7 +69,7 @@
                                 <span class="ms-auto pe-2">ادارة</span><i class="fas fa-cogs"></i>
                             </a>
                         </div>                
-                    </div>                
+                    </div>                 --}}
                 </nav>
             </div>
             <div id="layoutSidenav_content" class="sidebar-collapsed">
@@ -86,57 +86,82 @@
                                             <button type="submit" name="add" class="btn btn-danger col-12"><i class="fa-solid fa-trash"></i></button>
                                         </div>
                                         <div class="col-md-10">
-                                            <form action="#" method="GET">
+                                            {{-- <form action="{{route('employees.search')}}" method="GET">
                                                 <div class="input-group">
                                                     <input type="text" class="form-control text-center" name="plateNumber"
                                                         placeholder="بحث">
                                                     <button class="btn btn-outline-success" type="search">بحث</button>
                                                 </div>
-                                            </form>
+                                            </form> --}}
                                         </div>
                                     </div>
                                     <form action="{{Route('employees')}}" method="post">
                                         <div class="row">
                                             <div class="card bg-light">
                                                 <div class="card-body">
+                                                    @if(isset($emloyees))
                                                     <div class="row">
                                                         <div class="col-md-8">
-                                                            <div class="row g-1">
-                                                                <div class="col-md-6">
-                                                                    <input class="form-control text-center" placeholder="الاسم" readonly>
+                                                             <div class="row g-1">
+                                                           
+                                                                <div class="col-md-6"> 
+                                                                    <input class="form-control text-center" 
+                                                                    value="{{$employees->employees_name}}"
+                                                                     placeholder="الاسم" readonly>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input class="form-control text-center" placeholder="الرقم الوظيفي" readonly>
+                                                                    <input class="form-control text-center"
+                                                                    value="{{$employees->employees_Job_number}}"
+                                                                    placeholder="الرقم الوظيفي" readonly>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input class="form-control text-center" placeholder="البريد الالكتروني" readonly>
+                                                                    <input class="form-control text-center"
+                                                                    
+                                                                    value="{{$employees->employees_Email}}"
+                                                                    placeholder="البريد الالكتروني" readonly>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="input-group position-relative">
                                                                         <span class="input-group-text">+966</span>
-                                                                        <input class="form-control text-center" placeholder="رقم الهاتف" readonly>
+                                                                        <input class="form-control text-center" 
+                                                                        value="{{$employees->employees_phone_number}}"
+                                                                        placeholder="رقم الهاتف" readonly>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input class="form-control text-center" placeholder="يوم المباشرة" readonly>
+                                                                    <input class="form-control text-center"
+                                                                    value="{{$employees->employees_direct_day}}"
+                                                                    placeholder="يوم المباشرة" readonly>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input class="form-control text-center" placeholder="الوظيفه" readonly>
+                                                                    <input class="form-control text-center"
+                                                                    value="{{$employees->employees_department}}"
+                                                                    placeholder="الوظيفه" readonly>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input class="form-control text-center" placeholder="الراتب" readonly>
+                                                                    <input class="form-control text-center"
+                                                                    value="{{$employees->employees_salary}}"
+                                                                    placeholder="الراتب" readonly>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input class="form-control text-center" placeholder="العنوان" readonly>
+                                                                    <input class="form-control text-center"
+                                                                    value="{{$employees->employees_address}}"
+                                                                     placeholder="العنوان" readonly>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input class="form-control text-center" placeholder="مكان العمل" readonly>
+                                                                    <input class="form-control text-center"
+                                                                    value="{{$employees->employees_Workplace}}"
+                                                                    placeholder="مكان العمل" readonly>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input class="form-control text-center" placeholder="الحالة الاجتماعية" readonly>
+                                                                    <input class="form-control text-center"
+                                                                    value="{{$employees->employees_marital_status}}"
+                                                                    placeholder="الحالة الاجتماعية" readonly>
                                                                 </div>
                                                                 <div class="col-md-12 bm-2">
-                                                                    <input class="form-control text-center" placeholder="الجنسية" readonly>
+                                                                    <input class="form-control text-center"
+                                                                    value="{{$employees->employees_Nationality}}"
+                                                                    placeholder="الجنسية" readonly>
                                                                 </div>
                                                                 <div class="col-md-12">
                                                                     <hr class="separator-line">
@@ -155,21 +180,26 @@
                                                                         <label class="form-label inline"> عُهد</label>
                                                                     </div>
                                                                 </div>
-                                                            </div>
+                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="card">
-                                                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="card-img-top" alt="...">
+                                                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" 
+                                                                class="card-img-top" 
+                                                                value="{{$employees->employees_image}}" alt="...">
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    
+                                                    @endif
+
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="col-12" id="inputCard">
-                                    <form class="mb-1" action="{{ route('employees') }}" method="post">
+                                    <form class="mb-1" action="{{ route('employee.store') }}" method="post">
                                         @csrf
                                         <div class="card bg-light">
                                             <div class="card-body">
@@ -178,43 +208,47 @@
                                                         <input type="text" class="form-control text-center bg-info" placeholder="ادخال بيانات الموظفين" readonly>
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <input type="text" class="form-control text-center" placeholder="البريد الالكتروني">
+                                                        <input name="e-Email" type="text" class="form-control text-center" placeholder="البريد الالكتروني">
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <input type="text" class="form-control text-center" placeholder="الاسم" required>
+                                                        <input name="name" type="text" class="form-control text-center" placeholder="الاسم" required>
                                                     </div>
                                                     <div class="col-md-6 mb-2">
                                                         <div class="input-group position-relative">
                                                             <span class="input-group-text">+966</span>
-                                                            <input class="form-control text-center" placeholder="رقم الهاتف"required>
+                                                            <input name="phone_number" class="form-control text-center" placeholder="رقم الهاتف"required>
                                                         </div>
                                                     </div>
                                                     <div  class="col-md-6 mb-2">
-                                                        <input type="text" class="form-control text-center" placeholder="الوظيفه"required>
+                                                        <input name="department" type="text" class="form-control text-center" placeholder="الوظيفه"required>
                                                     </div>
                                                     <div class="col-md-6 mb-2">
                                                         <div class="input-group position-relative">
                                                             <span class="input-group-text"> ريال .</span>
-                                                        <input class="form-control text-center" placeholder="الراتب"required>
+                                                        <input name="salary" class="form-control text-center" placeholder="الراتب"required>
                                                     </div>
                                                     </div>
                                                     <div class="row col-6 mb-2">
                                                         <div class="col-md-9">
-                                                            <input type="date" class="form-control text-center"required>
+                                                            <input name="department" type="date" class="form-control text-center"required>
                                                         </div>
                                                         <div class="col-md-3 text-end">
-                                                            <label class="form-label inline">يوم المباشرة</label>
+                                                            <label name="direct_day" class="form-label inline">يوم المباشرة</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <input type="text" class="form-control text-center" placeholder="العنوان"required>
+                                                        <input name="address" type="text" class="form-control text-center" placeholder="العنوان"required>
                                                     </div>
                                                     <div class="row col-6 mb-2">
                                                         <div class="col-md-9 select" aria-label="form-toggle">
-                                                        <select class="form-select text-center">
-                                                            <option>ينبع الصناعية</option>
-                                                            <option>ينبع حي الياقوت</option>
-                                                            <option>المدينةالمنورة</option>
+                                                        <select name="workplace" class="form-select text-center">
+                                                            @foreach ($workplaces as $workplace)
+
+                                                            <option value="{{$workplace}}">{{$workplace}}</option>
+                                                                
+                                                            @endforeach
+                                                            
+                                                            
                                                         </select>
                                                     </div>
                                                         <div class="col-md-3 text-end">
@@ -222,10 +256,10 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <input type="text" class="form-control text-center" placeholder="الحالة الاجتماعية"required>
+                                                        <input name="marital_status" type="text" class="form-control text-center" placeholder="الحالة الاجتماعية"required>
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <input type="text" class="form-control text-center" placeholder="الجنسية"required>
+                                                        <input name="nationality" type="text" class="form-control text-center" placeholder="الجنسية"required>
                                                     </div>
                                                     <div class="row mb-3"> 
                                                         <div class="col-md-9">

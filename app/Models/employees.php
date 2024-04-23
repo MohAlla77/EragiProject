@@ -12,16 +12,16 @@ class employees extends Model
     protected $table = 'employees' ;
 
     protected $fillable = [
-    'Email',
+    'email',
     'name',
-    'phone',
+    'phone_number',
     'salary',
-    'Function',
-    'date',
+    'department',
+    'direct_day',
     'address',
-    'Workplace',
+    'workplace',
     'marital_status',
-    'Nationality',
+    'nationality',
     'image',
     ];
 }

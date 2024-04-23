@@ -85,7 +85,12 @@ Route::prefix('/management')->group(function () {
     })->name('Customers');
 
     Route::get('/Employee', function () {
-        return view('Management_page.employees');
+
+        $workplaces =[
+            'يبنع الصناعية', 'حي الياقوت', 'المدينة المنورة'
+        ];
+
+        return view('Management_page.employees',compact( "workplaces"));
     })->name('employees');
 
     Route::get('/', function () {
@@ -100,9 +105,6 @@ Route::prefix('/management')->group(function () {
         return view('Management_page.User_management');
     })->name('User_management');
 
-    Route::post('/employees', function () {
-        return view('Management_page.employees');
-    })->name('employees');
 });
 
 
@@ -158,7 +160,8 @@ Route::post('/{car}/wait', [HomeController::class, 'ToWait'])->name('car.ToWait'
 
 Route::post('/management/DataEntry/AddCompany', [ManagemetController::class, 'CompanyStore'])->name('Data_Entry.Company');
 
-// Route::get('/management/employees', [EmployeesController::class, 'employees'])->name('employees');
-Route::post('/Management/employees', [EmployeesController::class, 'Management/employees'])->name('Management/employees');
+
+Route::post('/management/Employee/store', [EmployeesController::class, 'store'])->name('employee.store');
+ 
 
 

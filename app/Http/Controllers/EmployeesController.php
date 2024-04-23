@@ -2,49 +2,52 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddEmployeeRequest;
 use App\Models\employees;
-use Illuminate\Http\Request;
+
 
 class EmployeesController extends Controller
-{
-    public function index()
-        {
-            $employees = employees::all();
-    
-            return view('/Management.employees', ['Management.employees' => $employees]);
-        }
-    
-    public  function store(Request $request) 
+{   
+    public function store(AddEmployeeRequest $request) 
     {
-         $request->validated([
-            'email'=>'required|Email',
-            'name'=>'required|min:6|max:20',
-            'phone_number'=>'nullable|regex:/^[0-9]+$/|digits:10',
-            'salary' => 'required|numeric',
-            'department' =>  'required|string',
-            'direct_day' => 'required|date',
-            'address'=>'required|string',
-            'workplace' =>  'required|string',
-            'Nationality' =>  'required|string',
-            'image' =>  'mimes:jpg,png,jpeg|max:5048',
-        ]);
+
+        dd(request()->all());
+
+        $valideted = $request->validate();
+
 
         employees::created([
-            'Email' => $request-> email,
-            'name' => $request-> name,
-            'phone_number' => $request-> phone,
-            'salary' => $request-> salary,
-            'department' => $request-> department,
-            'direct_day' => $request-> date,
-            'address' => $request-> address,
-            'Workplace' => $request-> Workplace,
-            'marital_status' => $request-> marital_status,
-            'Nationality' => $request-> Nationality,
-            'image' => $request-> image,
-        ]);
-        
-        $employees = employees::all();
 
-        return view("/management/employees", ['employees' => $employees]);
+            'email' =>         $valideted['e-Email'],
+            'name'  =>         $valideted['name'] ,
+            'phone_number' =>  $valideted['phone_number'] ,
+            'salary' =>        $valideted['salary'] ,
+            'department' =>    $valideted['department'] ,
+            'direct_day' =>    $valideted['direct_day'],
+            'address' =>       $valideted['address'],
+            'workplace' =>     $valideted['workplace'] ,
+            'marital_status' =>$valideted['marital_status'] ,
+            'nationality' =>   $valideted['nationality'] ,
+           
+        ]);
+
+        return view('home');
     }
+    
+    // public function search(requset $request){
+    //     $name =$request->get('name');
+
+    //     $employees=Employees::where('name',$name)->first();
+
+    //     if (!$name) {
+    //         return view('employees',['name' => null, 'error' =>'employees not  found']);
+    //     }
+    //     $checknameData = DB::table('check_name')    
+    
+
+    
+    //     $employees = employees::all();
+
+    //     return view('/Management.employees', ['Management.employees' => $employees]);
+    // }
 }
