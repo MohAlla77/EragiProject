@@ -52,6 +52,9 @@ class CarController extends Controller
 
     public function store(AddCarRequest $request)
     {
+          dd(request()->all());
+
+
         $carPlate1 = request()->get('otp1');
         $carPlate2 = request()->get('otp2');
         $carPlate3 = request()->get('otp3');
@@ -72,7 +75,7 @@ class CarController extends Controller
             Storage::putFileAs($folderPath, $image, $filename);
         }
 
-        // dd(request()->all());
+
 
       Car::create([
             'user_id' => auth()->id(),
