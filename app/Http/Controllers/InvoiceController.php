@@ -105,7 +105,7 @@ class InvoiceController extends Controller
             'Date' => $Date
         ];
 
-        $pdf = Pdf::loadView('pdf.print', $data);
+        $pdf = Pdf::loadView('pdf.invoice', $data);
         return $pdf->stream('invoice.pdf');
 
     }

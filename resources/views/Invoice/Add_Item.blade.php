@@ -3,16 +3,15 @@
         <div class="card-body">
             <div id="addNewItemForm">
                 <div class="row">
-                    <form action="{{route('spare.search')}}" method="GET">
+                    <form id="searchForm" action="{{ route('spare.search') }}" method="GET">
                         <div class="input-group">
-                            <input name="PartId" type="text" class="form-control text-center" id="validationCustom02"  placeholder="رمز الصنف" required>
-                        <button class="btn btn-outline-success" type="search">بحث</button>
+                            <input name="PartId" type="text" class="form-control text-center" id="validationCustom02" placeholder=" ابحث عن رمز الصنف" required>
                         </div>
                     </form>
                     @if (isset($spear))
                     <form action="{{ route('spear.store', $spear->id) }}" method="POST">
                         @csrf
-                        <div class="row">
+                        <div class="row g-1">
                             <div class="col-md-6">
                                 <input name="ItemCode" value="{{ $spear->part_id }}" type="number" class="form-control text-center" id="validationCustom02" placeholder="رمز الصنف" readonly required>
                             </div>
@@ -38,7 +37,7 @@
                     @elseif (isset($service))
                     <form action="{{ route('service.store', $service->id) }}" method="POST">
                         @csrf
-                        <div class="row">
+                        <div class="row g-1">
                             <div class="col-md-6">
                                 <input name="ItemCode" value="{{ $service->service_id}}" type="text" class="form-control text-center" id="validationCustom02" placeholder="رمز الصنف" readonly required>
                             </div>

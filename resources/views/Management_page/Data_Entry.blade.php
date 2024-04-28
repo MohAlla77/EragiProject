@@ -89,6 +89,10 @@
                                             <div class="col-md-6">
                                                 <input type="text" id="#" class="form-control mb-1 text-center" placeholder="اضافة فني جديد">
                                             </div>
+                                            <!-- For adding a new WaitReason -->
+                                            <div class="col-md-12">
+                                                <input type="text" id="#" class="form-control mb-1 text-center" placeholder="اضافة سبب انتظار">
+                                            </div>
                                         </div>
                                         <div class="footer col-md-12 mb-2 text-center">
                                             <button class="btn btn-success col-6" onclick="addNewOption()">اضافة</button>

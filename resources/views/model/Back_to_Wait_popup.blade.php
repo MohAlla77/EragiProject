@@ -10,20 +10,15 @@
             <form action="{{route('car.ToWait', $car->id)}}" method="POST">
                 @csrf
                 <div class="modal-body">
-                    <div class="col-md-12 mb-2">
-                        <input type="text" class="form-control text-center"
-                            id="#" required placeholder="اختيار سبب الانتظار" readonly>
+                    <div  class="col-12 mb-2">
+                        <input name="WorkerName" type="text" class="form-control text-center" readonly
+                        placeholder="ظهور اسم الفني ">
                     </div>
-
                     <select name="WaitReason" class="form-select text-center"
                         aria-describedby="validationServer04Feedback" required>
                         <option selected>اختلاف الاسبير</option>
                         <option selected>عدم توفر مواد تشغيل </option>
                     </select>
-                </div>
-                <div  class="col-12 mb-2">
-                    <input name="WorkerName" type="text" class="form-control text-center" required
-                    placeholder="اسم العامل">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">الغاء</button>
