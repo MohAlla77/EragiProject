@@ -73,7 +73,7 @@
             <main>
                 <div class="card bg-light">
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row g-1">
                             <!-- Form Billing information Calculator -->
                             @include('Invoice.Billing_info')
                             <!-- Form Add in table Calculator -->
@@ -126,24 +126,24 @@
                         </div>
                         <!-- Card Calculator -->
                         @if (isset($items))
-                            <div class="row justify-content-center">
+                            <div class="row g-1 justify-content-center">
                                 <div class="col-md-6">
                                     <div class="card" style="height: 100%;">
                                         <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-md-6 mb-2">
+                                            <div class="row g-1">
+                                                <div class="col-md-6">
                                                     <input class="form-control text-center" 
                                                         id="Total"
                                                         value="{{ $items->sum(function ($item) {return $item->price * $item->quantity;}) }}"
                                                         placeholder="الاجمالي" readonly>
                                                 </div>
-                                                <div class="col-md-6 mb-2">
+                                                <div class="col-md-6">
                                                     <input class="form-control text-center"
                                                         id="VAT%15"
                                                         value="{{ $items->sum(function ($item) {return $item->price * $item->quantity;}) * 0.15 }}"
                                                         placeholder="ضريبة القيم المضافة%15" readonly>
                                                 </div>
-                                                <div class="col-md-6 mb-2">
+                                                <div class="col-md-6">
                                                     <input class="form-control text-center"
                                                         id="totalAmountWithTax"
                                                         value="{{ $items->sum(function ($item) {return $item->price * $item->quantity;}) +$items->sum(function ($item) {return $item->price * $item->quantity;}) *0.15 }}"
@@ -251,6 +251,19 @@
         document.getElementById('discountType').addEventListener('change', handleDiscountType);
         document.getElementById('amountDiscountValue').addEventListener('input', calculateTotalPriceAfterDiscount);
         document.getElementById('percentageDiscountValue').addEventListener('input', calculateTotalPriceAfterDiscount);
+
+                var input = document.getElementById("validationCustom02");
+
+        // Execute a function when the user releases a key on the keyboard
+        input.addEventListener("keyup", function(event) {
+            // Number 13 is the "Enter" key on the keyboard
+            if (event.keyCode === 13) {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // Submit the form
+                document.getElementById("searchForm").submit();
+            }
+        });
     </script>
 
 

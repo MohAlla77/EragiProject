@@ -1,7 +1,7 @@
 <div class="col-md-6">
   <div class="card">
     <div class="card-body">
-      <div class="row">
+      <div class="row g-1">
         <div class="col-md-12">
           <div class="card">
             <div class="card-body">
@@ -13,7 +13,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row g-1">
         <div class="col-md-6">
           <select class="form-select text-center" id="paymentMethod" name="paymentMethod" aria-label="Default select example">
             <option selected>طريقة الدفع</option>

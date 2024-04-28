@@ -34,20 +34,15 @@ class EmployeesController extends Controller
         return view('home');
     }
     
-    // public function search(requset $request){
-    //     $name =$request->get('name');
+//     public function search(Requset $request)
+//     {
+//         $name =$request->get('name');
 
-    //     $employees=Employees::where('name',$name)->first();
+//         $employees=employees::where('employeename');
 
-    //     if (!$name) {
-    //         return view('employees',['name' => null, 'error' =>'employees not  found']);
-    //     }
-    //     $checknameData = DB::table('check_name')    
+//         $employees = employees::where('name', 'like','%'. $employees.'%')->get();
+
+//         return view('/Management.employees', ['Management.employees' => $employees]);
+//     }
     
-
-    
-    //     $employees = employees::all();
-
-    //     return view('/Management.employees', ['Management.employees' => $employees]);
-    // }
-}
+// }

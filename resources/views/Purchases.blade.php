@@ -51,8 +51,8 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li><a class="dropdown-item" href="#!">Profile</a></li>
+                    {{-- <li><a class="dropdown-item" href="#!">Activity Log</a></li> --}}
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
@@ -61,7 +61,7 @@
             </li>
         </ul>
         <div class="container-fluid">
-            <a class="navbar-brand"><img src="./assets/img/logoeragi.jpg" class="img-fluid logo-img" alt="Logo"></a>
+            <a class="navbar-brand"><img src="./assets/img/logo-inch.jpg" class="img-fluid logo-img" alt="Logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -162,23 +162,22 @@
                     <div class="card bg-light">
                         <div class="card-body">
                             <form class="card inner-card">
-                                <div class="row">
+                                <div class="row g-1">
                                     <!-- Form Billing information Calculator -->
                                     <div class="col-md-6">
-                                        <div class="card bg-light mb-2">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-md-12 text-center">
-                                                        <button type="submit" class="btn btn-success col-3"><i class="fa fa-bookmark" aria-hidden="true"></i></button>
-                                                        <button id="printButton" class="btn btn-primary col-3"onclick="window.print()"><i class="fas fa-print"></i></button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="card bg-light">
                                             <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-md-6 mb-1">
+                                                <div class="row g-1">
+                                                    <div class="row">
+                                                        <div class="col-md-12 mb-1 text-center">
+                                                            <button type="submit" class="btn btn-success col-3"><i class="fa fa-bookmark" aria-hidden="true"></i></button>
+                                                            <button id="printButton" class="btn btn-primary col-3"onclick="window.print()"><i class="fas fa-print"></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 mb-1">
+                                                        <hr class="separator-line">
+                                                    </div>
+                                                    <div class="col-md-6">
                                                         <select class="form-select text-center" id="paymentMethod"
                                                             name="paymentMethod" aria-label="Default select example">
                                                             <option selected>طريقة الدفع</option>
@@ -188,7 +187,7 @@
                                                             <option value="Prepaid">مقدم</option>
                                                         </select>
                                                     </div>
-                                                    <div class="col-md-6 mb-1">
+                                                    <div class="col-md-6">
                                                         <select class="form-select text-center" id="invoiceType"
                                                             name="invoiceType" aria-label="Default select example"
                                                             onchange="generateInvoiceNumber()">
@@ -199,7 +198,7 @@
                                                             <option value="quotation">تسعيرة</option>
                                                         </select>
                                                     </div>
-                                                    <div class="col-md-6 mb-1">
+                                                    <div class="col-md-6">
                                                         <input class="form-control text-center"
                                                             id="invoice number" value=""
                                                             placeholder="رقم الفاتورة" readonly>
@@ -412,22 +411,22 @@
                                 <!-- Card Calculator -->
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="row justify-content-center">
+                                        <div class="row g-1 justify-content-center">
                                             <div class="col-md-6">
                                                 <div class="card bg-light" style="height: 100%;">
                                                     <div class="card-body">
-                                                        <div class="row">
-                                                            <div class="col-md-6 mb-2">
+                                                        <div class="row g-1">
+                                                            <div class="col-md-6">
                                                                 <input class="form-control text-center"
                                                                     id="Total" value="" placeholder="الاجمالي"
                                                                     readonly>
                                                             </div>
-                                                            <div class="col-md-6 mb-2">
+                                                            <div class="col-md-6">
                                                                 <input class="form-control text-center"
                                                                     id="VAT%15" value=""
                                                                     placeholder="ضريبة القيم المضافة%15" readonly>
                                                             </div>
-                                                            <div class="col-md-6 mb-2">
+                                                            <div class="col-md-6">
                                                                 <select class="form-select text-center" id="Discountearned"
                                                                     aria-label="Default select example"
                                                                     onchange="handleDiscountType()">
@@ -436,23 +435,23 @@
                                                                     <option value="amount">بالمبلغ</option>
                                                                 </select>
                                                             </div>
-                                                            <div class="col-md-6 mb-2" id="percentageDiscountField"
+                                                            <div class="col-md-6" id="percentageDiscountField"
                                                                 style="display: none;">
                                                                 <input class="form-control text-center"
                                                                     id="percentageDiscountValue"
                                                                     placeholder="قيمة الخصم بالنسبة">
                                                             </div>
-                                                            <div class="col-md-6 mb-2" id="amountDiscountField"
+                                                            <div class="col-md-6" id="amountDiscountField"
                                                                 style="display: none;">
                                                                 <input class="form-control text-center"
                                                                     id="amountDiscountValue" placeholder="قيمة الخصم بالمبلغ">
                                                             </div>
-                                                            <div class="col-md-6 mb-2">
+                                                            <div class="col-md-6">
                                                                 <input class="form-control text-center"
                                                                     id="totalAmountWithTax" value=""
                                                                     placeholder="الاجمالي مع الضريبة" readonly>
                                                             </div>
-                                                            <div class="col-md-12 mb-2">
+                                                            <div class="col-md-12">
                                                                 <input class="form-control text-center"
                                                                     id="netAmount" value="" placeholder="المبلغ الصافي"
                                                                     readonly>
@@ -501,9 +500,11 @@
                                                     <input name="SupplierName" type="text" class="form-control text-center"
                                                         id="#" required placeholder="اسم المورد">
                                                 </div>
-                                                <div class="col-6 input-group">
-                                                    <span class="input-group-text">+966</span>
-                                                    <input class="form-control text-center" name="u_phone" id="customerPhone" placeholder="رقم الهاتف" required>
+                                                <div class="col-md-6">
+                                                    <div class="input-group">
+                                                        <span class="input-group-text">+966</span>
+                                                        <input class="form-control text-center" name="u_phone" id="customerPhone" placeholder="رقم الهاتف" required>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <input name="SupplierRigesteNumber" type="text" class="form-control text-center"
@@ -513,7 +514,7 @@
                                                     <input name="SupplierTaxNumber" type="text" class="form-control text-center"
                                                         id="#" required placeholder="الرقم الضريبي">
                                                 </div>
-                                                <div class="col-md-12">
+                                                <div class="col-md-6">
                                                     <input name="SupplierNationalNumber" type="number" class="form-control text-center"
                                                         id="#" name="#" required
                                                         placeholder="العنوان الوطني">
@@ -589,98 +590,103 @@
                                     </div>
                                 </div>
                             </div> --}}
-                            <div class="col-md-12">
-                                <div class="card bg-light">
-                                    <div class="card-body">
-                                        <div class="col-md-12">
-                                            <button type="button" class="btn btn-success col-12" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                                                اضافة مجموعة الاصناف
-                                              </button>
-                                              
-                                            @include('model.service_group_purchase_popup')
-                                        </div>
-                                        <form class="row g-1" id="addItemForm" novalidate action="{{route('Categorize.store')}}" method="post">
-                                            @csrf
-                                            <div class="col-md-12">
-                                                <input type="text" class="form-control text-center"
-                                                    id="AddacategoryFields" required placeholder="اضافة صنف" readonly>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <select name="categorize_group_id"
-                                                class="form-select text-center"
-                                                onchange="toggleForm(this)">
-                                                <option selected>نوع الصنف</option>
-                                                @foreach ($CategorizeGroup as $C_group)
-                                                    <option value="{{ $C_group->id }}">
-                                                        {{ $C_group->name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row g-1">
+                                    <div class="col-md-12">
+                                        <div class="card bg-light">
+                                            <div class="card-body">
+                                                <div class="col-md-12">
+                                                    <button type="button" class="btn btn-success col-12" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                                        اضافة مجموعة الاصناف
+                                                    </button>
+                                                    
+                                                    @include('model.service_group_purchase_popup')
+                                                </div>
+                                                <form class="row g-1" id="addItemForm" novalidate action="{{route('Categorize.store')}}" method="post">
+                                                    @csrf
+                                                    <div class="col-md-12">
+                                                        <input type="text" class="form-control text-center"
+                                                            id="AddacategoryFields" required placeholder="اضافة صنف" readonly>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <select name="categorize_group_id"
+                                                        class="form-select text-center"
+                                                        onchange="toggleForm(this)">
+                                                        <option selected>نوع الصنف</option>
+                                                        @foreach ($CategorizeGroup as $C_group)
+                                                            <option value="{{ $C_group->id }}">
+                                                                {{ $C_group->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
 
+                                                    </div>
+                                                    {{-- <div class="col-md-6">
+                                                        <input type="number" class="form-control text-center" id="#"
+                                                            required placeholder="رقم المجموعة" disabled>
+                                                    </div> --}}
+                                                    <div class="col-md-6">
+                                                        <input name="CategorizeSerial" type="number" class="form-control text-center" id="#"
+                                                            required placeholder="الرقم التسلسلي">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input name="CategorizeName" type="text" class="form-control text-center" id="#"
+                                                            required placeholder="اسم الصنف">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <select class="form-select text-center" name="#" 
+                                                            aria-label="Default select example">
+                                                            <option selected>نوع الكمية</option>
+                                                            <option value="invoice">كرتونة</option>
+                                                            <option value="return">ليتر </option>
+                                                            <option value="purchase">؟؟؟</option>
+                                                            <option value="quotation">؟؟؟</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input name="CategorizeAmount" type="number" class="form-control text-center"
+                                                            id="validationServer04" name="item_quantity" required
+                                                            placeholder="الكمية">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input name="CategorizeAmount" type="number" class="form-control text-center"
+                                                            id="validationServer04" name="item_quantity" required
+                                                            placeholder="سعر الكمية">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <select class="form-select text-center" name="#" 
+                                                            aria-label="Default select example">
+                                                            <option selected>نوع الوحدة</option>
+                                                            <option value="invoice">حبة</option>
+                                                            <option value="return">؟؟؟ </option>
+                                                            <option value="purchase">؟؟؟</option>
+                                                            <option value="quotation">؟؟؟</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input name="CategorizeUnit" type="number" class="form-control text-center" id="#"
+                                                            required placeholder="كمية الوحدة">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input name="CategorizeUnit" type="number" class="form-control text-center" id="#"
+                                                            required placeholder="سعر الوحدة">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input  name="CategorizeCost" type="number" class="form-control text-center"
+                                                            id="validationServer04" name="item_price" required placeholder=" سعر التكلفة">
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <input  name="CategorizeCost" type="number" class="form-control text-center"
+                                                            id="validationServer04" name="item_price" required placeholder=" سعر البيع">
+                                                    </div>
+                                                    <div class="col-12 text-center">
+                                                        <button type="Save" class="col-6 btn btn-success">اضافة <i
+                                                                class="fa-solid fa-plus"></i></button>
+                                                    </div>
+                                                </form>
                                             </div>
-                                            {{-- <div class="col-md-6">
-                                                <input type="number" class="form-control text-center" id="#"
-                                                    required placeholder="رقم المجموعة" disabled>
-                                            </div> --}}
-                                            <div class="col-md-6">
-                                                <input name="CategorizeSerial" type="number" class="form-control text-center" id="#"
-                                                    required placeholder="الرقم التسلسلي">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input name="CategorizeName" type="text" class="form-control text-center" id="#"
-                                                    required placeholder="اسم الصنف">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <select class="form-select text-center" name="#" 
-                                                    aria-label="Default select example">
-                                                    <option selected>نوع الكمية</option>
-                                                    <option value="invoice">كرتونة</option>
-                                                    <option value="return">ليتر </option>
-                                                    <option value="purchase">؟؟؟</option>
-                                                    <option value="quotation">؟؟؟</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input name="CategorizeAmount" type="number" class="form-control text-center"
-                                                    id="validationServer04" name="item_quantity" required
-                                                    placeholder="الكمية">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input name="CategorizeAmount" type="number" class="form-control text-center"
-                                                    id="validationServer04" name="item_quantity" required
-                                                    placeholder="سعر الكمية">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <select class="form-select text-center" name="#" 
-                                                    aria-label="Default select example">
-                                                    <option selected>نوع الوحدة</option>
-                                                    <option value="invoice">حبة</option>
-                                                    <option value="return">؟؟؟ </option>
-                                                    <option value="purchase">؟؟؟</option>
-                                                    <option value="quotation">؟؟؟</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input name="CategorizeUnit" type="number" class="form-control text-center" id="#"
-                                                    required placeholder="كمية الوحدة">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input name="CategorizeUnit" type="number" class="form-control text-center" id="#"
-                                                    required placeholder="سعر الوحدة">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input  name="CategorizeCost" type="number" class="form-control text-center"
-                                                    id="validationServer04" name="item_price" required placeholder=" سعر التكلفة">
-                                            </div>
-                                            <div class="col-md-12">
-                                                <input  name="CategorizeCost" type="number" class="form-control text-center"
-                                                    id="validationServer04" name="item_price" required placeholder=" سعر البيع">
-                                            </div>
-                                            <div class="col-12 text-center">
-                                                <button type="Save" class="col-6 btn btn-success">اضافة <i
-                                                        class="fa-solid fa-plus"></i></button>
-                                            </div>
-                                        </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -688,41 +694,6 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="row g-1">
-                                    {{-- <div class="col-md-4">
-                                        <div class="card mt-4 bg-light">
-                                            <div class="card-body">
-                                                <form class="row g-1" id="addItemForm" novalidate
-                                                    action="{{ route('ServiceGroup.store') }}" method="post">
-                                                    @csrf
-                                                    <div class="col-md-12">
-                                                        <input type="text" class="form-control text-center"
-                                                            id="AddagroupFields" required
-                                                            placeholder="اضافة المجموعة الخدمات" readonly>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <input name="GroupName" type="text"
-                                                            class="form-control text-center" id="#" required
-                                                            placeholder="اسم المجموعة">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <input name="GroupNumber" type="text"
-                                                            class="form-control text-center" id="#" required
-                                                            placeholder="رقم المجوعة">
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <input name="GroupID" type="text"
-                                                            class="form-control text-center" id="AddagroupFields"
-                                                            required placeholder="أضف رمز (Ex: الماكنيكا -> MCH)"
-                                                            required>
-                                                    </div>
-                                                    <div class="col-12 text-center">
-                                                        <button type="submite" class="col-12 btn btn-success">اضافة <i
-                                                                class="fa-solid fa-plus"></i></button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div> --}}
                                     <div class="col-md-12">
                                         <div class="card bg-light">
                                             <div class="card-body">

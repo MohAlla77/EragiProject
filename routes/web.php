@@ -162,6 +162,6 @@ Route::post('/management/DataEntry/AddCompany', [ManagemetController::class, 'Co
 
 
 Route::post('/management/Employee/store', [EmployeesController::class, 'store'])->name('employee.store');
- 
+
 
 

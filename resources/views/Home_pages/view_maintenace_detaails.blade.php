@@ -72,10 +72,10 @@
                         <table id="datatablesSimple">
                             <thead>
                                 <tr>
-                                    <th>النهاية</th>
-                                    <th>الي الانتظار</th>
-                                    <th>التاريخ</th>
-                                    <th>تعليق</th>
+                                    <th>موقت</th>
+                                    <th>الانتظار/ النهاية</th>
+                                    {{-- <th>التاريخ</th>
+                                    <th>تعليق</th> --}}
                                     <th>الماركة</th>
                                     <th>الموديل</th>
                                     <th>الخدمة</th>
@@ -89,11 +89,10 @@
                             </thead>
                             <tfoot>
                                 <tr>
-
-                                    <th>النهاية</th>
-                                    <th>الي الانتظار</th>
-                                    <th>التاريخ</th>
-                                    <th>تعليق</th>
+                                    <th>موقت</th>
+                                    <th>الانتظار/ النهاية</th>
+                                    {{-- <th>التاريخ</th>
+                                    <th>تعليق</th> --}}
                                     <th>الماركو</th>
                                     <th>الموديل</th>
                                     <th>الخدمة</th>
@@ -109,22 +108,26 @@
                                 @foreach ($Cars as $car)
                                     <tr>
                                         <td>
-                                            <!-- Button trigger modal -->
+                                            <div>
+                                                <input type="time" class="form-control text-center"
+                                                    id="#" readonly>
+                                            </div>
+                                        </td>
+                                        <td>
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                 data-bs-target="#exampleModal{{$car->id}}">
                                                <i class="fa-solid fa-check"></i>
                                             </button>
                                             @include('model.ToDone_popup')
-                                        </td>
-                                        <td>
+
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal2{{$car->id}}">
                                             <i class="fa fa-undo" aria-hidden="true"></i>
                                         </button>
                                           @include('model.Back_to_Wait_popup')
                                         </td>
-                                        <td>{{ $car->created_at->format('d/m/y h:i A') }}</td>
-                                        <td>{{ $car->comment }}</td>
+                                        {{-- <td>{{ $car->created_at->format('d/m/y h:i A') }}</td>
+                                        <td>{{ $car->comment }}</td> --}}
                                         <td>{{ $car->brand }}</td>
                                         <td>{{ $car->model }}</td>
                                         <td>{{ $car->counter }}</td>
