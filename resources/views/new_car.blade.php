@@ -199,7 +199,7 @@
                                                         <div class="mb-2">
                                                             <select name="u_name" id="companySelect"
                                                                 class="form-select text-center"readonly>
-                                                                {{-- <option>اختار الشركة</option> --}}
+                                                                <option>اختار الشركة</option>
                                                                 @foreach ($company as $comp)
                                                                     <option value="{{ $comp->company_name }}"
                                                                         data-company-name="{{ $comp->company_name }}"

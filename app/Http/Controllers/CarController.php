@@ -74,7 +74,7 @@ class CarController extends Controller
             Storage::putFileAs($folderPath, $image, $filename);
         }
 
-   
+
 
       Car::create([
             'user_id' => auth()->id(),
