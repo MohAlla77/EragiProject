@@ -9,6 +9,7 @@ class Categorize extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'serial_number','unit','amount','price_cost','GroupID'];
+    protected $fillable = ['name', 'serial_number','amount_type','amount_price','seal_cost','unit_price','unit_type',
+    'unit','amount','price_cost','GroupID'];
 
 }

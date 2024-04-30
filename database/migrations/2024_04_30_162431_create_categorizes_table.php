@@ -20,6 +20,11 @@ return new class extends Migration
             $table->string('unit');
             $table->string('amount');
             $table->string('price_cost');
+            $table->string('amount_type');
+            $table->string('amount_price');
+            $table->string('unit_type');
+            $table->string('unit_price');
+            $table->string('seal_cost');
 
             $table->timestamps();
         });
