@@ -114,7 +114,8 @@ class CarController extends Controller
         }
         $checkCarData = DB::table('check_car')
             ->join('users', 'check_car.eng_id', '=', 'users.id')
-            ->select('check_car.customer_comment', 'check_car.fix_requirement', 'check_car.eng_id' , 'users.first_name as user_name')
+            ->select('check_car.customer_comment',
+             'check_car.fix_requirement', 'check_car.eng_id' , 'users.first_name as user_name','check_car.worker_name','check_car.exp_timeFix','check_car.exp_spear')
             ->where('car_id', '=', $car->id)
             ->first();
 
@@ -147,13 +148,13 @@ class CarController extends Controller
 
     public function Remove(Car $id , User $user)
     {
-        // dd($id);
-        // dd(request()->all());
-        // $user = auth()->user();
-       //dd(auth()->user());
-        // $user->cars()->detach($id);
 
-        $user->cars()->updateExistingPivot($id, ['fix_requirement' => request()->get('sparePartsRequest'), 'Eng_id' => auth()->id()]);
+
+        $user->cars()->updateExistingPivot($id, ['fix_requirement' => request()->get('sparePartsRequest'),
+        'worker_name' => request()->get('WorkerName'),
+        'exp_timeFix' => request()->get('FixTime'),
+        'exp_spear' => request()->get('SpearPart'),
+        'Eng_id' => auth()->id()]);
 
         return redirect()->route('page.check')->with('success', 'The car has been removed from the check list.');
     }

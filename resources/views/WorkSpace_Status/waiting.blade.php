@@ -5,18 +5,18 @@
         </label>
         <div class="row g-1 mb-1">
             <div class="col-6">
-                <input name="#" type="text"
+                <input name="#" type="text" value="{{$data->worker_name}}"
                     class="form-control text-center" id="#" required
                     placeholder="اسم الفني">
-            </div> 
+            </div>
             <div class="col-6">
-                <input name="#" type="text"
+                <input name="#" type="text" value="{{$data->exp_timeFix}}"
                     class="form-control text-center" id="#" required
                     placeholder="الوقت المقترح للصيانة">
             </div>
         </div>
         <div class="col-12 mb-1">
-            <input name="#" type="text"
+            <input name="#" type="text"  value="{{$data->exp_spear}}"
                 class="form-control text-center" id="#" required
                 placeholder="قطع الغيار المطلوبة">
         </div>
