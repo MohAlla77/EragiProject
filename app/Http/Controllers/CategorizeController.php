@@ -30,6 +30,14 @@ class CategorizeController extends Controller
             'unit' => request()->get('CategorizeUnit'),
             'amount' => request()->get('CategorizeAmount'),
             'price_cost' => request()->get('CategorizeCost'),
+            'amount_type' => request()->get('AmountType'),
+            'amount_price' => request()->get('AmountPrice'),
+            'seal_cost' => request()->get('CategorizeSealCost'),
+            'unit_price' => request()->get('UnitPrice'),
+            'unit_type' => request()->get('UnitType'),
+
+
+
         ]);
 
         return redirect()->route('purchases');

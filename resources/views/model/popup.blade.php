@@ -3,7 +3,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="col-12">    
+                <div class="col-12">
                     <h5 class="text-center" id="exampleModalLabel">الإجراءت المطلوبة</h5>
                 </div>
             </div>
@@ -11,17 +11,17 @@
                 @csrf
                 <div class="modal-body">
                     <div class="col-12 mb-1">
-                        <input name="#" type="text"
+                        <input name="WorkerName" type="text"
                             class="form-control text-center" id="#" required
                             placeholder="تحديد اسم الفني">
-                    </div> 
+                    </div>
                     <div class="col-12 mb-1">
-                        <input name="#" type="text"
+                        <input name="FixTime" type="text"
                             class="form-control text-center" id="#" required
                             placeholder="الوقت المقترح للصيانة">
                     </div>
                     <div class="col-12 mb-1">
-                        <input name="#" type="text"
+                        <input name="SpearPart" type="text"
                             class="form-control text-center" id="#" required
                             placeholder="تحديد قطع الغيار المطلوبة">
                     </div>

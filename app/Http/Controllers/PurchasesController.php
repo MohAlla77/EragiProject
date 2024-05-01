@@ -50,7 +50,7 @@ class PurchasesController extends Controller
             'name' => request()->get('SupplierID'),
             'supplierId' => request()->get('SupplierName'),
             'commercial_register_number' => request()->get('SupplierRigesteNumber'),
-            'phone' => request()->get('Phone'),
+            'phone' => request()->get('u_phone'),
             'national_address' =>  request()->get('SupplierNationalNumber'),
             'tax_number' =>  request()->get('SupplierTaxNumber'),
         ]);
@@ -75,6 +75,7 @@ class PurchasesController extends Controller
             'name' => request()->get('ServiceName'),
             'service_type' => request()->get('ServiceType'),
             'cost_price' => request()->get('ServiceCost'),
+            'seal_price' => request()->get('ServiceCost'),
             'service_id' => $serviceId,
             'status' => 'Pending',
         ]);

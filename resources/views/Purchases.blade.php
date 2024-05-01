@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
@@ -597,12 +597,11 @@
                                         <div class="card bg-light">
                                             <div class="card-body">
                                                 <div class="col-md-12">
-                                                    <button type="button" class="btn btn-success col-12" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                                    <button type="button" class="btn btn-success col-12" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                         اضافة مجموعة الاصناف
                                                     </button>
-                                                    
-                                                    @include('model.service_group_purchase_popup')
                                                 </div>
+
                                                 <form class="row g-1" id="addItemForm" novalidate action="{{route('Categorize.store')}}" method="post">
                                                     @csrf
                                                     <div class="col-md-12">
@@ -635,7 +634,7 @@
                                                             required placeholder="اسم الصنف">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <select class="form-select text-center" name="#" 
+                                                        <select name="AmountType" class="form-select text-center" name="#"
                                                             aria-label="Default select example">
                                                             <option selected>نوع الكمية</option>
                                                             <option value="invoice">كرتونة</option>
@@ -650,12 +649,12 @@
                                                             placeholder="الكمية">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input name="CategorizeAmount" type="number" class="form-control text-center"
+                                                        <input name="AmountPrice" type="number" class="form-control text-center"
                                                             id="validationServer04" name="item_quantity" required
                                                             placeholder="سعر الكمية">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <select class="form-select text-center" name="#" 
+                                                        <select  name="UnitType" class="form-select text-center" name="#"
                                                             aria-label="Default select example">
                                                             <option selected>نوع الوحدة</option>
                                                             <option value="invoice">حبة</option>
@@ -665,11 +664,11 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input name="CategorizeUnit" type="number" class="form-control text-center" id="#"
+                                                        <input name="UnitAmount" type="number" class="form-control text-center" id="#"
                                                             required placeholder="كمية الوحدة">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input name="CategorizeUnit" type="number" class="form-control text-center" id="#"
+                                                        <input name="UnitPrice" type="number" class="form-control text-center" id="#"
                                                             required placeholder="سعر الوحدة">
                                                     </div>
                                                     <div class="col-md-6">
@@ -677,7 +676,7 @@
                                                             id="validationServer04" name="item_price" required placeholder=" سعر التكلفة">
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <input  name="CategorizeCost" type="number" class="form-control text-center"
+                                                        <input  name="CategorizeSealCost" type="number" class="form-control text-center"
                                                             id="validationServer04" name="item_price" required placeholder=" سعر البيع">
                                                     </div>
                                                     <div class="col-12 text-center">
@@ -685,6 +684,7 @@
                                                                 class="fa-solid fa-plus"></i></button>
                                                     </div>
                                                 </form>
+                                                @include('model.item_group_purchase_popup')
                                             </div>
                                         </div>
                                     </div>
@@ -701,10 +701,11 @@
                                                     <button type="button" class="btn btn-success col-12"  data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                         اضافة المجموعة الخدمات
                                                     </button>
-                                                    @include('model.item_group_purchase_popup')
-                                                </div>        
-                                                <form id="addItemForm" novalidate
-                                                    action="{{ route('Service.store') }}" method="post">
+                                                    <div>
+                                                    @include('model.service_group_purchase_popup')
+                                                </div>
+                                                </div>
+                                                <form id="addItemForm" novalidate  action="{{ route('Service.store') }}" method="post">
                                                     @csrf
                                                     <div class="col-12 mb-1">
                                                         <input type="text" class="form-control text-center"
@@ -756,7 +757,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-12 text-center">
-                                                        <button type="submit" class="col-6 btn btn-success">اضافة <i
+                                                        <button type="submit" class="col-6 btn btn-success" >إضافة خدمة  <i
                                                                 class="fa-solid fa-plus"></i></button>
                                                     </div>
                                                 </form>

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('car_id');
+            $table->foreignId('eng_id')->nullable()->after('car_id');
             $table->string('worker_name');
             $table->string('exp_timeFix');
             $table->string('exp_spear');

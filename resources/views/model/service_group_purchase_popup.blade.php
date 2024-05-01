@@ -37,7 +37,7 @@
           <div class="modal-footer">
             <dic class="col-sm-12 text-center">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">
+              <button type="submit" class="btn btn-primary">
                 اضافة
                 <i class="fa-solid fa-plus"></i>
               </button>
@@ -47,10 +47,10 @@
       </div>
     </div>
   </div>
-  
 
 
-{{-- 
+
+{{--
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -60,10 +60,10 @@
                         <h5 class="text-center" id="exampleModalLabel"> ادخل اسم المجموعة</h5>
                     </div>
                 </div>
-              
-                    
+
+
             <div class="modal-body">
-                   
+
                 </div>
                     <div class="footer col-12 text-center">
                         <button type="submite" class="col-6 btn btn-success">اضافة <i
