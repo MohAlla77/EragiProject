@@ -34,28 +34,34 @@ class EmployeesResource extends Resource
                 TextInput::make('email')->email()->required(),
                 TextInput::make('phone_number')->numeric()->required(),
                 TextInput::make('salary')->numeric()->required(),
-                TextInput::make('workplace')->datalist([
+                TextInput::make('workplace')
+                ->rules('required')
+                ->datalist([
                     'ينبع الصناعية',
                     'حي الياقوت',
                     'المدينة المنورة',
 
                 ]),
-                TextInput::make('department')->datalist([
+                TextInput::make('department')
+                ->rules('required')
+                ->datalist([
                     'IT',
                     'Engeneering',
                     'Manager ',
 
                 ]),
-                DatePicker::make('direct_day'),
-                TextInput::make('address'),
+                DatePicker::make('direct_day')-> required(),
+                TextInput::make('address')-> required(),
                 Radio::make('marital_status')
+                ->rules('required')
                 ->options([
                     'single' => 'single',
                     'married' => 'married',
 
-                ]),
+                ])-> required(),
                 Select::make('nationality')
                    ->label('nationality')
+                   ->rules('required')
                    ->options([
                     'Sudan' => 'Sudan',
                     'KSA' => 'KSA',
@@ -76,6 +82,7 @@ class EmployeesResource extends Resource
 
                 TextColumn::make('name'),
                 TextColumn::make('email'),
+                TextColumn::make('phone_number'),
                 TextColumn::make('salary'),
                 TextColumn::make('department'),
                 TextColumn::make('direct_day'),

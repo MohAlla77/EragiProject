@@ -99,7 +99,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        {{-- <div class="col-md-4">
                             <div class="card text-center" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">ادارة المستخدمين</h5>
@@ -110,7 +110,7 @@
                                     <a href="{{route('User_management')}}" class="btn btn-primary">ادارة المستخدمين <i class="fa-solid fa-user"></i></a>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-md-4">
                             <div class="card text-center" style="width: 18rem;">
                                 <div class="card-body">
@@ -126,20 +126,20 @@
                         <div class="col-md-12">
                             <hr class="separator-line">
                         </div>
-                        <div class="col-md-4 ">
-                            <div class="card text-center" style="width: 18rem;">
+                        <div class="col-md-6">
+                            <div class="card text-center"{{-- style="width: 18rem;" --}}>
                                 <div class="card-body">
                                     <h5 class="card-title">العملاء</h5>
                                     <div class="col-md-12">
                                         <hr class="separator-line">
                                     </div>
-                                    <p class="card-text">معلومات العملاء<br>(اسم,هاتف,اللوحة)</p>
+                                    <p class="card-text">معلومات العملاء{{-- <br> --}}(اسم,هاتف,اللوحة)</p>
                                     <a href="{{route('Customers')}}" class="btn btn-primary">العملاء <i class="fa-solid fa-person"></i></a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card text-center" style="width: 18rem;">
+                        <div class="col-md-6">
+                            <div class="card text-center" {{-- style="width: 18rem;" --}}>
                                 <div class="card-body">
                                     <h5 class="card-title">طلبات الموظفين</h5>
                                     <div class="col-md-12">
@@ -150,7 +150,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        {{-- <div class="col-md-4">
                             <div class="card text-center" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">الموظفين</h5>
@@ -161,7 +161,7 @@
                                     <a href="{{route('employees')}}" class="btn btn-primary">بيانات الموظفين </a>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </main>
             </div>
