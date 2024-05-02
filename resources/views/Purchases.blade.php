@@ -698,7 +698,7 @@
                                         <div class="card bg-light">
                                             <div class="card-body">
                                                 <div class="col-md-12 mb-1">
-                                                    <button type="button" class="btn btn-success col-12"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <button type="button" class="btn btn-success col-12"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
                                                         اضافة المجموعة الخدمات
                                                     </button>
                                                     <div>
