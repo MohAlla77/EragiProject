@@ -19,7 +19,7 @@ class PurchasesController extends Controller
 
 
         $Service_group = ServiceGroup::all();
-        $service = Service::all();
+        $service = Service::take(5)->get(   );
 
         $Categorize_group = CategorizeGroup::all();
         $categorizes = Categorize::all();

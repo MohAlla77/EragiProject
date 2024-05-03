@@ -128,7 +128,7 @@
                                     <tr>
                                         <td>
                                             <!-- Button trigger modal -->
-                                            <a  data-toggle="modal" data-target="#exampleModal{{$service->id}}">
+                                            <a  data-toggle="modal" data-target="#exampleModal3{{$service->id}}">
                                                 <button class="btn btn-primary col-5 float-start">
                                                     <i class="fa-solid fa-trash"></i> <i class="fa-solid fa-pen-to-square"></i>
                                                  </button>
@@ -684,7 +684,7 @@
                                                                 class="fa-solid fa-plus"></i></button>
                                                     </div>
                                                 </form>
-                                                @include('model.item_group_purchase_popup')
+                                                {{-- @include('model.item_group_purchase_popup') --}}
                                             </div>
                                         </div>
                                     </div>

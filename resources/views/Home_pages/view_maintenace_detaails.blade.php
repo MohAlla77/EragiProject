@@ -13,8 +13,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
         rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+    </script>
     <style>
         input[type="range"] {
             -webkit-appearance: none;
@@ -108,23 +112,24 @@
                                 @foreach ($Cars as $car)
                                     <tr>
                                         <td>
-                                            <div>
-                                                <input type="time" class="form-control text-center"
-                                                    id="#" readonly>
+                                            <div class="timer-container">
+                                                <div class="timer" data-hours="0" data-minutes="0" data-seconds="0">
+                                                    00:00:00</div>
                                             </div>
+
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal{{$car->id}}">
-                                               <i class="fa-solid fa-check"></i>
+                                                data-bs-target="#exampleModal{{ $car->id }}">
+                                                <i class="fa-solid fa-check"></i>
                                             </button>
                                             @include('model.ToDone_popup')
 
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal2{{$car->id}}">
-                                            <i class="fa fa-undo" aria-hidden="true"></i>
-                                        </button>
-                                          @include('model.Back_to_Wait_popup')
+                                                data-bs-target="#exampleModal2{{ $car->id }}">
+                                                <i class="fa fa-undo" aria-hidden="true"></i>
+                                            </button>
+                                            @include('model.Back_to_Wait_popup')
                                         </td>
                                         {{-- <td>{{ $car->created_at->format('d/m/y h:i A') }}</td>
                                         <td>{{ $car->comment }}</td> --}}
@@ -157,4 +162,43 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
+
+    <script>
+        // Function to start or resume the timer
+        function startTimer() {
+            var timers = document.querySelectorAll('.timer');
+            timers.forEach(timer => {
+                var hours = parseInt(timer.dataset.hours);
+                var minutes = parseInt(timer.dataset.minutes);
+                var seconds = parseInt(timer.dataset.seconds);
+
+                setInterval(() => {
+                    seconds++;
+                    if (seconds >= 60) {
+                        seconds = 0;
+                        minutes++;
+                        if (minutes >= 60) {
+                            minutes = 0;
+                            hours++;
+                        }
+                    }
+
+                    timer.textContent = ('0' + hours).slice(-2) + ':' + ('0' + minutes).slice(-2) + ':' + (
+                        '0' + seconds).slice(-2);
+                    timer.dataset.hours = hours; // Update data attributes
+                    timer.dataset.minutes = minutes;
+                    timer.dataset.seconds = seconds;
+                }, 1000);
+            });
+        }
+
+        // Function to pause the timer
+        function pauseTimer() {
+            clearInterval(timer);
+        }
+
+        // Start the timer when the page loads
+        window.onload = startTimer;
+    </script>
+
 </body>

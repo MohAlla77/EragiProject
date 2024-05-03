@@ -338,22 +338,28 @@
         const cashInput = document.getElementById('cashInput');
         const companyOptions = document.getElementById('companyOptions');
 
+
+
         // Function to show cash input and hide company options
         function showCashInput() {
             cashInput.style.display = 'block';
-            companyOptions.style.display = 'none';
-            // Enable manual entry for phone number
+            document.getElementById('customerName').value = '';
+            document.getElementById('customerName').disabled = false;
+            document.getElementById('companySelect').disabled = true;
+            document.getElementById('companyOptions').style.display = 'none';
             document.getElementById('customerPhone').removeAttribute('readonly');
 
         }
 
         // Function to hide cash input and show company options
         function showCompanyOptions() {
-            cashInput.style.display = 'none';
-            companyOptions.style.display = 'block';
-            // Make phone input field readonly when company is selected
-            document.getElementById('customerPhone').setAttribute('readonly', 'readonly');
 
+            companyOptions.style.display = 'block';
+            document.getElementById('companyOptions').value = '';
+            document.getElementById('customerName').disabled = true;
+            document.getElementById('companySelect').disabled = false;
+            document.getElementById('customerName').style.display = 'none';
+            document.getElementById('customerPhone').setAttribute('readonly', 'readonly');
 
         }
 
