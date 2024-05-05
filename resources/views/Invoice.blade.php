@@ -132,7 +132,7 @@
                                         <div class="card-body">
                                             <div class="row g-1">
                                                 <div class="col-md-6">
-                                                    <input class="form-control text-center" 
+                                                    <input class="form-control text-center"
                                                         id="Total"
                                                         value="{{ $items->sum(function ($item) {return $item->price * $item->quantity;}) }}"
                                                         placeholder="الاجمالي" readonly>

@@ -684,7 +684,7 @@
                                                                 class="fa-solid fa-plus"></i></button>
                                                     </div>
                                                 </form>
-                                                {{-- @include('model.item_group_purchase_popup') --}}
+                                                @include('model.item_group_purchase_popup')
                                             </div>
                                         </div>
                                     </div>

@@ -127,7 +127,7 @@
 
                                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                 data-bs-target="#exampleModal2{{ $car->id }}">
-                                                <i class="fa fa-undo" aria-hidden="true"></i>
+                                                <i class="fa fa-undo" aria-hidden="true" ></i>
                                             </button>
                                             @include('model.Back_to_Wait_popup')
                                         </td>
