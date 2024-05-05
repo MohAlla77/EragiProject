@@ -28,13 +28,7 @@ class InvoiceController extends Controller
 
        // dd(request()->session()->all());
 
-
-
-
-
         request()->session()->forget(['spear', 'car', 'invoiceNum']);
-
-
 
         return view('Invoice' , ['item' => $item , 'PendingServices' => $PendingServices]);
 

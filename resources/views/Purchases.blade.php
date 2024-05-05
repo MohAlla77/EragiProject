@@ -128,7 +128,7 @@
                                     <tr>
                                         <td>
                                             <!-- Button trigger modal -->
-                                            <a  data-toggle="modal" data-target="#exampleModal{{$service->id}}">
+                                            <a  data-toggle="modal" data-target="#exampleModal3{{$service->id}}">
                                                 <button class="btn btn-primary col-5 float-start">
                                                     <i class="fa-solid fa-trash"></i> <i class="fa-solid fa-pen-to-square"></i>
                                                  </button>
@@ -725,7 +725,7 @@
                                         <div class="card bg-light">
                                             <div class="card-body">
                                                 <div class="col-md-12 mb-1">
-                                                    <button type="button" class="btn btn-success col-12"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    <button type="button" class="btn btn-success col-12"  data-bs-toggle="modal" data-bs-target="#exampleModal2">
                                                         اضافة المجموعة الخدمات
                                                     </button>
                                                     <div>
