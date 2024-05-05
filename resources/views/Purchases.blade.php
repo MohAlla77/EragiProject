@@ -519,6 +519,11 @@
                                                         id="#" name="#" required
                                                         placeholder="العنوان الوطني">
                                                 </div>
+                                                <div class="col-md-12">
+                                                    <input name="postcode" type="number" class="form-control text-center"
+                                                        id="#" name="#" required
+                                                        placeholder="الرمز البريدي">
+                                                </div>
                                                 <div class="col-12 text-center">
                                                     <button type="Save" class="col-6 btn btn-success">اضافة <i
                                                             class="fa-solid fa-plus"></i></button>
@@ -610,37 +615,57 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <select name="categorize_group_id"
-                                                        class="form-select text-center"
-                                                        onchange="toggleForm(this)">
-                                                        <option selected>نوع الصنف</option>
-                                                        @foreach ($CategorizeGroup as $C_group)
-                                                            <option value="{{ $C_group->id }}">
-                                                                {{ $C_group->name }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-
+                                                            class="form-select text-center"
+                                                            onchange="toggleForm(this)">
+                                                            <option selected>نوع الصنف</option>
+                                                            @foreach ($CategorizeGroup as $C_group)
+                                                                <option value="{{ $C_group->id }}">
+                                                                    {{ $C_group->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input name="CategorizeName" type="text" class="form-control text-center" id="#"
+                                                            required placeholder="اسم الصنف">
                                                     </div>
                                                     {{-- <div class="col-md-6">
                                                         <input type="number" class="form-control text-center" id="#"
                                                             required placeholder="رقم المجموعة" disabled>
                                                     </div> --}}
                                                     <div class="col-md-6">
+                                                        <select name="storeplace" class="form-select text-center" name="#"
+                                                            aria-label="Default select example">
+                                                            <option selected>مكان المخزن</option>
+                                                            <option value="invoice">حي الياقوت</option>
+                                                            <option value="return">ينبع الصناعية</option>
+                                                            <option value="purchase">المدينة المنورة</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input name="SupplierName" type="text" class="form-control text-center" id="#"
+                                                            required placeholder="اسم المورد">
+                                                    </div>
+                                                    <div class="col-md-6">
                                                         <input name="CategorizeSerial" type="number" class="form-control text-center" id="#"
                                                             required placeholder="الرقم التسلسلي">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input name="CategorizeName" type="text" class="form-control text-center" id="#"
-                                                            required placeholder="اسم الصنف">
+                                                        <input name="SupplierTaxNumber" type="number" class="form-control text-center" id="#"
+                                                            required placeholder="الرقم الضريبي للمورد">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <select name="AmountType" class="form-select text-center" name="#"
+                                                        <input name="InvoiceDatePurchase" type="number" class="form-control text-center" id="#"
+                                                            required placeholder="تاريخ الفاتورة المشتريات">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <select name="UnitType" class="form-select text-center" name="#"
                                                             aria-label="Default select example">
-                                                            <option selected>نوع الكمية</option>
+                                                            <option selected> عدد الوحدات</option>
                                                             <option value="invoice">كرتونة</option>
                                                             <option value="return">ليتر </option>
-                                                            <option value="purchase">؟؟؟</option>
-                                                            <option value="quotation">؟؟؟</option>
+                                                            <option value="purchase">حبة</option>
+                                                            {{-- <option value="quotation">ربطة</option> --}}
                                                         </select>
                                                     </div>
                                                     <div class="col-md-6">
@@ -648,32 +673,34 @@
                                                             id="validationServer04" name="item_quantity" required
                                                             placeholder="الكمية">
                                                     </div>
+                                                    {{--  
+                                                        <div class="col-md-6">
+                                                            <input name="AmountPrice" type="number" class="form-control text-center"
+                                                                id="validationServer04" name="item_quantity" required
+                                                                placeholder="سعر الكمية">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <select  name="UnitType" class="form-select text-center" name="#"
+                                                                aria-label="Default select example">
+                                                                <option selected>نوع الوحدة</option>
+                                                                <option value="invoice">حبة</option>
+                                                                <option value="return">؟؟؟ </option>
+                                                                <option value="purchase">؟؟؟</option>
+                                                                <option value="quotation">؟؟؟</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input name="UnitAmount" type="number" class="form-control text-center" id="#"
+                                                                required placeholder="كمية">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input name="UnitPrice" type="number" class="form-control text-center" id="#"
+                                                                required placeholder="السعر ">
+                                                        </div>
+                                                     --}}
                                                     <div class="col-md-6">
-                                                        <input name="AmountPrice" type="number" class="form-control text-center"
-                                                            id="validationServer04" name="item_quantity" required
-                                                            placeholder="سعر الكمية">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <select  name="UnitType" class="form-select text-center" name="#"
-                                                            aria-label="Default select example">
-                                                            <option selected>نوع الوحدة</option>
-                                                            <option value="invoice">حبة</option>
-                                                            <option value="return">؟؟؟ </option>
-                                                            <option value="purchase">؟؟؟</option>
-                                                            <option value="quotation">؟؟؟</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <input name="UnitAmount" type="number" class="form-control text-center" id="#"
-                                                            required placeholder="كمية الوحدة">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <input name="UnitPrice" type="number" class="form-control text-center" id="#"
-                                                            required placeholder="سعر الوحدة">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <input  name="CategorizeCost" type="number" class="form-control text-center"
-                                                            id="validationServer04" name="item_price" required placeholder=" سعر التكلفة">
+                                                        <input  name="price_cost" type="number" class="form-control text-center"
+                                                            id="validationServer04" name="item_price" required placeholder=" سعر التكلفة علي حسب فاتوره المشتريات ">
                                                     </div>
                                                     <div class="col-md-12">
                                                         <input  name="CategorizeSealCost" type="number" class="form-control text-center"

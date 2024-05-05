@@ -18,7 +18,7 @@
 </style>
 
 <body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    {{-- <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
@@ -46,7 +46,7 @@
         </form>
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                 class="fas fa-bars"></i></button>
-    </nav>
+    </nav> --}}
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             @include('Layout.sidebar')
@@ -59,25 +59,24 @@
                         <table id="datatablesSimple">
                             <thead>
                                 <tr>
-                                    <th scope="col">القرار</th>
-                                    <th scope="col">حالة الخدمة</th>
-                                    <th scope="col">مجموعة الخدمة</th>
-                                    <th scope="col">نوع الخدمة</th>
-                                    <th scope="col">سعر التكلفة</th>
-                                    <th scope="col">رقم الخدمة</th>
-                                    <th scope="col">اسم الخدمة</th>
+                                    <th>القرار</th>
+                                    <th>حالة الخدمة</th>
+                                    <th>مجموعة الخدمة</th>
+                                    <th>نوع الخدمة</th>
+                                    <th>سعر التكلفة</th>
+                                    <th>رقم الخدمة</th>
+                                    <th>اسم الخدمة</th>
                                 </tr>
                             </thead>
-
                             <tfoot>
                                 <tr>
-                                    <th scope="col">القرار</th>
-                                    <th scope="col">حالة الخدمة</th>
-                                    <th scope="col">مجموعة الخدمة</th>
-                                    <th scope="col">نوع الخدمة</th>
-                                    <th scope="col">سعر التكلفة</th>
-                                    <th scope="col">رقم الخدمة</th>
-                                    <th scope="col">اسم الخدمة</th>
+                                    <th>القرار</th>
+                                    <th>حالة الخدمة</th>
+                                    <th>مجموعة الخدمة</th>
+                                    <th>نوع الخدمة</th>
+                                    <th>سعر التكلفة</th>
+                                    <th>رقم الخدمة</th>
+                                    <th>اسم الخدمة</th>
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -107,4 +106,16 @@
             </main>
         </div>
     </div>
+    
+    <canvas id="myChart"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+        crossorigin="anonymous"></script>
+    <script src="js/datatables-simple-demo.js"></script>
+
 </body>

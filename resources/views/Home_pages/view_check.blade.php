@@ -4,11 +4,7 @@
     @include('Layout.navbar')
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
-                    @include('Layout.sidebar')
-                </div>
-            </nav>
+            @include('Layout.sidebar')
         </div>
         <div id="layoutSidenav_content">
             <main>
