@@ -109,11 +109,11 @@
                     font-size: 10px
                 }
 
-                .invoice-note {
+                /* .invoice-note {
                     color: #999;
                     margin-top: 80px;
                     font-size: 85%
-                }
+                } */
 
                 .invoice>div:not(.invoice-footer) {
                     margin-bottom: 20px
@@ -137,16 +137,23 @@
                             <a href="javascript:;" onclick="window.print()" class="btn btn-sm btn-white m-b-10 p-l-5"><i class="fa fa-print t-plus-1 fa-fw fa-lg"></i> Print</a>
                         </span> -->
                         <div class="row">
-                            <div class="col-4">
-                                <img style="height: 100px" src="./assets/img/logo-inch.jpg" alt="Company Logo">
+                            <div class="col-4 text-center">
+                                <div class="invoice-detail">
+                                    <table class="table table-sm">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="padding: 1px;">1325346887</td>
+                                                    <td style="padding: 1px;">رقم الفاتورة</td>
+                                                </tr>
+                                            </tbody>
+                                    </table> 
+                                </div>
                             </div>
-                            <div class="col-4">
-                            <strong>نوع الفاتورة : فاتورة مبيعات</strong><br>
+                            <div class="col-4 text-center">
+                                <strong>نوع الفاتورة : فاتورة مبيعات</strong><br>
                             </div>
                             <div class="col-4 text-right">
-                                <div class="invoice-detail">
-                                    رقم الفاتورة : 1325346887 
-                                </div>
+                                <img style="height: 100px" src="./assets/img/logo-inch.jpg" alt="Company Logo">
                             </div>
                         </div>
                     </div>
@@ -187,12 +194,27 @@
                             <div class="col-4">
                                 <div class="invoice-from text-right">
                                     <address class="m-t-5 m-b-5">
-                                        <strong class="text-inverse">ثمال لصيانة السيارات</strong><br>
-                                        ينبع حي الياقوت<br>
-                                        طريق الملك عبدالعزيز<br>
-                                        تلفون : 966-143222055<br>
-                                        الرقم الضريبي : 311150116600003<br>
-                                        السجل التجاري : 4700115456
+                                        <p>
+                                            <strong class="text-inverse">ثمال لصيانة السيارات</strong><br>
+                                            ينبع - حي الياقوت -
+                                            طريق الملك عبدالعزيز
+                                        </p>
+                                        <table class="table table-sm">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-center" style="padding: 3px;">[ 966-143222055 ]</td>
+                                                    <td style="padding: 2px;">-: هاتف</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center" style="padding: 3px;">[ 311150116600003 ]</td>
+                                                    <td style="padding: 2px;">-: الرقم الضريبي</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center" style="padding: 3px;">[ 4700115456 ]</td>
+                                                    <td style="padding: 2px;">-: السجل التجاري</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </address>
                                 </div>
                             </div>
@@ -203,15 +225,15 @@
                             <table class="table table-invoice table-reverse">
                                 <thead>
                                     <tr>
-                                        <th class="text-center" width="18%">الاجمالي مع الضريبة</th>
+                                        <th class="text-center" width="19%">الاجمالي مع الضريبة</th>
                                         <th class="text-center" width="5%">15%الضريبة</th>
-                                        <th class="text-center" width="23%">السعر</th>
+                                        <th class="text-center" width="21%">السعر</th>
                                         <th class="text-center" width="2%">الوحدة</th>
                                         <th class="text-center" width="2%">الكمية</th>
                                         <th class="text-center" width="40%">اسم الصنف</th>                        
-                                        <th class="text-right"  width="8%">رمز الصنف</th>
-                                        <th class="text-center" width="2%">رقم</th>
-                                    </tr>
+                                        <th class="text-right"  width="10%">رمز الصنف</th>
+                                        <th class="text-center" width="1%">رقم</th>
+                                    </tr><!-- border-right inside class th  -->
                                 </thead>
                                 <tbody>
                                     <tr>
@@ -221,10 +243,10 @@
                                         <td class="text-center">$2,500.00</td>
                                         <td class="text-center">50</td>
                                         <td class="text-right">
-                                            <span class="text-inverse">تصميم وتطوير موقع الكتروني</span><br>
+                                            <span class="text-inverse">تغير زيت الماكينة</span><br>
                                             <small>نص توضيحي للمهمة</small>
                                         </td>
-                                        <td class="text-center">$50.00</td>
+                                        <td class="text-center">mkl12500</td>
                                         <td>1</td>
                                     </tr>
                                     <tr>
@@ -234,74 +256,82 @@
                                         <td class="text-center">$2,500.00</td>
                                         <td class="text-center">50</td>
                                         <td class="text-right">
-                                            <span class="text-inverse">تصميم وتطوير موقع الكتروني</span><br>
+                                            <span class="text-inverse">تغير زيت الجيروبوكس</span><br>
                                             <small>نص توضيحي للمهمة</small>
                                         </td>
                                         <td class="text-center">m.215</td>
                                         <td>2</td>
                                     </tr>
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td class="text-center">اجمالي<br> $5000</td>
+                                        <td class="text-center">اجمالي<br>$5000</td>
+                                        <td class="text-center">اجمالي<br>$5000</td>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
-                        <div class="invoice-price"><br>
-                            <div class="row">
-                                <div class="col-2 text-center">
-                                    <small>الاجمالي مع الضريبة</small><span class="f-w-600">$4508.00</span>
-                                </div>
-                                <div class="col-2">
-                                    <small>اجمالي الضريبة</small><span class="f-w-600">$4508.00</span>
-                                </div>
-                                <div class="col-2">
-                                    <small>اجمالي السعر</small><span class="f-w-600">$4508.00</span>
-                                </div>
-                                <div class="col-6  offset-0 text-center d-flex justify-content-center align-items-center">
-                                <span class="f-w-600">$0.00</span>=<small>المبلغ المقدم</small>
-                                </div>
-                            </div>
-                                    <div class="col-md-6">
-                                        <hr class="separator-line">
-                                    </div><br>
-                            <div class="row">
-                                <div class="col-6 d-flex justify-content-center align-items-center">
-                                    <span class="f-w-600">$4508.00</span> = <small>صافي المبلغ</small>
-                                </div>
-                                <div class="col-6 d-flex justify-content-center align-items-center">
-                                    <span class="f-w-600">$4508.00</span> = <small>الاجمالي بعد الضريبة</small>
-                                </div>
-                            </div>
-                            <!-- <div class="invoice-price-left">
-                                <div class="invoice-price-row">
-                                    <div class="sub-price">
-                                        <small>اجمالي السعر</small>
-                                        <span class="text-inverse">$108.00</span>
-                                    </div>
-                                    <div class="sub-price">
-                                        <i class="fa fa-plus text-muted"></i>
-                                    </div>
-                                    <div class="sub-price">
-                                        <small>المجموع الفرعي</small>
-                                        <span class="text-inverse">$4,500.00</span>
-                                    </div>
-                                </div> -->
+                        <div class="invoice-price">
+                            <div class="table-responsive">
+                                <table class="table table-invoice table-reverse">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">0.00=مبلغ الخصم</th>
+                                            <th class="text-center" width="50%">=المبلغ المقدم</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-center">999=صافي المبلغ</th>
+                                            <th class="text-center">777=الاجمالي بعد الضريبة</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-right">-:المبلغ بالاحرف </th>
+                                        </tr>
+                                    </thead>
+                                </table>
                             </div>
                         </div>
-                    </div>
-                    <div class="invoice-note">
+                    <!-- <div class="invoice-price-left">
+                        <div class="invoice-price-row">
+                            <div class="sub-price">
+                                <small>اجمالي السعر</small>
+                                <span class="text-inverse">$108.00</span>
+                            </div>
+                            <div class="sub-price">
+                                <i class="fa fa-plus text-muted"></i>
+                            </div>
+                            <div class="sub-price">
+                                <small>المجموع الفرعي</small>
+                                <span class="text-inverse">$4,500.00</span>
+                            </div>
+                        </div>
+                        <div class="invoice-note">
                         <div class="col-12 text-right">
                             <strong class="">ملاحضة</strong>
-                        </div><br><br><br>
-                        <div class="row">
-                            <div class="col-6 text-right">
+                        </div> -->
+                            <table class="table table-sm">
+                                <tbody>
+                                    <tr>
+                                        <td>John Doe</td>
+                                        <td>مصدر الفاتورة</td>
+                                        <td>John Doe</td>
+                                        <td>اسم البائع</td>
+                                    </tr>
+                                    <!-- <tr>
+                                        <td></td>
+                                        <td></td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                            <!-- <div class="col-6 text-right">
                                 <strong> John Doe : مصدر الفاتورة</strong>
                             </div>
                             <div class="col-6  text-right">
                                 <strong> John Doe : اسم البائع</strong>
-                            </div>
-                        </div>
-                    </div>
+                            </div> -->
                     <div class="invoice-footer">
                         <p class="text-center m-b-5 f-w-600">
-                            THANK YOU FOR YOUR BUSINESS -- Aprel 24, 2024
+                            THANK YOU FOR YOUR BUSINESS -- Aprel 30, 2024
                         </p>
                         <!-- <p class="text-center">
                             <span class="m-r-10"><i class="fa fa-fw fa-lg fa-globe"></i> matiasgallipoli.com</span>
