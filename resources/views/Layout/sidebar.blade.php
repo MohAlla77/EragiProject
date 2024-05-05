@@ -30,6 +30,10 @@
                 <div class="sb-nav-link-icon text-white"></div>
                 <span class="ms-auto pe-2">المخزن</span><i class="fas fa-database"></i>
             </a>
+            <a class="nav-link text-white" href="#">
+                <div class="sb-nav-link-icon text-white"></div>
+                <span class="ms-auto pe-2">عرض</span><i class="fa-solid fa-table"></i>
+            </a>
             <a class="nav-link text-white" href="{{route('Manage')}}">
                 <div class="sb-nav-link-icon text-white"></div>
                 <span class="ms-auto pe-2">ادارة</span><i class="fas fa-cogs"></i>
