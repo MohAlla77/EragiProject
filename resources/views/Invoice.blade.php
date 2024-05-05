@@ -71,7 +71,7 @@
         <div id="layoutSidenav_nav">
             @include('Layout.sidebar')
         </div>
-        <div id="layoutSidenav_content" class="sidebar-collapsed" style="height: 25vh; overflow-y: auto;">
+        <div id="layoutSidenav_content" class="sidebar-collapsed">
             <main>
                 <div class="card bg-light">
                     <div class="card-body">
