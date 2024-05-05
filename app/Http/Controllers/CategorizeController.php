@@ -26,15 +26,20 @@ class CategorizeController extends Controller
 
             'GroupID' => request()->get('categorize_group_id'),
             'name' => request()->get('CategorizeName'),
+            'storeplace' => request()->get('storeplace'),
+            'SupplierName' => request()->get('SupplierName'),
             'serial_number' => request()->get('CategorizeSerial'),
-            'unit' => request()->get('CategorizeUnit'),
+            'SupplierTaxNumber' => request()->get('SupplierTaxNumber'),
+            'InvoiceDatePurchase' => request()->get('InvoiceDatePurchase'),
+            'unittype' => request()->get('UnitType'),
             'amount' => request()->get('CategorizeAmount'),
             'price_cost' => request()->get('CategorizeCost'),
-            'amount_type' => request()->get('AmountType'),
-            'amount_price' => request()->get('AmountPrice'),
             'seal_cost' => request()->get('CategorizeSealCost'),
-            'unit_price' => request()->get('UnitPrice'),
-            'unit_type' => request()->get('UnitType'),
+            
+            // 'unit' => request()->get('CategorizeUnit'),
+            // 'amount_type' => request()->get('AmountType'),
+            // 'amount_price' => request()->get('AmountPrice'),
+            // 'unit_price' => request()->get('UnitPrice'),
 
 
 

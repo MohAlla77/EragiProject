@@ -53,6 +53,7 @@ class PurchasesController extends Controller
             'phone' => request()->get('u_phone'),
             'national_address' =>  request()->get('SupplierNationalNumber'),
             'tax_number' =>  request()->get('SupplierTaxNumber'),
+            'postcode' =>  request()->get('postcode'),
         ]);
 
         return redirect()->route('purchases');

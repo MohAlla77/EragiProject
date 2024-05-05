@@ -1,15 +1,9 @@
-
 @extends('Layout.head')
-
 <body class="sb-nav-fixed">
    @include('Layout.navbar')
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
-                   @include('Layout.sidebar')
-                </div>
-            </nav>
+            @include('Layout.sidebar')
         </div>
         <div id="layoutSidenav_content" style="height: 25vh; overflow-y: auto;">
             <main>
@@ -17,19 +11,18 @@
                     <div class="card-header text-end">عرض <i class="fas fa-table me-4"></i></div>
                     <div class="col-md-12 d-flex justify-content-end">
                         <select id="invoiceTypeFilter" class="form-select text-center ms-auto">
-                            <option value="all">كل المشتريات </option>
-                            <option value="invoices">الفواتير</option>
-                            <option value="Invoicereturns">مرتجع الفواتير</option>
-                            <option value="purchaseorder">طلب شراء</option>
-                            <option value="Item">الاصناف</option>
-                            <option value="Itemgroup">مجموعة الاصناف</option>
-                            <option value="Servicesgroup">مجموعة الخدمات</option>
-                            <option value="Services">الخدمات</option>
-                            <option value="Suppliers">الموردين</option>
+                            <option value="{{Route('')}}">المشتريات</option>
+                            <option value="{{Route('')}}">الفواتير</option>
+                            <option value="{{Route('')}}">مرتجع الفواتير</option>
+                            <option value="{{Route('')}}">طلبات الشراء</option>
+                            <option value="{{Route('')}}">الاصناف</option>
+                            <option value="{{Route('')}}">الخدمات</option>
+                            <option value="{{Route('')}}">الاطارات</option>
+                            <option value="{{Route('')}}">الموردين</option>
                         </select>
                     </div>
                     <div class="card-body">
-                        <table id="datatablesSimple">
+                        <table id="webpageTable">
                             <thead>
                                 <tr>
                                     <th>التاريخ</th>
@@ -61,9 +54,7 @@
                                 </tr>
                             </tfoot>
                             <tbody>
-
                                 @foreach ($Cars as $car )
-
                                 <tr>
                                     <td>{{ $car->created_at->format('d/m/y h:i A')}}</td>
                                     <td>{{ $car->status }}</td>
@@ -76,13 +67,9 @@
                                     <td>{{ $car->plate }}</td>
                                     <td>{{ $car->phone }}</td>
                                     <td>{{ $car->name }}</td>
-
                                     <!-- Add more table cells as needed -->
                                 </tr>
-
                                 @endforeach
-
-
                             </tbody>
                         </table>
                     </div>
@@ -91,4 +78,26 @@
           @include('Layout.footer')
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        // Function to fetch webpage content and display in table
+        function displayWebpageContent(url) {
+            $.get(url, function(data) {
+                // Extract content from fetched HTML
+                var content = $(data).find('body').html();
+                
+                // Update table with content
+                $('#webpageTable tbody').html('<tr><td>' + content + '</td></tr>');
+            });
+        }
+
+        // Event listener for dropdown change
+        $('#pageSelect').change(function() {
+            var selectedPage = $(this).val();
+            displayWebpageContent(selectedPage);
+        });
+
+        // Display initial content on page load
+        displayWebpageContent($('#pageSelect').val());
+    </script>
 </body>

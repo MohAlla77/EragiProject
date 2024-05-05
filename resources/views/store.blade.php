@@ -9,39 +9,39 @@
         <title>Store</title>
         <link href="css/styles.css" rel="stylesheet" />
           <style>
-            html, body {
-                height: 100%;
-                margin: 0;
-                padding: 0;
-            }
-            body {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .container {
-                width: 80%;
-                max-width: 1200px;
-            }
-            .table-responsive {
-                overflow-x: auto;
-                min-width: 100%;
-            }
-            #layoutSidenav {
-                width: 100%; /* Ensure the content area fills the entire width */
-                float: none; /* Clear any floats */
-            }
-            
-                .logo-img {
-                width: 55px; /* Adjust the width as needed */
-                height: auto; /* Maintain aspect ratio */
-                margin-right: 20px; /* Adjust the margin as needed */
-            }
-                .inner-card {
-                padding: 15px; /* Adjust padding as needed */
-                margin-bottom: 15px; /* Adjust margin as needed */
-            }
-        </style>
+                html, body {
+                    height: 100%;
+                    margin: 0;
+                    padding: 0;
+                }
+                body {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .container {
+                    width: 80%;
+                    max-width: 1200px;
+                }
+                .table-responsive {
+                    overflow-x: auto;
+                    min-width: 100%;
+                }
+                #layoutSidenav {
+                    width: 100%; /* Ensure the content area fills the entire width */
+                    float: none; /* Clear any floats */
+                }
+                
+                    .logo-img {
+                    width: 55px; /* Adjust the width as needed */
+                    height: auto; /* Maintain aspect ratio */
+                    margin-right: 20px; /* Adjust the margin as needed */
+                }
+                    .inner-card {
+                    padding: 15px; /* Adjust padding as needed */
+                    margin-bottom: 15px; /* Adjust margin as needed */
+                }
+            </style>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -73,11 +73,7 @@
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                        @include('Layout.sidebar')
-                    </div>
-                </nav>
+                @include('Layout.sidebar')
             </div> 
             <div id="layoutSidenav_content">
                 <main>

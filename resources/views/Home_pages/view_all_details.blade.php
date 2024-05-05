@@ -54,13 +54,10 @@
 
 <body class="sb-nav-fixed">
    @include('Layout.navbar')
+
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
-                   @include('Layout.sidebar')
-                </div>
-            </nav>
+            @include('Layout.sidebar')
         </div>
         <div id="layoutSidenav_content" style="height: 25vh; overflow-y: auto;">
             <main>
