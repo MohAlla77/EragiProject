@@ -9,7 +9,7 @@ class SupplierController extends Controller
 {
     public function index()
     {
-        
+
         $supplier = Supplier::all();
 
         return view('Supplier', ['Supplier' => $supplier]);
@@ -23,14 +23,14 @@ class SupplierController extends Controller
 
         Supplier::create([
 
-            'name' => request()->get('SupplierID'),
-            'supplierId' => request()->get('SupplierName'),
+            'name' => request()->get('SupplierName'),
+            'supplierId' => request()->get('SupplierID'),
             'commercial_register_number' => request()->get('SupplierRigesteNumber'),
             'phone' => request()->get('u_phone'),
             'national_address' =>  request()->get('SupplierNationalNumber'),
             'tax_number' =>  request()->get('SupplierTaxNumber'),
-            // 'postcode' =>  request()->get('postcode'),
-            // 'account_number' =>  request()->get('account_number'),
+            'postcode' =>   request()->get('PostCode'),
+            'account_number' =>   request()->get('AccountNumber'),
         ]);
 
         return redirect()->route('Supplier');

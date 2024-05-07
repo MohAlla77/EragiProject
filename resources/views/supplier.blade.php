@@ -119,13 +119,13 @@
                                                     placeholder="العنوان الوطني">
                                             </div>
                                             <div class="col-md-6">
-                                                <input name="postcode" class="form-control text-center"
-                                                    id="#" name="#" required
+                                                <input name="PostCode" class="form-control text-center"
+                                                    id="#"  required
                                                     placeholder="الرمز البريدي">
                                             </div>
                                             <div class="col-md-6">
-                                                <input name="account_number" class="form-control text-center"
-                                                    id="#" name="#" required
+                                                <input name="AccountNumber" class="form-control text-center"
+                                                  id="#"  required
                                                     placeholder="رقم الحساب ">
                                             </div>
                                             {{-- <div class="row g-1">

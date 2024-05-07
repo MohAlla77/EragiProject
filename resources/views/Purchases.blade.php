@@ -644,8 +644,28 @@
                                                                 <input type="number" class="form-control text-center" id="#"
                                                                     required placeholder="رقم المجموعة" disabled>
                                                             </div> --}}
+
                                                             <div class="col-md-6">
-                                                                <select name="storeplace" class="form-select text-center" name="#"
+                                                                <input name="SupplierTaxNumber" class="form-control text-center" id="#"
+                                                                    required placeholder="الرقم الضريبي للمورد">
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                    <select name="SupplierName" class="form-select text-center"
+                                                                    aria-label="Default select example">
+                                                                    <option selected> إسم المورد </option>
+
+                                                                    @foreach ($Supplers as $suppler )
+
+                                                                    <option value="{{$suppler->name}}"> {{$suppler->name}}  </option>
+
+                                                                    @endforeach
+                                                                </select>
+
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <select name="StorgePlace" class="form-select text-center" name="#"
                                                                     aria-label="Default select example">
                                                                     <option selected>مكان المخزن</option>
                                                                     <option value="invoice">حي الياقوت</option>
@@ -653,18 +673,12 @@
                                                                     <option value="purchase">المدينة المنورة</option>
                                                                 </select>
                                                             </div>
-                                                            <div class="col-md-6">
-                                                                <input name="SupplierName" type="text" class="form-control text-center" id="#"
-                                                                    required placeholder="اسم المورد">
-                                                            </div>
+
                                                             <div class="col-md-6">
                                                                 <input name="CategorizeSerial" class="form-control text-center" id="#"
                                                                     required placeholder="الرقم التسلسلي">
                                                             </div>
-                                                            <div class="col-md-6">
-                                                                <input name="SupplierTaxNumber" class="form-control text-center" id="#"
-                                                                    required placeholder="الرقم الضريبي للمورد">
-                                                            </div>
+
                                                             <div class="col-md-6">
                                                                 <input name="InvoiceDatePurchase" class="form-control text-center" id="#"
                                                                     required placeholder="تاريخ الفاتورة المشتريات">
@@ -684,7 +698,7 @@
                                                                     id="validationServer04" name="item_quantity" required
                                                                     placeholder="الكمية">
                                                             </div>
-                                                            {{--  
+                                                            {{--
                                                                 <div class="col-md-6">
                                                                     <input name="AmountPrice" type="number" class="form-control text-center"
                                                                         id="validationServer04" name="item_quantity" required
@@ -711,11 +725,11 @@
                                                             --}}
                                                             <div class="col-md-6">
                                                                 <input  name="price_cost" class="form-control text-center"
-                                                                    id="validationServer04" name="item_price" required placeholder=" سعر التكلفة علي حسب فاتوره المشتريات ">
+                                                                    id="validationServer04" required placeholder=" سعر التكلفة علي حسب فاتوره المشتريات ">
                                                             </div>
                                                             <div class="col-md-12">
                                                                 <input  name="CategorizeSealCost" class="form-control text-center"
-                                                                    id="validationServer04" name="item_price" required placeholder=" سعر البيع">
+                                                                    id="validationServer04"  required placeholder=" سعر البيع">
                                                             </div>
                                                             <div class="col-12 text-center">
                                                                 <button type="Save" class="col-6 btn btn-success">اضافة <i

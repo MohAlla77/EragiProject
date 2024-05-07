@@ -6,6 +6,7 @@ use App\Models\Categorize;
 use App\Models\CategorizeGroup;
 use App\Models\Service;
 use App\Models\ServiceGroup;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class PurchasesController extends Controller
@@ -18,6 +19,7 @@ class PurchasesController extends Controller
 
 
         $Service_group = ServiceGroup::all();
+        $suppler = Supplier::all();
         $service = Service::take(5)->get(   );
 
         $Categorize_group = CategorizeGroup::all();
@@ -26,7 +28,7 @@ class PurchasesController extends Controller
 
 
         return view('Purchases', ['ServiceGroup' => $Service_group,
-         'CategorizeGroup' => $Categorize_group , 'Services' => $service , 'categorizes' => $categorizes]);
+         'CategorizeGroup' => $Categorize_group , 'Services' => $service , 'categorizes' => $categorizes , 'Supplers' => $suppler]);
     }
 
     public function SealsIndex(){
