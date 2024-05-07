@@ -18,6 +18,8 @@
                         aria-describedby="validationServer04Feedback" required>
                         <option selected>اختلاف الاسبير</option>
                         <option selected>عدم توفر مواد تشغيل </option>
+                        <option selected>فترت الاستراحة</option>
+                        <option selected>نهاية اليوم</option>
                     </select>
                 </div>
                 <div class="modal-footer">
