@@ -134,8 +134,9 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- 
                         <div class="col-md-6">
-                            <div class="card text-center" {{-- style="width: 18rem;" --}}>
+                            <div class="card text-center" {{-- style="width: 18rem;" >
                                 <div class="card-body">
                                     <h5 class="card-title">طلبات الموظفين</h5>
                                     <div class="col-md-12">
@@ -146,7 +147,7 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- <div class="col-md-4">
+                        <div class="col-md-4">
                             <div class="card text-center" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">الموظفين</h5>

@@ -24,9 +24,10 @@ use App\Http\Controllers\PurchasesController;
 use App\Http\Controllers\ServiceGroupController;
 use App\Http\Controllers\SpearController;
 use App\Http\Controllers\TiresController;
+use App\Http\Controllers\SupplierController;
 use App\Models\Car;
 use App\Models\Service;
-
+use App\Models\Supplier;
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register');
@@ -55,6 +56,9 @@ Route::get('/invoice/Sales_accept', function () {
 
 Route::get('/tries', [TiresController::class, 'index'])->name('Tries');
 Route::post('/tries', [TiresController::class, 'AddTire'])->name('Tries.Add');
+
+Route::get('/Supplier', [SupplierController::class, 'index'])->name('Supplier');
+Route::post('/Supplier', [SupplierController::class, 'SupplierStore'])->name('Supplier.Add');
 
 
 

@@ -6,7 +6,6 @@ use App\Models\Categorize;
 use App\Models\CategorizeGroup;
 use App\Models\Service;
 use App\Models\ServiceGroup;
-use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class PurchasesController extends Controller
@@ -38,25 +37,6 @@ class PurchasesController extends Controller
         return view('Seals', ['Services' => $service]);
 
 
-    }
-
-    public function SupplierStore()
-    {
-
-
-
-        Supplier::create([
-
-            'name' => request()->get('SupplierID'),
-            'supplierId' => request()->get('SupplierName'),
-            'commercial_register_number' => request()->get('SupplierRigesteNumber'),
-            'phone' => request()->get('u_phone'),
-            'national_address' =>  request()->get('SupplierNationalNumber'),
-            'tax_number' =>  request()->get('SupplierTaxNumber'),
-            'postcode' =>  request()->get('postcode'),
-        ]);
-
-        return redirect()->route('purchases');
     }
 
     public function ServiceStore()

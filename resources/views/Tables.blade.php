@@ -11,21 +11,21 @@
                     <div class="card-header text-end">عرض <i class="fas fa-table me-4"></i></div>
                     <div class="col-md-12 d-flex justify-content-end">
                         <select id="invoiceTypeFilter" class="form-select text-center ms-auto">
-                            <option value="{{Route('')}}">المشتريات</option>
-                            <option value="{{Route('')}}">الفواتير</option>
-                            <option value="{{Route('')}}">مرتجع الفواتير</option>
-                            <option value="{{Route('')}}">طلبات الشراء</option>
-                            <option value="{{Route('')}}">الاصناف</option>
-                            <option value="{{Route('')}}">الخدمات</option>
-                            <option value="{{Route('')}}">الاطارات</option>
-                            <option value="{{Route('')}}">الموردين</option>
+                            <option value="{{Route('purchases')}}">المشتريات</option>
+                            <option value="{{Route('invoice')}}">الفواتير</option>
+                            <option value="{{Route('retern_invoice')}}">مرتجع الفواتير</option>
+                            <option value="{{Route('purchase_orders')}}">طلبات الشراء</option>
+                            <option value="{{Route('Categorize')}}">الاصناف</option>
+                            <option value="{{Route('services')}}">الخدمات</option>
+                            <option value="{{Route('Tires')}}">الاطارات</option>
+                            <option value="{{Route('suppliers')}}">الموردين</option>
                         </select>
                     </div>
                     <div class="card-body">
                         <table id="webpageTable">
                             <thead>
                                 <tr>
-                                    <th>التاريخ</th>
+                                    {{-- <th>التاريخ</th>
                                     <th>تعليق</th>
                                     <th>الماركة</th>
                                     <th>الموديل</th>
@@ -35,12 +35,12 @@
                                     <th>الهيكل</th>
                                     <th>اللوحة</th>
                                     <th>الهاتف</th>
-                                    <th>الاسم</th>
+                                    <th>الاسم</th> --}}
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>التاريخ</th>
+                                    {{-- <th>التاريخ</th>
                                     <th>الحالة</th>
                                     <th>الماركو</th>
                                     <th>الموديل</th>
@@ -50,13 +50,13 @@
                                     <th>الهيكل</th>
                                     <th>اللوحة</th>
                                     <th>الهاتف</th>
-                                    <th>الاسم</th>
+                                    <th>الاسم</th> --}}
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach ($Cars as $car )
+                                @foreach ($Cars as $car)
                                 <tr>
-                                    <td>{{ $car->created_at->format('d/m/y h:i A')}}</td>
+                                    {{-- <td>{{ $car->created_at->format('d/m/y h:i A')}}</td>
                                     <td>{{ $car->status }}</td>
                                     <td>{{ $car->brand }}</td>
                                     <td>{{ $car->model }}</td>
@@ -66,7 +66,7 @@
                                     <td>{{ $car->structure_no }}</td>
                                     <td>{{ $car->plate }}</td>
                                     <td>{{ $car->phone }}</td>
-                                    <td>{{ $car->name }}</td>
+                                    <td>{{ $car->name }}</td> --}}
                                     <!-- Add more table cells as needed -->
                                 </tr>
                                 @endforeach
