@@ -58,7 +58,7 @@
                 <i class="fas fa-file-invoice"></i></button>
         </div>
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-            <a class="navbar-brand" href="{{ route('Sales_accept') }}"><span class="text-">قبول الخدمات</span></a>            
+            <a class="navbar-brand" href="{{ route('Sales_accept') }}"><span class="text-">قبول الخدمات</span></a>
         </form>
         <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i
             class="fas fa-bars"></i></button>
@@ -134,7 +134,7 @@
                                     <div class="card-body">
                                         <div class="row g-1">
                                             <div class="col-md-6">
-                                                <input class="form-control text-center" 
+                                                <input class="form-control text-center"
                                                     id="Total"
                                                     value="{{ $items->sum(function ($item) {return $item->price * $item->quantity;}) }}"
                                                     placeholder="الاجمالي" readonly>
