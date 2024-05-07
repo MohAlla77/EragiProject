@@ -21,6 +21,8 @@ class SpearController extends Controller
         $spear = Spare::where('part_id',$Part_id)->first();
 
 
+
+
         $request->session()->put('spear', $spear);
         $request->session()->put('items', $items);
 

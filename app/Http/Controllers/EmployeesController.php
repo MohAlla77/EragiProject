@@ -7,8 +7,8 @@ use App\Models\employees;
 
 
 class EmployeesController extends Controller
-{   
-    public function store(AddEmployeeRequest $request) 
+{
+    public function store(AddEmployeeRequest $request)
     {
 
         dd(request()->all());
@@ -28,12 +28,12 @@ class EmployeesController extends Controller
             'workplace' =>     $valideted['workplace'] ,
             'marital_status' =>$valideted['marital_status'] ,
             'nationality' =>   $valideted['nationality'] ,
-           
+
         ]);
 
         return view('home');
     }
-    
+
 //     public function search(Requset $request)
 //     {
 //         $name =$request->get('name');
@@ -44,5 +44,6 @@ class EmployeesController extends Controller
 
 //         return view('/Management.employees', ['Management.employees' => $employees]);
 //     }
-    
+
 // }
+}

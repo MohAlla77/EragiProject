@@ -161,7 +161,7 @@ Route::post('/{car}/wait', [HomeController::class, 'ToWait'])->name('car.ToWait'
 Route::post('/management/DataEntry/AddCompany', [ManagemetController::class, 'CompanyStore'])->name('Data_Entry.Company');
 
 
-Route::post('/management/Employee/store', [EmployeesController::class, 'store'])->name('employee.store');
+//Route::post('/management/Employee/store', [EmployeesController::class, 'store'])->name('employee.store');
 
 
 
