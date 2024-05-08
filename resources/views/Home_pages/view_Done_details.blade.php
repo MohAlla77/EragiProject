@@ -9,7 +9,19 @@
         <div id="layoutSidenav_content" style="height: 25vh; overflow-y: auto;">
             <main>
                 <div class="card mb-4">
-                    <div class="card-header text-end">السيارات <i class="fas fa-table me-4"></i></div>
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-6">
+                                <button type="button" class="btn btn-primary text-left">
+                                    <i class="fa-solid fa-cloud-arrow-down"></i>
+                                </button>
+                            </div>
+                            <div class="col-6 text-end">
+                                السيارات الصيانه
+                                <i class="fas fa-table me-4"></i>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
                             <thead>
