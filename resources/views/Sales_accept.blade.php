@@ -80,6 +80,9 @@
                                 </tr>
                             </tfoot>
                             <tbody>
+                                @if (isset($Services))
+
+
                                 @foreach ($Services as $service)
                                     <tr>
                                         <td>
@@ -99,6 +102,8 @@
                                         <td>{{ $service->name }}</td>
                                     </tr>
                                 @endforeach
+
+                                @endif
                             </tbody>
                         </table>
                     </div>
@@ -106,7 +111,7 @@
             </main>
         </div>
     </div>
-    
+
     <canvas id="myChart"></canvas>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
