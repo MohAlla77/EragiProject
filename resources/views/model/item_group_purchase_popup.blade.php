@@ -7,7 +7,7 @@
                   <h5 class="modal-title" id="exampleModalLabel">ادخل اسم المجموعة</h5>
             </div>
         </div>
-        <form class="row" id="addItemForm" novalidate action="{{route('CategorizeGroup.store')}}"
+        <form class="row" novalidate action="{{route('CategorizeGroup.store')}}"
           method="post">
           @csrf
         <div class="modal-body">

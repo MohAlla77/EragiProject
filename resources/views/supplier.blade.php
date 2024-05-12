@@ -39,40 +39,7 @@
 </head>
 
 <body class="sb-nav-fixed">
-    @include('Layout.navbar')
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Profile</a></li>
-                    {{-- <li><a class="dropdown-item" href="#!">Activity Log</a></li> --}}
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
-                </ul>
-            </li>
-        </ul>
-        <div class="container-fluid">
-            <a class="navbar-brand"><img src="./assets/img/logo-inch.jpg" class="img-fluid logo-img" alt="Logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <div class="col-md-6 texr-end">
-            {{-- <button id="toggleButton" class="btn btn-primary col-2 ms-1 float-end" onclick="toggleCards()">عرض</button> --}}
-        </div>
-        <a class="navbar-brand" href="#"><!--<i class="fa-solid fa-cart-shopping"></i>--><span class="ms-1">الموردين</span></a>
-        <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i
-                class="fas fa-bars"></i></button>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </nav>
+        @include('Layout.navbar')
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             @include('Layout.sidebar')
@@ -93,7 +60,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <input name="SupplierID" type="text" class="form-control text-center"
-                                                    id="#" required placeholder="رقم التعريفي للمورد">
+                                                    id="#" required placeholder="رقم التعريفي للمورد" readonly>
                                             </div>
                                             <div class="col-md-6">
                                                 <input name="SupplierName" type="text" class="form-control text-center"
@@ -126,7 +93,7 @@
                                             <div class="col-md-6">
                                                 <input name="AccountNumber" class="form-control text-center"
                                                   id="#"  required
-                                                    placeholder="رقم الحساب ">
+                                                    placeholder="رقم الحساب المورد">
                                             </div>
                                             {{-- <div class="row g-1">
                                                 <div class="col-md-10">
@@ -166,4 +133,13 @@
             }
         }
     </script> --}}
+    <canvas id="myChart"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+        crossorigin="anonymous"></script>
+    <script src="js/datatables-simple-demo.js"></script>
 </body>

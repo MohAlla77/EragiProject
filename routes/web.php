@@ -129,8 +129,8 @@ Route::post('/purchases/services', [PurchasesController::class, 'ServiceStore'])
 Route::post('/purchases/supplier', [PurchasesController::class, 'SupplierStore'])->name('Supplier.store');
 Route::put('purchases/update/{id}', [PurchasesController::class, 'UpdateService'])->name('service.update');
 Route::delete('purchases/delete/{id}', [PurchasesController::class, 'DeleteService'])->name('service.delete');
-
-
+Route::post('/{purchases}/order_sales', [PurchasesController::class, 'order_sales'])->name('Purchases.order_sales');
+Route::post('/{purchases}/order_quotation', [PurchasesController::class, 'order_quotation'])->name('Purchases.order_quotation');
 
 
 
