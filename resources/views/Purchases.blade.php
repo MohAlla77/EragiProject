@@ -513,10 +513,6 @@
                                                                     </select>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <input name="InvoiceDatePurchase" type="date" class="form-control text-center" id="#"
-                                                                        required placeholder="تاريخ الفاتورة المشتريات">
-                                                                </div> 
-                                                                <div class="col-md-6">
                                                                     <select name="UnitType" class="form-select text-center" name="#"
                                                                         aria-label="Default select example">
                                                                         <option selected> عدد الوحدات</option>
@@ -535,9 +531,24 @@
                                                                     <input  name="price_cost" class="form-control text-center"
                                                                         id="validationServer04" required placeholder="سعر التكلفة ">
                                                                 </div>
-                                                                <div class="col-md-12">
+                                                                <div class="col-md-6">
                                                                     <input  name="CategorizeSealCost" class="form-control text-center"
                                                                         id="validationServer04"  required placeholder=" سعر البيع">
+                                                                </div>
+                                                                {{-- <div class="col-md-6">
+                                                                    <input name="InvoiceDatePurchase" type="date" class="form-control text-center" id="#"
+                                                                        required placeholder="تاريخ الفاتورة المشتريات">
+                                                                </div> --}}
+                                                                <div class="col-md-9">
+                                                                    <input name="InvoiceDatePurchase" type="date"
+                                                                        class="form-control text-center"required>
+                                                                    {{-- @error('InvoiceDatePurchase')
+                                                                        <span
+                                                                            class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                                    @enderror --}}
+                                                                </div>
+                                                                <div class="col-md-3 text-center">
+                                                                    <label class="form-label inline">تاريخ فاتورة الشراء </label>
                                                                 </div>
                                                                 <div class="col-12 text-center">
                                                                     <button type="Save" class="col-6 btn btn-success">اضافة <i
@@ -551,7 +562,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card">
+                                {{-- <div class="card">
                                     <div class="card-body">
                                         <div class="row g-1">
                                             <div class="col-md-12">
@@ -585,7 +596,7 @@
                                                                         @endforeach
                                                                     </select>
                                                                     {{-- <input type="text" class="form-control text-center"
-                                                                        id="اسم المجموعة" required placeholder="اسم المجموعة"> --}}
+                                                                        id="اسم المجموعة" required placeholder="اسم المجموعة"> 
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <input name="ServiceName" type="text"
@@ -626,7 +637,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

@@ -54,8 +54,16 @@
                     alt="Logo"></a>
         </div>
         <div class="col-md-6 texr-end pe-2">
-            <button id="invoiceButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleInvoiceForm()">فاتورة
-                <i class="fas fa-file-invoice"></i></button>
+            <button id="invoiceButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleInvoiceForm()">
+                فاتورة <i class="fas fa-file-invoice"></i>
+            </button>
+            <button type="button" class="btn btn-primary col-3 float-end" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+                    تسعيرة
+                </button>
+                <div>
+                    @include('model.order_quotation_popup')
+                </div>
+            </div>
         </div>
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <a class="navbar-brand" href="#"><span class="text-">قبول الخدمات</span></a>
@@ -127,7 +135,7 @@
                         </div>
                     </div>
                     <!-- Card Calculator -->
-                    @if (isset($items))
+                    @if (isset($items)) 
                         <div class="row g-1 justify-content-center">
                             <div class="col-md-6">
                                 <div class="card" style="height: 100%;">
@@ -195,6 +203,82 @@
                             </div>
                         </div>
                     @endif
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row g-1">
+                        <div class="col-md-12">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <div class="col-md-12 mb-1">
+                                        <button type="button" class="btn btn-success col-12"  data-bs-toggle="modal" data-bs-target="#exampleModal99">
+                                            اضافة المجموعة الخدمات
+                                        </button>
+                                        <div>
+                                            @include('model.service_group_purchase_popup')
+                                        </div>
+                                    </div>
+                                    <form  novalidate  action="{{ route('Service.store') }}" method="post">
+                                        @csrf
+                                        <div class="col-12 mb-1">
+                                            <input type="text" class="form-control text-center"
+                                                id="AddaserviceFields" required placeholder="اضافة خدمة"
+                                                readonly>
+                                        </div>
+                                        <div class="row g-1">
+                                            <div class="col-md-6">
+                                                {{-- <select name="service_group_id"
+                                                    class="form-select text-center"
+                                                    onchange="toggleForm(this)">
+                                                    <option selected>نوع الخدمة</option>
+                                                    @foreach ($ServiceGroup as $S_group)
+                                                    <option value="{{ $S_group->id }}">
+                                                            {{ $S_group->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select> --}}
+                                                {{-- <input type="text" class="form-control text-center"
+                                                    id="اسم المجموعة" required placeholder="اسم المجموعة"> --}}
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input name="ServiceName" type="text"
+                                                    class="form-control text-center" id="اسم خدمة" required
+                                                    placeholder="اسم خدمة">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input name="ServiceId" name="number"
+                                                    class="form-control text-center" id="الرمز" required
+                                                    placeholder="رمز الخدمة" readonly>
+                                            </div>
+                                            <div class="col-6">
+                                                <input name="ServiceCost" name="number"
+                                                    class="form-control text-center" id="سعر التكلفة" required
+                                                    placeholder="سعر التكلفة">
+                                            </div>
+                                            <div class="col-6">
+                                                <input name="ServiceCost" name="number"
+                                                    class="form-control text-center" id="سعر البيع" required
+                                                    placeholder="سعر البيع">
+                                            </div>
+                                            <div class="select col-md-6" aria-label="Forms toggle">
+                                                <select name="ServiceType" class="form-select text-center"
+                                                    onchange="toggleForm(this)">
+                                                    <option selected>نوع الخدمة</option>
+                                                    <option value="داخلية">خدمة داخلية </option>
+                                                    <option value="خارجية">خدمة خارجية</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <button type="submit" class="col-6 btn btn-success" >إضافة خدمة  <i
+                                                    class="fa-solid fa-plus"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>

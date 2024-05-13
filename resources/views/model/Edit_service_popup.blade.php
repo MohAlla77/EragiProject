@@ -19,6 +19,7 @@
                                     {{ $group->name }}
                                 </option>
                             @endforeach
+                        </select>
                     </div>
                     <div class="col-md-12">
                         <input name="ServiceName" type="text" class="form-control text-center" id="اسم خدمة"
