@@ -16,7 +16,8 @@
             </a>
             <a class="nav-link dropdown-toggle text-white" href="{{route('purchases')}}" id="purchasesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="sb-nav-link-icon text-white"></div>
-                <span class="ms-auto pe-2">المشتريات</span><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <span class="ms-auto pe-2">المشتريات</span>
+                {{-- <i class="fa fa-shopping-cart" aria-hidden="true"></i> --}}
             </a>
             <ul class="dropdown-menu text-center" aria-labelledby="purchasesDropdown">
                 <li><a class="dropdown-item text-center" href="{{route('purchases')}}">المشتريات</a></li>

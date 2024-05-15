@@ -29,17 +29,20 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-            <div class="col-md-6 texr-end">
+            {{-- <div class="col-md-6 texr-end">
                 <button id="invoiceButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleInvoiceForm()">فاتورة
                     <i class="fas fa-file-invoice"></i></button>
                 <button id="AddacategoryButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleAddItemCard()">
                     الاصناف والخدمات <i class="fa fa-plus" aria-hidden="true"></i></button>
                 <button id="toggleTableViewButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleTableView()">
                 الجدول <i class="fa-solid fa-eye"></i></button>
-            </div>
-            <a class="navbar-brand" href="#"><!--<i class="fa-solid fa-cart-shopping"></i>--><span class="ms-1">المشتريات</span></a>
-            <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i
-                    class="fas fa-bars"></i></button>
+            </div> --}}
+            <a class="navbar-brand" href="#">
+                <span class="ms-1">الاصناف والخدمات</span>
+            </a>
+            <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!">
+                <i class="fas fa-bars"></i>
+            </button>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

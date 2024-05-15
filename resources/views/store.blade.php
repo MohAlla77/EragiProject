@@ -8,40 +8,40 @@
         <meta name="author" content="" />
         <title>Store</title>
         <link href="css/styles.css" rel="stylesheet" />
-          <style>
-                html, body {
-                    height: 100%;
-                    margin: 0;
-                    padding: 0;
-                }
-                body {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-                .container {
-                    width: 80%;
-                    max-width: 1200px;
-                }
-                .table-responsive {
-                    overflow-x: auto;
-                    min-width: 100%;
-                }
-                #layoutSidenav {
-                    width: 100%; /* Ensure the content area fills the entire width */
-                    float: none; /* Clear any floats */
-                }
-                
-                    .logo-img {
-                    width: 55px; /* Adjust the width as needed */
-                    height: auto; /* Maintain aspect ratio */
-                    margin-right: 20px; /* Adjust the margin as needed */
-                }
-                    .inner-card {
-                    padding: 15px; /* Adjust padding as needed */
-                    margin-bottom: 15px; /* Adjust margin as needed */
-                }
-            </style>
+        <style>
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .container {
+                width: 80%;
+                max-width: 1200px;
+            }
+            .table-responsive {
+                overflow-x: auto;
+                min-width: 100%;
+            }
+            #layoutSidenav {
+                width: 100%; /* Ensure the content area fills the entire width */
+                float: none; /* Clear any floats */
+            }
+            
+                .logo-img {
+                width: 55px; /* Adjust the width as needed */
+                height: auto; /* Maintain aspect ratio */
+                margin-right: 20px; /* Adjust the margin as needed */
+            }
+                .inner-card {
+                padding: 15px; /* Adjust padding as needed */
+                margin-bottom: 15px; /* Adjust margin as needed */
+            }
+        </style>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -49,15 +49,15 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><a class="dropdown-item" href="#!">Profile</a></li>
+                        {{-- <li><a class="dropdown-item" href="#!">laung</a></li> --}}
                         <li><hr class="dropdown-divider"/></li>
                         <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                     </ul>
                 </li>
             </ul>
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="./assets/img/logoeragi.jpg" class="img-fluid logo-img" alt="Logo"></a>
+                <a class="navbar-brand" href="#"><img src="./logo.jpg" class="img-fluid logo-img" alt="Logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -142,38 +142,23 @@
                                             <div class="card shadow-lg border-0" id="dismissalForm">
                                                 <div class="card-body">
                                                     <form class="mb-1" novalidate action="المخزن.php" method="post">
-                                                        <div class="row">
-                                                            <div class="col-md-12 mb-1">
+                                                        <div class="row g-1">
+                                                            <div class="col-md-12">
                                                                 <input type="text" class="form-control text-center" placeholder="اذن صرف" readonly>
-                                                                <div class="valid-feedback">
-                                                                    Looks good!
-                                                                </div>
                                                             </div>
-                                                            <div class="col-md-6 mb-1">
+                                                            <div class="col-md-6">
                                                                     <input type="text" class="form-control text-center" id="validationCustomAddress" required placeholder="اسم القطعة">
-                                                                <div class="valid-feedback">
-                                                                    Looks good!
-                                                                </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <input type="number" class="form-control text-center" id="validationCustomAddress" required placeholder="الرقم التسلسلي">
-                                                                <div class="valid-feedback">
-                                                                    Looks good!
-                                                                </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                     <input type="number" class="form-control text-center" id="Unit" required placeholder="الوحدة">
-                                                                <div class="valid-feedback">
-                                                                    Looks good!
-                                                                </div>
                                                             </div>
-                                                            <div class="col-md-6 mb-1">
+                                                            <div class="col-md-6">
                                                                     <input type="number" class="form-control text-center" id="validationCustomAddress" required placeholder="الكمية">
-                                                                <div class="valid-feedback">
-                                                                    Looks good!
-                                                                </div>
                                                             </div>
-                                                            <div class="col-md-12 mb-1">
+                                                            <div class="col-md-12">
                                                                 <select id="validationServer04" class="form-select text-center" aria-describedby="validationServer04Feedback" required>
                                                                     <option selected>نوع الصرف</option>
                                                                     <option>صرف تشغيلي</option>
@@ -194,38 +179,23 @@
                                             <div class="card shadow-lg border-0" id="receivingForm" style="display: none;">
                                                 <div class="card-body">
                                                     <form class="mb-1" novalidate action="المخزن.php" method="post">
-                                                        <div class="row">
-                                                            <div class="col-md-12 mb-1">
+                                                        <div class="row g-1">
+                                                            <div class="col-md-12">
                                                                 <input type="text" class="form-control text-center" id="AddacategoryFields" required placeholder="استلام" readonly>
-                                                                <div class="valid-feedback">
-                                                                    Looks good!
-                                                                </div>
                                                             </div>
-                                                            <div class="col-md-6 mb-1">
+                                                            <div class="col-md-6">
                                                                     <input type="text" class="form-control text-center" id="validationCustomAddress" required placeholder="اسم القطعة">
-                                                                <div class="valid-feedback">
-                                                                    Looks good!
-                                                                </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                     <input type="number" class="form-control text-center" id="Unit" required placeholder="الوحدة">
-                                                                <div class="valid-feedback">
-                                                                    Looks good!
-                                                                </div>
                                                             </div>
-                                                            <div class="col-md-6 mb-1">
+                                                            <div class="col-md-6">
                                                                     <input type="text" class="form-control text-center" id="validationCustomAddress" required placeholder="الكمية">
-                                                                <div class="valid-feedback">
-                                                                    Looks good!
-                                                                </div>
                                                             </div>
-                                                            <div class="col-md-6 mb-1">
+                                                            <div class="col-md-6">
                                                                 <input type="text" class="form-control text-center" id="validationCustomAddress" required placeholder="الرقم التسلسلي">
-                                                                <div class="valid-feedback">
-                                                                    Looks good!
-                                                                </div>
                                                             </div>
-                                                            <div class="form-floating col-md-12 mb-1">
+                                                            <div class="form-floating col-md-12">
                                                                 <textarea class="form-control" placeholder="Description" id="floatingTextarea"></textarea>
                                                                 <label class="text-center" for="floatingTextarea">ملاحظات</label>
                                                             </div>

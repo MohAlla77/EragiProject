@@ -67,7 +67,13 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="card border-dark">
-                    <div class="card-header text-end">السيارات <i class="fas fa-table me-4"></i></div>
+                    <div class="card-header text-end">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal44">
+                            طلب اسبير
+                        </button>
+                            @include('model.Order_Esper_popup')
+                        السيارات <i class="fas fa-table me-4"></i>
+                    </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
                             <thead>
@@ -76,12 +82,14 @@
                                     <th>الانتظار/ النهاية</th>
                                     {{-- <th>التاريخ</th>
                                     <th>تعليق</th> --}}
+                                    <th> الإجراء المقترح</th>
+                                    <th>شكوى العميل</th>
                                     <th>الماركة</th>
                                     <th>الموديل</th>
                                     <th>الخدمة</th>
                                     <th>اسم السيارة</th>
-                                    <th>العداد</th>
-                                    <th>الهيكل</th>
+                                    {{-- <th>العداد</th>
+                                    <th>الهيكل</th> --}}
                                     <th>اللوحة</th>
                                     <th>الهاتف</th>
                                     <th>الاسم</th>
@@ -93,12 +101,14 @@
                                     <th>الانتظار/ النهاية</th>
                                     {{-- <th>التاريخ</th>
                                     <th>تعليق</th> --}}
+                                    <th> الإجراء المقترح</th>
+                                    <th>شكوى العميل</th>
                                     <th>الماركو</th>
                                     <th>الموديل</th>
                                     <th>الخدمة</th>
                                     <th>اسم السيارة</th>
-                                    <th>العداد</th>
-                                    <th>الهيكل</th>
+                                    {{-- <th>العداد</th>
+                                    <th>الهيكل</th> --}}
                                     <th>اللوحة</th>
                                     <th>الهاتف</th>
                                     <th>الاسم</th>
@@ -127,6 +137,8 @@
                                             </button>
                                             @include('model.Back_to_Wait_popup')
                                         </td>
+                                        <td>{{ $data->fix_requirement }}</td>
+                                        <td>{{ $data->customer_comment }}</td>
                                         {{-- <td>{{ $car->created_at->format('d/m/y h:i A') }}</td>
                                         <td>{{ $car->comment }}</td> --}}
                                         <td>{{ $car->brand }}</td>
