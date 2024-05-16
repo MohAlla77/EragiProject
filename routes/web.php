@@ -130,7 +130,6 @@ Route::post('/purchases/supplier', [PurchasesController::class, 'SupplierStore']
 Route::put('purchases/update/{id}', [PurchasesController::class, 'UpdateService'])->name('service.update');
 Route::delete('purchases/delete/{id}', [PurchasesController::class, 'DeleteService'])->name('service.delete');
 Route::post('/{purchases}/order_sales', [PurchasesController::class, 'order_sales'])->name('Purchases.order_sales');
-Route::post('/{purchases}/order_quotation', [PurchasesController::class, 'order_quotation'])->name('Purchases.order_quotation');
 
 
 
@@ -139,6 +138,7 @@ Route::get('/invoice/Plate', [CarController::class, 'CarPlateSearch'])->name('ca
 Route::get('/invoice/print', [InvoiceController::class, 'GeneratePdf'])->name('invoice.print');
 Route::post('/invoice/{id}/add_spear', [SpearController::class, 'StoreSpear'])->name('spear.store');
 Route::post('/invoice/{id}/add_service', [SpearController::class, 'StoreService'])->name('service.store');
+Route::post('/{invoice}/order_quotation', [invoiceController::class, 'order_quotation'])->name('invoice.order_quotation');
 
 
 Route::get('/car', [CarController::class, 'index'])->name('new.car')->middleware('auth');

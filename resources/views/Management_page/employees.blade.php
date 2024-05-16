@@ -59,7 +59,7 @@
                                             <button type="submit" name="add" class="btn btn-danger col-12"><i class="fa-solid fa-trash"></i></button>
                                         </div>
                                         <div class="col-md-10">
-                                            <form action="{{route('employees.search')}}" method="GET">
+                                            <form action="#" method="GET">
                                                 <div class="input-group">
                                                     <input type="text" class="form-control text-center" name="employeeName"
                                                         placeholder="بحث">
@@ -68,7 +68,7 @@
                                             </form>
                                         </div>
                                     </div>
-                                    <form action="{{Route('employees')}}" method="post">
+                                    <form action="#" method="post">
                                         <div class="row">
                                             <div class="card bg-light">
                                                 <div class="card-body">
@@ -170,7 +170,7 @@
                                     </form>
                                 </div>
                                 <div class="col-12" id="inputCard">
-                                    <form class="mb-1" action="{{ route('employee.store') }}" method="post">
+                                    <form class="mb-1" action="#" method="post">
                                         @csrf
                                         <div class="card bg-light">
                                             <div class="card-body">
@@ -186,6 +186,9 @@
                                                             <input name="name" type="text" class="form-control text-center" placeholder="الاسم" required>
                                                         </div>
                                                         <div class="col-md-6">
+                                                            <input name="name" type="number" class="form-control text-center" placeholder="رقم الهوية" required>
+                                                        </div>
+                                                        <div class="col-md-6">
                                                             <div class="input-group position-relative">
                                                                 <span class="input-group-text">+966</span>
                                                                 <input name="phone_number" class="form-control text-center" placeholder="رقم الهاتف"required>
@@ -195,10 +198,19 @@
                                                             <input name="department" type="text" class="form-control text-center" placeholder="الوظيفه"required>
                                                         </div>
                                                         <div class="col-md-6">
+                                                            <input name="department" type="text" class="form-control text-center" placeholder="المدير المباشر"required>
+                                                        </div>
+                                                        <div class="col-md-6">
                                                             <div class="input-group position-relative">
                                                                 <span class="input-group-text"> ريال .</span>
-                                                                <input name="salary" class="form-control text-center" placeholder="الراتب"required>
+                                                                <input name="salary" class="form-control text-center" placeholder="الراتب الاساسي"required>
                                                             </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input name="name" type="number" class="form-control text-center" placeholder="بدل السكن" required>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input name="name" type="number" class="form-control text-center" placeholder="بدلات اخري" required>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <input name="address" type="text" class="form-control text-center" placeholder="العنوان"required>
@@ -215,11 +227,11 @@
                                                     <div class="row g-1">
                                                         <div class="col-md-6">
                                                             <div class="row">
-                                                                <div class="col-md-10">
+                                                                <div class="col-md-9">
                                                                     <input name="department" type="date" class="form-control text-center" required>
                                                                 </div>
-                                                                <div class="col-md-2 text-center">
-                                                                    <label name="direct_day" class="form-label inline">يوم المباشرة</label>
+                                                                <div class="col-md-3 text-center">
+                                                                    <label name="direct_day" class="form-label inline">مباشرة العمل</label>
                                                                 </div>
                                                             </div>
                                                         </div>

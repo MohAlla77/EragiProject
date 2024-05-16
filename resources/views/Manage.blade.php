@@ -146,7 +146,7 @@
                                     <a href="{{route('Employee_requests')}}" class="btn btn-primary">موافق</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-md-4">
                             <div class="card text-center" style="width: 18rem;">
                                 <div class="card-body">
@@ -158,7 +158,7 @@
                                     <a href="{{route('employees')}}" class="btn btn-primary">بيانات الموظفين </a>
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
                     </div>
                 </main>
             </div>

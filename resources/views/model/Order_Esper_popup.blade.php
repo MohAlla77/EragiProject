@@ -40,7 +40,7 @@
               </div>
               <div class="col-md-6">
                 <select name="#" class="form-select text-center">
-                  <option selected="#">جودة الاسبير</option>
+                  <option selected="#">نوع الاسبير</option>
                   <option value="#">اصلي</option>
                   <option value="#">تجاري</option>
                 </select>
