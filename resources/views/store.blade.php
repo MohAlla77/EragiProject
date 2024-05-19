@@ -62,8 +62,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-            <div class="col-md-6 texr-end">
-            <button id="toggleButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleVisibility()">عرض المخزن</button>
+            <div class="texr-end">
+            <button id="toggleButton" class="btn btn-primary" onclick="toggleVisibility()">الجدول</button>
             </div>
                 <a class="navbar-brand" href="#"><span>المخزن</span></a>
             <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>

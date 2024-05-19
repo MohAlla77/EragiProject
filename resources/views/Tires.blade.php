@@ -191,13 +191,13 @@
                                                                 placeholder="اسم الماركة" readonly>
                                                         </div>
                                                         <div class="col-md-6 d-flex justify-content-end align-items-center">
-                                                          <form action="{{ route('#.search') }}" method="GET">
+                                                          {{-- <form action="{{ route('#.search') }}" method="GET">
                                                             <div class="input-group">
                                                               <input name="PlateRef" type="text" class="form-control text-center" id="reference number" value="" placeholder="الاطار"
                                                                   placeholder="بحث">
                                                               <button class="btn btn-outline-success" type="search">بحث</button>
                                                             </div>
-                                                          </form>
+                                                          </form> --}}
                                                         </div>
                                                         <div class="col-md-6">
                                                             <input class="form-control text-center"

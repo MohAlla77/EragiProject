@@ -5,16 +5,17 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Invoice</title>
+
     <link href="css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="print.css" media="print">
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
     <style>
             .logo-img {
                 width: 55px;
@@ -32,46 +33,37 @@
                 /* Adjust margin as needed */
             }
     </style>
-
+</head>
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Profile</a></li>
-                        {{-- <li><a class="dropdown-item" href="#!">Language</a></li> --}}
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <form action="{{ route('logout') }}" method="POST">
-                                @csrf
-                                <button class="dropdown-item" type="submit">Logout</button>
-                            </form>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Profile</a></li>
+                    {{-- <li><a class="dropdown-item" href="#!">laung</a></li> --}}
+                    <li><hr class="dropdown-divider"/></li>
+                    <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="./logo.jpg" class="img-fluid logo-img" alt="Logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
-        {{-- <div class="col-md-6 texr-end pe-2">
-            <button id="invoiceButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleInvoiceForm()">
-                فاتورة <i class="fas fa-file-invoice"></i>
-            </button> --}}
-        </div>
-            <a class="navbar-brand" href="#"><span class="text-">المبيعات</span></a>
-
-        <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i
-            class="fas fa-bars"></i></button>
+            <a class="navbar-brand" href="#"><span>الفواتير</span></a>
+        <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
             @include('Layout.sidebar')
         </div>
-        <div id="layoutSidenav_content" class="sidebar-collapsed" style="height: 100vh; overflow-y: auto;">
+        <div id="layoutSidenav_content" class="sidebar-collapsed">
             <main>
                 <div class="contaner">
                     <div class="card">
@@ -84,7 +76,6 @@
                             </div>
                             <!-- Table Calculator -->
                             <div class="card">
-                                <div class="card-header text-end">محتويات الفاتورة <i class="fas fa-table me-4"></i></div>
                                 <div class="card-body">
                                     <table class="table table-striped">
                                         <thead class="thead-dark">
@@ -253,30 +244,21 @@
         }
 
         // Add event listeners
-        document.getElementById('discountType').addEventListener('change', handleDiscountType);
-        document.getElementById('amountDiscountValue').addEventListener('input', calculateTotalPriceAfterDiscount);
-        document.getElementById('percentageDiscountValue').addEventListener('input', calculateTotalPriceAfterDiscount);
+        // document.getElementById('discountType').addEventListener('change', handleDiscountType);
+        // document.getElementById('amountDiscountValue').addEventListener('input', calculateTotalPriceAfterDiscount);
+        // document.getElementById('percentageDiscountValue').addEventListener('input', calculateTotalPriceAfterDiscount);
 
-                var input = document.getElementById("validationCustom02");
+        //         var input = document.getElementById("validationCustom02");
 
-        // Execute a function when the user releases a key on the keyboard
-        input.addEventListener("keyup", function(event) {
-            // Number 13 is the "Enter" key on the keyboard
-            if (event.keyCode === 13) {
-                // Cancel the default action, if needed
-                event.preventDefault();
-                // Submit the form
-                document.getElementById("searchForm").submit();
-            }
-        });
+        // // Execute a function when the user releases a key on the keyboard
+        // input.addEventListener("keyup", function(event) {
+        //     // Number 13 is the "Enter" key on the keyboard
+        //     if (event.keyCode === 13) {
+        //         // Cancel the default action, if needed
+        //         event.preventDefault();
+        //         // Submit the form
+        //         document.getElementById("searchForm").submit();
+        //     }
+        // });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-    <script src="js/datatables-simple-demo.js"></script>
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-
-
 </body>
-
-</html>

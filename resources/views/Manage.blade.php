@@ -135,18 +135,6 @@
                             </div>
                         </div>
                         {{-- 
-                        <div class="col-md-6">
-                            <div class="card text-center" {{-- style="width: 18rem;" >
-                                <div class="card-body">
-                                    <h5 class="card-title">طلبات الموظفين</h5>
-                                    <div class="col-md-12">
-                                        <hr class="separator-line">
-                                    </div>
-                                    <p class="card-text">(سلفة, عهدة,اذن خروج,اجازة مرضية,اجازة)</p>
-                                    <a href="{{route('Employee_requests')}}" class="btn btn-primary">موافق</a>
-                                </div>
-                            </div>
-                        </div> --}}
                         <div class="col-md-4">
                             <div class="card text-center" style="width: 18rem;">
                                 <div class="card-body">
@@ -158,7 +146,7 @@
                                     <a href="{{route('employees')}}" class="btn btn-primary">بيانات الموظفين </a>
                                 </div>
                             </div>
-                        </div>
+                        </div>--}}
                     </div>
                 </main>
             </div>

@@ -132,9 +132,6 @@
                                         <option value="purchaseorder">طلب شراء</option>
                                         <option value="Item">الاصناف</option>
                                         <option value="Itemgroup">مجموعة الاصناف</option>
-                                        <option value="Servicesgroup">مجموعة الخدمات</option>
-                                        <option value="Services">الخدمات</option>
-                                        <option value="Suppliers">الموردين</option>
                                     </select>
                                 </div>
                                 <table id="datatablesSimple">
