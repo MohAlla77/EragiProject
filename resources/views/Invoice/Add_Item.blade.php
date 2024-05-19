@@ -1,5 +1,5 @@
 <div class="col-md-6">
-    <div class="card">
+    <div class="card bg-light">
         <div class="card-body">
             <div id="addNewItemForm">
                 <div class="row">

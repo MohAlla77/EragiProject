@@ -25,6 +25,7 @@ use App\Http\Controllers\ServiceGroupController;
 use App\Http\Controllers\SpearController;
 use App\Http\Controllers\TiresController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\ReceivingPricingRequestsController;
 use App\Models\Car;
 use App\Models\Service;
 use App\Models\Supplier;
@@ -60,7 +61,11 @@ Route::post('/tries', [TiresController::class, 'AddTire'])->name('Tries.Add');
 Route::get('/Supplier', [SupplierController::class, 'index'])->name('Supplier');
 Route::post('/Supplier', [SupplierController::class, 'SupplierStore'])->name('Supplier.Add');
 
+Route::get('/Employees', [EmployeesController::class, 'index'])->name('Employees');
+Route::post('/Employees', [EmployeesController::class, 'Employeesstore'])->name('Employees.Add');
 
+Route::get('/receiving-pricing-requests', [ReceivingPricingRequestsController::class, 'index'])->name('ReceivingPricingRequests.index');
+Route::post('/receiving-pricing-requests', [ReceivingPricingRequestsController::class, 'store'])->name('ReceivingPricingRequests.store');
 
 Route::get('/test', function () {
     return view('pdf.Job_order');
@@ -88,14 +93,14 @@ Route::prefix('/management')->group(function () {
         return view('Management_page.Customers');
     })->name('Customers');
 
-    Route::get('/Employee', function () {
+    // Route::get('Employee', function () {
 
-        $workplaces =[
-            'يبنع الصناعية', 'حي الياقوت', 'المدينة المنورة'
-        ];
+    //     $workplaces =[
+    //         'يبنع الصناعية', 'حي الياقوت', 'المدينة المنورة'
+    //     ];
 
-        return view('Management_page.employees',compact( "workplaces"));
-    })->name('employees');
+    //     return view('employees',compact( "workplaces"));
+    // })->name('employees');
 
     Route::get('/', function () {
         return view('Management_page.Employee_requests');
@@ -130,7 +135,6 @@ Route::post('/purchases/supplier', [PurchasesController::class, 'SupplierStore']
 Route::put('purchases/update/{id}', [PurchasesController::class, 'UpdateService'])->name('service.update');
 Route::delete('purchases/delete/{id}', [PurchasesController::class, 'DeleteService'])->name('service.delete');
 Route::post('/{purchases}/order_sales', [PurchasesController::class, 'order_sales'])->name('Purchases.order_sales');
-Route::post('/{purchases}/order_quotation', [PurchasesController::class, 'order_quotation'])->name('Purchases.order_quotation');
 
 
 
@@ -139,6 +143,7 @@ Route::get('/invoice/Plate', [CarController::class, 'CarPlateSearch'])->name('ca
 Route::get('/invoice/print', [InvoiceController::class, 'GeneratePdf'])->name('invoice.print');
 Route::post('/invoice/{id}/add_spear', [SpearController::class, 'StoreSpear'])->name('spear.store');
 Route::post('/invoice/{id}/add_service', [SpearController::class, 'StoreService'])->name('service.store');
+Route::post('/{invoice}/order_quotation', [invoiceController::class, 'order_quotation'])->name('invoice.order_quotation');
 
 
 Route::get('/car', [CarController::class, 'index'])->name('new.car')->middleware('auth');
@@ -163,9 +168,6 @@ Route::post('/{car}/wait', [HomeController::class, 'ToWait'])->name('car.ToWait'
 // Route::post('/{car}/Back_to_Wait', [HomeController::class , 'Back_to_Wait'] )->name('car.Back_to_Wait');
 
 Route::post('/management/DataEntry/AddCompany', [ManagemetController::class, 'CompanyStore'])->name('Data_Entry.Company');
-
-
-//Route::post('/management/Employee/store', [EmployeesController::class, 'store'])->name('employee.store');
 
 
 

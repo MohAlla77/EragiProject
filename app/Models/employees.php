@@ -14,14 +14,19 @@ class employees extends Model
     protected $fillable = [
     'email',
     'name',
+    'employee_number',
+    'identity_number',
     'phone_number',
-    'salary',
     'department',
-    'direct_day',
+    'direct_manager',
+    'baseic_salary',
+    'housing_allowance',
+    'other_allowances',
     'address',
-    'workplace',
     'marital_status',
     'nationality',
-    'image',
+    'direct_day',
+    'workplace',
+    
     ];
 }

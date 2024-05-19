@@ -11,5 +11,20 @@ class Tires extends Model
 
     protected $table = 'tires';
 
-    protected $fillable = ['tire_serial','size','amount','price','country_of_construction','model','production_date','quantity_available'];
+    protected $fillable = [
+        'tire_serial',
+        'size',
+        'quantity',
+        'amount',
+        'price',
+        'country_of_construction',
+        'model',
+        'production_date',
+        'quantity_available',
+        'purchase_invoice',
+        'tax_number',
+        'supplier',
+        'store_Place',
+        'selling_price',
+    ];
 }

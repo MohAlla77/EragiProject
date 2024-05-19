@@ -1,5 +1,5 @@
 <div class="col-md-6">
-  <div class="card">
+  <div class="card bg-light">
     <div class="card-body">
       <div class="row g-1">
         <div class="col-md-12">
@@ -9,6 +9,12 @@
               <a href="{{ route('invoice.print') }}">
                 <button id="printButton"class="btn btn-primary col-3"><i class="fas fa-print"></i></button>
               </a>
+              <button type="button" class="btn btn-primary col-3 ms-1 float-end" data-bs-toggle="modal" data-bs-target="#">
+                عرض سعر 
+              </button>
+              {{-- <div>
+                  @include('model.#')
+              </div> --}}
             </div>
           </div>
         </div>

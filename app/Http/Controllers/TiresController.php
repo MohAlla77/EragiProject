@@ -26,12 +26,18 @@ class TiresController extends Controller
 
             'tire_serial' => request()->get('Tire_serial'),
             'size' => request()->get('TireSize'),
+            'quantityl' => request()->get('quantity'),
             'amount' => request()->get('TireAmount'),
             'price' => request()->get('TirePrice'),
             'country_of_construction' => request()->get('TireCountry'),
             'model' => request()->get('TireModel'),
             'quantity_available' => request()->get('TireAmount'),
-            'production_date' => request()->get('TireDate')
+            'production_date' => request()->get('TireDate'),
+            'purchase_invoice'=> request()->get('purchase_invoice'),
+            'tax_number'=> request()->get('tax_number'),
+            'supplier'=> request()->get('supplier'),
+            'store_Place'=> request()->get('store_Place'),
+            'selling_price'=> request()->get('selling_price'),
 
         ]);
 
