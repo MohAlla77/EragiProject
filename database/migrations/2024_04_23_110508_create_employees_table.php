@@ -16,15 +16,20 @@ return new class extends Migration
 
             $table->string('email')->unique();
             $table->string('name');
+            $table->string('employee_number');
+            $table->string('identity_number');
             $table->string('phone_number');
-            $table->string('salary');
             $table->string('department');
-            $table->date('direct_day');
+            $table->string('direct_manager');
+            $table->string('baseic_salary');
+            $table->string('housing_allowance');
+            $table->string('other_allowances');
             $table->string('address');
-            $table->string('workplace');
             $table->string('marital_status');
             $table->string('nationality');
-            $table->string('image')->nullable();
+            $table->date('direct_day');
+            $table->string('workplace');
+            $table->string('image')->nullable(); 
 
             $table->timestamps();
         });

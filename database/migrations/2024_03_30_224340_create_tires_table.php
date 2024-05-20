@@ -16,13 +16,18 @@ return new class extends Migration
             $table->id();
             $table->string('tire_serial');
             $table->string('size');
+            $table->string('quantity');
             $table->string('amount');
             $table->string('price');
             $table->string('country_of_construction');
             $table->string('model');
-            $table->string('quantity_available');
             $table->date('production_date');
-
+            $table->string('quantity_available');
+            $table->string('purchase_invoice');
+            $table->string('tax_number');
+            $table->string('supplier');
+            $table->string('store_Place');
+            $table->string('selling_price');
             $table->timestamps();
         });
     }

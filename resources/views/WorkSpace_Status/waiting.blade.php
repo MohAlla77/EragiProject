@@ -29,7 +29,7 @@
             <div class="col-6 d-grid gap-2 mx-auto py-4 text-center">
                 <form action="{{route('Add.Done', $car->id)}}" method="post">
                     @csrf
-                    <button class="btn btn-danger" type="submit"> إنهاء عمل<i class="fa fa-briefcase" aria-hidden="true"></i></button>
+                    <button class="btn btn-danger" type="submit"> الغاء عمل<i class="fa fa-briefcase" aria-hidden="true"></i></button>
                 </form>
             </div>
             <div class="col-6 d-grid gap-2 mx-auto py-4 text-center">

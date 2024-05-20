@@ -378,6 +378,9 @@
                                                             class="form-select text-center"
                                                             aria-describedby="validationServer04Feedback" required>
                                                             <option value="ماركة"> ماركة</option>
+                                                            <option value="بلد">صنع في المانيا </option>
+                                                            <option value="بلد">صنع في الصين</option>
+                                                            <option value="بلد">صنع في اليابان</option>
                                                         </select>
                                                         @error('TireModel')
                                                             <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
@@ -391,7 +394,9 @@
                                                         <select name="TireCountry" id="model"
                                                             class="form-select text-center"
                                                             aria-describedby="validationServer04Feedback" required>
-                                                            <option value="بلد">بلد صنع</option>
+                                                            <option value="بلد">صنع في المانيا </option>
+                                                            <option value="بلد">صنع في الصين</option>
+                                                            <option value="بلد">صنع في اليابان</option>
                                                         </select>
                                                         @error('TireCountry')
                                                             <span
@@ -428,12 +433,16 @@
                                                     </div>
                                                     <div class="col-md-6 mb-1">
                                                         <input name="SupplierTaxNumber" class="form-control text-center" id="#"
-                                                            required placeholder="الرقم الضريبي للمورد" readonly>
+                                                            required placeholder="الرقم الضريبي للمورد">
                                                     </div>
                                                     <div class="col-md-6">
                                                         <select name="SupplierName" class="form-select text-center"
                                                             aria-label="Default select example">
                                                             <option selected> إسم المورد </option>
+                                                            <option selected> محمد </option>
+                                                            <option selected> احمد</option>
+                                                            <option selected> حمد</option>
+
                                                         {{--@foreach ($Supplers as $suppler )
                                                             <option value="{{$suppler->name}}"> {{$suppler->name}}  </option>
                                                             @endforeach --}}

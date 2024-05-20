@@ -28,7 +28,7 @@ class EmployeesController extends Controller
 
             'email' =>           $valideted['e-Email'],
             'name'  =>           $valideted['name'] ,
-            'employee_number' => $valideted['employee_number'] ,
+            // 'employee_number' => $valideted['employee_number'] ,
             'identity_number'=>  $valideted['identity_number'],
             'phone_number' =>    $valideted['phone_number'] ,
             'department' =>      $valideted['department'] ,

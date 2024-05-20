@@ -207,7 +207,7 @@
                                                         <input name="name" type="text" class="form-control text-center" placeholder="الاسم" required>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <input name="employee_number" type="number" class="form-control text-center" placeholder="الرقم الوظيفي" required>
+                                                        <input name="employee_number" type="number" class="form-control text-center" placeholder="الرقم الوظيفي" >
                                                     </div>
                                                     <div class="col-md-4">
                                                         <input name="identity_number" type="number" class="form-control text-center" placeholder="رقم الهوية" required>
@@ -218,8 +218,14 @@
                                                             <input name="phone_number" class="form-control text-center" placeholder="رقم الهاتف"required>
                                                         </div>
                                                     </div>
-                                                    <div  class="col-md-6">
-                                                        <input name="department" type="text" class="form-control text-center" placeholder="الوظيفه"required>
+                                                    <div class="col-md-6">
+                                                        <select class="form-select text-center" aria-label="Default select example" name="department">
+                                                            <option selected>الوظيفه</option>
+                                                            <option value="1">IT</option>
+                                                            <option value="2">محاسبة</option>
+                                                            <option value="3">مبيعات</option>
+                                                            <option value="3">فني</option>
+                                                        </select>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <input name="direct_manager" type="text" class="form-control text-center" placeholder="المدير المباشر"required>
@@ -264,10 +270,20 @@
                                                         <input name="address" type="text" class="form-control text-center" placeholder="العنوان"required>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <input name="marital_status" type="text" class="form-control text-center" placeholder="الحالة الاجتماعية"required>
+                                                        <select class="form-select text-center" aria-label="Default select example" name="marital_status">
+                                                            <option selected>الحالة الاجتماعية</option>
+                                                            <option value="1">متزوج</option>
+                                                            <option value="2">عاذب</option>
+                                                        </select>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <input name="nationality" type="text" class="form-control text-center" placeholder="الجنسية"required>
+                                                        <select class="form-select text-center" aria-label="Default select example" name="nationality">
+                                                            <option selected>الجنسية</option>
+                                                            <option value="1">سعدوي</option>
+                                                            <option value="2">سوداني</option>
+                                                            <option value="3">مصري</option>
+                                                            <option value="3">فلبيني</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="row g-1 mb-1"> 
@@ -308,7 +324,7 @@
                     </div>
                 </div>
             </main>
-            {{-- <footer class="py-4 bg-light mt-auto">
+            <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
                         <div class="text-muted">Copyright &copy; Your Website 2024</div>
@@ -319,7 +335,7 @@
                         </div>
                     </div>
                 </div>
-            </footer> --}}
+            </footer>
         </div>
     </div>
     <script>
