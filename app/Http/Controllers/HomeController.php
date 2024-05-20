@@ -37,6 +37,7 @@ class HomeController extends Controller
 
 
 
+
         if ($type === 'all') {
             $cars = Car::get();
             return view('Home_pages.view_all_details', ['Cars' => $cars]);
@@ -45,7 +46,10 @@ class HomeController extends Controller
             return view('Home_pages.view_all_details', ['Cars' => $cars]);
         } elseif ($type === 'Maintenace') {
             $cars = Car::where('status', 'MAINTENACE')->get();
-            return view('Home_pages.view_maintenace_detaails', ['Cars' => $cars]);
+            $data = DB::table('check_car')
+            ->join('cars', 'check_car.car_id', 'cars.id')
+            ->select('check_car.customer_comment' , 'check_car.fix_requirement')->get();
+            return view('Home_pages.view_maintenace_detaails', ['Cars' => $cars , 'Data' => $data]);
         } else {
             $cars = Car::where('status', 'WAITING')->get();
             return view('Home_pages.view_Wait_details', ['Cars' => $cars]);

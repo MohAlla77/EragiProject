@@ -116,6 +116,9 @@
                             </tfoot>
                             <tbody>
                                 @foreach ($Cars as $car)
+                                 @foreach ($Data as $data)
+
+
                                     <tr>
                                         <td>
                                             <div class="timer-container">
@@ -143,15 +146,17 @@
                                         <td>{{ $car->comment }}</td> --}}
                                         <td>{{ $car->brand }}</td>
                                         <td>{{ $car->model }}</td>
-                                        <td>{{ $car->counter }}</td>
+                                        <td>!!!!!!!</td>
+                                        {{-- <td>{{ $car->counter }}</td> --}}
                                         <td>{{ $car->car_name }}</td>
-                                        <td>{{ $car->counter }}</td>
-                                        <td>{{ $car->structure_no }}</td>
+                                        {{-- <td>{{ $car->counter }}</td> --}}
+                                        {{-- <td>{{ $car->structure_no }}</td> --}}
                                         <td>{{ $car->plate }}</td>
                                         <td>{{ $car->phone }}</td>
                                         <td>{{ $car->name }}</td>
                                     </tr>
-                                @endforeach
+                                  @endforeach
+                                 @endforeach
                             </tbody>
                         </table>
                     </div>
