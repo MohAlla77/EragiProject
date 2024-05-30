@@ -53,7 +53,7 @@
                 <li><a class="dropdown-item text-center" href="{{route('Employees')}}">الموظفين</a></li>
                 <li><a class="dropdown-item text-center" href="{{route('Employee_requests')}}">طلبات الموظفين</a></li>
             </ul>
-            <a class="nav-link text-white" href="{{route('Manage')}}">
+            <a class="nav-link text-white" href="#">
                 <div class="sb-nav-link-icon text-white"></div>
                 <span class="ms-auto pe-2">ادارة</span><i class="fas fa-cogs"></i>
             </a>

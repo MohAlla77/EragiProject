@@ -97,9 +97,9 @@
                                                     <div class="row">
                                                         <div class="col-md-8">
                                                             <div class="row g-1">
-                                                        
-                                                                <div class="col-md-6"> 
-                                                                    <input class="form-control text-center" 
+
+                                                                <div class="col-md-6">
+                                                                    <input class="form-control text-center"
                                                                     value="{{$employees->employees_name}}"
                                                                     placeholder="الاسم" readonly>
                                                                 </div>
@@ -110,14 +110,14 @@
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <input class="form-control text-center"
-                                                                    
+
                                                                     value="{{$employees->employees_Email}}"
                                                                     placeholder="البريد الالكتروني" readonly>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="input-group position-relative">
                                                                         <span class="input-group-text">+966</span>
-                                                                        <input class="form-control text-center" 
+                                                                        <input class="form-control text-center"
                                                                         value="{{$employees->employees_phone_number}}"
                                                                         placeholder="رقم الهاتف" readonly>
                                                                     </div>
@@ -178,8 +178,8 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="card">
-                                                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" 
-                                                                class="card-img-top" 
+                                                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                                                                class="card-img-top"
                                                                 value="{{$employees->employees_image}}" alt="...">
                                                             </div>
                                                         </div>
@@ -191,7 +191,7 @@
                                 </form>
                             </div>
                             <div class="col-12" id="inputCard">
-                                <form class="mb-1" action="#" method="post">
+                                <form class="mb-1" action="{{route('emp.store')}}" method="post">
                                     @csrf
                                     <div class="card bg-light">
                                         <div class="card-body">
@@ -270,7 +270,7 @@
                                                         <input name="nationality" type="text" class="form-control text-center" placeholder="الجنسية"required>
                                                     </div>
                                                 </div>
-                                                <div class="row g-1 mb-1"> 
+                                                <div class="row g-1 mb-1">
                                                     <div class="col-md-4">
                                                         <input class="form-control text-center" type="file" id="formFile">
                                                     </div>
@@ -282,9 +282,9 @@
                                                             <div class="col-md-9">
                                                                 <select name="workplace" class="form-select text-center">
                                                                     <option disabled selected>مكان الفرع</option>
-                                                                    <option value="#">ينبع المنطقة الصناعية</option>
-                                                                    <option value="#">ينبع حي الياقوت </option>
-                                                                    <option value="#">المدينة المنورة</option>
+                                                                    <option value="ينبع المنطقة الصناعية">ينبع المنطقة الصناعية</option>
+                                                                    <option value="ينبع حي الياقوت ">ينبع حي الياقوت </option>
+                                                                    <option value="المدينة المنورة">المدينة المنورة</option>
                                                                     {{-- @foreach ($workplaces as $workplace)
                                                                     <option value="{{$workplace}}">{{$workplace}}</option>
                                                                     @endforeach --}}

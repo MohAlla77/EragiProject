@@ -47,7 +47,7 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4 mx-auto">
-                    @include('shared.success_message')
+                    {{-- @include('shared.success_message') --}}
                     <h1 class="mt-4">Car condition</h1>
                      <div class="row justify-content-center">
                         <div class="col-xl-4 col-md-6">

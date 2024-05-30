@@ -14,22 +14,21 @@ class HomeController extends Controller
     public function index()
     {
 
-        $count_all = Car::count();
-        $count_new = Car::where('status','NEW')->count();
-        $count_main = Car::where('status','Maintenace')->count();
-        $count_wait = Car::where('status','WAITING')->count();
-        $count_done = Car::where('status','DONE')->count();
+        $count = Car::selectRaw('count(*) as count_all')
+        ->selectRaw("sum(case when status = 'NEW' then 1 else 0 end) as count_new")
+        ->selectRaw("sum(case when status = 'Maintenace' then 1 else 0 end) as count_main")
+        ->selectRaw("sum(case when status = 'WAITING' then 1 else 0 end) as count_wait")
+        ->selectRaw("sum(case when status = 'DONE' then 1 else 0 end) as count_done")
+        ->first();
 
+    return view('home', [
+        'count_new' => $count->count_new,
+        'count_all' => $count->count_all,
+        'count_main' => $count->count_main,
+        'count_wait' => $count->count_wait,
+        'count_done' => $count->count_done,
+    ]);
 
-        return view('home', [
-
-            'count_new' => $count_new,
-            'count_all' => $count_all,
-            'count_main' => $count_main,
-            'count_wait' => $count_wait,
-            'count_done' => $count_done,
-
-        ]);
     }
 
     public function view($type)
