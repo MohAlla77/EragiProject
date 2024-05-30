@@ -10,36 +10,36 @@
         <form>
           <div class="modal-body">
             <div class="row g-1">
-              <div class="col-md-6">
+              {{-- <div class="col-md-6">
                 <input name="#" type="text" class="form-control text-center"
                   id="#" required placeholder="رقم امر العمل">
-              </div>
+              </div> --}}
               <div class="col-md-6">
-                <input name="#" type="text" class="form-control text-center"
+                <input name="carPlate" type="text" class="form-control text-center"
                   id="#" required placeholder="رقم اللوحة">
               </div>
               <div class="col-md-6">
-                <input name="#" type="text" class="form-control text-center"
+                <input name="structure_no" type="text" class="form-control text-center"
                   id="#" required placeholder="رقم الهيكل">
               </div>
               <div class="col-md-6">
-                <input name="#" type="text" class="form-control text-center"
+                <input name="car_name" type="text" class="form-control text-center"
                   id="#" required placeholder="اسم السيارة">
               </div>
               <div class="col-md-6">
-                <input name="#" type="text" class="form-control text-center"
+                <input name="brand" type="text" class="form-control text-center"
                   id="#" required placeholder="ماركة السيارة">
               </div>
               <div class="col-md-6">
-                <input name="#" type="text" class="form-control text-center"
+                <input name="model" type="text" class="form-control text-center"
                   id="#" required placeholder="موديل السيارة">
               </div>
               <div class="col-md-6">
-                <input name="#" type="text" class="form-control text-center"
+                <input name="esper_name" type="text" class="form-control text-center"
                   id="#" required placeholder="اسم الاسبير">
               </div>
-              <div class="col-md-6">
-                <select name="#" class="form-select text-center">
+              <div class="col-md-12">
+                <select name="esper_type" class="form-select text-center">
                   <option selected="#">نوع الاسبير</option>
                   <option value="#">اصلي</option>
                   <option value="#">تجاري</option>

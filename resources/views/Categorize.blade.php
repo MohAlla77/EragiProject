@@ -97,7 +97,7 @@
                                                         @csrf
                                                         <div class="col-md-12 mb-1">
                                                             <input type="text" class="form-control text-center"
-                                                                id="AddacategoryFields" required placeholder="اضافة صنف" readonly>
+                                                             required placeholder="اضافة صنف" readonly>
                                                         </div>
                                                         <div class="row g-1">
                                                             <div class="col-md-6">

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -13,43 +13,35 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-        <style>
+        <style> 
 
-            /* Custom styles for navbar */
             .nav-link {
                 color: #fff;
-                /* Change color to red */
                 font-size: 18px;
-                /* Increase font size to 18 pixels */
             }
 
             .logo-img {
                 width: 55px;
-                /* Adjust the width as needed */
                 height: auto;
-                /* Maintain aspect ratio */
                 margin-right: 20px;
-                /* Adjust the margin as needed */
             }
 
             .inner-card {
                 padding: 15px;
-                /* Adjust padding as needed */
                 margin-bottom: 15px;
-                /* Adjust margin as needed */
             }
         </style>
-    </head>
-    <body class="sb-nav-fixed">
+    </head>--}}
+    {{-- <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Profile</a></li>
+                        <li><a class="dropdown-item" href="#!">Profile</a></li> --}}
                         {{-- <li><a class="dropdown-item" href="#!">Activity Log</a></li> --}}
-                        <li>
+                        {{-- <li>
                             <hr class="dropdown-divider" />
                         </li>
                         <li><a class="dropdown-item" href="#">Logout</a></li>
@@ -63,7 +55,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
-            <div class="col-md-7 texr-end">
+            <div class="col-md-7 texr-end"> --}}
                 {{-- <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
                     <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content">
@@ -97,13 +89,13 @@
                     </div>
                 </div>
                 <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a> --}}
-                <button id="invoiceButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleInvoiceForm()">فاتورة/جدول
-                    {{-- <i class="fas fa-file-invoice"></i> --}}
-                </button>
+                {{-- <button id="invoiceButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleInvoiceForm()">فاتورة/جدول --}}
+                    {{-- <i class="fas fa-file-invoice"></i>
+                </button> --}}
                 {{-- <button id="AddacategoryButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleAddItemCard()">
                     الاصناف </button> --}}
                 {{-- <button id="toggleTableViewButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleTableView()">
-                الجدول <i class="fa-solid fa-eye"></i></button> --}}
+                الجدول <i class="fa-solid fa-eye"></i></button> 
             </div>
             <a class="navbar-brand" href="#"><!--<i class="fa-solid fa-cart-shopping"></i>--><span class="ms-1">المشتريات</span></a>
             <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i
@@ -118,342 +110,352 @@
                 @include('Layout.sidebar')
             </div>
             <div id="layoutSidenav_content" style="height: 25vh; overflow-y: auto;">
-                <main>
-                    <div id="otherForm">
-                        <table id="example" class="table table-striped" style="width:100%">
-                        </table>
+                <main>--}}
+                    @extends('Master')
+                    @section('title',('Purchases'))
+                    @section('navbarTitle', ('Puchases'))
+                    @section('content')
                         <div class="card">
-                            <div class="card-header text-end">جدول المشتريات <i class="fas fa-table me-1"></i>
-                                <div class="col-md-12 d-flex justify-content-end">
-                                    <select id="invoiceTypeFilter" class="form-select text-center ms-auto">
-                                        <option value="all">كل المشتريات </option>
-                                        <option value="invoices">الفواتير</option>
-                                        <option value="Invoicereturns">مرتجع الفواتير</option>
-                                        <option value="purchaseorder">طلب شراء</option>
-                                        <option value="Item">الاصناف</option>
-                                        <option value="Itemgroup">مجموعة الاصناف</option>
-                                    </select>
-                                </div>
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            {{-- <th scope="col"></th>
-                                            <th scope="col">صافي المبلغ </th>
-                                            <th scope="col">اسم البائع</th>
-                                            <th scope="col">التاريخ</th>
-                                            <th scope="col">رقم الفاتورة</th> --}}
-
-                                            <th scope="col">حالة الخدمة</th>
-                                            <th scope="col">مجموعة الخدمة</th>
-                                            <th scope="col">نوع الخدمة</th>
-                                            <th scope="col">سعر التكلفة</th>
-                                            <th scope="col">رقم الخدمة</th>
-                                            <th scope="col">اسم الخدمة</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($Services as $service)
-                                            <tr>
-                                                <td>
-                                                    <!-- Button trigger modal -->
-                                                    <a  data-toggle="modal" data-target="#exampleModal3{{$service->id}}">
-                                                        <button class="btn btn-primary col-5 float-start">
-                                                            <i class="fa-solid fa-trash"></i> <i class="fa-solid fa-pen-to-square"></i>
-                                                        </button>
-                                                    </a>
-                                                | {{$service->status}}<i class="fa-solid fa-check"></i> <i class="fa-solid fa-hourglass-half"></i>
-                                                    <!-- Modal -->
-                                                    @include('model.Edit_service_popup')
-                                                </td>
-                                                <td>{{ $service->serviceGroup->name }}</td>
-                                                <td>{{ $service->service_type }}</td>
-                                                <td>{{ $service->cost_price }}</td>
-                                                <td>{{ $service->service_id }}</td>
-                                                <td>{{ $service->name }}</td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th scope="col">حالة الخدمة</th>
-                                            <th scope="col">مجموعة الخدمة</th>
-                                            <th scope="col">نوع الخدمة</th>
-                                            <th scope="col">سعر التكلفة</th>
-                                            <th scope="col">رقم الخدمة</th>
-                                            <th scope="col">اسم الخدمة</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
+                            <div class="card_body">
+                                <button id="invoiceButton" class="btn btn-primary col-3 ms-1 float-end" onclick="toggleInvoiceForm()">فاتورة/جدول
                             </div>
                         </div>
-                    </div>
-                    <div id="invoiceForm" style="display: none;">
-                        <div class="card bg-light mt-4">
-                            <div class="card-body">
-                                <form class="card inner-card">
-                                    <div class="row g-1">
-                                        <!-- Form Billing information Calculator -->
-                                        <div class="card bg-light">
-                                            <div class="card-body">
-                                                <div class="row g-1">
-                                                    <div class="col-md-6 mb-1 text-center">
-                                                        <button id="printButton" class="btn btn-primary col-4"onclick="window.print()"><i class="fas fa-print"></i></button>
-                                                        <button type="submit" class="btn btn-success col-4"><i class="fa fa-bookmark" aria-hidden="true"></i></button>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <button type="button" class="btn btn-primary col-12" data-bs-toggle="modal" data-bs-target="#exampleModal88">
-                                                            اختيار المنتجات التسعير                                                            </button>                   
+                        <div id="otherForm">
+                            <table id="example" class="table table-striped" style="width:100%">
+                            </table>
+                            <div class="card">
+                                <div class="card-header text-end">جدول المشتريات <i class="fas fa-table me-1"></i>
+                                    <div class="col-md-12 d-flex justify-content-end">
+                                        <select id="invoiceTypeFilter" class="form-select text-center ms-auto">
+                                            <option value="all">كل المشتريات </option>
+                                            <option value="invoices">الفواتير</option>
+                                            <option value="Invoicereturns">مرتجع الفواتير</option>
+                                            <option value="purchaseorder">طلب شراء</option>
+                                            <option value="Item">الاصناف</option>
+                                            <option value="Itemgroup">مجموعة الاصناف</option>
+                                        </select>
+                                    </div>
+                                    <table id="datatablesSimple">
+                                        <thead>
+                                            <tr>
+                                                {{-- <th scope="col"></th>
+                                                <th scope="col">صافي المبلغ </th>
+                                                <th scope="col">اسم البائع</th>
+                                                <th scope="col">التاريخ</th>
+                                                <th scope="col">رقم الفاتورة</th> --}}
+
+                                                <th scope="col">حالة الخدمة</th>
+                                                <th scope="col">مجموعة الخدمة</th>
+                                                <th scope="col">نوع الخدمة</th>
+                                                <th scope="col">سعر التكلفة</th>
+                                                <th scope="col">رقم الخدمة</th>
+                                                <th scope="col">اسم الخدمة</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($Services as $service)
+                                                <tr>
+                                                    <td>
+                                                        <!-- Button trigger modal -->
+                                                        <a  data-toggle="modal" data-target="#exampleModal3{{$service->id}}">
+                                                            <button class="btn btn-primary col-5 float-start">
+                                                                <i class="fa-solid fa-trash"></i> <i class="fa-solid fa-pen-to-square"></i>
+                                                            </button>
+                                                        </a>
+                                                    | {{$service->status}}<i class="fa-solid fa-check"></i> <i class="fa-solid fa-hourglass-half"></i>
                                                         <!-- Modal -->
-                                                        <div class="modal fade" id="exampleModal88" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog modal-xl">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <div class="col-12">
-                                                                      <h5 class="modal-title text-center" id="exampleModalLabel">طلب تسعير المنتج</h5>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="card mb-4">
-                                                                        <div class="card-header text-end">اختيار المنتجات<i
-                                                                                class="fas fa-table me-4"></i></div>
-                                                                        <div class="card-body">
-                                                                            <select class="form-select text-center" aria-label="Default select example">
-                                                                                <option selected>حدد المنتج</option>
-                                                                                <option value="1">One</option>
-                                                                                <option value="2">Two</option>
-                                                                                <option value="3">Three</option>
-                                                                            </select>
-                                                                            <table class="table table-bordered table-striped">
-                                                                                <thead class="thead-dark">
-                                                                                    <tr class="text-center">
-                                                                                        <th>اختيار</th>
-                                                                                        <th>سعر التكلفة</th>
-                                                                                        <th>الكمية</th>
-                                                                                        <th>نوع الوحدة</th>
-                                                                                        <th>الرقم التسلسي</th>
-                                                                                        <th>اسم الصنف</th>
-                                                                                    </tr>
-                                                                                </thead>
-                                                                                <tbody>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <div class="form-check">
-                                                                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                                                <label class="form-check-label" for="flexCheckDefault">
-                                                                                                    
-                                                                                                </label>
-                                                                                            </div>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                    <tr></tr>
-                                                                                    <tr></tr>
-                                                                                    <tr></tr>
-                                                                                    <tr></tr>
-                                                                                </tbody>
-                                                                            </table>
+                                                        @include('model.Edit_service_popup')
+                                                    </td>
+                                                    <td>{{ $service->serviceGroup->name }}</td>
+                                                    <td>{{ $service->service_type }}</td>
+                                                    <td>{{ $service->cost_price }}</td>
+                                                    <td>{{ $service->service_id }}</td>
+                                                    <td>{{ $service->name }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th scope="col">حالة الخدمة</th>
+                                                <th scope="col">مجموعة الخدمة</th>
+                                                <th scope="col">نوع الخدمة</th>
+                                                <th scope="col">سعر التكلفة</th>
+                                                <th scope="col">رقم الخدمة</th>
+                                                <th scope="col">اسم الخدمة</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="invoiceForm" style="display: none;">
+                            <div class="card bg-light mt-4">
+                                <div class="card-body">
+                                    <form class="card inner-card">
+                                        <div class="row g-1">
+                                            <!-- Form Billing information Calculator -->
+                                            <div class="card bg-light">
+                                                <div class="card-body">
+                                                    <div class="row g-1">
+                                                        <div class="col-md-6 mb-1 text-center">
+                                                            <button id="printButton" class="btn btn-primary col-4"onclick="window.print()"><i class="fas fa-print"></i></button>
+                                                            <button type="submit" class="btn btn-success col-4"><i class="fa fa-bookmark" aria-hidden="true"></i></button>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <button type="button" class="btn btn-primary col-12" data-bs-toggle="modal" data-bs-target="#exampleModal88">
+                                                                اختيار المنتجات التسعير                                                            </button>                   
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="exampleModal88" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog modal-xl">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <div class="col-12">
+                                                                        <h5 class="modal-title text-center" id="exampleModalLabel">طلب تسعير المنتج</h5>
                                                                         </div>
                                                                     </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="card mb-4">
+                                                                            <div class="card-header text-end">اختيار المنتجات<i
+                                                                                    class="fas fa-table me-4"></i></div>
+                                                                            <div class="card-body">
+                                                                                <select class="form-select text-center" aria-label="Default select example">
+                                                                                    <option selected>حدد المنتج</option>
+                                                                                    <option value="1">One</option>
+                                                                                    <option value="2">Two</option>
+                                                                                    <option value="3">Three</option>
+                                                                                </select>
+                                                                                <table class="table table-bordered table-striped">
+                                                                                    <thead class="thead-dark">
+                                                                                        <tr class="text-center">
+                                                                                            <th>اختيار</th>
+                                                                                            <th>سعر التكلفة</th>
+                                                                                            <th>الكمية</th>
+                                                                                            <th>نوع الوحدة</th>
+                                                                                            <th>الرقم التسلسي</th>
+                                                                                            <th>اسم الصنف</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <div class="form-check">
+                                                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                                                                        
+                                                                                                    </label>
+                                                                                                </div>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr></tr>
+                                                                                        <tr></tr>
+                                                                                        <tr></tr>
+                                                                                        <tr></tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                <button type="button" class="btn btn-primary">Save changes</button>
                                                                 </div>
-                                                            </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    {{-- <div class="col-md-12 mb-1">
-                                                        <hr class="separator-line">
-                                                    </div> --}}
-                                                    <div class="col-md-6">
-                                                        <select class="form-select text-center" id="paymentMethod"
-                                                            name="paymentMethod" aria-label="Default select example">
-                                                            <option selected>طريقة الدفع</option>
-                                                            <option value="cash">كاش</option>
-                                                            <option value="network">شبكة</option>
-                                                            <option value="Late payment">اجل</option>
-                                                            <option value="Prepaid">مقدم</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <select class="form-select text-center" id="invoiceType"
-                                                            name="invoiceType" aria-label="Default select example"
-                                                            onchange="generateInvoiceNumber()">
-                                                            <option selected>نوع الفاتورة</option>
-                                                            <option value="invoice">فاتوره مشتريات</option>
-                                                            <option value="return">مرتجع </option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <input class="form-control text-center"
-                                                            id="invoice number" value=""
-                                                            placeholder="رقم الفاتورة" readonly>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <input class="form-control text-center"
-                                                            id="Buyername" value="" placeholder="اسم المستخدم"
-                                                            readonly>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <!-- Button trigger modal -->
-                                                        <button type="button" class="btn btn-secondary col-12" data-bs-toggle="modal" data-bs-target="#exampleModal9">
-                                                            طلب شراء
+                                                        {{-- <div class="col-md-12 mb-1">
+                                                            <hr class="separator-line">
+                                                        </div> --}}
+                                                        <div class="col-md-6">
+                                                            <select class="form-select text-center" id="paymentMethod"
+                                                                name="paymentMethod" aria-label="Default select example">
+                                                                <option selected>طريقة الدفع</option>
+                                                                <option value="cash">كاش</option>
+                                                                <option value="network">شبكة</option>
+                                                                <option value="Late payment">اجل</option>
+                                                                <option value="Prepaid">مقدم</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <select class="form-select text-center" id="invoiceType"
+                                                                name="invoiceType" aria-label="Default select example"
+                                                                onchange="generateInvoiceNumber()">
+                                                                <option selected>نوع الفاتورة</option>
+                                                                <option value="invoice">فاتوره مشتريات</option>
+                                                                <option value="return">مرتجع </option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input class="form-control text-center"
+                                                                id="invoice number" value=""
+                                                                placeholder="رقم الفاتورة" readonly>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input class="form-control text-center"
+                                                                id="Buyername" value="" placeholder="اسم المستخدم"
+                                                                readonly>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <!-- Button trigger modal -->
+                                                            <button type="button" class="btn btn-secondary col-12" data-bs-toggle="modal" data-bs-target="#exampleModal9">
+                                                                طلب شراء
+                                                                </button>
+                                                                <div>
+                                                                @include('model.order_sales_popup')
+                                                                </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <button type="button" class="btn btn-secondary col-12" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+                                                                طلب تسعيرة
                                                             </button>
-                                                            <div>
-                                                            @include('model.order_sales_popup')
-                                                            </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <button type="button" class="btn btn-secondary col-12" data-bs-toggle="modal" data-bs-target="#exampleModal5">
-                                                            طلب تسعيرة
-                                                        </button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <!-- Form Add in table Calculator -->
-                                        {{-- <div class="col-md-6"> --}}
-                                            {{-- <div class="row">
-                                                <div id="transformation addNewItemForm">
-                                                    <div class="card bg-light">
-                                                        <div class="card-body">
-                                                            <div class="row g-1">
-                                                                <div class="col-md-6">
-                                                                    <input name="itemName" id="itemName"
-                                                                        required class="form-control text-center"
-                                                                        placeholder="اسم الصنف">
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <input class="form-control text-center"
-                                                                        id="validationCustom02" placeholder="الرقم التسلسي"
-                                                                        required>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <input class="form-control text-center"
-                                                                        id="unit" placeholder="نوع الوحدة" required>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <input name="name" required
-                                                                        class="form-control text-center" id="quantity"
-                                                                        placeholder="الكمية">
-                                                                </div>
-                                                                <div class="col-md-12">
-                                                                    <input name="name" required
-                                                                        class="form-control text-center" id="price"
-                                                                        placeholder="سعر التكلفة">
-                                                                </div>
-                                                                <div class="footer text-center">
-                                                                    <button type="button" class="btn btn-danger col-3"
-                                                                        data-bs-dismiss="modal">الغاء <i
-                                                                            class="fa-solid fa-xmark"></i></button>
-                                                                    <button type="button" class="btn btn-success col-3"
-                                                                        id="addItemBtn">اضافة <i
-                                                                            class="fa-solid fa-plus"></i></button>
+                                            <!-- Form Add in table Calculator -->
+                                            {{-- <div class="col-md-6"> --}}
+                                                {{-- <div class="row">
+                                                    <div id="transformation addNewItemForm">
+                                                        <div class="card bg-light">
+                                                            <div class="card-body">
+                                                                <div class="row g-1">
+                                                                    <div class="col-md-6">
+                                                                        <input name="itemName" id="itemName"
+                                                                            required class="form-control text-center"
+                                                                            placeholder="اسم الصنف">
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <input class="form-control text-center"
+                                                                            id="validationCustom02" placeholder="الرقم التسلسي"
+                                                                            required>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <input class="form-control text-center"
+                                                                            id="unit" placeholder="نوع الوحدة" required>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <input name="name" required
+                                                                            class="form-control text-center" id="quantity"
+                                                                            placeholder="الكمية">
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <input name="name" required
+                                                                            class="form-control text-center" id="price"
+                                                                            placeholder="سعر التكلفة">
+                                                                    </div>
+                                                                    <div class="footer text-center">
+                                                                        <button type="button" class="btn btn-danger col-3"
+                                                                            data-bs-dismiss="modal">الغاء <i
+                                                                                class="fa-solid fa-xmark"></i></button>
+                                                                        <button type="button" class="btn btn-success col-3"
+                                                                            id="addItemBtn">اضافة <i
+                                                                                class="fa-solid fa-plus"></i></button>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div> --}}
+                                                </div> --}}
 
-                                            <!-- Button trigger modal -->
-                                            
-                                        {{-- </div> --}}
-                                    </div>
-                                    <!-- Table Calculator -->
-                                    <div class="card mb-1">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <table class="table table-striped">
-                                                    <thead class="thead-dark">
-                                                        <tr>
-                                                            <th scope="col">المجموع</th>
-                                                            <th scope="col">السعر</th>
-                                                            <th scope="col">الكمية</th>
-                                                            <th scope="col">الوحدة</th>
-                                                            <th scope="col">رمز الصنف</th>
-                                                            <th scope="col">اسم الصنف</th>
-                                                            <th scope="col">رقم</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody id="itemTableBody">
-                                                        <!-- Table rows will be added dynamically here -->
-                                                    </tbody>
-                                                </table>
+                                                <!-- Button trigger modal -->
+                                                
+                                            {{-- </div> --}}
+                                        </div>
+                                        <!-- Table Calculator -->
+                                        <div class="card mb-1">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <table class="table table-striped">
+                                                        <thead class="thead-dark">
+                                                            <tr>
+                                                                <th scope="col">المجموع</th>
+                                                                <th scope="col">السعر</th>
+                                                                <th scope="col">الكمية</th>
+                                                                <th scope="col">الوحدة</th>
+                                                                <th scope="col">رمز الصنف</th>
+                                                                <th scope="col">اسم الصنف</th>
+                                                                <th scope="col">رقم</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="itemTableBody">
+                                                            <!-- Table rows will be added dynamically here -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- Card Calculator -->
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="row g-1 justify-content-center">
-                                                <div class="col-md-6">
-                                                    <div class="card bg-light" style="height: 100%;">
-                                                        <div class="card-body">
-                                                            <div class="row g-1">
-                                                                <div class="col-md-6">
-                                                                    <input class="form-control text-center"
-                                                                        id="Total" value="" placeholder="الاجمالي"
-                                                                        readonly>
+                                        <!-- Card Calculator -->
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="row g-1 justify-content-center">
+                                                    <div class="col-md-6">
+                                                        <div class="card bg-light" style="height: 100%;">
+                                                            <div class="card-body">
+                                                                <div class="row g-1">
+                                                                    <div class="col-md-6">
+                                                                        <input class="form-control text-center"
+                                                                            id="Total" value="" placeholder="الاجمالي"
+                                                                            readonly>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <input class="form-control text-center"
+                                                                            id="VAT%15" value=""
+                                                                            placeholder="ضريبة القيم المضافة%15" readonly>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <select class="form-select text-center" id="Discountearned"
+                                                                            aria-label="Default select example"
+                                                                            onchange="handleDiscountType()">
+                                                                            <option selected>الخصم</option>
+                                                                            <option value="percentage">بالنسبة</option>
+                                                                            <option value="amount">بالمبلغ</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-6" id="percentageDiscountField"
+                                                                        style="display: none;">
+                                                                        <input class="form-control text-center"
+                                                                            id="percentageDiscountValue"
+                                                                            placeholder="قيمة الخصم بالنسبة">
+                                                                    </div>
+                                                                    <div class="col-md-6" id="amountDiscountField"
+                                                                        style="display: none;">
+                                                                        <input class="form-control text-center"
+                                                                            id="amountDiscountValue" placeholder="قيمة الخصم بالمبلغ">
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <input class="form-control text-center"
+                                                                            id="totalAmountWithTax" value=""
+                                                                            placeholder="الاجمالي مع الضريبة" readonly>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <input class="form-control text-center"
+                                                                            id="netAmount" value="" placeholder="المبلغ الصافي"
+                                                                            readonly>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="col-md-6">
-                                                                    <input class="form-control text-center"
-                                                                        id="VAT%15" value=""
-                                                                        placeholder="ضريبة القيم المضافة%15" readonly>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <select class="form-select text-center" id="Discountearned"
-                                                                        aria-label="Default select example"
-                                                                        onchange="handleDiscountType()">
-                                                                        <option selected>الخصم</option>
-                                                                        <option value="percentage">بالنسبة</option>
-                                                                        <option value="amount">بالمبلغ</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="col-md-6" id="percentageDiscountField"
-                                                                    style="display: none;">
-                                                                    <input class="form-control text-center"
-                                                                        id="percentageDiscountValue"
-                                                                        placeholder="قيمة الخصم بالنسبة">
-                                                                </div>
-                                                                <div class="col-md-6" id="amountDiscountField"
-                                                                    style="display: none;">
-                                                                    <input class="form-control text-center"
-                                                                        id="amountDiscountValue" placeholder="قيمة الخصم بالمبلغ">
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <input class="form-control text-center"
-                                                                        id="totalAmountWithTax" value=""
-                                                                        placeholder="الاجمالي مع الضريبة" readonly>
-                                                                </div>
-                                                                <div class="col-md-12">
-                                                                    <input class="form-control text-center"
-                                                                        id="netAmount" value="" placeholder="المبلغ الصافي"
-                                                                        readonly>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Textarea Calculator -->
+                                                    <div class="col-md-6">
+                                                        <div class="card bg-light" style="height: 100%;">
+                                                            <div class="card-body">
+                                                                <div class="numbered-textarea" style="height: 100%;">
+                                                                    <textarea class="form-control text-center" name="notes" id="notes" style="height: 100%;"
+                                                                        placeholder="ملاحظات"></textarea>
+                                                                    <div class="line-numbers" id="lineNumbers"></div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- Textarea Calculator -->
-                                                <div class="col-md-6">
-                                                    <div class="card bg-light" style="height: 100%;">
-                                                        <div class="card-body">
-                                                            <div class="numbered-textarea" style="height: 100%;">
-                                                                <textarea class="form-control text-center" name="notes" id="notes" style="height: 100%;"
-                                                                    placeholder="ملاحظات"></textarea>
-                                                                <div class="line-numbers" id="lineNumbers"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @stop
                         {{-- <div class="card border-dark">
                             <div class="card-body">
                                 <div class="col-12">
@@ -724,9 +726,9 @@
                                 </div>
                             </div>
                         </div> --}}
-                </main>
+                {{-- </main>
             </div>
-        </div>
+        </div> --}}
         <script>
             function mysticalFormToggle() {
                 var selectedOption = document.getElementById("invoiceType").value;
@@ -879,9 +881,9 @@
                 }
             }
         </script>
-        <script src="js/scripts.js"></script>
+        {{-- <script src="js/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
             crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
     </body>
-</html>
+</html> --}}

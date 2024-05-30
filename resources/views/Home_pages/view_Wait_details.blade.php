@@ -14,7 +14,7 @@
                         <table id="datatablesSimple">
                             <thead>
                                 <tr>
-                                    <th>من الصيانه</th>
+                                    {{-- <th>من الصيانه</th> --}}
                                     <th>التاريخ</th>
                                     <th>تعليق</th>
                                     <th>الماركة</th>
@@ -30,7 +30,7 @@
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>من الصيانه</th>
+                                    {{-- <th>من الصيانه</th> --}}
                                     <th>التاريخ</th>
                                     <th>تعليق</th>
                                     <th>الماركو</th>
@@ -49,7 +49,9 @@
                                 @foreach ($Cars as $car )
 
                                 <tr>
-                                    <td></td>
+                                    {{-- <td>
+                                        <button type="button" class="btn btn-warning"><i class="fa fa-undo" aria-hidden="true"></i></button>
+                                    </td> --}}
                                     <td>{{ $car->created_at->format('d/m/y h:i A') }}</td>
                                     <td>{{ $car->comment }}</td>
                                     <td>{{ $car->brand }}</td>

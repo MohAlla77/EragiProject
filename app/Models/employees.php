@@ -14,7 +14,7 @@ class employees extends Model
     protected $fillable = [
     'email',
     'name',
-    'employee_number',
+    // 'employee_number',
     'identity_number',
     'phone_number',
     'department',
@@ -29,4 +29,26 @@ class employees extends Model
     'workplace',
     
     ];
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($employee) {
+            $employee->employee_number = self::generateEmployeeNumber();
+        });
+    }
+
+    private static function generateEmployeeNumber()
+    {
+        $latestEmployee = self::orderBy('created_at', 'desc')->first();
+        if (!$latestEmployee) {
+            return 'EMP0001';
+        }
+
+        $lastNumber = intval(substr($latestEmployee->employee_number, 3));
+        $newNumber = str_pad($lastNumber + 1, 4, '0', STR_PAD_LEFT);
+
+        return 'EMP' . $newNumber;
+    }
+
 }

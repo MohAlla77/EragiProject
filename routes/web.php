@@ -30,6 +30,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Guest routes
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategorizeController;
+use App\Http\Controllers\EmployeesController;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\ManagemetController;
+use App\Http\Controllers\PurchasesController;
+use App\Http\Controllers\ServiceGroupController;
+use App\Http\Controllers\SpearController;
+use App\Http\Controllers\TiresController;
+use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\PricingController;
+use App\Models\Car;
+use App\Models\Service;
+use App\Models\Supplier;
+use FontLib\Table\Type\name;
+
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'store']);
@@ -96,6 +112,55 @@ Route::group(['prefix' => 'receiving-pricing-requests'], function () {
 });
 
 // Store route
+Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
+
+Route::get('/workspace', function () {
+    return view('WorkSpace');
+})->name('Workspace')->middleware('auth');
+
+
+Route::get('/invoice', [InvoiceController::class, 'index'])->name('invoice.index');
+
+Route::get('/invoice/Sales_accept', function () {
+    return view('Sales_accept', ['Services' => Service::all()]);
+})->name('Sales_accept');
+
+
+
+Route::get('/Categorize', [CategorizeController::class, 'index'])->name('Categorize');
+Route::post('/Categorize', [CategorizeController::class, 'store'])->name('Categorize.store');
+
+
+Route::get('/tries', [TiresController::class, 'index'])->name('Tries');
+Route::post('/tries', [TiresController::class, 'AddTire'])->name('Tries.Add');
+
+Route::get('/Supplier', [SupplierController::class, 'index'])->name('Supplier');
+Route::post('/Supplier', [SupplierController::class, 'SupplierStore'])->name('Supplier.Add');
+
+Route::get('/Employees', [EmployeesController::class, 'index'])->name('Employees');
+Route::post('/Employees', [EmployeesController::class, 'Employeesstore'])->name('Employees.Add');
+// Route::get('/search', [EmployeesController::class, 'search'])->name('employees.search');
+
+Route::get('/pricing', [PricingController::class, 'index'])->name('Pricing');
+Route::post('/pricing', [PricingController::class, 'store'])->name('Pricing.store');
+
+Route::get('/test', function () {
+    return view('pdf.Job_order');
+});
+
+
+Route::get('/Store', function () {
+    return view('Store');
+})->name('Store');
+
+Route::get('/Employee_requests', function () {
+    return view('Employee_requests');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+})->name('profile');
+
 Route::get('/store', function () {
     return view('store');
 })->name('store');
@@ -116,6 +181,20 @@ Route::group(['prefix' => 'management'], function () {
     Route::get('/', function () {
         return view('Management_page.Employee_requests');
     })->name('Employee_requests');
+
+    // Route::get('Employee', function () {
+
+    //     $workplaces =[
+    //         'يبنع الصناعية', 'حي الياقوت', 'المدينة المنورة'
+    //     ];
+
+    //     return view('employees',compact( "workplaces"));
+    // })->name('employees');
+
+    // Route::get('/', function () {
+    //     return view('Management_page.Employee_requests');
+    // })->name('Employee_requests');
+
     Route::get('/Report', function () {
         return view('Management_page.Reports');
     })->name('Reports');

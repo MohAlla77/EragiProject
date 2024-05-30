@@ -15,7 +15,7 @@
         "carlos-meneses/laravel-mpdf": "^2.1",
         "codeat3/blade-phosphor-icons": "^2.2",
         "dompdf/dompdf": "^2.0",
-        "filament/filament": "3.2",
+        "filament/filament": "^3.2",
         "filament/notifications": "^3.2",
         "filament/widgets": "^3.2",
         "guzzlehttp/guzzle": "^7.2",
@@ -24,6 +24,7 @@
         "laravel/tinker": "^2.8"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.13",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
@@ -47,8 +48,7 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi",
-            "@php artisan filament:upgrade"
+            "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"

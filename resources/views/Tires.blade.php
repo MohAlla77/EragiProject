@@ -1,4 +1,4 @@
-<html lang="en">
+{{-- <html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -63,7 +63,7 @@
                     <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#!">Profile</a></li>
                         {{-- <li><a class="dropdown-item" href="#!">language</a></li> --}}
-                        <li>
+                        {{-- <li>
                             <hr class="dropdown-divider" />
                         </li>
                         <li><a class="dropdown-item" href="logout.php">Logout</a></li>
@@ -100,7 +100,17 @@
                 @include('Layout.sidebar')
             </div>
             <div id="layoutSidenav_content" class="sidebar-collapsed" style="height: 25vh; overflow-y: auto;">
-                <main>
+                <main> --}}
+                @extends('Master')
+                @section('title', ('Tires'))
+                @section('navbarTitle',('Tires'))
+                @section('content')
+                    <div class="card">
+                        <div class="card-body">
+                            <button id="toggleCardViewButton" class="btn btn-primary col-1 pe-2 float-end" onclick="toggleCardView()">جديد <i class="fa-solid fa-file"></i></button>
+                            <button id="invoiceButton" class="btn btn-primary col-1 ms-1 float-end" onclick="toggleInvoiceForm()">فاتورة <i>
+                        </div>
+                    </div>
                     <div class="card">
                         <form id="invoiceForm" style="height: 100%; display: none;">
                             <div class="card-body">
@@ -378,6 +388,9 @@
                                                             class="form-select text-center"
                                                             aria-describedby="validationServer04Feedback" required>
                                                             <option value="ماركة"> ماركة</option>
+                                                            <option value="بلد">صنع في المانيا </option>
+                                                            <option value="بلد">صنع في الصين</option>
+                                                            <option value="بلد">صنع في اليابان</option>
                                                         </select>
                                                         @error('TireModel')
                                                             <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
@@ -391,7 +404,9 @@
                                                         <select name="TireCountry" id="model"
                                                             class="form-select text-center"
                                                             aria-describedby="validationServer04Feedback" required>
-                                                            <option value="بلد">بلد صنع</option>
+                                                            <option value="بلد">صنع في المانيا </option>
+                                                            <option value="بلد">صنع في الصين</option>
+                                                            <option value="بلد">صنع في اليابان</option>
                                                         </select>
                                                         @error('TireCountry')
                                                             <span
@@ -428,12 +443,16 @@
                                                     </div>
                                                     <div class="col-md-6 mb-1">
                                                         <input name="SupplierTaxNumber" class="form-control text-center" id="#"
-                                                            required placeholder="الرقم الضريبي للمورد" readonly>
+                                                            required placeholder="الرقم الضريبي للمورد">
                                                     </div>
                                                     <div class="col-md-6">
                                                         <select name="SupplierName" class="form-select text-center"
                                                             aria-label="Default select example">
                                                             <option selected> إسم المورد </option>
+                                                            <option selected> محمد </option>
+                                                            <option selected> احمد</option>
+                                                            <option selected> حمد</option>
+
                                                         {{--@foreach ($Supplers as $suppler )
                                                             <option value="{{$suppler->name}}"> {{$suppler->name}}  </option>
                                                             @endforeach --}}
@@ -514,21 +533,10 @@
                             </table>
                         </div>
                     </div>
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2024</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                @stop
+                {{-- </main> 
             </div>
-        </div>
+        </div>--}}
         <script>
             function toggleCardView() {
                 var card = document.getElementById('cardContainer');
@@ -548,7 +556,7 @@
                 }
             }
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+        {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
         </script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
@@ -558,4 +566,4 @@
             crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
     </body>
-</html>
+</html> --}}

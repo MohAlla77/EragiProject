@@ -1,5 +1,5 @@
 
-<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+{{-- <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
     <div class="sb-sidenav-menu">
         <div class="nav">
             <a class="nav-link text-white" href="{{route('home')}}">
@@ -18,7 +18,7 @@
                 <div class="sb-nav-link-icon text-white"></div>
                 <span class="ms-auto pe-2">المشتريات</span>
                 {{-- <i class="fa fa-shopping-cart" aria-hidden="true"></i> --}}
-            </a>
+            {{-- </a>
             <ul class="dropdown-menu text-center" aria-labelledby="#">
                 <li><a class="dropdown-item text-center" href="{{route('purchases')}}">الفواتير</a></li>
                 <li><a class="dropdown-item text-center" href="#">الأصناف</a></li>
@@ -47,7 +47,7 @@
             </a>
             <a class="nav-link dropdown-toggle text-white" href="{{route('Employees')}}" id="invoice.indexDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="sb-nav-link-icon text-white"></div>
-                <span class="ms-auto pe-2">الموظفين</span>
+                <span class="ms-auto pe-2">HR</span>
             </a>
             <ul class="dropdown-menu text-center" aria-labelledby="#">
                 <li><a class="dropdown-item text-center" href="{{route('Employees')}}">الموظفين</a></li>
@@ -59,5 +59,4 @@
             </a>
         </div>
     </div>
-</nav>
-
+</nav> --}}

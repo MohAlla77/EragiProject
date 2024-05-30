@@ -1,4 +1,4 @@
-<head>
+{{-- <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -44,8 +44,8 @@
             margin-top: -5px;
         }
     </style>
-</head>
-
+</head> --}}
+{{-- 
 <body class="sb-nav-fixed sb-sidenav-toggled">
     @include('Layout.navbar')
     <div id="layoutSidenav">
@@ -53,281 +53,284 @@
             @include('Layout.sidebar')
         </div>
         <div id="layoutSidenav_content" style="height: 25vh; overflow-y: auto;">
-            <main>
-                <div class="container-fluid mt-2">
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            <form class="justify-content-center" action="{{ route('car.store') }}" method="POST"
-                                enctype="multipart/form-data" id="carForm">
-                                @csrf
-                                {{-- onsubmit="sendAlert(event); scrollToTop();"> --}}
-                                <div class="card">
-                                    <div class="row g-1">
-                                        <div class="col-md-12"><br>
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <input type="datetime-local" class="form-control text-center"
-                                                        id="validationCustomDate" placeholder="التاريخ" required
-                                                        readonly>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <input type="text" class="form-control text-center"
-                                                        id="validationCustomUsername"
-                                                        value="{{ Auth::user()->first_name }} {{ Auth::user()->last_name }} :  المستخدم "
-                                                        required readonly>
-                                                </div>
-                                                <div class="col-md-2 text-center">
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="paymentType" id="cashPayment" value="cash" required>
-                                                        <label class="form-check-label" for="cashPayment">
-                                                            نقدي
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio"
-                                                            name="paymentType" id="companyPayment" value="company"
-                                                            required>
-                                                        <label class="form-check-label" for="companyPayment">
-                                                            شركة
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12"><br>
+            <main> --}}
+                @extends('Master')
+                @section('title', 'New Car')
+                    @section('content')
+                        <div class="container-fluid mt-2">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <form class="justify-content-center" action="{{ route('car.store') }}" method="POST"
+                                        enctype="multipart/form-data" id="carForm">
+                                        @csrf
+                                        {{-- onsubmit="sendAlert(event); scrollToTop();"> --}}
+                                        <div class="card">
                                             <div class="row g-1">
-                                                <div class="col-md-4">
-                                                    <div class="mb-2">
-                                                        <select name="car_brand" id="brand"
-                                                            class="form-select text-center"
-                                                            aria-describedby="validationServer04Feedback" required>
-                                                            <option value="" disabled selected>ماركة السيارة
-                                                            </option>
-                                                            <!-- Placeholder option -->
-                                                            @foreach ($car_brand as $car_brand)
-                                                                <option>{{ $car_brand }}</option>
-                                                            @endforeach
-                                                            <!-- Add options here -->
-                                                        </select>
-                                                        @error('car_brand')
-                                                            <span
-                                                                class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="mb-2">
-                                                        <select name="car_model" id="model"
-                                                            class="form-select text-center"
-                                                            aria-describedby="validationServer04Feedback" required>
-                                                            <option value="" disabled selected>موديل السيارة
-                                                            </option>
-                                                            <!-- Placeholder option -->
-                                                            @foreach ($car_model as $car_model)
-                                                                <option>{{ $car_model }}</option>
-                                                            @endforeach
-                                                            <!-- Add options here -->
-                                                        </select>
-                                                        @error('car_model')
-                                                            <span
-                                                                class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="mb-2">
-                                                        <select name="car_service" id="serviceType"
-                                                            class="form-select text-center"
-                                                            aria-describedby="validationServer04Feedback" required>
-                                                            <option value="" disabled selected>نوع الخدمة</option>
-                                                            <!-- Placeholder option -->
-                                                            @foreach ($car_service as $car_service)
-                                                                <option>{{ $car_service }}</option>
-                                                            @endforeach
-                                                            <!-- Add options here -->
-                                                        </select>
-                                                        @error('car_service')
-                                                            <span
-                                                                class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="mb-2 position-relative">
-                                                        <input name="structure_no" type="text"
-                                                            class="form-control text-center" id="chassisNumber"
-                                                            name="chassisNumber" required placeholder="رقم الهيكل">
-                                                        @error('structure_no')
-                                                            <span
-                                                                class="d-block fs-6 text-danger mt-2 error-message">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="input-group mb-2">
-                                                        <input name="car_counter" name="number"
-                                                            class="form-control text-center" id="odometerReading"
-                                                            required placeholder="رقم العداد">
-                                                        <span class="input-group-text">KM</span>
-                                                        @error('car_counter')
-                                                            <span
-                                                                class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="mb-2 position-relative">
-                                                        <input name="car_name" type="text"
-                                                            class="form-control text-center" id="carName" required
-                                                            placeholder="اسم السيارة">
-                                                        @error('car_name')
-                                                            <span
-                                                                class="d-block fs-6 text-danger mt-2 error-message">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div id="cashInput">
-                                                        <div class="mb-2 position-relative">
-                                                            <input name="u_name" type="text" name="name"
-                                                                class="form-control text-center" id="customerName"
-                                                                required placeholder="الاسم">
-                                                            @error('u_name')
-                                                                <span
-                                                                    class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
-                                                            @enderror
+                                                <div class="col-md-12"><br>
+                                                    <div class="row">
+                                                        <div class="col-md-5">
+                                                            <input type="datetime-local" class="form-control text-center"
+                                                                readonly required>
+                                                        </div>                                                        
+                                                        <div class="col-md-5">
+                                                            <input type="text" class="form-control text-center"
+                                                                id="validationCustomUsername"
+                                                                value="{{ Auth::user()->first_name }} {{ Auth::user()->last_name }} :  المستخدم "
+                                                                required readonly>
                                                         </div>
-                                                    </div>
-                                                    <div id="companyOptions" style="display:none;">
-                                                        <div class="mb-2">
-                                                            <select name="u_name" id="companySelect"
-                                                                class="form-select text-center"readonly>
-                                                                <option>اختار الشركة</option>
-                                                                @foreach ($company as $comp)
-                                                                    <option value="{{ $comp->company_name }}"
-                                                                        data-company-name="{{ $comp->company_name }}"
-                                                                        data-company-phone="{{ $comp->phone }}">
-                                                                        {{ $comp->company_name }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                            @error('u_name')
-                                                                <span
-                                                                    class="d-block fs-6 text-danger mt-2"readonly>{{ $message }}</span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                    <div class="input-group mb-2 position-relative">
-                                                        <span class="input-group-text">+966</span>
-                                                        <input class="form-control text-center" name="u_phone"
-                                                            id="customerPhone" placeholder="5x xxx xxxx" required>
-                                                        @error('u_phone')
-                                                            <span
-                                                                class="d-block fs-6 text-danger mt-2 error-message">{{ $message }}</span>
-                                                        @enderror
-                                                    </div>
-                                                    <div class="input-group">
-                                                        <input type="text" class="form-control" name="otp1"
-                                                            maxlength="1" required>
-                                                        <input type="text" class="form-control"
-                                                            name="otp2"maxlength="1" required>
-                                                        <input type="text" class="form-control" name="otp3"
-                                                            maxlength="1" required>
-                                                        <input type="text" class="form-control" name="otp4"
-                                                            maxlength="1" required placeholder="لوحة">
-                                                        <input type="text" class="form-control" name="otp5"
-                                                            maxlength="1" required placeholder="رقم ">
-                                                        <input type="text" class="form-control" name="otp6"
-                                                            maxlength="1" required>
-                                                        <input type="text" class="form-control" name="otp7"
-                                                            maxlength="1" required>
-
-                                                        {{-- @error('car_plate')
-                                                            <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
-                                                        @enderror --}}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="row g-1 mb-1">
-                                                <div class="col-md-12">
-                                                    <div class="card bg-light border-dark">
-                                                        <div class="card-body">
-                                                            <div class="form-group text-center">
-                                                                <label for="image3" style="cursor: pointer;">
-                                                                    <img src="placeholder.jpg" class="img-thumbnail"
-                                                                        id="imagePreview3">
+                                                        <div class="col-md-2 text-center">
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio"
+                                                                    name="paymentType" id="cashPayment" value="cash" required>
+                                                                <label class="form-check-label" for="cashPayment">
+                                                                    نقدي
                                                                 </label>
-                                                                <input type="file" name="images[]" multiple
-                                                                    accept="image/*">
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio"
+                                                                    name="paymentType" id="companyPayment" value="company"
+                                                                    required>
+                                                                <label class="form-check-label" for="companyPayment">
+                                                                    شركة
+                                                                </label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {{-- <div class="col-md-3">
-                                                    <div class="card bg-light border-dark">
-                                                        <div class="card-body">
-                                                            <div class="form-group">
-                                                                <label for="image3" style="cursor: pointer;">
-                                                                    <img src="placeholder.jpg" class="img-thumbnail" id="imagePreview3">
-                                                                </label>
-                                                                <input type="file" class="form-control-file text-center" id="image3" accept="image/*" style="display: none;">
+                                                <div class="col-md-12"><br>
+                                                    <div class="row g-1">
+                                                        <div class="col-md-4">
+                                                            <div class="mb-2">
+                                                                <select name="car_brand" id="brand"
+                                                                    class="form-select text-center"
+                                                                    aria-describedby="validationServer04Feedback" required>
+                                                                    <option value="" disabled selected>ماركة السيارة
+                                                                    </option>
+                                                                    <!-- Placeholder option -->
+                                                                    @foreach ($car_brand as $car_brand)
+                                                                        <option>{{ $car_brand }}</option>
+                                                                    @endforeach
+                                                                    <!-- Add options here -->
+                                                                </select>
+                                                                @error('car_brand')
+                                                                    <span
+                                                                        class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="mb-2">
+                                                                <select name="car_model" id="model"
+                                                                    class="form-select text-center"
+                                                                    aria-describedby="validationServer04Feedback" required>
+                                                                    <option value="" disabled selected>موديل السيارة
+                                                                    </option>
+                                                                    <!-- Placeholder option -->
+                                                                    @foreach ($car_model as $car_model)
+                                                                        <option>{{ $car_model }}</option>
+                                                                    @endforeach
+                                                                    <!-- Add options here -->
+                                                                </select>
+                                                                @error('car_model')
+                                                                    <span
+                                                                        class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="mb-2">
+                                                                <select name="car_service" id="serviceType"
+                                                                    class="form-select text-center"
+                                                                    aria-describedby="validationServer04Feedback" required>
+                                                                    <option value="" disabled selected>نوع الخدمة</option>
+                                                                    <!-- Placeholder option -->
+                                                                    @foreach ($car_service as $car_service)
+                                                                        <option>{{ $car_service }}</option>
+                                                                    @endforeach
+                                                                    <!-- Add options here -->
+                                                                </select>
+                                                                @error('car_service')
+                                                                    <span
+                                                                        class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div class="mb-2 position-relative">
+                                                                <input name="structure_no" type="text"
+                                                                    class="form-control text-center" id="chassisNumber"
+                                                                    name="chassisNumber" required placeholder="رقم الهيكل">
+                                                                @error('structure_no')
+                                                                    <span
+                                                                        class="d-block fs-6 text-danger mt-2 error-message">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="input-group mb-2">
+                                                                <input name="car_counter" name="number"
+                                                                    class="form-control text-center" id="odometerReading"
+                                                                    required placeholder="رقم العداد">
+                                                                <span class="input-group-text">KM</span>
+                                                                @error('car_counter')
+                                                                    <span
+                                                                        class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="mb-2 position-relative">
+                                                                <input name="car_name" type="text"
+                                                                    class="form-control text-center" id="carName" required
+                                                                    placeholder="اسم السيارة">
+                                                                @error('car_name')
+                                                                    <span
+                                                                        class="d-block fs-6 text-danger mt-2 error-message">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <div id="cashInput">
+                                                                <div class="mb-2 position-relative">
+                                                                    <input name="u_name" type="text" name="name"
+                                                                        class="form-control text-center" id="customerName"
+                                                                        required placeholder="الاسم">
+                                                                    @error('u_name')
+                                                                        <span
+                                                                            class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div id="companyOptions" style="display:none;">
+                                                                <div class="mb-2">
+                                                                    <select name="u_name" id="companySelect"
+                                                                        class="form-select text-center"readonly>
+                                                                        <option>اختار الشركة</option>
+                                                                        @foreach ($company as $comp)
+                                                                            <option value="{{ $comp->company_name }}"
+                                                                                data-company-name="{{ $comp->company_name }}"
+                                                                                data-company-phone="{{ $comp->phone }}">
+                                                                                {{ $comp->company_name }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                    @error('u_name')
+                                                                        <span
+                                                                            class="d-block fs-6 text-danger mt-2"readonly>{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="input-group mb-2 position-relative">
+                                                                <span class="input-group-text">+966</span>
+                                                                <input class="form-control text-center" name="u_phone"
+                                                                    id="customerPhone" placeholder="5x xxx xxxx" required>
+                                                                @error('u_phone')
+                                                                    <span
+                                                                        class="d-block fs-6 text-danger mt-2 error-message">{{ $message }}</span>
+                                                                @enderror
+                                                            </div>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" name="otp1"
+                                                                    maxlength="1" required>
+                                                                <input type="text" class="form-control"
+                                                                    name="otp2"maxlength="1" required>
+                                                                <input type="text" class="form-control" name="otp3"
+                                                                    maxlength="1" required>
+                                                                <input type="text" class="form-control" name="otp4"
+                                                                    maxlength="1" required placeholder="لوحة">
+                                                                <input type="text" class="form-control" name="otp5"
+                                                                    maxlength="1" required placeholder="رقم ">
+                                                                <input type="text" class="form-control" name="otp6"
+                                                                    maxlength="1" required>
+                                                                <input type="text" class="form-control" name="otp7"
+                                                                    maxlength="1" required>
+                                                                {{-- @error('car_plate')
+                                                                    <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                                @enderror --}}
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
-                                                    <div class="card bg-light border-dark">
-                                                        <div class="card-body">
-                                                            <div class="form-group">
-                                                                <label for="image3" style="cursor: pointer;">
-                                                                    <img src="placeholder.jpg" class="img-thumbnail" id="imagePreview3">
-                                                                </label>
-                                                                <input type="file" class="form-control-file text-center" id="image3" accept="image/*" style="display: none;">
+                                                <div class="col-12">
+                                                    <div class="row g-1 mb-1">
+                                                        <div class="col-md-12">
+                                                            <div class="card bg-light border-dark">
+                                                                <div class="card-body">
+                                                                    <div class="form-group text-center">
+                                                                        <label for="image3" style="cursor: pointer;">
+                                                                            <img src="placeholder.jpg" class="img-thumbnail"
+                                                                                id="imagePreview3">
+                                                                        </label>
+                                                                        <input type="file" name="images[]">
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="card bg-light border-dark">
-                                                        <div class="card-body">
-                                                            <div class="form-group">
-                                                                <label for="image3" style="cursor: pointer;">
-                                                                    <img src="placeholder.jpg" class="img-thumbnail" id="imagePreview3">
-                                                                </label>
-                                                                <input type="file" class="form-control-file text-center" id="image3" accept="image/*" style="display: none;">
+                                                        {{-- <div class="col-md-3">
+                                                            <div class="card bg-light border-dark">
+                                                                <div class="card-body">
+                                                                    <div class="form-group">
+                                                                        <label for="image3" style="cursor: pointer;">
+                                                                            <img src="placeholder.jpg" class="img-thumbnail" id="imagePreview3">
+                                                                        </label>
+                                                                        <input type="file" class="form-control-file text-center" id="image3" accept="image/*" style="display: none;">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>{{--
+                                                        <div class="col-md-3">
+                                                            <div class="card bg-light border-dark">
+                                                                <div class="card-body">
+                                                                    <div class="form-group">
+                                                                        <label for="image3" style="cursor: pointer;">
+                                                                            <img src="placeholder.jpg" class="img-thumbnail" id="imagePreview3">
+                                                                        </label>
+                                                                        <input type="file" class="form-control-file text-center" id="image3" accept="image/*" style="display: none;">
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                        <div class="col-md-3">
+                                                            <div class="card bg-light border-dark">
+                                                                <div class="card-body">
+                                                                    <div class="form-group">
+                                                                        <label for="image3" style="cursor: pointer;">
+                                                                            <img src="placeholder.jpg" class="img-thumbnail" id="imagePreview3">
+                                                                        </label>
+                                                                        <input type="file" class="form-control-file text-center" id="image3" accept="image/*" style="display: none;">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div> --}}
                                                     </div>
-                                                </div> --}}
-                                            </div>
-                                            <div class="border rounded p-1">
-                                                <div class="d-flex justify-content-end mb-1">
-                                                    <label for="fuelLevel" class="form-label">مستوي البنزين</label>
+                                                    {{-- <div class="border rounded p-1">
+                                                        <div class="d-flex justify-content-end mb-1">
+                                                            <label for="fuelLevel" class="form-label">مستوي البنزين</label>
+                                                        </div>
+                                                        <div class="d-flex justify-content-center">
+                                                            <input type="range" class="form-range" id="fuelLevel" required
+                                                                min="0" max="100">
+                                                        </div>
+                                                    </div> --}}
                                                 </div>
-                                                <div class="d-flex justify-content-center">
-                                                    <input type="range" class="form-range" id="fuelLevel" required
-                                                        min="0" max="100">
+                                                <div style="position: relative;">
+                                                    <textarea name="comment" class="form-control text-center" placeholder="تعليق" id="comment"
+                                                        style="height: 100px; direction: rtl; text-align: right;"></textarea>
+                                                    <div id="lineNumbers"
+                                                        style="position: absolute; top: 0; right: 0; bottom: 0; padding: 6px 10px; direction: ltr; text-align: left;">
+                                                    </div>
+                                                    @error('comment')
+                                                        <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                                <div class="d-grid gap-2 col-md-6 mx-auto py-4">
+                                                    <button class="btn btn-primary" name="submit" value="submit"
+                                                        type="submit">موافق</button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div style="position: relative;">
-                                            <textarea name="comment" class="form-control text-center" placeholder="تعليق" id="comment"
-                                                style="height: 100px; direction: rtl; text-align: right;"></textarea>
-                                            <div id="lineNumbers"
-                                                style="position: absolute; top: 0; right: 0; bottom: 0; padding: 6px 10px; direction: ltr; text-align: left;">
-                                            </div>
-                                            @error('comment')
-                                                <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                        <div class="d-grid gap-2 col-md-6 mx-auto py-4">
-                                            <button class="btn btn-primary" name="submit" value="submit"
-                                                type="submit">موافق</button>
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
-                            </form>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </main>
+                    @stop
+            {{-- </main>
         </div>
-    </div>
+    </div> --}}
     <script>
+                document.getElementById('validationCustomDate').readOnly = true;
+                
         // Get radio buttons and field elements
         const cashRadio = document.getElementById('cashPayment');
         const companyRadio = document.getElementById('companyPayment');
@@ -390,6 +393,22 @@
         });
 
 
+        document.getElementById('companySelect').addEventListener('change', function() {
+            var selectedOption = this.value;
+            var companyPhoneField = document.getElementById('customerPhone');
+
+            // Populate form fields with data based on the selected company
+            if (selectedOption !== '') {
+                var selectedOptionElement = this.options[this.selectedIndex];
+                companyPhoneField.value = selectedOptionElement.getAttribute('data-company-phone');
+                // companyPhoneField.disabled = true;
+            } else {
+                // Clear form fields if no option is selected
+                companyPhoneField.value = '';
+                // companyPhoneField.disabled = false;
+            }
+        });
+
         // Get the current date and time
         var currentDate = new Date();
 
@@ -400,7 +419,7 @@
         var formattedDate = saudiArabianTime.toISOString().slice(0, 16);
 
         // Set the value of the input field to the current date and time in Saudi Arabian time
-        document.getElementById("validationCustomDate").value = formattedDate;
+        // document.getElementById("validationCustomDate").value = formattedDate;
 
         function updateFields() {
             // Get the value entered in the "الاسم" field
@@ -434,21 +453,6 @@
             return "2024-01-01";
         }
 
-        document.getElementById('companySelect').addEventListener('change', function() {
-            var selectedOption = this.value;
-            var companyPhoneField = document.getElementById('customerPhone');
-
-            // Populate form fields with data based on the selected company
-            if (selectedOption !== '') {
-                var selectedOptionElement = this.options[this.selectedIndex];
-                companyPhoneField.value = selectedOptionElement.getAttribute('data-company-phone');
-                // companyPhoneField.disabled = true;
-            } else {
-                // Clear form fields if no option is selected
-                companyPhoneField.value = '';
-                // companyPhoneField.disabled = false;
-            }
-        });
         // Concatenate the individual inputs into a single string
         function concatenatecar_plate() {
             var car_plate = '';
@@ -482,7 +486,7 @@
         });
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
     <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
@@ -490,5 +494,5 @@
     <script src="assets/demo/chart-bar-demo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
-    <script src="js/datatables-simple-demo.js"></script>
-</body>
+    <script src="js/datatables-simple-demo.js"></script> 
+</body>--}}
