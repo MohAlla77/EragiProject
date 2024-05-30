@@ -28,7 +28,7 @@ class EmployeesController extends Controller
 
             'email' =>           $valideted['e-Email'],
             'name'  =>           $valideted['name'] ,
-            // 'employee_number' => $valideted['employee_number'] ,
+            'employee_number' => $valideted['employee_number'] ,
             'identity_number'=>  $valideted['identity_number'],
             'phone_number' =>    $valideted['phone_number'] ,
             'department' =>      $valideted['department'] ,
@@ -49,15 +49,17 @@ class EmployeesController extends Controller
 
     // public function search(Request $request)
     // {
-    //     $query = $request->input('employeeName');
+    //     $query = $request->input('query');
 
     //     if ($query) {
-    //         $employees = Employee::where('name', 'LIKE', "%{$query}%")->get();
+    //         $employees = employees::where('name', 'LIKE', "%{$query}%")
+    //             ->orWhere('job_number', 'LIKE', "%{$query}%")
+    //             ->get();
     //     } else {
-    //         $employees = collect(); // Empty collection
+    //         $employees = collect(); 
     //     }
 
     //     return view('search', compact('employees', 'query'));
     // }
-
+    
 }

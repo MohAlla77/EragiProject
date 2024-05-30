@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('categorizes', function (Blueprint $table) {
             $table->id();
-
             $table->string('name');
             $table->string('serial_number');
             $table->string('GroupID');
@@ -24,10 +23,8 @@ return new class extends Migration
             $table->string('amount');
             $table->string('price_cost');
             $table->string('unit_type');
-            $table->string('seal_cost');
-
-            $table->timestamps();;
-        });
+            $table->timestamps();
+        });        
     }
 
     /**

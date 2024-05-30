@@ -25,10 +25,11 @@ use App\Http\Controllers\ServiceGroupController;
 use App\Http\Controllers\SpearController;
 use App\Http\Controllers\TiresController;
 use App\Http\Controllers\SupplierController;
-use App\Http\Controllers\ReceivingPricingRequestsController;
+use App\Http\Controllers\PricingController;
 use App\Models\Car;
 use App\Models\Service;
 use App\Models\Supplier;
+use FontLib\Table\Type\name;
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register');
@@ -55,6 +56,10 @@ Route::get('/invoice/Sales_accept', function () {
 
 
 
+Route::get('/Categorize', [CategorizeController::class, 'index'])->name('Categorize');
+Route::post('/Categorize', [CategorizeController::class, 'store'])->name('Categorize.store'); 
+
+
 Route::get('/tries', [TiresController::class, 'index'])->name('Tries');
 Route::post('/tries', [TiresController::class, 'AddTire'])->name('Tries.Add');
 
@@ -63,14 +68,27 @@ Route::post('/Supplier', [SupplierController::class, 'SupplierStore'])->name('Su
 
 Route::get('/Employees', [EmployeesController::class, 'index'])->name('Employees');
 Route::post('/Employees', [EmployeesController::class, 'Employeesstore'])->name('Employees.Add');
+// Route::get('/search', [EmployeesController::class, 'search'])->name('employees.search');
 
-Route::get('/receiving-pricing-requests', [ReceivingPricingRequestsController::class, 'index'])->name('ReceivingPricingRequests.index');
-Route::post('/receiving-pricing-requests', [ReceivingPricingRequestsController::class, 'store'])->name('ReceivingPricingRequests.store');
+Route::get('/pricing', [PricingController::class, 'index'])->name('Pricing');
+Route::post('/pricing', [PricingController::class, 'store'])->name('Pricing.store'); 
 
 Route::get('/test', function () {
     return view('pdf.Job_order');
 });
 
+
+Route::get('/Store', function () {
+    return view('Store');
+})->name('Store');
+
+Route::get('/Employee_requests', function () {
+    return view('Employee_requests');
+});
+
+Route::get('/profile', function () {
+    return view('profile');
+})->name('profile');
 
 Route::get('/store', function () {
     return view('store');
@@ -102,9 +120,9 @@ Route::prefix('/management')->group(function () {
     //     return view('employees',compact( "workplaces"));
     // })->name('employees');
 
-    Route::get('/', function () {
-        return view('Management_page.Employee_requests');
-    })->name('Employee_requests');
+    // Route::get('/', function () {
+    //     return view('Management_page.Employee_requests');
+    // })->name('Employee_requests');
 
     Route::get('/Report', function () {
         return view('Management_page.Reports');
