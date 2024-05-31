@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\Car;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -14,12 +15,19 @@ class AddCarMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    private User $user ;
+    private Car $car ;
+
     /**
      * Create a new message instance.
      */
-    public function __construct(User $user)
+    public function __construct(User $user, Car $car)
     {
         //
+        $this->user = $user;
+        $this->car  = $car;
+        ;
+
     }
 
     /**
@@ -40,6 +48,11 @@ class AddCarMail extends Mailable
     {
         return new Content(
             view: 'Emails.AddCarMail',
+            with: [
+                'user' => $this->user,
+                'car' => $this->car
+
+            ]
         );
     }
 

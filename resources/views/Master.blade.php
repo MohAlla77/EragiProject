@@ -127,7 +127,7 @@
                             </a>
                             <ul class="dropdown-menu text-center" aria-labelledby="#">
                                 <li><a class="dropdown-item text-center" href="{{route('purchases')}}">الفواتير</a></li>
-                                <li><a class="dropdown-item text-center" href="{{route('Categorize')}}">الأصناف</a></li>
+                                {{-- <li><a class="dropdown-item text-center" href="{{route('Categorize')}}">الأصناف</a></li> --}}
                                 <li><a class="dropdown-item text-center" href="{{route('Supplier')}}">الموردين</a></li>
                             </ul>
                             <a class="nav-link dropdown-toggle text-white" href="{{route('invoice.index')}}" id="invoice.indexDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -137,9 +137,9 @@
                             <ul class="dropdown-menu text-center" aria-labelledby="#">
                                 <li><a class="dropdown-item text-center" href="{{route('invoice.index')}}">الفواتير</a></li>
                                 <li><a class="dropdown-item text-center" href="#">الخدمات</a></li>
-                                <li><a class="dropdown-item text-center" href="{{route('Pricing')}}">التسعير</a></li>
+                                {{-- <li><a class="dropdown-item text-center" href="{{route('Pricing')}}">التسعير</a></li> --}}
                             </ul>
-                            
+
                             <a class="nav-link text-white text-end" href="{{route('Tries')}}">
                                 <div class="sb-nav-link-icon text-white"></div>
                                 <span class="ms-auto pe-2">اطارات</span><i class="fa-brands fa-salesforce"></i>
@@ -160,10 +160,10 @@
                                 <li><a class="dropdown-item text-center" href="{{route('Employees')}}">الموظفين</a></li>
                                 <li><a class="dropdown-item text-center" href="#">طلبات الموظفين</a></li>
                             </ul>
-                            <a class="nav-link text-white" href="{{route('Manage')}}">
+                            {{-- <a class="nav-link text-white" href="{{route('Manage')}}">
                                 <div class="sb-nav-link-icon text-white"></div>
                                 <span class="ms-auto pe-2">ادارة</span><i class="fas fa-cogs"></i>
-                            </a>
+                            </a> --}}
                             {{-- <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                                 <li class="nav-item dropdown"> --}}
                                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"

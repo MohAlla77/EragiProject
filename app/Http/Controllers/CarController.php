@@ -76,7 +76,7 @@ class CarController extends Controller
 
 
 
-      Car::create([
+   $car  =    Car::create([
             'user_id' => auth()->id(),
             'name' =>    $validated['u_name'],
             'phone' =>   $validated['u_phone'],
@@ -95,7 +95,11 @@ class CarController extends Controller
 
          $user = auth()->user();
 
-        // Mail::to($user->email)->send(new AddCarMail($user));
+
+
+        Mail::to($user->email)->send(new AddCarMail($user, $car));
+
+
 
         return redirect()->route('home');
     }

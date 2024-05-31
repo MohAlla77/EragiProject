@@ -49,19 +49,19 @@
                                                         <td class="text-end" width="50%" style="padding: 2px;">التاريخ</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-end" width="50%" style="padding: 2px;">احمد محمد</td>
+                                                        <td class="text-end" width="50%" style="padding: 2px;">{{$car->name}} </td>
                                                         <td class="text-end" width="50%" style="padding: 2px;">اسم العميل</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-end" width="50%" style="padding: 2px;">+966 58 741 2369</td>
+                                                        <td class="text-end" width="50%" style="padding: 2px;">{{$car->phone}}</td>
                                                         <td class="text-end" width="50%" style="padding: 2px;">رقم التواصل</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-end" width="50%" style="padding: 2px;">نقدي</td>
+                                                        <td class="text-end" width="50%" style="padding: 2px;">{{$car->car_type}}</td>
                                                         <td class="text-end" width="50%" style="padding: 2px;">نوع العميل</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-end" width="50%" style="padding: 2px;">5.00 PM</td>
+                                                        <td class="text-end" width="50%" style="padding: 2px;">{{$car->created_at}}</td>
                                                         <td class="text-end" width="50%" style="padding: 2px;">وقت الاستلام</td>
                                                     </tr>
                                                     <tr>
@@ -77,23 +77,23 @@
                                             <table class="table table-invoice table-reverse">
                                                 <thead>
                                                     <tr>
-                                                        <td class="text-end" width="50%" style="padding: 2px;">lanser</td>
+                                                        <td class="text-end" width="50%" style="padding: 2px;">{{$car->car_name}}</td>
                                                         <td class="text-end" width="50%" style="padding: 2px;">اسم السيارة</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-end" width="50%" style="padding: 2px;">4895 rie</td>
+                                                        <td class="text-end" width="50%" style="padding: 2px;">{{$car->plate}}</td>
                                                         <td class="text-end" width="50%" style="padding: 2px;">رقم اللوحة</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-end" width="50%" style="padding: 2px;">WDDS4GB9GN3595572</td>
+                                                        <td class="text-end" width="50%" style="padding: 2px;">{{$car->plate}}</td>
                                                         <td class="text-end" width="50%" style="padding: 2px;">رقم الهيكل</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-end" width="50%" style="padding: 2px;">2018</td>
+                                                        <td class="text-end" width="50%" style="padding: 2px;">{{$car->model}}</td>
                                                         <td class="text-end" width="50%" style="padding: 2px;">موديل السيارة</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-end" width="50%" style="padding: 2px;">159863 KM</td>
+                                                        <td class="text-end" width="50%" style="padding: 2px;">{{$car->counter}} KM</td>
                                                         <td class="text-end" width="50%" style="padding: 2px;">رقم العداد</td>
                                                     </tr>
                                                     <tr>
@@ -122,7 +122,7 @@
                             </div>
                         </div>
                     </address>
-                </div>                               
+                </div>
             </div>
         </div>
         <div class="row g-1">
@@ -134,7 +134,7 @@
             <div class="col-8">
                 <div class="card" style="height: 200px;">
                     <textarea class="form-control text-center" name="notes" id="notes" style="height: 100%;"
-                        placeholder="ملاحظات"></textarea>
+                        placeholder="ملاحظات">{{$car->comment}}</textarea>
                 </div>
             </div>
         </div>

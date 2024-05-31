@@ -8,6 +8,7 @@ use App\Http\Controllers\{
     HomeController,
     InvoiceController,
     ManagemetController,
+    PricingController,
     PurchasesController,
     ReceivingPricingRequestsController,
     ServiceGroupController,
@@ -30,21 +31,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Guest routes
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CategorizeController;
-use App\Http\Controllers\EmployeesController;
-use App\Http\Controllers\InvoiceController;
-use App\Http\Controllers\ManagemetController;
-use App\Http\Controllers\PurchasesController;
-use App\Http\Controllers\ServiceGroupController;
-use App\Http\Controllers\SpearController;
-use App\Http\Controllers\TiresController;
-use App\Http\Controllers\SupplierController;
-use App\Http\Controllers\PricingController;
-use App\Models\Car;
-use App\Models\Service;
-use App\Models\Supplier;
-use FontLib\Table\Type\name;
+
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register');
@@ -107,8 +94,8 @@ Route::group(['prefix' => 'Employees'], function () {
 
 // Receiving Pricing Requests routes
 Route::group(['prefix' => 'receiving-pricing-requests'], function () {
-    Route::get('/', [ReceivingPricingRequestsController::class, 'index'])->name('ReceivingPricingRequests.index');
-    Route::post('/', [ReceivingPricingRequestsController::class, 'store'])->name('ReceivingPricingRequests.store');
+    Route::get('/', [PricingController::class, 'index'])->name('ReceivingPricingRequests.index');
+    Route::post('/', [PricingController::class, 'store'])->name('ReceivingPricingRequests.store');
 });
 
 // Store route

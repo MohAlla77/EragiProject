@@ -15,7 +15,6 @@
         "carlos-meneses/laravel-mpdf": "^2.1",
         "codeat3/blade-phosphor-icons": "^2.2",
         "dompdf/dompdf": "^2.0",
-        "filament/filament": "^3.2",
         "filament/notifications": "^3.2",
         "filament/widgets": "^3.2",
         "guzzlehttp/guzzle": "^7.2",
