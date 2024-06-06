@@ -13,7 +13,7 @@
             <div class="card-body">
                 {{-- <form action="#" method="post" id="carForm"><br> --}}
                 <form action="{{ route('car.search') }}" method="GET">
-                    <div class="input-group">
+                    <div class="input-group mb-2">
                         <input type="text" class="form-control text-center" name="plateNumber"
                             placeholder="بحث">
                         <button class="btn btn-outline-success" type="search">بحث</button>

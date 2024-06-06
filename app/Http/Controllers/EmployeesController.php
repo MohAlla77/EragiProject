@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\AddEmployeeRequest;
 use App\Models\employees;
 
@@ -10,10 +11,43 @@ class EmployeesController extends Controller
 {
     public function index()
     {
-
         $employees = Employees::all();
-
-        return view('Employees', ['Employees' => $employees]);
+        $workplaceOptions = [
+            'ينبع الصناعية',
+            'ينبع حي الياقوت',
+            'المدينة المنورة',
+        ];
+        $nationalityOptions = [
+            'سعودي',
+            'سوداني',
+            'مصري',
+            'فلبيني',
+        ];
+        $marital_statusOptions = [
+            'متزوج',
+            'عاذب',
+            'مطلق/ة',
+        ];
+        $departmentOptions = [
+            'IT',
+            'محاسب',
+            'مبيعات',
+            'مشتريات',
+            'مهندس',
+            'فني',
+        ];
+    
+        return view('Employees', ['Employees' => $employees],
+         ['workplaceOptions' => $workplaceOptions],
+         ['nationalityOptions' => $nationalityOptions],
+         ['marital_statusOptions' => $marital_statusOptions],
+         ['departmentOptions' => $departmentOptions]
+        );
+    }
+    
+    public function show()
+    {
+        return view('employees');
     }
 
     public function Employeesstore(AddEmployeeRequest $request)
@@ -47,19 +81,18 @@ class EmployeesController extends Controller
         return view('home');
     }
 
-    // public function search(Request $request)
-    // {
-    //     $query = $request->input('query');
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
 
-    //     if ($query) {
-    //         $employees = employees::where('name', 'LIKE', "%{$query}%")
-    //             ->orWhere('job_number', 'LIKE', "%{$query}%")
-    //             ->get();
-    //     } else {
-    //         $employees = collect(); 
-    //     }
+        if ($query) {
+            $employees = Employees::where('name', 'LIKE', "%{$query}%")
+                ->orWhere('employee_number', 'LIKE', "%{$query}%")
+                ->get();
+        } else {
+            $employees = collect();
+        }
 
-    //     return view('search', compact('employees', 'query'));
-    // }
-    
+        return view('search', compact('employees', 'query'));
+    }
 }

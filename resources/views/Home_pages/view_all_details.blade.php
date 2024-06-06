@@ -49,81 +49,69 @@
 // $conn->close(); --}}
 
 
+@extends('Master')
+    @section('title', ('view_all_details'))
+    {{-- @section('navbarTitle', ('Home')) --}}
+        @section('content')
+            <div class="card mb-4">
+                <div class="card-header text-end">السيارات <i class="fas fa-table me-4"></i></div>
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>التاريخ</th>
+                                <th>تعليق</th>
+                                <th>الماركة</th>
+                                <th>الموديل</th>
+                                <th>الخدمة</th>
+                                <th>اسم السيارة</th>
+                                <th>العداد</th>
+                                <th>الهيكل</th>
+                                <th>اللوحة</th>
+                                <th>الهاتف</th>
+                                <th>الاسم</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>التاريخ</th>
+                                <th>الحالة</th>
+                                <th>الماركو</th>
+                                <th>الموديل</th>
+                                <th>الخدمة</th>
+                                <th>اسم السيارة</th>
+                                <th>العداد</th>
+                                <th>الهيكل</th>
+                                <th>اللوحة</th>
+                                <th>الهاتف</th>
+                                <th>الاسم</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
 
-@extends('Layout.head')
+                            @foreach ($Cars as $car )
 
-<body class="sb-nav-fixed">
-   @include('Layout.navbar')
+                            <tr>
+                                <td>{{ $car->created_at->format('d/m/y h:i A')}}</td>
+                                <td>{{ $car->status }}</td>
+                                <td>{{ $car->brand }}</td>
+                                <td>{{ $car->model }}</td>
+                                <td>{{ $car->counter }}</td>
+                                <td>{{ $car->car_name }}</td>
+                                <td>{{ $car->counter }}</td>
+                                <td>{{ $car->structure_no }}</td>
+                                <td>{{ $car->plate }}</td>
+                                <td>{{ $car->phone }}</td>
+                                <td>{{ $car->name }}</td>
 
-    <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-            @include('Layout.sidebar')
-        </div>
-        <div id="layoutSidenav_content" style="height: 25vh; overflow-y: auto;">
-            <main>
-                <div class="card mb-4">
-                    <div class="card-header text-end">السيارات <i class="fas fa-table me-4"></i></div>
-                    <div class="card-body">
-                        <table id="datatablesSimple">
-                            <thead>
-                                <tr>
-                                    <th>التاريخ</th>
-                                    <th>تعليق</th>
-                                    <th>الماركة</th>
-                                    <th>الموديل</th>
-                                    <th>الخدمة</th>
-                                    <th>اسم السيارة</th>
-                                    <th>العداد</th>
-                                    <th>الهيكل</th>
-                                    <th>اللوحة</th>
-                                    <th>الهاتف</th>
-                                    <th>الاسم</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>التاريخ</th>
-                                    <th>الحالة</th>
-                                    <th>الماركو</th>
-                                    <th>الموديل</th>
-                                    <th>الخدمة</th>
-                                    <th>اسم السيارة</th>
-                                    <th>العداد</th>
-                                    <th>الهيكل</th>
-                                    <th>اللوحة</th>
-                                    <th>الهاتف</th>
-                                    <th>الاسم</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
+                                <!-- Add more table cells as needed -->
+                            </tr>
 
-                                @foreach ($Cars as $car )
-
-                                <tr>
-                                    <td>{{ $car->created_at->format('d/m/y h:i A')}}</td>
-                                    <td>{{ $car->status }}</td>
-                                    <td>{{ $car->brand }}</td>
-                                    <td>{{ $car->model }}</td>
-                                    <td>{{ $car->counter }}</td>
-                                    <td>{{ $car->car_name }}</td>
-                                    <td>{{ $car->counter }}</td>
-                                    <td>{{ $car->structure_no }}</td>
-                                    <td>{{ $car->plate }}</td>
-                                    <td>{{ $car->phone }}</td>
-                                    <td>{{ $car->name }}</td>
-
-                                    <!-- Add more table cells as needed -->
-                                </tr>
-
-                                @endforeach
+                            @endforeach
 
 
-                            </tbody>
-                        </table>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
-            </main>
-          @include('Layout.footer')
-        </div>
-    </div>
-</body>
+            </div>
+        @stop

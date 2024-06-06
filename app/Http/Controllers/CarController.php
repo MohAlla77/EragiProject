@@ -29,15 +29,55 @@ class CarController extends Controller
             'Spyker', 'Alpine', 'Maserati', 'Ferrari'
         ];
         $Car_Model = [
-            'value1' => '2005',
-            'value2' => '2010',
-            'value3' => '2020',
+            'value1' => '2000',
+            'value2' => '2001',
+            'value3' => '2002',
+            'value4' => '2003',
+            'value5' => '2004',
+            'value6' => '2005',
+            'value7' => '2006',
+            'value8' => '2007',
+            'value9' => '2008',
+            'value10' => '2009',
+            'value11' => '2010',
+            'value12' => '2011',
+            'value13' => '2012',
+            'value14' => '2013',
+            'value15' => '2014',
+            'value16' => '2015',
+            'value17' => '2016',
+            'value18' => '2017',
+            'value19' => '2018',
+            'value20' => '2019',
+            'value21' => '2020',
+            'value22' => '2022',
+            'value23' => '2023',
+            'value24' => '2024',
+            'value25' => 'Other',
         ];
 
         $Car_Service = [
-            'value1' => 'صيانة عامه',
-            'value2' => 'غيار زيت',
-            'value3' => 'مراجعة ماكينة',
+            'value1' => 'ضبط زواية وترصيص',
+            'value2' => 'تغير زيت وفلتر',
+            'value3' => 'شحن مكيف السيارة',
+            'value4' => 'كهرباء',
+            'value5' => 'فحص كمبيوتر',
+            'value6' => 'تغير كفرات',
+            'value7' => 'ميكانيكا',
+            'value8' => 'عضلات',
+            'value9' => 'سمكرة دهان',
+            'value10' => 'تنظيف مياة الراديترات والماكينة',
+            'value11' => 'تنظيف دورة زيت الفرامل',
+            'value12' => 'تنظيف البخاخات',
+            'value13' => 'تنظيف خانق الدعسة',
+            'value14' => 'تنظيف ثلاجة المحرك',
+            'value15' => 'فحص كامل ',
+            'value16' => 'تنظيف دبة الشكمان',
+            'value17' => 'تعقيم فتحات المكيف',
+            'value18' => 'تنظيف الكربون من البلوفة والرؤوس',
+            'value19' => 'خدمة تبديل بطاريات',
+            'value120' => '',
+
         ];
 
         $company = CompanyInfo::all();
@@ -215,4 +255,13 @@ class CarController extends Controller
     return view('Invoice', ['car' => $car, 'spear' => $spear , 'invoiceNum' => $invoiceNum]);
 
    }
+
+   public function messages()
+    {
+        return [
+            'structure_no.size' => 'The structure number must be exactly 17 characters long.',
+            'structure_no.regex' => 'The structure number can only contain uppercase letters and digits.'
+        ];
+    }
+
 }

@@ -586,8 +586,6 @@
         }
         }
     </style>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <div class="container" style="height: 100vh; overflow-y: auto;">
         <div class="view-account">
             <section class="module">
                 <div class="module-inner">
@@ -600,15 +598,13 @@
                                 </li>
                                 <li class="department"><a href="#">IT</a></li>
                                 <li class="email"><a href="#">IT@thimal.services</a></li>
-                                <li class="workplace">ينبع حي الياقوت</li>
-                                <li class="direct_day">7 month</li>
                             </ul>
                         </div>
                         <nav class="side-menu">
                             <ul class="nav">
-                                <li class="text-end"><a href="#">الملف الشخصي</a></li>
-                                <li class="text-end"><a href="#">اجازة سنوية</a></li>
-                                <li class="text-end"><a href="#">اجازة اطرارية</a></li>
+                                <li class="text-end mb-1"><button class="col-12 btn btn-white" id="toggleProfile">الملف الشخصي</button></li>
+                                <li class="text-end mb-1"><button class="col-12 btn btn-white" id="toggleAnnual">اجازة سنوية</button></li>
+                                <li class="text-end mb-1"><button class="col-12 btn btn-white" id="toggleNecessary">اجازة اطرارية</button></li>
                                 {{-- <li><a href="#"> الاجراءات</a>
                                     <ul class="dropdown-menu dropdown-menu-dark">
                                         <li><a class="adropdown-item" href="#"></li>
@@ -617,18 +613,17 @@
                                                     <li><a class="adropdown-item" href="#"></li>
                                     </ul>
                                 </li> --}}
-                                <li class="text-end"><a href="user-drive.html">سلفة</a></li>
-                                <li class="text-end"><a href="#">اجازة مرضية</a></li>
-                                <li class="text-end"><a href="#">طلب خطابات</a></li>
+                                <li class="text-end mb-1"><button class="col-12 btn btn-white" id="toggleAdvance">سلفة</button></li>
+                                <li class="text-end mb-1"><button class="col-12 btn btn-white" id="toggleSick">اجازة مرضية</button></li>
+                                <li class="text-end mb-1"><button class="col-12 btn btn-white" id="toggleOrder">طلب خطابات</button></li>
                                 {{-- <li class="text-end"><a href="#">اجازة مرضية</a></li> --}}
                             </ul>
                         </nav>
                     </div>
                     <div class="content-panel">
-                        <h2 class="title text-end">البيانات الشخصية</h2>
                         <form class="form-horizontal">
                             <fieldset class="fieldset">
-                                <h3 class="fieldset-title"></h3>
+                                {{-- <h3 class="fieldset-title"></h3> --}}
                                 {{-- <div class="form-group avatar">
                                     <figure class="figure col-md-2 col-sm-3 col-xs-12">
                                         <img class="img-rounded img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
@@ -638,75 +633,95 @@
                                         <button type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
                                     </div>
                                 </div> --}}
-                                <div class="row g-1">
-                                    <div class="form-group col-md-6 text-center">
-                                        <label>رقم الهوية</label>
-                                        <input name="identity_number" class="form-control text-center" readonly>
-                                    </div>
-                                    <div class="form-group col-md-6 text-center">
-                                        <label>رقم الهاتف</label>
-                                        <input name="phone_number" class="form-control text-center" readonly>
-                                    </div>
-                                    <div class="form-group col-md-6 text-center">
-                                        <label>العنوان</label>
-                                        <input name="address" class="form-control text-center" readonly>
-                                    </div>
-                                    <div class="form-group col-md-6 text-center">
-                                        <label>العنوان</label>
-                                        <input name="email" class="form-control text-center" readonly>
-                                    </div>
-                                    <div class="form-group col-md-6 text-center">
-                                        <label>العمر</label>
-                                        <input name="birth_date" class="form-control text-center"readonly>
-                                    </div>
-                                    <div class="form-group col-md-6 text-center">
-                                        <label">الحالة الاجتماعية</label>
-                                        <input name="marital_status" class="form-control text-center" readonly>
-                                    </div>
-                                    <div class="form-group col-md-6 text-center">
-                                        <label">الجنسية</label>
-                                        <input name="nationality" class="form-control text-center" readonly>
-                                    </div>
-                                    <div class="form-group col-md-6 text-center">
-                                        <label>الراتب الاساسي</label>
-                                        <input name="salary" class="form-control text-center" readonly>
-                                    </div>
-                                    <div class="form-group col-md-6 text-center">
-                                        <label>بدل السكن</label>
-                                        <input name="housing_allowance" class="form-control text-center" readonly>
-                                    </div>
-                                    <div class="form-group col-md-6 text-center">
-                                        <label>بدلات اخري</label>    
-                                        <input name="other_allowances" class="form-control text-center" readonly>
+                                <div class="card bg-light mb-1" id="cardProfile" style="display: none;">
+                                    <div class="card-body">
+                                        <div class="col-12">
+                                            <input class="form-control text-center" placeholder="البيانات الشخصية"readonly>
+                                        </div>
+                                        <div class="row g-1">
+                                            <div class="form-group col-md-6 text-center">
+                                                <label>رقم الهوية</label>
+                                                <input name="identity_number" class="form-control text-center" readonly>
+                                            </div>
+                                            <div class="form-group col-md-6 text-center">
+                                                <label>رقم الهاتف</label>
+                                                <input name="phone_number" class="form-control text-center" readonly>
+                                            </div>
+                                            <div class="form-group col-md-6 text-center">
+                                                <label>العنوان</label>
+                                                <input name="address" class="form-control text-center" readonly>
+                                            </div>
+                                            <div class="form-group col-md-6 text-center">
+                                                <label>العنوان</label>
+                                                <input name="email" class="form-control text-center" readonly>
+                                            </div>
+                                            <div class="form-group col-md-6 text-center">
+                                                <label>العمر</label>
+                                                <input name="birth_date" class="form-control text-center"readonly>
+                                            </div>
+                                            <div class="form-group col-md-6 text-center">
+                                                <label">الحالة الاجتماعية</label>
+                                                <input name="marital_status" class="form-control text-center" readonly>
+                                            </div>
+                                            <div class="form-group col-md-6 text-center">
+                                                <label">الجنسية</label>
+                                                <input name="nationality" class="form-control text-center" readonly>
+                                            </div>
+                                            <div class="form-group col-md-6 text-center">
+                                                <label>الراتب الاساسي</label>
+                                                <input name="salary" class="form-control text-center" readonly>
+                                            </div>
+                                            <div class="form-group col-md-6 text-center">
+                                                <label>بدل السكن</label>
+                                                <input name="housing_allowance" class="form-control text-center" readonly>
+                                            </div>
+                                            <div class="form-group col-md-6 text-center">
+                                                <label>بدلات اخري</label>    
+                                                <input name="other_allowances" class="form-control text-center" readonly>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="card">
+                                <div class="card bg-light mb-1" id="cardAnnual" style="display: none;">
                                     <div class="card_body">
+                                        <div class="col-12">
+                                            <input class="form-control text-center" placeholder="الاجازة السنوية"readonly>
+                                        </div>
                                         <div class="row g-1">
-                                            <h1>الاجازة السنوية</h1>
                                             <div class="form-group col-md-6 text-center">
                                                 <label>تاريخ الاجازه</label>
                                                 <input type="date" class="form-control text-center" readonly>
                                             </div>
                                             <div class="form-group col-md-6 text-center">
-                                                <label>طلب التذكرة </label>
-                                                <input type="checkbox" class="form-control text-center" readonly>
-                                            </div>
-                                            <div class="form-group col-md-6 text-center">
-                                                <label>تاشيرة الخروج</label>
-                                                <input type="checkbox" class="form-control text-center" readonly>
-                                            </div>
-                                            <div class="form-group col-md-6 text-center">
                                                 <label>البديل</label>
-                                                <input type="text" class="form-control text-center" readonly>
+                                                <input type="text" class="form-control text-center" placeholder="ادخل اسم البديل">
                                             </div>
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <div class="d-flex justify-content-center align-items-center col-6">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                                    <label class="form-check-label" for="inlineCheckbox1">التذكرة</label>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-center align-items-center col-6">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                                    <label class="form-check-label" for="inlineCheckbox2">تاشيرة الخروج</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 mb-1 text-center">
+                                            <button type="button" class="btn btn-success">ارسال</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card">
+                                <div class="card bg-light mb-1" id="cardNecessary" style="display: none;">
                                     <div class="card_body">
                                         <div class="row g-1">
-                                            <h1>الاجازة اطرارية</h1>
+                                            <div class="col-12">
+                                                <input class="form-control text-center" placeholder="الاجازة اطرارية"readonly>
+                                            </div>
                                             <div class="form-group col-md-6 text-center">
                                                 <label>تاريخ الاجازه</label>
                                                 <input type="date" class="form-control text-center" readonly>
@@ -715,14 +730,17 @@
                                                 <label>تعليق </label>
                                                 <input type="text" class="form-control text-center" readonly>
                                             </div>
-                                            <div class="form-group col-md-6 text-center">
+                                            <div class="form-group col-md-12 mb-1text-center">
                                                 <label>مرفق</label>
                                                 <input type="file" class="form-control text-center" readonly>
+                                            </div>
+                                            <div class="col-12 mb-1">
+                                                <button type="button" class="submit">ارسال</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <div class="card">
+                                {{-- <div class="card" id="cardAdvance" style="display: none;">
                                     <div class="card_body">
                                         <div class="row g-1">
                                             <h1>السلف</h1>
@@ -746,10 +764,12 @@
                                     </div>
                                 </div>
     --}}
-                            <div class="card">
+                            <div class="card bg-light mb-1" id="cardSick" style="display: none;">
                                 <div class="card_body">
                                     <div class="row g-1">
-                                        <h1>الاجازة المرضية</h1>
+                                        <div class="col-12">
+                                            <input class="form-control text-center" placeholder="الاجازة المرضية"readonly>
+                                        </div>
                                         <div class="form-group col-md-6 text-center">
                                             <label>ارفاق التقرير الطبي</label>
                                             <input type="file" class="form-control text-center" readonly>
@@ -758,13 +778,18 @@
                                             <label>التعليق</label>
                                             <input type="text" class="form-control text-center" readonly>
                                         </div>
+                                        <div class="col-12 mb-1">
+                                            <button type="button" class="submit">ارسال</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
+                            <div class="card" id="cardOrder" style="display: none;">
                                 <div class="card_body">
                                     <div class="row g-1">
-                                        <h1>طلب الخطابات</h1>
+                                        <div class="col-12">
+                                            <input class="form-control text-center" placeholder="طلب الخطابات"readonly>
+                                        </div>
                                         <div class="form-group col-md-6 text-center">
                                             <button type="button" class="form-control text-center"></button>
                                         </div>
@@ -807,5 +832,39 @@
                 </div>
             </section>
         </div>
-    </div>
+        <script>
+            function toggleCard(cardId) {
+                var card = document.getElementById(cardId);
+                if (card.style.display === "none" || card.style.display === "") {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            }
+    
+            document.getElementById("toggleProfile").addEventListener("click", function() {
+                toggleCard("cardProfile");
+            });
+            
+            document.getElementById("toggleAnnual").addEventListener("click", function() {
+                toggleCard("cardAnnual");
+            });
+    
+            document.getElementById("toggleNecessary").addEventListener("click", function() {
+                toggleCard("cardNecessary");
+            });
+    
+            document.getElementById("toggleAdvance").addEventListener("click", function() {
+                toggleCard("cardAdvance");
+            });
+    
+            document.getElementById("toggleSick").addEventListener("click", function() {
+                toggleCard("cardSick");
+            });
+    
+            document.getElementById("toggleOrder").addEventListener("click", function() {
+                toggleCard("cardOrder");
+            });
+        </script>
+        
 @stop

@@ -4,19 +4,23 @@ use App\Http\Controllers\{
     AuthController,
     CarController,
     CategorizeController,
+    Data_EntryController,
     EmployeesController,
     HomeController,
     InvoiceController,
     ManagemetController,
     PricingController,
     PurchasesController,
-    ReceivingPricingRequestsController,
+    ServiceController,
     ServiceGroupController,
     SpearController,
     SupplierController,
-    TiresController
+    TiresController,
+    Data_Entry
 };
 use App\Models\{Car, Service, Supplier};
+use Doctrine\DBAL\Schema\Index;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,7 +56,7 @@ Route::group(['middleware' => 'auth'], function () {
         return view('WorkSpace');
     })->name('Workspace');
     Route::get('/car', [CarController::class, 'index'])->name('new.car');
-    Route::post('/car', [CarController::class, 'store'])->name('car.store');
+    Route::post('/car/add', [CarController::class, 'store'])->name('car.store');
     Route::post('/workspace/{id}/AddCheck', [CarController::class, 'Add'])->name('AddCar.check');
     Route::post('/workspace/{id}/AddMaintenance', [CarController::class, 'AddMaintenance'])->name('Add.Maintenance');
     Route::post('/workspace/{id}/AddDone', [CarController::class, 'AddDone'])->name('Add.Done');
@@ -90,12 +94,27 @@ Route::group(['prefix' => 'Supplier'], function () {
 Route::group(['prefix' => 'Employees'], function () {
     Route::get('/', [EmployeesController::class, 'index'])->name('Employees');
     Route::post('/', [EmployeesController::class, 'Employeesstore'])->name('Employees.Add');
+    // Route::get('/'[EmployeesContoller::class, 'show']);
+    Route::get('/search', [EmployeesController::class, 'search'])->name('employees.search');
 });
 
-// Receiving Pricing Requests routes
-Route::group(['prefix' => 'receiving-pricing-requests'], function () {
-    Route::get('/', [PricingController::class, 'index'])->name('ReceivingPricingRequests.index');
-    Route::post('/', [PricingController::class, 'store'])->name('ReceivingPricingRequests.store');
+// Pricing routes
+Route::group(['prefix' => 'Pricing'], function () {
+    Route::get('/', [PricingController::class, 'index'])->name('Pricing.index');
+    Route::post('/', [PricingController::class, 'store'])->name('Pricing.store');
+});
+
+// Service routes
+Route::group(['prefix' => 'Service'], function () {
+    Route::get('/', [ServiceController::class, 'index'])->name('Service.index');
+    Route::post('/', [ServiceController::class, 'ServiceStore'])->name('Service.store');
+});
+
+// Data_Entry Route
+
+Route::group(['prefix' => 'Data_Entry'], function(){
+    Route::get('/', [Data_EntryController::class, 'index'])->name('Data_Entry');
+    Route::post('/', [Data_EntryController::class, 'CompanyStore'])->name('Data_Entry.CompanyStore');
 });
 
 // Store route
@@ -117,31 +136,8 @@ Route::get('/invoice/Sales_accept', function () {
 Route::get('/Categorize', [CategorizeController::class, 'index'])->name('Categorize');
 Route::post('/Categorize', [CategorizeController::class, 'store'])->name('Categorize.store');
 
-
-Route::get('/tries', [TiresController::class, 'index'])->name('Tries');
-Route::post('/tries', [TiresController::class, 'AddTire'])->name('Tries.Add');
-
-Route::get('/Supplier', [SupplierController::class, 'index'])->name('Supplier');
-Route::post('/Supplier', [SupplierController::class, 'SupplierStore'])->name('Supplier.Add');
-
-Route::get('/Employees', [EmployeesController::class, 'index'])->name('Employees');
-Route::post('/Employees', [EmployeesController::class, 'Employeesstore'])->name('Employees.Add');
-// Route::get('/search', [EmployeesController::class, 'search'])->name('employees.search');
-
-Route::get('/pricing', [PricingController::class, 'index'])->name('Pricing');
-Route::post('/pricing', [PricingController::class, 'store'])->name('Pricing.store');
-
 Route::get('/test', function () {
     return view('pdf.Job_order');
-});
-
-
-Route::get('/Store', function () {
-    return view('Store');
-})->name('Store');
-
-Route::get('/Employee_requests', function () {
-    return view('Employee_requests');
 });
 
 Route::get('/profile', function () {
@@ -155,32 +151,9 @@ Route::get('/store', function () {
 // Management routes
 Route::group(['prefix' => 'management'], function () {
 
-    Route::get('/', function () {
-        return view('Management_page.Data_Entry');
-    })->name('Manage');
-    Route::get('/DataEntry', function () {
-        return view('Management_page.Data_Entry');
-    })->name('Data_Entry');
     Route::get('/customer', function () {
         return view('Management_page.Customers');
     })->name('Customers');
-    Route::post('/Employee', [EmployeesController::class, 'Employeesstore'])->name('emp.store');
-    Route::get('/', function () {
-        return view('Management_page.Employee_requests');
-    })->name('Employee_requests');
-
-    // Route::get('Employee', function () {
-
-    //     $workplaces =[
-    //         'يبنع الصناعية', 'حي الياقوت', 'المدينة المنورة'
-    //     ];
-
-    //     return view('employees',compact( "workplaces"));
-    // })->name('employees');
-
-    // Route::get('/', function () {
-    //     return view('Management_page.Employee_requests');
-    // })->name('Employee_requests');
 
     Route::get('/Report', function () {
         return view('Management_page.Reports');
@@ -188,7 +161,6 @@ Route::group(['prefix' => 'management'], function () {
     Route::get('/User_management', function () {
         return view('Management_page.User_management');
     })->name('User_management');
-    Route::post('/DataEntry/AddCompany', [ManagemetController::class, 'CompanyStore'])->name('Data_Entry.Company');
 });
 
 // Purchases routes

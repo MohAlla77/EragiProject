@@ -252,11 +252,10 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <select class="form-select text-center" aria-label="Default select example" name="department">
-                                                                <option selected>الوظيفه</option>
-                                                                <option value="1">IT</option>
-                                                                <option value="2">محاسبة</option>
-                                                                <option value="3">مبيعات</option>
-                                                                <option value="3">فني</option>
+                                                                <option disabled selected>الوظيفه</option>
+                                                                {{-- @foreach ($departmentOptions as $option)
+                                                                    <option value="{{ $option }}">{{ $option }}</option>
+                                                                @endforeach --}}
                                                             </select>
                                                         </div>
                                                         <div class="col-md-6">
@@ -303,18 +302,18 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <select class="form-select text-center" aria-label="Default select example" name="marital_status">
-                                                                <option selected>الحالة الاجتماعية</option>
-                                                                <option value="1">متزوج</option>
-                                                                <option value="2">عاذب</option>
+                                                                <option disabled selected>الحالة الاجتماعية</option>
+                                                                {{-- @foreach ($marital_statusOptions as $option)
+                                                                    <option value="{{ $option }}">{{ $option }}</option>
+                                                                @endforeach --}}
                                                             </select>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <select class="form-select text-center" aria-label="Default select example" name="nationality">
-                                                                <option selected>الجنسية</option>
-                                                                <option value="1">سعدوي</option>
-                                                                <option value="2">سوداني</option>
-                                                                <option value="3">مصري</option>
-                                                                <option value="3">فلبيني</option>
+                                                                <option disabled selected>الجنسية</option>
+                                                                {{-- @foreach ($nationalityOptions as $option)
+                                                                    <option value="{{ $option}}">{{$option}}</option>
+                                                                @endforeach --}}
                                                             </select>
                                                         </div>
                                                     </div>
@@ -330,12 +329,9 @@
                                                                 <div class="col-md-9">
                                                                     <select name="workplace" class="form-select text-center">
                                                                         <option disabled selected>مكان الفرع</option>
-                                                                        <option value="#">ينبع المنطقة الصناعية</option>
-                                                                        <option value="#">ينبع حي الياقوت </option>
-                                                                        <option value="#">المدينة المنورة</option>
-                                                                        {{-- @foreach ($workplaces as $workplace)
-                                                                        <option value="{{$workplace}}">{{$workplace}}</option>
-                                                                        @endforeach --}}
+                                                                        @foreach ($workplaceOptions as $option)
+                                                                            <option value="{{ $option }}">{{ $option }}</option>
+                                                                        @endforeach
                                                                     </select>
                                                                 </div>
                                                                 <div class="col-md-3 text-center">

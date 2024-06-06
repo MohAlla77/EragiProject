@@ -82,19 +82,6 @@
             </div>
             <div id="layoutSidenav_content" style="height: 25vh; overflow-y: auto;">
                 <main>
-                    <div class="row mt-5 py-2 mb-2 ms-5 col-12">
-                        <div class="col-md-4">
-                            <div class="card text-center" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">ادخال البيانات </h5>
-                                    <div class="col-md-12">
-                                        <hr class="separator-line">
-                                    </div>
-                                    <p class="card-text"> إضافة المعلومات المتعلقة بماركات السيارات والموديلات والخدمات</p>
-                                    <a href="{{route('Data_Entry')}}" class="btn btn-primary">ادخال البيانات <i class="fa-solid fa-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
                         {{-- <div class="col-md-4">
                             <div class="card text-center" style="width: 18rem;">
                                 <div class="card-body">

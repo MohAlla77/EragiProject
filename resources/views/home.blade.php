@@ -1,6 +1,6 @@
 @extends('Master')
     @section('title', ('Home'))
-    @section('navbarTitle', ('Home'))
+    {{-- @section('navbarTitle', ('Home')) --}}
     @section('content')
         <div class="container-fluid px-4 mx-auto">
             @include('shared.success_message')

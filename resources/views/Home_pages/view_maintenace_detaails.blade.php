@@ -1,71 +1,7 @@
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>الرئسية</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
-    </script>
-    <style>
-        input[type="range"] {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 100%;
-            height: 15px;
-            /* Adjust height as needed */
-            border-radius: 5px;
-            /* Adjust border radius as needed */
-            outline: none;
-            margin: 10px 0;
-            /* Adjust margin as needed */
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            /* Adjust thumb width as needed */
-            height: 20px;
-            /* Adjust thumb height as needed */
-            border-radius: 50%;
-            /* Round thumb */
-            background: white;
-            /* Thumb color */
-            cursor: pointer;
-        }
-
-        .logo-img {
-            width: 60px;
-            /* Adjust the width as needed */
-            height: auto;
-            /* Maintain aspect ratio */
-            margin-right: 20px;
-            /* Adjust the margin as needed */
-        }
-    </style>
-</head>
-
-<body class="sb-nav-fixed">
-    @include('Layout.navbar')
-    <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-            @include('Layout.sidebar')
-        </div>
-        <div id="layoutSidenav_content">
-            <main>
+@extends('Master')
+    @section('title','View_Maintenace_Details')
+        {{-- @section('navbarTitle' 'View_Maintenace_Details') --}}
+            @section('content')
                 <div class="card border-dark">
                     <div class="card-header text-end">
                         {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal44">
@@ -88,8 +24,8 @@
                                     <th>الموديل</th>
                                     <th>الخدمة</th>
                                     <th>اسم السيارة</th>
-                                    {{-- <th>العداد</th>
-                                    <th>الهيكل</th> --}}
+                                    {{-- <th>العداد</th> --}}
+                                    <th>الهيكل</th>
                                     <th>اللوحة</th>
                                     <th>الهاتف</th>
                                     <th>الاسم</th>
@@ -107,8 +43,8 @@
                                     <th>الموديل</th>
                                     <th>الخدمة</th>
                                     <th>اسم السيارة</th>
-                                    {{-- <th>العداد</th>
-                                    <th>الهيكل</th> --}}
+                                    {{-- <th>العداد</th> --}}
+                                    <th>الهيكل</th>
                                     <th>اللوحة</th>
                                     <th>الهاتف</th>
                                     <th>الاسم</th>
@@ -146,11 +82,9 @@
                                         <td>{{ $car->comment }}</td> --}}
                                         <td>{{ $car->brand }}</td>
                                         <td>{{ $car->model }}</td>
-                                        <td>!!!!!!!</td>
-                                        {{-- <td>{{ $car->counter }}</td> --}}
                                         <td>{{ $car->car_name }}</td>
                                         {{-- <td>{{ $car->counter }}</td> --}}
-                                        {{-- <td>{{ $car->structure_no }}</td> --}}
+                                         <td>{{ $car->structure_no }}</td>
                                         <td>{{ $car->plate }}</td>
                                         <td>{{ $car->phone }}</td>
                                         <td>{{ $car->name }}</td>
@@ -161,21 +95,7 @@
                         </table>
                     </div>
                 </div>
-            </main>
-            @include('Layout.footer')
-        </div>
-    </div>
-    <canvas id="myChart"></canvas>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
-    </script>
-    <script src="js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
-        crossorigin="anonymous"></script>
-    <script src="js/datatables-simple-demo.js"></script>
-
+            @stop
     <script>
         // Function to start or resume the timer
         function startTimer() {
@@ -213,5 +133,3 @@
         // Start the timer when the page loads
         window.onload = startTimer;
     </script>
-
-</body>

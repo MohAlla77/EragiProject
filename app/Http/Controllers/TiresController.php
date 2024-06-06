@@ -17,27 +17,26 @@ class TiresController extends Controller
         return view('Tires', ['Tires' => $tires]);
     }
 
-    public function AddTire()
+    public function AddTire(AddTiresRequest $request)
     {
-        //$validated = $request->validated();
-
+        $validated = $request->validated();
 
         Tires::create([
 
-            'tire_serial' => request()->get('Tire_serial'),
-            'size' => request()->get('TireSize'),
-            'quantityl' => request()->get('quantity'),
-            'amount' => request()->get('TireAmount'),
-            'price' => request()->get('TirePrice'),
-            'country_of_construction' => request()->get('TireCountry'),
-            'model' => request()->get('TireModel'),
-            'quantity_available' => request()->get('TireAmount'),
-            'production_date' => request()->get('TireDate'),
-            'purchase_invoice'=> request()->get('purchase_invoice'),
-            'tax_number'=> request()->get('tax_number'),
-            'supplier'=> request()->get('supplier'),
-            'store_Place'=> request()->get('store_Place'),
-            'selling_price'=> request()->get('selling_price'),
+            'tire_serial' => request()->input('Tire_serial'),
+            'size' => request()->input('Size'),
+            'quantityl' => request()->input('quantity'),
+            'amount' => request()->input('amount'),
+            'price' => request()->input('price'),
+            'country_of_construction' => request()->input('country_of_construction'),
+            'model' => request()->input('model'),
+            'quantity_available' => request()->input('quantity_available'),
+            'production_date' => request()->input('production_date'),
+            'purchase_invoice'=> request()->input('purchase_invoice'),
+            'tax_number'=> request()->input('tax_number'),
+            'supplier'=> request()->input('supplier'),
+            'store_Place'=> request()->input('store_Place'),
+            // 'selling_price'=> request()->input('selling_price'),
 
         ]);
 

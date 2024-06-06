@@ -25,6 +25,6 @@ class Tires extends Model
         'tax_number',
         'supplier',
         'store_Place',
-        'selling_price',
+        // 'selling_price',
     ];
 }

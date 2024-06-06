@@ -152,4 +152,40 @@ class HomeController extends Controller
         return redirect()->back();
 
     }
+
+    public function ToMaintenance(Car $car)
+    {
+
+        $maintenanceStartedAt = $car->updated_at;
+        $maintenanceEndedAt = now();
+        $maintenanceTime = $maintenanceEndedAt->diffForHumans($maintenanceStartedAt);
+
+        $check = DB::table('check_car')
+            ->where('car_id', $car->id)
+            ->first();
+
+        if (!$check) {
+
+            return redirect()->back()->withErrors('Check record not found for the car.');
+        }
+
+        CarHistory::create([
+            'car_id' => $car->id,
+            'user_name' => $car->user_id,
+            'Eng_name' => $check->eng_id,
+            'fix' => $check->customer_comment,
+            'fix_doc' => $check->fix_requirement,
+            'Worker_name' => request()->get('WorkerName'),
+            'Work_time' => $maintenanceTime,
+            'status' => 'MAINTENANCE', 
+        ]);
+
+        $car->status = 'MAINTENANCE';
+        $car->save();
+
+        DB::table('check_car')->where('car_id', $car->id)->delete();
+
+        return redirect()->back()->with('success', 'Car status updated to MAINTENANCE successfully.');
+    }
+
 }

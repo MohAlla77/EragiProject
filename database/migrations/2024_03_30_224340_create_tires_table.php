@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('tax_number');
             $table->string('supplier');
             $table->string('store_Place');
-            $table->string('selling_price');
+            // $table->string('selling_price');
             $table->timestamps();
         });
     }

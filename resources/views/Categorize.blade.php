@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -49,7 +49,7 @@
                     <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#!">Profile</a></li>
                         {{-- <li><a class="dropdown-item" href="#!">Activity Log</a></li> --}}
-                        <li>
+                        {{-- <li>
                             <hr class="dropdown-divider" />
                         </li>
                         <li><a class="dropdown-item" href="#">Logout</a></li>
@@ -76,132 +76,137 @@
                 @include('Layout.sidebar')
             </div>
             <div id="layoutSidenav_content">
-                <main>
-                    <div class="card-body">
-                        <div class="row g-1">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row g-1">
-                                        <div class="col-md-12">
-                                            <div class="card bg-light">
-                                                <div class="card-body">
-                                                    <div class="col-md-12 mb-1">
-                                                        <button type="button" class="btn btn-success col-12" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                            اضافة مجموعة الاصناف
-                                                        </button>
-                                                        <div>
-                                                            @include('model.item_group_purchase_popup')    
-                                                        </div>
+                <main> --}}
+                    @extends('Master')
+                        @section('title', 'Categorize')
+                        {{-- @section('navbarTitle', 'Categorize') --}}
+                        @section('content')
+                            <div class="card-body">
+                                <div class="row g-1">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row g-1">
+                                                <div class="col-md-12">
+                                                    <div class="card bg-light">
+                                                        <div class="card-body">
+                                                            <div class="col-md-12 mb-1">
+                                                                <button type="button" class="btn btn-success col-12" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                                    اضافة مجموعة الاصناف
+                                                                </button>
+                                                                <div>
+                                                                    @include('model.item_group_purchase_popup')    
+                                                                </div>
+                                                            </div>
+                                                            <form action="{{route('Categorize.store')}}" method="post">
+                                                                @csrf
+                                                                <div class="col-md-12 mb-1">
+                                                                    <input type="text" class="form-control text-center"
+                                                                    required placeholder="اضافة صنف" readonly>
+                                                                </div>
+                                                                <div class="row g-1">
+                                                                    <div class="col-md-6">
+                                                                        <select name="categorize_group_id"
+                                                                            class="form-select text-center"
+                                                                            onchange="toggleForm(this)">
+                                                                            <option selected>نوع الصنف</option>
+                                                                            @foreach ($CategorizeGroup as $C_group)
+                                                                                <option value="{{ $C_group->id }}">
+                                                                                    {{ $C_group->name }}
+                                                                                </option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <input name="CategorizeName" type="text" class="form-control text-center" id="#"
+                                                                            required placeholder="اسم الصنف">
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <input name="CategorizeSerial" class="form-control text-center" id="#"
+                                                                            required placeholder="الرقم التسلسلي للصنف">
+                                                                    </div>
+                                                                    {{-- <div class="col-md-6">
+                                                                        <input type="number" class="form-control text-center" id="#"
+                                                                            required placeholder="رقم المجموعة" disabled>
+                                                                    </div> --}}
+                                                                    <div class="col-md-6">
+                                                                        <select name="SupplierName" class="form-select text-center"
+                                                                            aria-label="Default select example">
+                                                                            <option selected> إسم المورد </option>
+
+                                                                            @foreach ($Supplers as $suppler )
+
+                                                                            <option value="{{$suppler->name}}"> {{$suppler->name}}  </option>
+
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <input name="SupplierTaxNumber" class="form-control text-center" id="#"
+                                                                            required placeholder="الرقم الضريبي للمورد" readonly>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <select name="StorgePlace" class="form-select text-center" name="#"
+                                                                            aria-label="Default select example">
+                                                                            <option selected>مكان المخزن</option>
+                                                                            <option value="invoice">حي الياقوت</option>
+                                                                            <option value="return">ينبع الصناعية</option>
+                                                                            <option value="purchase">المدينة المنورة</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <select name="UnitType" class="form-select text-center" name="#"
+                                                                            aria-label="Default select example">
+                                                                            <option selected> عدد الوحدات</option>
+                                                                            <option value="invoice">كرتونة</option>
+                                                                            <option value="return">ليتر </option>
+                                                                            <option value="purchase">حبة</option>
+                                                                            {{-- <option value="quotation">ربطة</option> --}}
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <input name="CategorizeAmount" class="form-control text-center"
+                                                                            id="validationServer04" name="item_quantity" required
+                                                                            placeholder="الكمية">
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <input  name="price_cost" class="form-control text-center"
+                                                                            id="validationServer04" required placeholder="سعر التكلفة ">
+                                                                    </div>
+                                                                    {{-- 
+                                                                    <div class="col-md-6">
+                                                                        <input  name="CategorizeSealCost" class="form-control text-center"
+                                                                            id="validationServer04"  required placeholder=" سعر البيع">
+                                                                    </div><div class="col-md-6">
+                                                                        <input name="InvoiceDatePurchase" type="date" class="form-control text-center" id="#"
+                                                                            required placeholder="تاريخ الفاتورة المشتريات">
+                                                                    </div> --}}
+                                                                    <div class="col-md-3">
+                                                                        <input name="InvoiceDatePurchase" type="date"
+                                                                            class="form-control text-center"required>
+                                                                        {{-- @error('InvoiceDatePurchase')
+                                                                            <span
+                                                                                class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
+                                                                        @enderror --}}
+                                                                    </div>
+                                                                    <div class="col-md-3 text-center">
+                                                                        <label class="form-label inline">تاريخ فاتورة الشراء </label>
+                                                                    </div>
+                                                                    <div class="col-12 text-center">
+                                                                        <button type="Save" class="col-6 btn btn-success">اضافة <i
+                                                                                class="fa-solid fa-plus"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                            </div>
                                                     </div>
-                                                    <form action="{{route('Categorize.store')}}" method="post">
-                                                        @csrf
-                                                        <div class="col-md-12 mb-1">
-                                                            <input type="text" class="form-control text-center"
-                                                             required placeholder="اضافة صنف" readonly>
-                                                        </div>
-                                                        <div class="row g-1">
-                                                            <div class="col-md-6">
-                                                                <select name="categorize_group_id"
-                                                                    class="form-select text-center"
-                                                                    onchange="toggleForm(this)">
-                                                                    <option selected>نوع الصنف</option>
-                                                                    @foreach ($CategorizeGroup as $C_group)
-                                                                        <option value="{{ $C_group->id }}">
-                                                                            {{ $C_group->name }}
-                                                                        </option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <input name="CategorizeName" type="text" class="form-control text-center" id="#"
-                                                                    required placeholder="اسم الصنف">
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <input name="CategorizeSerial" class="form-control text-center" id="#"
-                                                                    required placeholder="الرقم التسلسلي للصنف">
-                                                            </div>
-                                                            {{-- <div class="col-md-6">
-                                                                <input type="number" class="form-control text-center" id="#"
-                                                                    required placeholder="رقم المجموعة" disabled>
-                                                            </div> --}}
-                                                            <div class="col-md-6">
-                                                                <select name="SupplierName" class="form-select text-center"
-                                                                    aria-label="Default select example">
-                                                                    <option selected> إسم المورد </option>
-
-                                                                    @foreach ($Supplers as $suppler )
-
-                                                                    <option value="{{$suppler->name}}"> {{$suppler->name}}  </option>
-
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <input name="SupplierTaxNumber" class="form-control text-center" id="#"
-                                                                    required placeholder="الرقم الضريبي للمورد" readonly>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <select name="StorgePlace" class="form-select text-center" name="#"
-                                                                    aria-label="Default select example">
-                                                                    <option selected>مكان المخزن</option>
-                                                                    <option value="invoice">حي الياقوت</option>
-                                                                    <option value="return">ينبع الصناعية</option>
-                                                                    <option value="purchase">المدينة المنورة</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <select name="UnitType" class="form-select text-center" name="#"
-                                                                    aria-label="Default select example">
-                                                                    <option selected> عدد الوحدات</option>
-                                                                    <option value="invoice">كرتونة</option>
-                                                                    <option value="return">ليتر </option>
-                                                                    <option value="purchase">حبة</option>
-                                                                    {{-- <option value="quotation">ربطة</option> --}}
-                                                                </select>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <input name="CategorizeAmount" class="form-control text-center"
-                                                                    id="validationServer04" name="item_quantity" required
-                                                                    placeholder="الكمية">
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <input  name="price_cost" class="form-control text-center"
-                                                                    id="validationServer04" required placeholder="سعر التكلفة ">
-                                                            </div>
-                                                            {{-- 
-                                                            <div class="col-md-6">
-                                                                <input  name="CategorizeSealCost" class="form-control text-center"
-                                                                    id="validationServer04"  required placeholder=" سعر البيع">
-                                                            </div><div class="col-md-6">
-                                                                <input name="InvoiceDatePurchase" type="date" class="form-control text-center" id="#"
-                                                                    required placeholder="تاريخ الفاتورة المشتريات">
-                                                            </div> --}}
-                                                            <div class="col-md-3">
-                                                                <input name="InvoiceDatePurchase" type="date"
-                                                                    class="form-control text-center"required>
-                                                                {{-- @error('InvoiceDatePurchase')
-                                                                    <span
-                                                                        class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
-                                                                @enderror --}}
-                                                            </div>
-                                                            <div class="col-md-3 text-center">
-                                                                <label class="form-label inline">تاريخ فاتورة الشراء </label>
-                                                            </div>
-                                                            <div class="col-12 text-center">
-                                                                <button type="Save" class="col-6 btn btn-success">اضافة <i
-                                                                        class="fa-solid fa-plus"></i></button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </main>
+                        @stop
+                {{-- </main>
             </div>
         </div>
         <script src="js/scripts.js"></script>
@@ -209,4 +214,4 @@
             crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
     </body>
-</html>
+</html> --}}

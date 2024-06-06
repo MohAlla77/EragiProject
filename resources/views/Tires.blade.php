@@ -358,7 +358,7 @@
                                                         <input name="TireSize"
                                                             class="form-control text-center" 
                                                             placeholder="المقاس" required>
-                                                        @error('TireSize')
+                                                        @error('Size')
                                                             <span
                                                                 class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                                         @enderror
@@ -441,40 +441,40 @@
                                                     <div class="col-md-3 text-center">
                                                         <label class="form-label inline">تاريخ فاتورة الشراء </label>
                                                     </div>
-                                                    <div class="col-md-6 mb-1">
+                                                    <div class="col-md-4 mb-1">
                                                         <input name="SupplierTaxNumber" class="form-control text-center" id="#"
                                                             required placeholder="الرقم الضريبي للمورد">
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <select name="SupplierName" class="form-select text-center"
                                                             aria-label="Default select example">
                                                             <option selected> إسم المورد </option>
-                                                            <option selected> محمد </option>
-                                                            <option selected> احمد</option>
-                                                            <option selected> حمد</option>
-
+                                                            <option value="#"> محمد </option>
+                                                            <option value="#"> احمد</option>
+                                                            <option value="#"> حمد</option>
+    
                                                         {{--@foreach ($Supplers as $suppler )
                                                             <option value="{{$suppler->name}}"> {{$suppler->name}}  </option>
                                                             @endforeach --}}
                                                         </select>
                                                     </div>
-                                                    <div class="col-md-6 mb-1">
+                                                    <div class="col-md-4 mb-1">
                                                         <select name="StorgePlace" class="form-select text-center" name="#"
                                                             aria-label="Default select example">
                                                             <option selected>مكان المخزن</option>
-                                                            <option value="invoice">حي الياقوت</option>
-                                                            <option value="return">ينبع الصناعية</option>
-                                                            <option value="purchase">المدينة المنورة</option>
+                                                            <option value="#">حي الياقوت</option>
+                                                            <option value="#">ينبع الصناعية</option>
+                                                            <option value="#">المدينة المنورة</option>
                                                         </select>
                                                     </div>
-                                                    <div class="col-md-6 mb-1">
+                                                    {{-- <div class="col-md-6 mb-1">
                                                         <input name="TirePrice"
                                                             class="form-control text-center"
                                                             placeholder="سعر البيع"required>
                                                         @error('TirePrice')
                                                             <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                                         @enderror
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                                 <div class=" footer col-12 text-center">
                                                     <button type="submit" name="add"

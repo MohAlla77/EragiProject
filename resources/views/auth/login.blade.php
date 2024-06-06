@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-  @extends('Layout.head')
+<link href="css/styles.css" rel="stylesheet" />
     <body >
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
@@ -77,9 +77,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </main>
             </div>
-            <div id="layoutAuthentication_footer">
+            {{-- <div id="layoutAuthentication_footer">
               @include('Layout.footer')
-            </div>
+            </div> --}}
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
