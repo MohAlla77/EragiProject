@@ -219,3 +219,5 @@ Route::group(['prefix' => '{type}'], function () {
     Route::post('/{car}/done', [HomeController::class, 'ToDone'])->name('car.ToDone');
     Route::post('/{car}/wait', [HomeController::class, 'ToWait'])->name('car.ToWait');
 });
+
+
