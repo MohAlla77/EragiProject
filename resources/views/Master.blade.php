@@ -159,7 +159,7 @@
                                 </ul>
                                 <a class="nav-link text-white" href="{{route('Data_Entry')}}">
                                     <div class="sb-nav-link-icon text-white"></div>
-                                    <span class="ms-auto pe-2">ادخال البيانات</span><i class="fas fa-database"></i>
+                                    <span class="ms-auto pe-2">ادخال البيانات</span><i class="fa fa-pencil-square" aria-hidden="true"></i>
                                 </a>
                                 {{-- <a class="nav-link text-white" href="{{route('Manage')}}">
                                     <div class="sb-nav-link-icon text-white"></div>

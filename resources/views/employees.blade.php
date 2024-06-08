@@ -253,9 +253,9 @@
                                                         <div class="col-md-6">
                                                             <select class="form-select text-center" aria-label="Default select example" name="department">
                                                                 <option disabled selected>الوظيفه</option>
-                                                                {{-- @foreach ($departmentOptions as $option)
+                                                                @foreach ($departmentOptions as $option)
                                                                     <option value="{{ $option }}">{{ $option }}</option>
-                                                                @endforeach --}}
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                         <div class="col-md-6">
@@ -303,17 +303,17 @@
                                                         <div class="col-md-4">
                                                             <select class="form-select text-center" aria-label="Default select example" name="marital_status">
                                                                 <option disabled selected>الحالة الاجتماعية</option>
-                                                                {{-- @foreach ($marital_statusOptions as $option)
+                                                                @foreach ($marital_statusOptions as $option)
                                                                     <option value="{{ $option }}">{{ $option }}</option>
-                                                                @endforeach --}}
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <select class="form-select text-center" aria-label="Default select example" name="nationality">
                                                                 <option disabled selected>الجنسية</option>
-                                                                {{-- @foreach ($nationalityOptions as $option)
+                                                                @foreach ($nationalityOptions as $option)
                                                                     <option value="{{ $option}}">{{$option}}</option>
-                                                                @endforeach --}}
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </div>

@@ -12,8 +12,16 @@ class ServiceController extends Controller
         $service = Service::take(5)->get();
         $service_group = ServiceGroup::all();
         $service_group = ServiceGroup::all();
+        $service_type = [
+            'حدمة داخلية',
+            'خدمة خارجية',
+        ];
 
-        return view('Service', ['ServiceGroup' => $service_group, 'Service' => $service]);
+        return view('Service', ['Service' => $service,
+        'ServiceGroup'  => $service_group,
+        'service_type'  => $service_type,
+        'service_type'  => $service_type,
+        ]);
 
     }
 

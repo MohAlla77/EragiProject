@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\AddTiresRequest;
+use App\Models\Supplier;
 use App\Models\Tires;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,9 @@ class TiresController extends Controller
     {
 
         $tires = Tires::all();
+        $suppler = Supplier::all();
 
-        return view('Tires', ['Tires' => $tires]);
+        return view('Tires', ['Tires' => $tires, 'Supplers' => $suppler]);
     }
 
     public function AddTire(AddTiresRequest $request)

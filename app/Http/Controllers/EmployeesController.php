@@ -37,12 +37,12 @@ class EmployeesController extends Controller
             'فني',
         ];
     
-        return view('Employees', ['Employees' => $employees],
-         ['workplaceOptions' => $workplaceOptions],
-         ['nationalityOptions' => $nationalityOptions],
-         ['marital_statusOptions' => $marital_statusOptions],
-         ['departmentOptions' => $departmentOptions]
-        );
+        return view('Employees', ['Employees' => $employees,
+         'workplaceOptions' => $workplaceOptions,
+         'nationalityOptions' => $nationalityOptions,
+         'marital_statusOptions' => $marital_statusOptions,
+         'departmentOptions' => $departmentOptions
+        ]);
     }
     
     public function show()
