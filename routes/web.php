@@ -9,14 +9,16 @@ use App\Http\Controllers\{
     HomeController,
     InvoiceController,
     ManagemetController,
+    NavbarController,
     PricingController,
+    ProfileController,
     PurchasesController,
+    ReportsController,
     ServiceController,
     ServiceGroupController,
     SpearController,
     SupplierController,
     TiresController,
-    Data_Entry
 };
 use App\Models\{Car, Service, Supplier};
 use Doctrine\DBAL\Schema\Index;
@@ -82,6 +84,7 @@ Route::group(['prefix' => 'invoice'], function () {
 Route::group(['prefix' => 'tries'], function () {
     Route::get('/', [TiresController::class, 'index'])->name('Tries');
     Route::post('/', [TiresController::class, 'AddTire'])->name('Tries.Add');
+    Route::get('/Tires', [NavbarController::class, 'Tires']);
 });
 
 // Supplier routes
@@ -90,12 +93,19 @@ Route::group(['prefix' => 'Supplier'], function () {
     Route::post('/', [SupplierController::class, 'SupplierStore'])->name('Supplier.Add');
 });
 
+// Categorize routes
+Route::group(['prefix' => 'Categorize'], function () {
+    Route::get('/', [CategorizeController::class, 'index'])->name('Categorize');
+    Route::post('/', [CategorizeController::class, 'store'])->name('Categorize.store');    
+});
+
 // Employees routes
 Route::group(['prefix' => 'Employees'], function () {
     Route::get('/', [EmployeesController::class, 'index'])->name('Employees');
     Route::post('/', [EmployeesController::class, 'Employeesstore'])->name('Employees.Add');
     // Route::get('/'[EmployeesContoller::class, 'show']);
     Route::get('/search', [EmployeesController::class, 'search'])->name('employees.search');
+    Route::get('/', [NavbarController::class, 'index']);
 });
 
 // Pricing routes
@@ -110,11 +120,21 @@ Route::group(['prefix' => 'Service'], function () {
     Route::post('/', [ServiceController::class, 'ServiceStore'])->name('Service.store');
 });
 
-// Data_Entry Route
+// Reports Route
+Route::group(['prefix' => 'Reports'], function(){
+    Route::get('/', [ReportsController::class, 'index'])->name('Reports');
+});
 
+// Data_Entry Route
 Route::group(['prefix' => 'Data_Entry'], function(){
     Route::get('/', [Data_EntryController::class, 'index'])->name('Data_Entry');
     Route::post('/', [Data_EntryController::class, 'CompanyStore'])->name('Data_Entry.CompanyStore');
+});
+
+// Profile Route
+Route::group(['prefix' => 'Profile'], function(){
+    Route::get('/', [ProfileController::class, 'index'])->name('profile');
+    // Route::post('/', [Controller::class, ''])->name('');
 });
 
 // Store route
@@ -133,16 +153,9 @@ Route::get('/invoice/Sales_accept', function () {
 
 
 
-Route::get('/Categorize', [CategorizeController::class, 'index'])->name('Categorize');
-Route::post('/Categorize', [CategorizeController::class, 'store'])->name('Categorize.store');
-
 Route::get('/test', function () {
     return view('pdf.Job_order');
 });
-
-Route::get('/profile', function () {
-    return view('profile');
-})->name('profile');
 
 Route::get('/store', function () {
     return view('store');
@@ -155,9 +168,6 @@ Route::group(['prefix' => 'management'], function () {
         return view('Management_page.Customers');
     })->name('Customers');
 
-    Route::get('/Report', function () {
-        return view('Management_page.Reports');
-    })->name('Reports');
     Route::get('/User_management', function () {
         return view('Management_page.User_management');
     })->name('User_management');
@@ -174,6 +184,7 @@ Route::group(['prefix' => 'purchases'], function () {
     Route::put('update/{id}', [PurchasesController::class, 'UpdateService'])->name('service.update');
     Route::delete('delete/{id}', [PurchasesController::class, 'DeleteService'])->name('service.delete');
     Route::post('/{purchases}/order_sales', [PurchasesController::class, 'order_sales'])->name('Purchases.order_sales');
+    Route::get('/purchases', [NavbarController::class, 'index']);
 });
 
 // Seals routes
@@ -193,3 +204,4 @@ Route::group(['prefix' => '{type}'], function () {
 });
 
 
+// Route::get('/store', [NavbarController::class, 'store']);

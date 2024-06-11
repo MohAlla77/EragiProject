@@ -24,11 +24,19 @@ class PurchasesController extends Controller
 
         $Categorize_group = CategorizeGroup::all();
         $categorizes = Categorize::all();
-
-
+        $paymentMethod = ['شبكة','كاش','مقدم','اجل'];
+        $invoiceType = ["فاتور مشتريات","مرتجع"];
+        $discount = ['بالنسبة','بالمبلغ'];
 
         return view('Purchases', ['ServiceGroup' => $Service_group,
-         'CategorizeGroup' => $Categorize_group , 'Services' => $service , 'categorizes' => $categorizes , 'Supplers' => $suppler]);
+         'CategorizeGroup' => $Categorize_group , 
+         'Services' =>    $service , 
+         'categorizes' => $categorizes ,
+         'Supplers' =>    $suppler,
+         'paymentMethod'=>$paymentMethod,
+         'invoiceType'=>  $invoiceType,
+         'discount' =>    $discount
+        ]);
     }
 
     public function SealsIndex(){

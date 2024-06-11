@@ -4,8 +4,9 @@
         @section('content')
         <div class="card">
             <div class="card-body">
-                <button id="toggleCardViewButton" class="btn btn-primary col-1 pe-2 float-end" onclick="toggleCardView()">جديد <i class="fa-solid fa-file"></i></button>
-                <button id="invoiceButton" class="btn btn-primary col-1 ms-1 float-end" onclick="toggleInvoiceForm()">فاتورة <i>
+                {{-- <button id="toggleCardViewButton" class="btn btn-primary col-1 pe-2 float-end" onclick="toggleCardView()">جديد <i class="fa-solid fa-file"></i></button>
+                <button id="invoiceButton" class="btn btn-primary col-1 ms-1 float-end" onclick="toggleInvoiceForm()">فاتورة <i> --}}
+                {{-- <button id="combinedButton" class="btn btn-primary col-1 pe-2 float-end" onclick="toggleCardView(); toggleInvoiceForm();">ادخال\فاتورة</button> --}}
             </div>
         </div>
         <div class="card">
@@ -238,12 +239,12 @@
                             @csrf
                             <div class="card bg-light">
                                 <div class="card-body">
-                                    <div class="col-md-12 mb-2">
+                                    <div class="col-md-12 mb-1">
                                         <input class="form-control text-center"
                                             placeholder="ادخال اطارات جديدة" readonly>
                                     </div>
-                                    <div class="row g-1">
-                                        <div class="col-md-6 mb-1">
+                                    <div class="row g-1 mb-1">
+                                        <div class="col-md-6">
                                             <input name="Tire_serial" class="form-control text-center"
                                                 placeholder="الرقم التسلسلي">
                                             @error('Tire_serial')
@@ -251,7 +252,7 @@
                                                     class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                        <div class="col-md-6 mb-1">
+                                        <div class="col-md-6">
                                             <input name="TireSize"
                                                 class="form-control text-center" 
                                                 placeholder="المقاس" required>
@@ -260,7 +261,7 @@
                                                     class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                        <div class="col-md-6 mb-1">
+                                        <div class="col-md-6">
                                             <input name="TireAmount"
                                                 class="form-control text-center" 
                                                 placeholder="الكمية"
@@ -270,7 +271,7 @@
                                                     class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                        <div class="col-md-6 mb-1">
+                                        <div class="col-md-6">
                                             <input name="TirePrice"
                                                 class="form-control text-center"
                                                 placeholder="سعر الشراء"required>
@@ -278,41 +279,32 @@
                                                 <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                    </div>
-                                    <div class="row g-1 text-center">
-                                        <div class="col-md-3">
+                                        <div class="col-md-6">
                                             <select name="TireModel" id="brand"
                                                 class="form-select text-center"
                                                 aria-describedby="validationServer04Feedback" required>
-                                                <option value="ماركة"> ماركة</option>
-                                                <option value="بلد">صنع في المانيا </option>
-                                                <option value="بلد">صنع في الصين</option>
-                                                <option value="بلد">صنع في اليابان</option>
+                                                <option disabled selected>ماركة الاطار</option>
+                                                    @foreach ($tirebrand as $option)
+                                                        <option value="{{$option}}">{{$option}}</option>
+                                                    @endforeach
                                             </select>
                                             @error('TireModel')
                                                 <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                        <div class="col-md-3 mb-1 text-center">
-                                            <label for="brand" class="form-label inline"> اختار
-                                                ماركة الاطار</label>
-                                        </div>
-                                        <div class="col-md-3 mb-1 text-center">
+                                        <div class="col-md-6">
                                             <select name="TireCountry" id="model"
                                                 class="form-select text-center"
                                                 aria-describedby="validationServer04Feedback" required>
-                                                <option value="بلد">صنع في المانيا </option>
-                                                <option value="بلد">صنع في الصين</option>
-                                                <option value="بلد">صنع في اليابان</option>
+                                                <option disabled selected>مكان الصنع</option>
+                                                @foreach ($madein as $option)
+                                                    <option value="{{$option}}">{{$option}}</option>
+                                                @endforeach
                                             </select>
                                             @error('TireCountry')
                                                 <span
                                                     class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                                             @enderror
-                                        </div>
-                                        <div class="col-md-2 text-center">
-                                            <label for="model" class="form-label inline">اختار بلد
-                                                الصنع</label>
                                         </div>
                                     </div>
                                     <div class="row g-1">
@@ -345,23 +337,19 @@
                                         <div class="col-md-4">
                                             <select name="SupplierName" class="form-select text-center"
                                                 aria-label="Default select example">
-                                                <option selected> إسم المورد </option>
-                                                <option value="#"> محمد </option>
-                                                <option value="#"> احمد</option>
-                                                <option value="#"> حمد</option>
-
-                                            {{--@foreach ($Supplers as $suppler )
-                                                <option value="{{$suppler->name}}"> {{$suppler->name}}  </option>
-                                                @endforeach --}}
+                                                <option disabled selected> إسم المورد </option>
+                                                    @foreach ($Supplers as $suppler )
+                                                        <option value="{{$suppler->name}}">{{$suppler->name}}</option>
+                                                    @endforeach
                                             </select>
                                         </div>
                                         <div class="col-md-4 mb-1">
-                                            <select name="StorgePlace" class="form-select text-center" name="#"
+                                            <select name="StorgePlace" class="form-select text-center"
                                                 aria-label="Default select example">
-                                                <option selected>مكان المخزن</option>
-                                                <option value="#">حي الياقوت</option>
-                                                <option value="#">ينبع الصناعية</option>
-                                                <option value="#">المدينة المنورة</option>
+                                                <option disabled selected>مكان المخزن</option>
+                                                @foreach ($storeplace as $option)
+                                                    <option value="{{$option}}">{{$option}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         {{-- <div class="col-md-6 mb-1">
@@ -375,8 +363,8 @@
                                     </div>
                                     <div class=" footer col-12 text-center">
                                         <button type="submit" name="add"
-                                            class="btn btn-success col-6 float-right">اضافة <i
-                                                class="fa-solid fa-plus"></i></button>
+                                            class="btn btn-success col-6 float-right">اضافة 
+                                            <i class="fa-solid fa-plus"></i></button>
                                     </div>
                                 </div>
                             </div>

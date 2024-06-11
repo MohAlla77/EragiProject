@@ -27,6 +27,14 @@
                 padding: 15px; /* Adjust padding as needed */
                 margin-bottom: 15px; /* Adjust margin as needed */
             }
+            .navbar-nav .nav-item {
+                width: 100%;
+                height: auto;
+                margin-right: 10px;
+            }
+            #invoiceButton {
+                padding: 0.350rem 0.55rem;
+            }
         </style>
     </head>
     <body>
@@ -45,12 +53,36 @@
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                         </div>
-                        @foreach ($navbarLinks as $link)
+                        {{-- @foreach ($navbarLinks as $link)
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route($link['route']) }}">{{ $link['name'] }}</a>
                             </li>
-                        @endforeach
-                        {{-- <a class="navbar-brand" href="#"><i class="fa-regular fa-bell"></i></a> --}}
+                        @endforeach --}}
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ms-auto">
+                                @if (isset($page) && $page === 'purchases')
+                                    <li class="nav-item">
+                                        <button id="invoiceButton" class="btn btn-primary me-2" onclick="toggleInvoiceForm()">جدول المشتريات والفاتورة</button>
+                                    </li>
+                                @endif
+                                @if (isset($page) && $page === 'Tires')
+                                    <li class="nav-item">
+                                        <button id="combinedButton" class="btn btn-primary me-2" onclick="toggleCardView(); toggleInvoiceForm();">ادخال\فاتورة الاطارات</button>
+                                    </li>
+                                @endif
+                                {{-- @if (isset($page) && $page === 'inventory')
+                                    <li class="nav-item">
+                                        <button id="toggleButton" class="btn btn-primary me-2" onclick="toggleVisibility()">الجدول المخزن</button>
+                                    </li>
+                                @endif --}}
+                                @if (isset($page) && $page === 'Employees')
+                                    <li class="nav-item">
+                                        <button id="toggleButton" class="btn btn-primary" onclick="toggleCards()">ادخال البيانات الموظفين</button>
+                                    </li>
+                                @endif
+                            </ul>
+                        </div>
+                                                {{-- <a class="navbar-brand" href="#"><i class="fa-regular fa-bell"></i></a> --}}
                         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                             {{-- <a class="navbar-brand" href="{{ route('home') }}"></a> --}}
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -91,11 +123,11 @@
                                 </button>
                             </form>
                         </div>
-                        <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button> --}}
+                            <button class="btn btn-link btn order-2 order-lg-0 me-6 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button> --}}
                     @endguest
                 </nav>
             @show
@@ -145,9 +177,9 @@
                                     <div class="sb-nav-link-icon text-white"></div>
                                     <span class="ms-auto pe-2">المخزن</span><i class="fas fa-database"></i>
                                 </a>
-                                <a class="nav-link text-white" href="#">
+                                <a class="nav-link text-white" href="{{route('Reports')}}">
                                     <div class="sb-nav-link-icon text-white"></div>
-                                    <span class="ms-auto pe-2">عرض</span><i class="fa-solid fa-display"></i>
+                                    <span class="ms-auto pe-2">تقارير</span><i class="fa-solid fa-display"></i>
                                 </a>
                                 <a class="nav-link dropdown-toggle text-white" href="{{route('Employees')}}" id="invoice.indexDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="sb-nav-link-icon text-white"></div>
@@ -172,7 +204,7 @@
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown">
                                             <li>
-                                                <a class="dropdown-item" href="#">Profile
+                                                <a class="dropdown-item" href="{{route('profile')}}">Profile
                                                     <i class="fas fa-user fa-fw"></i>
                                                     <li><hr class="dropdown-divider"/></li>
                                                 </a>
@@ -212,7 +244,14 @@
             </div>
         </div>
         {{-- <script>
-            @yield()
+            function toggleInvoiceForm() {
+                var form = document.getElementById("invoiceForm");
+                if (form.style.display === "none" || form.style.display === "") {
+                    form.style.display = "block";
+                } else {
+                    form.style.display = "none";
+                }
+            }
         </script> --}}
     </body>
 </html>

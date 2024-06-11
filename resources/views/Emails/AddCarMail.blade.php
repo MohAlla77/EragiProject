@@ -26,13 +26,13 @@
 <body>
 <div class="container">
     <div class="col-md-12">
-        <div class="invoice">
+        {{-- <div class="invoice">
             <div class="invoice-company text-inverse f-w-600">
                 <div class="col-12 text-center">
                     <img style="height: 100px" src="./assets/img/logo-inch.jpg" alt="Company Logo">
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="row">
             <div class="col-12">
                 <div class="invoice-from text-right">
@@ -96,15 +96,15 @@
                                                         <td class="text-end" width="50%" style="padding: 2px;">{{$car->counter}} KM</td>
                                                         <td class="text-end" width="50%" style="padding: 2px;">رقم العداد</td>
                                                     </tr>
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td class="text-end" width="50%" style="padding: 2px;">اسود</td>
                                                         <td class="text-end" width="50%" style="padding: 2px;">لون السيارة</td>
-                                                    </tr>
+                                                    </tr> --}}
                                                 </thead>
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    {{-- <div class="col-4">
                                         <div class="card">
                                             <div class="card-body">
                                                 <p>
@@ -117,7 +117,7 @@
                                                 </p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -125,27 +125,27 @@
                 </div>
             </div>
         </div>
-        <div class="row g-1">
-            <div class="col-4">
+        {{-- <div class="row g-1"> --}}
+            <div class="col-12">
                 <div class="card" style="height: 200px;">
-                    <img style="height: 100%; width: 100%;" src="./assets/img/فحص سيارة.png" alt="فحص سيارة">
+                    <img style="height: 100%; width: 100%;" src="" alt="صور السياراة">
                 </div>
             </div>
-            <div class="col-8">
+            <div class="col-12">
                 <div class="card" style="height: 200px;">
                     <textarea class="form-control text-center" name="notes" id="notes" style="height: 100%;"
                         placeholder="ملاحظات">{{$car->comment}}</textarea>
                 </div>
             </div>
-        </div>
+        {{-- </div> --}}
         <div class="table-responsive">
             <table class="table table-invoice table-reverse">
                 <thead>
                     <tr>
-                        <th class="text-center" width="10%">توقيع الفني</th>
+                        <th class="text-center" width="10%"> الفني</th>
                         <th class="text-center" width="14.29%">الانتهاء</th>
                         <th class="text-center" width="14.29%">بدء العمل</th>
-                        <th class="text-center" width="14.29%">التكلفة</th>
+                        {{-- <th class="text-center" width="14.29%">التكلفة</th> --}}
                         <th class="text-center" width="24.29%">قطع الغيار</th>
                         <th class="text-center" width="24.29%">الصيانة</th>
                         <th class="text-center" width="1%">رقم</th>
@@ -156,7 +156,7 @@
                 </tfoot>
             </table>
         </div>
-        <ol class="text-end">
+        {{-- <ol class="text-end">
             <strong>-:بنود الاتفاق</strong>
             <li>.اوافق علي الاصلاحات المذكورة والاتزام بسداد تكاليف الصيانة وفواتير القطع</li>
             <li>.اوافق علي التجربة الميدانية للسيارة ولامانع لدي في ذالك</li>
@@ -179,7 +179,7 @@
                     <strong><p>توقيع العميل بالموافقة</p></strong>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXlRaPyy+NIOOGWX9P+obN+1Hb+4J6g6c6pC8iwlwzyPpLeStF6x1az0Rblg" crossorigin="anonymous"></script>

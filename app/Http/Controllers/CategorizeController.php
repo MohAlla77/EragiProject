@@ -9,15 +9,33 @@ use Illuminate\Http\Request;
 
 class CategorizeController extends Controller
 {
-    public function index(){
-
-        $Categorize_group = CategorizeGroup::all();
-        // $categorizes = Categorize::all();
+    public function index()
+    {
+        $categorizeGroup = CategorizeGroup::all();
+        $categorizes = Categorize::all();
         $suppler = Supplier::all();
-        
-
-        return view('Categorize', [ 'CategorizeGroup' => $Categorize_group , 'Supplers' => $suppler]);
-    }
+        $storeplace = [
+            'المنطقة الصناعية ينبع',
+            'حي الياقوت',
+            'المدينة المنورة',
+        ];
+        $units = [
+            'كرتونة',
+            'حبة',
+            'جالون',
+            'ليتر',
+        ];
+    
+        // Uncomment and use $selectedCategorize if needed
+    
+        return view('Categorize', [
+            'categorizes' => $categorizes,
+            'CategorizeGroup' => $categorizeGroup,
+            'suppler' => $suppler,
+            'storeplace' => $storeplace,
+            'units' =>$units
+        ]);
+    }    
 
     public function StoreGroup()
     {
@@ -60,4 +78,54 @@ class CategorizeController extends Controller
     
         return redirect()->route('Categorize');
     }
+    public function showPurchasePage()
+    {
+        return view('Purchases');
+    }
+    public function addCategorize(Request $request)
+    {
+        $selectedCategorize = $request->input('Categorize',[]);
+
+        session(['selectedCategorize' => $selectedCategorize]);
+
+        return redirect()->route('Add.Categorize.Purchases');
+    }
+
+
+    public function showAddCategorizePage()
+    {
+        // Retrieve selected products from the session
+        $selectedCategorize = session('selectedCategorize', []);
+
+        // Load any necessary data for the add items page
+        return view('add-Categorize', compact('selectedPurchases'));
+    }
+
+    // public function showPricingPage(Request $request)
+    // {
+    //     // Retrieve items with added details from the request
+    //     $items = $request->input('items', []);
+
+    //     // Store the items with added details in the session
+    //     session(['items' => $items]);
+
+    //     // Redirect to the pricing page
+    //     return redirect()->route('pricing.page');
+    // }
+
+    // public function store(Request $request)
+    // {
+    //     // Retrieve priced items from the request
+    //     $pricedItems = $request->input('pricedItems', []);
+
+    //     // Process and store the priced items in the database
+    //     foreach ($pricedItems as $item) {
+    //         // Save each item to the database
+    //         // Example: Product::create($item);
+    //     }
+
+    //     // Redirect to a success page or wherever appropriate
+    //     return redirect()->route('success.page')->with('success', 'Products have been stored successfully.');
+    // }
 }
+

@@ -15,8 +15,30 @@ class TiresController extends Controller
 
         $tires = Tires::all();
         $suppler = Supplier::all();
-
-        return view('Tires', ['Tires' => $tires, 'Supplers' => $suppler]);
+        $storeplace = [
+            'المنطقة الصناعية ينبع',
+            'حي الياقوت',
+            'المدينة المنورة',
+        ];
+        $madein = [
+            'الصين',
+            'المانيا',
+            'كوريا',
+            'اليابان',
+            'امريكا',
+        ];
+        $tirebrand = [
+            'الماني',
+            'صيني',
+            'كوري',
+            'ياباني',
+            'امريكي',
+        ];
+        return view('Tires', ['Tires' => $tires, 'Supplers' => $suppler, 
+        'storeplace' => $storeplace,
+        'madein' => $madein,
+        'tirebrand' => $tirebrand,
+        ]);
     }
 
     public function AddTire(AddTiresRequest $request)

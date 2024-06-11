@@ -22,32 +22,32 @@
                 <div class="row g-1">
                     @if (isset($car))
                         <div class="col-md-4">
-                            <input type="text" class="form-control text-center"
-                                value="{{ $car->car_name }}" name="carName" required
+                            <input class="form-control text-center"
+                                value="{{ $car->car_name }}"
                                 placeholder="اسم السيارة" readonly>
                         </div>
                         <div class="col-md-4">
-                            <input type="text" class="form-control text-center"
-                                value="{{ $car->structure_no }}" name="chassisNumber" required
+                            <input class="form-control text-center"
+                                value="{{ $car->structure_no }}"
                                 placeholder="رقم الهيكل" readonly>
                         </div>
                         <div class="col-md-4">
-                            <input type="text" class="form-control text-center"
-                                value="{{ $car->brand }}" name="carBrand" placeholder="ماركة السيارة"
+                            <input class="form-control text-center"
+                                value="{{ $car->brand }}" placeholder="ماركة السيارة"
                                 readonly>
                         </div>
                         <div class="col-md-4">
-                            <input type="text" class="form-control text-center"
-                                value="{{ $car->name }}" name="carBrand" placeholder="مالك السيارة"
+                            <input class="form-control text-center"
+                                value="{{ $car->name }}" placeholder="مالك السيارة"
                                 readonly>
                         </div>
                         <div class="col-md-4">
                             <input class="form-control text-center" value="{{ $car->model }}"
-                                name="carModel" placeholder="موديل السيارة" readonly>
+                                 placeholder="موديل السيارة" readonly>
                         </div>
                         <div class="col-md-4">
-                            <input type="text" class="form-control text-center"
-                                value="{{ $car->service }}" name="serviceType" placeholder="نوع الخدمة"
+                            <input class="form-control text-center"
+                                value="{{ $car->service }}" placeholder="نوع الخدمة"
                                 readonly>
                         </div>
                     @endif
@@ -70,40 +70,37 @@
                                         اسباب الانتظار
                                     </label>
                                     <div class="col-md-6 mb-2">
-                                        <input type="text" class="form-control text-center"
-                                            value="{{ $user_name->first_name }} : الموظف" name="carName"
-                                            required placeholder="اسم الاستقبال"readonly>
+                                        <input class="form-control text-center"
+                                            value="{{ $user_name->first_name }} : الموظف"
+                                             placeholder="اسم الاستقبال"readonly>
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <input type="text" class="form-control text-center"
-                                            name="carName" value="{{ $Eng_name->first_name }} : المهندس"
-                                            required placeholder="اسم المهندس"readonly>
+                                        <input class="form-control text-center"
+                                             value="{{ $Eng_name->first_name }} : المهندس"
+                                             placeholder="اسم المهندس"readonly>
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <input type="text" class="form-control text-center"
-                                            name="carName" value=" الشكوى: {{ $Car_wait->fix }}" required
+                                        <input class="form-control text-center"
+                                             value=" الشكوى: {{ $Car_wait->fix }}"
                                             placeholder="شكوي السابفة"readonly>
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <input type="text" class="form-control text-center"
-                                            name="carName" value="الإجراء: {{ $Car_wait->fix_doc }} "
-                                            required placeholder="الاجراءات السابفة"readonly>
+                                        <input class="form-control text-center"
+                                             value="الإجراء: {{ $Car_wait->fix_doc }} "
+                                             placeholder="الاجراءات السابفة"readonly>
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <input type="text" class="form-control text-center"
-                                            name="carName"
-                                            value="   اسم الفنى :  {{ $Car_wait->Worker_name }}  "
-                                            required placeholder="اسم الفني"readonly>
+                                        <input class="form-control text-center"                                            value="   اسم الفنى :  {{ $Car_wait->Worker_name }}  "
+                                            placeholder="اسم الفني"readonly>
                                     </div>
                                     <div class="col-md-6 mb-2">
-                                        <input type="text" class="form-control text-center"
-                                            name="carName" value="{{ $Car_wait->wait_reason }}" required
+                                        <input class="form-control text-center"
+                                             value="{{ $Car_wait->wait_reason }}"
                                             placeholder=" سبب الإنتظار"readonly>
                                     </div>
                                     <div class="col-md-12 mb-2">
-                                        <input type="text" class="form-control text-center"
-                                            name="carName"
-                                            value="{{ $Car_wait->created_at->format('d/m/y') }}" required
+                                        <input class="form-control text-center"
+                                            value="{{ $Car_wait->created_at->format('d/m/y') }}"
                                             placeholder="التاريخ" readonly>
                                     </div>
                                 </div>
@@ -122,7 +119,7 @@
                                         شكاوى العميل
                                     </label>
                                     <div class="numbered-textarea">
-                                        <textarea class="form-control" name="notes" id="notes" style="height: 200px;">
+                                        <textarea class="form-control"style="height: 200px;">
                                     </textarea>
                                         <div class="line-numbers"></div>
                                     </div>
