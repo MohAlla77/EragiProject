@@ -22,11 +22,10 @@
       <div class="row g-1">
         <div class="col-md-6">
           <select class="form-select text-center" id="paymentMethod" name="paymentMethod" aria-label="Default select example">
-            <option selected>طريقة الدفع</option>
-            <option value="cash">كاش</option>
-            <option value="network">شبكة</option>
-            <option value="Late payment">اجل</option>
-            <option value="Prepaid">مقدم</option>
+            <option disabled selected>طريقة الدفع</option>
+            @foreach ($paymentMethod as $option)
+              <option value="{{$option}}">{{$option}}</option>   
+            @endforeach
           </select>
         </div>
         <div class="col-md-6 d-flex justify-content-end align-items-center">
@@ -41,9 +40,10 @@
         @if(isset($car) && isset($invoiceNum))
           <div class="col-md-6">
             <select class="form-select text-center" id="customerType" aria-label="Default select example" onchange="showCompanyField()">
-              <option selected> نوع العميل </option>
-              <option value="1">نقدي</option>
-              <option value="2">شركة</option>
+              <option disabled selected> نوع العميل </option>
+                @foreach ($customerType as $option)
+                  <option value="{{$option}}">{{$option}}</option>
+                @endforeach
             </select>
           </div>
           <div class="col-md-6">
@@ -54,10 +54,10 @@
           </div>
           <div class="col-md-6">
             <select class="form-select text-center" id="invoiceType" name="invoiceType" aria-label="Default select example" onchange="generateInvoiceNumber()">
-              <option selected>نوع الفاتورة</option>
-              <option value="فاتوره مبيسطة">فاتوره مبيسطة</option>
-              <option value="فاتورة ضريبية">فاتورة ضريبية</option>
-              <option value="مرتجع ">مرتجع </option>
+              <option disabled selected>نوع الفاتورة</option>
+                @foreach ($invoiceType as $option)
+                  <option value="{{$option}}">{{$option}}</option>
+                @endforeach
             </select>
           </div>
           <div class="col-md-12 text-end">

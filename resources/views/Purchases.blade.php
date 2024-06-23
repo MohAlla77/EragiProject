@@ -106,8 +106,9 @@
                                                                     <div class="card-body">
                                                                         <select class="form-select text-center" aria-label="Default select example">
                                                                             <option disabled selected>حدد المنتج</option>
-                                                                            {{-- @foreach ($select_Categorize as $option)
-                                                                            @endforeach --}}
+                                                                            @foreach ($select_Categorize as $option)
+                                                                                <option value="{{$option}}">{{$option}}</option>
+                                                                            @endforeach
                                                                         </select>
                                                                         <table class="table table-bordered table-striped">
                                                                             <thead class="thead-dark">
@@ -121,20 +122,23 @@
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                                <tr>
-                                                                                    <td>
-                                                                                        <div class="form-check">
-                                                                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                                                            <label class="form-check-label" for="flexCheckDefault">
-                                                                                                
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                <tr></tr>
-                                                                                <tr></tr>
-                                                                                <tr></tr>
-                                                                                <tr></tr>
+                                                                                @if (isset($items) && $items)
+                                                                                    @foreach ($items as $item)
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <div class="form-check">
+                                                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                                                                    <label class="form-check-label" for="flexCheckDefault"></label>
+                                                                                                </div>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>{{$item->price_cost}}</tr>
+                                                                                        <tr>{{$item->CategorizeAmount}}</tr>
+                                                                                        <tr>{{$item->Unit_Type}}</tr>
+                                                                                        <tr>{{$item->CategorizeSerial}}</tr>
+                                                                                        <tr>{{$item->CategorizeName}}</tr>
+                                                                                    @foreach
+                                                                                @endif
                                                                             </tbody>
                                                                         </table>
                                                                     </div>

@@ -93,7 +93,7 @@
                                                     <th>رقم</th>
                                                 </tr>
                                             </thead>
-                                            {{-- <tbody id="itemTableBody">
+                                            <tbody id="itemTableBody">
                                                 @if (isset($items) && $items->count() > 0)
                                                     @foreach ($items as $item)
                                                         <tr class="text-center">
@@ -110,12 +110,12 @@
                                                     <tr>
                                                     </tr>
                                                 @endif
-                                            </tbody> --}}
+                                            </tbody>
 
                                             @if (isset($items) && $items->count() > 0)
                                                 <tfoot>
                                                     <tr>
-                                                        {{-- <td colspan="6">{{ $items->links() }}</td> --}}
+                                                        <td colspan="6">{{ $items->links() }}</td>
                                                     </tr>
                                                 </tfoot>
                                             @endif
@@ -123,12 +123,12 @@
                                     </div>
                                 </div>
                                 <!-- Card Calculator -->
-                                {{-- @if (isset($items))  --}}
+                                @if (isset($items)) 
                                     <div class="row g-1 justify-content-center">
                                         <div class="col-md-6">
                                             <div class="card bg-light" style="height: 100%;">
                                                 <div class="card-body">
-                                                    {{-- <div class="row g-1">
+                                                    <div class="row g-1">
                                                         <div class="col-md-6">
                                                             <input class="form-control text-center"
                                                                 id="Total"
@@ -150,10 +150,9 @@
                                                         <div class="col-md-6">
                                                             <select class="form-select" id="discountType"
                                                                 onchange="handleDiscountType()">
-                                                                <option value="NoDiscount">لا يوجد خصم</option>
-                                                                <option value="amount">بالمبغ</option>
-                                                                <option value="percentage">بالنسبة</option>
-                                                                <option value="Month's Offers">عروض</option>
+                                                                @foreach($discountType as $option)
+                                                                    <option value="{{$option}}">{{$option}}</option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                         <!-- Amount discount input -->
@@ -172,7 +171,7 @@
                                                             <input class="form-control"
                                                                 placeholder="المبلغ الصافى" id="totalPriceAfterDiscount" readonly>
                                                         </div>
-                                                    </div> --}}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -190,7 +189,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                {{-- @endif --}}
+                                @endif
                             </div>
                         </div>
                     </div>

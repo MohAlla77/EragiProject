@@ -17,10 +17,11 @@ use App\Http\Controllers\{
     ServiceController,
     ServiceGroupController,
     SpearController,
+    StoreController,
     SupplierController,
     TiresController,
 };
-use App\Models\{Car, Service, Supplier};
+use App\Models\{Car, employees, Service, Supplier};
 use Doctrine\DBAL\Schema\Index;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Route;
@@ -99,13 +100,19 @@ Route::group(['prefix' => 'Categorize'], function () {
     Route::post('/', [CategorizeController::class, 'store'])->name('Categorize.store');    
 });
 
+//Store routes
+Route::group(['prefix' => 'Store'], function (){
+    Route::get('/', [StoreController::class, 'index'])->name('Store');
+    Route::get('/Store', [NavbarController::class, 'Store']);
+});
+
 // Employees routes
 Route::group(['prefix' => 'Employees'], function () {
     Route::get('/', [EmployeesController::class, 'index'])->name('Employees');
     Route::post('/', [EmployeesController::class, 'Employeesstore'])->name('Employees.Add');
-    // Route::get('/'[EmployeesContoller::class, 'show']);
+    // Route::get('/'[EmployeesContoller::class, 'show'])->name('employees.show');
     Route::get('/search', [EmployeesController::class, 'search'])->name('employees.search');
-    Route::get('/', [NavbarController::class, 'index']);
+    Route::get('/Employees', [NavbarController::class, 'index']);
 });
 
 // Pricing routes
@@ -137,7 +144,7 @@ Route::group(['prefix' => 'Profile'], function(){
     // Route::post('/', [Controller::class, ''])->name('');
 });
 
-// Store route
+// Home route
 Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
 Route::get('/workspace', function () {
@@ -157,9 +164,6 @@ Route::get('/test', function () {
     return view('pdf.Job_order');
 });
 
-Route::get('/store', function () {
-    return view('store');
-})->name('store');
 
 // Management routes
 Route::group(['prefix' => 'management'], function () {
@@ -204,4 +208,3 @@ Route::group(['prefix' => '{type}'], function () {
 });
 
 
-// Route::get('/store', [NavbarController::class, 'store']);

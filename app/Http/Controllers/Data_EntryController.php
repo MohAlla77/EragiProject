@@ -11,8 +11,13 @@ class Data_EntryController extends Controller
     {
         // $data_entry = Data_Entry::all();
 
+        $paymentMethod = ['شبكة','كاش','مقدم','اجل'];
+
         return view('Data_Entry',
-        //  ['Data_Entry' => $data_entry]
+        ['paymentMethod'=>$paymentMethod,
+
+        //  'Data_Entry' => $data_entry
+        ]
         );
     }
 
@@ -23,7 +28,7 @@ class Data_EntryController extends Controller
 
             'company_name' => request()->get('CompanyName'),
             'person_name' => request()->get('PersonName'),
-            'card' => request()->get('CompanyCard'),
+            'commercial_registration' => request()->get('Companyregistration'),
             'tax_number' => request()->get('TaxNumber'),
             'phone' => request()->get('CompanyPhone'),
             'pay_type' => request()->get('CompanyPayType'),

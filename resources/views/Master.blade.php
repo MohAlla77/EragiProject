@@ -173,7 +173,7 @@
                                     <div class="sb-nav-link-icon text-white"></div>
                                     <span class="ms-auto pe-2">اطارات</span><i class="fa-brands fa-salesforce"></i>
                                 </a>
-                                <a class="nav-link text-white" href="{{route('store')}}">
+                                <a class="nav-link text-white" href="{{route('Store')}}">
                                     <div class="sb-nav-link-icon text-white"></div>
                                     <span class="ms-auto pe-2">المخزن</span><i class="fas fa-database"></i>
                                 </a>

@@ -25,12 +25,21 @@ class InvoiceController extends Controller
         $item = Item::truncate();
 
         $PendingServices = Service::where('status','Pending')->get();
-
+        $paymentMethod = ['شبكة','كاش','مقدم','اجل'];
+        $customerType = ['نقدي','شبكة'];
+        $invoiceType = ['فاتورة مبسظة','فاتورة ضريبية','مرتجع'];
+        $discountType = ['لا يوجد خصم','بالمبلغ','بالنسبة','عروض'];
        // dd(request()->session()->all());
 
         request()->session()->forget(['spear', 'car', 'invoiceNum']);
 
-        return view('Invoice' , ['item' => $item , 'PendingServices' => $PendingServices]);
+        return view('Invoice' , ['item' => $item ,
+         'PendingServices' => $PendingServices,
+         'paymentMethod'   => $paymentMethod,
+         'customerType'    => $customerType,
+         'invoiceType'     => $invoiceType,
+         'discountType'    => $discountType
+        ]);
 
     }
 

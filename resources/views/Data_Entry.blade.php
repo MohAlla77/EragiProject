@@ -50,37 +50,37 @@
                             @csrf
                             <div class="row g-1">
                                 <div class="col-12">
-                                    <input class="form-control text-center"placeholder="تعريف الشركات" readonly>
+                                    <input class="form-control text-center" placeholder="تعريف الشركات" readonly>
                                 </div>
                                 <div class="col-md-6">
-                                    <input name="PersonName" type="text" class="form-control text-center" name="name" placeholder="اسم شخص">
+                                    <input name="PersonName" type="text" class="form-control text-center" placeholder="اسم شخص">
                                 </div>                                            
                                 <div class="col-6">
-                                    <input name="CompanyName" class="form-control text-center" name="name" placeholder="اسم الشركة">
+                                    <input name="CompanyName" type="text" class="form-control text-center" placeholder="اسم الشركة">
                                 </div>
                                 <div class="col-6">
-                                    <input name="TaxNumber" class="form-control text-center" name="name" placeholder="الرقم الضريبي">
+                                    <input name="TaxNumber" type="number" class="form-control text-center" placeholder="الرقم الضريبي">
                                 </div>
                                 <div class="col-md-6">
                                     <div class="input-group">
                                         <span class="input-group-text">+966</span>
-                                        <input  name="CompanyPhone" class="form-control text-center input-group" name="name" placeholder=" رقم الهاتف">
+                                        <input  name="CompanyPhone" type="number" class="form-control text-center input-group" placeholder=" رقم الهاتف">
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <input name="#" class="form-control text-center" name="name" placeholder="السجل التجاري">
+                                    <input name="Companyregistration" type="number" class="form-control text-center" placeholder="السجل التجاري">
                                 </div>
                                 <div class="col-md-6">
-                                    <select name="CompanyPayType" id="brand" class="form-select text-center" aria-describedby="validationServer04Feedback" required>
-                                        <option selected >طريقة الدفع</option>
-                                        <option selected>اجل</option>
-                                        <option selected>مقدم</option>
-                                        <option selected>كاش</option>
+                                    <select name="CompanyPayType" class="form-select text-center" aria-describedby="validationServer04Feedback" required>
+                                        <option disabled selected >طريقة الدفع</option>
+                                            @foreach ($paymentMethod as $option)
+                                             <option value="{{$option}}">{{$option}}</option>   
+                                            @endforeach
                                     </select>
                                 </div>
                                 <div class="footer text-center col-12 mb-2">
                                     {{-- button view Company --}}
-                                    <button type="submit" id="view" class="btn btn-info col-4"> عرض <i class="fa-solid fa-users-viewfinder"></i></button>
+                                    <button type="submit" id="view" class="btn btn-info col-4" onclick="togglesecondFormRow(),"> عرض <i class="fa-solid fa-users-viewfinder"></i></button>
                                     <button type="submit" id="add_client" class="btn btn-success col-4"> اضافة <i class="fa-solid fa-address-card"></i></button>
                                 </div>
                             </div>
@@ -89,50 +89,58 @@
                 </div>
             </div>
             <div class="row" id="secondFormRow" style="display: none;">
-            <div class="col-6">
-                <div class="card bg-light text-white border-dark">
-                    <div class="card-body">
-                        <form action="{{route('Data_Entry')}}" method="post">
-                            @csrf
-                            <div class="row g-1">
-                                <div class="col-12">
-                                    <form action="{{ route('car.search') }}" method="GET">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control text-center" name="plateNumber"
-                                                placeholder="ابحث عن الشركة">
-                                            <button class="btn btn-outline-success" type="search">بحث</button>
+                <div class="col-6">
+                    <div class="card bg-light text-white border-dark">
+                        <div class="card-body">
+                            {{-- <form action="{{route('Data_Entry')}}" method="post">
+                                <div class="row g-1">
+                                    <div class="col-12">
+                                        <form action="{{ route('Data_Entry.search') }}" method="GET">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control text-center" name="plateNumber"
+                                                    placeholder="ابحث عن الشركة">
+                                                <button class="btn btn-outline-success" type="search">بحث</button>
+                                            </div>
+                                        </form>
+                                    </div> --}}
+                                    @if(isset($CompanyInfo))
+                                        <div class="col-6">
+                                            <label>اسم الشركة</label>
+                                            <input value="{{$CompanyName}}" class="form-control text-center" placeholder="اسم الشركة" readonly>
                                         </div>
-                                    </form>
-                                </div>
-                                <div class="col-6">
-                                    <input name="CompanyName" class="form-control text-center" name="name" placeholder="اسم الشركة" readonly>
-                                </div>
-                                <div class="col-6">
-                                    <input name="TaxNumber" class="form-control text-center" name="name" placeholder="الرقم الضريبي" readonly>
-                                </div>
-                                <div class="col-md-12">
-                                    <input name="PersonName" type="text" class="form-control text-center" name="name" placeholder="اسم شخص" readonly>
-                                </div>
-                                <div class="col-md-6 input-group">
-                                    <span class="input-group-text">+966</span>
-                                    <input  name="CompanyPhone" class="form-control text-center input-group" name="name" placeholder=" رقم الهاتف" readonly>
-                                </div>
-                                <div class="col-6">
-                                    <input name="#" class="form-control text-center" name="name" placeholder="السجل التجاري" readonly>
-                                </div>
-                                <div class="col-md-6">
-                                    <input name="#" class="form-control text-center" name="name" placeholder="طريقة الدفع" readonly>
-                                </div>
-                                <div class="footer text-center col-12 mb-2">
-                                    <button type="submit" id="edit" class="btn btn-secondary col-4"> تعديل <i class="fa-solid fa-user-pen"></i></button>
-                                    <button type="submit" id="save" class="btn btn-success col-4"> حفظ <i class="fa-regular fa-floppy-disk"></i></button>
-                                </div>
-                            </div>
-                        </form>
+                                        <div class="col-6">
+                                            <label>الرقم الضريبي</label>
+                                            <input value="{{$TaxNumber}}" class="form-control text-center" placeholder="الرقم الضريبي" readonly>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label>متحدث الشركة</label>
+                                            <input value="{{$PersonName}}" type="text" class="form-control text-center" placeholder="اسم شخص" readonly>
+                                        </div>
+                                        <div class="col-md-6 input-group">
+                                            <label>رقم الهاتف</label>
+                                            <span class="input-group-text">+966</span>
+                                            <input  value="{{$CompanyPhone}}" class="form-control text-center input-group" placeholder=" رقم الهاتف" readonly>
+                                        </div>
+                                        <div class="col-6">
+                                            <label>السجل التجاري</label>
+                                            <input value="{{$Companyregistration}}" class="form-control text-center" placeholder="السجل التجاري" readonly>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>طريقة الدفع</label>
+                                            <input value="{{$CompanyPayType}}" class="form-control text-center" placeholder="طريقة الدفع" readonly>
+                                        </div>
+                                        <div class="footer text-center col-12 mb-2">
+                                            <button type="submit" id="edit" class="btn btn-secondary col-4"> تعديل <i class="fa-solid fa-user-pen"></i></button>
+                                            <button type="submit" id="save" class="btn btn-success col-4"> حفظ <i class="fa-regular fa-floppy-disk"></i></button>
+                                        </div>
+                                    </div>
+                                @endisset
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>   
     </div>
 </div>
 @stop

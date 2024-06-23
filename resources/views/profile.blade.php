@@ -638,48 +638,50 @@
                                         <div class="col-12">
                                             <input class="form-control text-center" placeholder="البيانات الشخصية"readonly>
                                         </div>
-                                        <div class="row g-1">
-                                            <div class="form-group col-md-6 text-center">
-                                                <label>رقم الهوية</label>
-                                                <input name="identity_number" class="form-control text-center" readonly>
+                                        @if(isset($employees))
+                                            <div class="row g-1">
+                                                <div class="form-group col-md-6 text-center">
+                                                    <label>رقم الهوية</label>
+                                                    <input value="{{$$employees->employees_identity_number}}" class="form-control text-center" readonly>
+                                                </div>
+                                                <div class="form-group col-md-6 text-center">
+                                                    <label>رقم الهاتف</label>
+                                                    <input value="{{$$employees->employees_phone_number}}" class="form-control text-center" readonly>
+                                                </div>
+                                                <div class="form-group col-md-6 text-center">
+                                                    <label>العنوان</label>
+                                                    <input value="{{$$employees->employees_address}}" class="form-control text-center" readonly>
+                                                </div>
+                                                <div class="form-group col-md-6 text-center">
+                                                    <label>العنوان</label>
+                                                    <input value="{{$employees->employees_Email}}" class="form-control text-center" readonly>
+                                                </div>
+                                                <div class="form-group col-md-6 text-center">
+                                                    <label>العمر</label>
+                                                    <input value="{{$employees->employees_birth_date}}" class="form-control text-center"readonly>
+                                                </div>
+                                                <div class="form-group col-md-6 text-center">
+                                                    <label">الحالة الاجتماعية</label>
+                                                    <input value="{{$employees->employees_marital_status}}" class="form-control text-center" readonly>
+                                                </div>
+                                                <div class="form-group col-md-6 text-center">
+                                                    <label>الجنسية</label>
+                                                    <input value="{{$employees->employees_nationality}}" class="form-control text-center" readonly>
+                                                </div>
+                                                <div class="form-group col-md-6 text-center">
+                                                    <label>الراتب الاساسي</label>
+                                                    <input value="{{$employees->employees_salary}}" class="form-control text-center" readonly>
+                                                </div>
+                                                <div class="form-group col-md-6 text-center">
+                                                    <label>بدل السكن</label>
+                                                    <input value="{{$employees->employees_housing_allowance}}" class="form-control text-center" readonly>
+                                                </div>
+                                                <div class="form-group col-md-6 text-center">
+                                                    <label>بدلات اخري</label>    
+                                                    <input value="{{$employees->employees_other_allowances}}" class="form-control text-center" readonly>
+                                                </div>
                                             </div>
-                                            <div class="form-group col-md-6 text-center">
-                                                <label>رقم الهاتف</label>
-                                                <input name="phone_number" class="form-control text-center" readonly>
-                                            </div>
-                                            <div class="form-group col-md-6 text-center">
-                                                <label>العنوان</label>
-                                                <input name="address" class="form-control text-center" readonly>
-                                            </div>
-                                            <div class="form-group col-md-6 text-center">
-                                                <label>العنوان</label>
-                                                <input name="email" class="form-control text-center" readonly>
-                                            </div>
-                                            <div class="form-group col-md-6 text-center">
-                                                <label>العمر</label>
-                                                <input name="birth_date" class="form-control text-center"readonly>
-                                            </div>
-                                            <div class="form-group col-md-6 text-center">
-                                                <label">الحالة الاجتماعية</label>
-                                                <input name="marital_status" class="form-control text-center" readonly>
-                                            </div>
-                                            <div class="form-group col-md-6 text-center">
-                                                <label">الجنسية</label>
-                                                <input name="nationality" class="form-control text-center" readonly>
-                                            </div>
-                                            <div class="form-group col-md-6 text-center">
-                                                <label>الراتب الاساسي</label>
-                                                <input name="salary" class="form-control text-center" readonly>
-                                            </div>
-                                            <div class="form-group col-md-6 text-center">
-                                                <label>بدل السكن</label>
-                                                <input name="housing_allowance" class="form-control text-center" readonly>
-                                            </div>
-                                            <div class="form-group col-md-6 text-center">
-                                                <label>بدلات اخري</label>    
-                                                <input name="other_allowances" class="form-control text-center" readonly>
-                                            </div>
-                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="card bg-light mb-1" id="cardAnnual" style="display: none;">
@@ -762,40 +764,39 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-    --}}
-                            <div class="card bg-light mb-1" id="cardSick" style="display: none;">
-                                <div class="card_body">
-                                    <div class="row g-1">
-                                        <div class="col-12">
-                                            <input class="form-control text-center" placeholder="الاجازة المرضية"readonly>
-                                        </div>
-                                        <div class="form-group col-md-6 text-center">
-                                            <label>ارفاق التقرير الطبي</label>
-                                            <input type="file" class="form-control text-center" readonly>
-                                        </div>
-                                        <div class="form-group col-md-6 text-center">
-                                            <label>التعليق</label>
-                                            <input type="text" class="form-control text-center" readonly>
-                                        </div>
-                                        <div class="col-12 mb-1">
-                                            <button type="button" class="submit">ارسال</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card" id="cardOrder" style="display: none;">
-                                <div class="card_body">
-                                    <div class="row g-1">
-                                        <div class="col-12">
-                                            <input class="form-control text-center" placeholder="طلب الخطابات"readonly>
-                                        </div>
-                                        <div class="form-group col-md-6 text-center">
-                                            <button type="button" class="form-control text-center"></button>
+                                </div>--}}
+                                <div class="card bg-light mb-1" id="cardSick" style="display: none;">
+                                    <div class="card_body">
+                                        <div class="row g-1">
+                                            <div class="col-12">
+                                                <input class="form-control text-center" placeholder="الاجازة المرضية"readonly>
+                                            </div>
+                                            <div class="form-group col-md-6 text-center">
+                                                <label>ارفاق التقرير الطبي</label>
+                                                <input type="file" class="form-control text-center" readonly>
+                                            </div>
+                                            <div class="form-group col-md-6 text-center">
+                                                <label>التعليق</label>
+                                                <input type="text" class="form-control text-center" readonly>
+                                            </div>
+                                            <div class="col-12 mb-1">
+                                                <button type="button" class="submit">ارسال</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="card" id="cardOrder" style="display: none;">
+                                    <div class="card_body">
+                                        <div class="row g-1">
+                                            <div class="col-12">
+                                                <input class="form-control text-center" placeholder="طلب الخطابات"readonly>
+                                            </div>
+                                            <div class="form-group col-md-6 text-center">
+                                                <button type="button" class="form-control text-center"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </fieldset>
                             {{-- <fieldset class="fieldset">
                                 <h3 class="fieldset-title">Contact Info</h3>
